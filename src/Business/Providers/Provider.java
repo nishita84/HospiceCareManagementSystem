@@ -1,0 +1,108 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Business.Providers;
+
+import java.util.ArrayList;
+import Business.Patients.Patient;
+import Business.Services.Service;
+
+/**
+ *
+ * @author architnigam
+ */
+public class Provider {
+    private int providerNPI;
+    private String providerName;
+    private String providerAddress;
+    private String providerState;
+    private String providerCity;
+    private String providerCountry;
+    private String zipCode;
+    private String providerContactNumber;
+    private ArrayList<Patient> patientsRegisteredWithProvider;
+    private ArrayList<Service> listOfServicesProvided;
+
+    public int getProviderNPI() {
+        return providerNPI;
+    }
+
+    public void setProviderNPI(int providerNPI) {
+        this.providerNPI = providerNPI;
+    }
+
+    public String getProviderName() {
+        return providerName;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    public String getProviderAddress() {
+        return providerAddress;
+    }
+
+    public void setProviderAddress(String providerAddress) {
+        this.providerAddress = providerAddress;
+    }
+
+    public String getProviderState() {
+        return providerState;
+    }
+
+    public void setProviderState(String providerState) {
+        this.providerState = providerState;
+    }
+
+    public String getProviderCity() {
+        return providerCity;
+    }
+
+    public void setProviderCity(String providerCity) {
+        this.providerCity = providerCity;
+    }
+
+    public String getProviderCountry() {
+        return providerCountry;
+    }
+
+    public void setProviderCountry(String providerCountry) {
+        this.providerCountry = providerCountry;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getProviderContactNumber() {
+        return providerContactNumber;
+    }
+
+    public void setProviderContactNumber(String providerContactNumber) {
+        this.providerContactNumber = providerContactNumber;
+    }
+
+    public ArrayList<Patient> getPatientsRegisteredWithProvider() {
+        return patientsRegisteredWithProvider;
+    }
+
+    public void setPatientsRegisteredWithProvider(ArrayList<Patient> patientsRegisteredWithProvider) {
+        this.patientsRegisteredWithProvider = patientsRegisteredWithProvider;
+    }
+
+    public ArrayList<Service> getListOfServicesProvided() {
+        return listOfServicesProvided;
+    }
+
+    public void setListOfServicesProvided(ArrayList<Service> listOfServicesProvided) {
+        this.listOfServicesProvided = listOfServicesProvided;
+    }
+    
+}
