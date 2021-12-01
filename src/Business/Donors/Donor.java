@@ -10,9 +10,34 @@ package Business.Donors;
  * @author architnigam
  */
 public class Donor {
-    private int donorID;
+    private String donorID;
     private String donorName;
-    private String donorAmount;
+    private double donorAmount;
     //Hospice hospiceToWhichAmountDonated;
+
+    public String getDonorID() {
+        return donorID;
+    }
+
+    public void setDonorID(String donorID) {
+        this.donorID = donorID;
+    }
+
+    public String getDonorName() {
+        return donorName;
+    }
+
+    public void setDonorName(String donorName) {
+        this.donorName = donorName;
+    }
+
+    public Double getDonorAmount() {
+        return donorAmount;
+    }
+
+    public void setDonorAmount(double donorAmount) {
+        this.donorAmount = donorAmount;
+    }
+    
     
 }

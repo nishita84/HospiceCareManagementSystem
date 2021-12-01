@@ -5,10 +5,75 @@
  */
 package Business.Nurses;
 
+import Business.EcoSystem;
+import Business.Patients.Patient;
+import Business.Providers.Provider;
+import Business.SetIDsForEnterprises;
+import java.util.ArrayList;
+
 /**
  *
  * @author architnigam
  */
 public class NursesDirectory {
+    private ArrayList<Nurse> listOfNurses;  
+    private ArrayList<Patient> patientsUnderNurse;  
+    EcoSystem system;
+    public NursesDirectory(){
+        listOfNurses = new ArrayList();
+        patientsUnderNurse = new ArrayList();
+    }
+
+    public ArrayList<Nurse> getNurseList() {
+        return listOfNurses;
+    }
+
+    public void setNurseList(ArrayList<Nurse> listOfNurses) {
+        this.listOfNurses = listOfNurses;
+    }
     
+     public Nurse createNurse(String nurseName, String nurseAddress, String nurseCity, String nurseState, 
+             String nurseZipCode, String nurseCountry, String nurseContactNo, String nurseEmailID, Provider providerWhoNurseWorksFor, 
+             ArrayList<Patient> listOfPatientsUnderNurse) {
+            
+            SetIDsForEnterprises setIDForEnterpises = new SetIDsForEnterprises();
+
+            Nurse nurse = new Nurse();
+            nurse.setNurseID(setIDForEnterpises.SetIDForNurse());
+            nurse.setNurseName(nurseName);
+            nurse.setNurseAddress(nurseAddress);
+            nurse.setNurseCity(nurseCity);
+            nurse.setNurseState(nurseState);
+            nurse.setNurseZipCode(nurseZipCode);
+            nurse.setNurseCountry(nurseCountry);
+            nurse.setNurseContactNumber(nurseContactNo);
+            nurse.setNurseEmailID(nurseEmailID);
+            nurse.setReportingProvider(providerWhoNurseWorksFor);
+            nurse.setPatientsAssigned(patientsUnderNurse);
+            listOfNurses.add(nurse);
+            return nurse;
+    }
+    
+    public Nurse updateNurse(Nurse selectedNurse)
+    {
+        listOfNurses.set(listOfNurses.indexOf(selectedNurse), selectedNurse);
+        return selectedNurse;
+    }
+    
+    public void deleteNurse(int indexOfSelectedRecord)
+    {
+        listOfNurses.remove(indexOfSelectedRecord);
+    }
+    
+    public Nurse findNurseByID(String nurseID, ArrayList<Nurse> listOfNurses)
+    {
+        for(Nurse nurse: listOfNurses)
+        {
+            if(nurse.getNurseID().equals(nurseID))
+            {
+                return nurse;
+            }
+        }
+        return null;
+    }
 }

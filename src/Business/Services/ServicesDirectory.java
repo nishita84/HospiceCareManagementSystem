@@ -26,10 +26,13 @@ public class ServicesDirectory {
         this.listOfServices = listOfServices;
     }
     
-    public Service createService(){
+    public Service createService(String svcCode, String svcDescription, double svcCostPerUnit){
         
         Service svc = new Service();
-        // Setters
+        svc.setServiceCode(svcCode);
+        svc.setServiceDescription(svcDescription);
+        svc.setServiceCostPerUnit(svcCostPerUnit);
+        listOfServices.add(svc);
         return svc;
     
     }

@@ -12,5 +12,29 @@ package Business.Services;
 public class Service {
     private String serviceCode;
     private String serviceDescription;
-    private String serviceCostPerUnit;
+    private double serviceCostPerUnit;
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
+    }
+
+    public String getServiceDescription() {
+        return serviceDescription;
+    }
+
+    public void setServiceDescription(String serviceDescription) {
+        this.serviceDescription = serviceDescription;
+    }
+
+    public Double getServiceCostPerUnit() {
+        return serviceCostPerUnit;
+    }
+
+    public void setServiceCostPerUnit(Double serviceCostPerUnit) {
+        this.serviceCostPerUnit = serviceCostPerUnit;
+    }
 }

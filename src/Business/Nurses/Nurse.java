@@ -14,30 +14,31 @@ import java.util.ArrayList;
  * @author architnigam
  */
 public class Nurse {
-    private int nurseID;
-    private int nurseName;
+    private String nurseID;
+    private String nurseName;
     private String nurseAddress;
     private String nurseCity;
     private String nurseState;
     private String nurseZipCode;
     private String nurseCountry;
     private String nurseContactNumber;
+    private String nurseEmailID;
     ArrayList<Patient> patientsAssigned;
     Provider reportingProvider;
 
-    public int getNurseID() {
+    public String getNurseID() {
         return nurseID;
     }
 
-    public void setNurseID(int nurseID) {
+    public void setNurseID(String nurseID) {
         this.nurseID = nurseID;
     }
 
-    public int getNurseName() {
+    public String getNurseName() {
         return nurseName;
     }
 
-    public void setNurseName(int nurseName) {
+    public void setNurseName(String nurseName) {
         this.nurseName = nurseName;
     }
 
@@ -104,7 +105,13 @@ public class Nurse {
     public void setReportingProvider(Provider reportingProvider) {
         this.reportingProvider = reportingProvider;
     }
-    
-    
+
+    public String getNurseEmailID() {
+        return nurseEmailID;
+    }
+
+    public void setNurseEmailID(String nurseEmailID) {
+        this.nurseEmailID = nurseEmailID;
+    }
     
 }

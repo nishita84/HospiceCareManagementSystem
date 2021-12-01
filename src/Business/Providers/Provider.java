@@ -14,7 +14,7 @@ import Business.Services.Service;
  * @author architnigam
  */
 public class Provider {
-    private int providerNPI;
+    private String providerNPI;
     private String providerName;
     private String providerAddress;
     private String providerState;
@@ -25,11 +25,11 @@ public class Provider {
     private ArrayList<Patient> patientsRegisteredWithProvider;
     private ArrayList<Service> listOfServicesProvided;
 
-    public int getProviderNPI() {
+    public String getProviderNPI() {
         return providerNPI;
     }
 
-    public void setProviderNPI(int providerNPI) {
+    public void setProviderNPI(String providerNPI) {
         this.providerNPI = providerNPI;
     }
 

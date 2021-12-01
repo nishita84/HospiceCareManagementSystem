@@ -6,6 +6,10 @@
 package Business;
 
 
+import Business.Hospice.HospiceDirectory;
+import Business.Nurses.NursesDirectory;
+import Business.Patients.PatientsDirectory;
+import Business.Providers.ProviderDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
@@ -17,9 +21,17 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
+    HospiceDirectory hospiceDirectory;
+    ProviderDirectory providerDirectory;
+    NursesDirectory nurseDirectory;
+    PatientsDirectory patientDirectory;
 
-//    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
-//    }
+    public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory)  {
+        this.hospiceDirectory = hospiceDirectory;
+        this.nurseDirectory = nurseDirectory;
+        this.patientDirectory = patientDirectory;
+        this.providerDirectory = providerDirectory;
+    }
     
     public static EcoSystem getInstance(){
         if(business==null){
@@ -36,12 +48,49 @@ public class EcoSystem extends Organization{
     }
     private EcoSystem(){
         super(null);
-       // networkList=new ArrayList<Network>();
+         hospiceDirectory = new HospiceDirectory();
+         nurseDirectory = new NursesDirectory();
+         patientDirectory = new PatientsDirectory();
+         providerDirectory = new ProviderDirectory();
     }
 
+    public ProviderDirectory getProviderDirectory() {
+        return providerDirectory;
+    }
+
+    public void setProviderDirectory(ProviderDirectory providerDirectory) {
+        this.providerDirectory = providerDirectory;
+    }
+    
+
+    public NursesDirectory getNurseDirectory() {
+        return nurseDirectory;
+    }
+
+    public void setNurseDirectory(NursesDirectory nurseDirectory) {
+        this.nurseDirectory = nurseDirectory;
+    }
+
+    public PatientsDirectory getPatientDirectory() {
+        return patientDirectory;
+    }
+
+    public void setPatientDirectory(PatientsDirectory patientDirectory) {
+        this.patientDirectory = patientDirectory;
+    }
+
+    public HospiceDirectory getHospiceDirectory() {
+        return hospiceDirectory;
+    }
+
+    public void setHospiceDirectory(HospiceDirectory hospiceDirectory) {
+        this.hospiceDirectory = hospiceDirectory;
+    }
     
     public boolean checkIfUserIsUnique(String userName){
        //
        return false;
     }
+    
+    
 }

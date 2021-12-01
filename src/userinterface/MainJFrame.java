@@ -122,7 +122,42 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+        String username = userNameJTextField.getText();
+        
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        UserAccount useraccount=system.getUserAccountDirectory().authenticateUser(username, password);
+        
+        Organization inOrganization=null;
+        //Enterprise enterprise=null;
+        
+//         if(useraccount==null){
+//           for(Organization organization:system.getHospiceDirectory().getOrganizationList())
+//                       {
+//                           useraccount=organization.getUserAccountDirectory().authenticateUser(username, password);
+//                           if(useraccount!=null)
+//                           {
+//                               inOrganization=organization;
+//                               break;
+//                           }
+//                       }
+//        }
+        if(useraccount==null){
+            JOptionPane.showMessageDialog(null, "Invalid credentials");
+            return;
+        }
+        
+        else{
+            CardLayout layout=(CardLayout)container.getLayout();
+            container.add("workArea",useraccount.getRole().createWorkArea(container, useraccount, system));
+            layout.next(container);
+        }
+       
+        
+        loginJButton.setEnabled(false);
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 

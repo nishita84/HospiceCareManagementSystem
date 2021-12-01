@@ -5,8 +5,10 @@
  */
 package Business.ClaimsBilling;
 
+import Business.Diagnosis.Diagnosis;
 import Business.Hospice.Hospice;
 import Business.Patients.Patient;
+import Business.Payers.Payer;
 import Business.Providers.Provider;
 import java.util.Date;
 
@@ -23,8 +25,8 @@ public class Claim {
     private Patient patient;
     private Provider provider;
     private Hospice hospice;
-    // Add diagnosis
-    // Add Payer
+    private Diagnosis diagnosis;
+    private Payer payerForClaim;
     private Date claimStartDate;
     private Date claimEndDate;
     private int units;
@@ -142,6 +144,22 @@ public class Claim {
 
     public void setPlaceOfService(int placeOfService) {
         this.placeOfService = placeOfService;
+    }
+
+    public Diagnosis getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(Diagnosis diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public Payer getPayerForClaim() {
+        return payerForClaim;
+    }
+
+    public void setPayerForClaim(Payer payerForClaim) {
+        this.payerForClaim = payerForClaim;
     }
     
     
