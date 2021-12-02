@@ -7,5 +7,18 @@ and open the template in the editor.
 
 
 <nurses>
-    
+    <nurse>
+        <nurseID>NR1001</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+    </nurse>
 </nurses>

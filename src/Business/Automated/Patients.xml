@@ -8,8 +8,20 @@ and open the template in the editor.
 
 <patients>
     <patient>
-        <mrn></mrn>
-        <name></name>
-        <address></address>
+        <mrn>PT1001</mrn>
+        <name>Karl Johnson</name>
+        <address>30 Terry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578754321</contactno>
+        <emailID>karl@karl.com</emailID>
+        <providerNPI>PR1001</providerNPI>
+        <terminalillness>Parkinson's Disease</terminalillness>
+        <dateofbirth>01/11/1943</dateofbirth>
+        <payerID>PA1001</payerID>
+        <password>karl123</password>
+        <isPatientAnInPatient>true</isPatientAnInPatient>
     </patient>
 </patients>

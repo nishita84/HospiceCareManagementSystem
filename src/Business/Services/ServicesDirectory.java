@@ -5,6 +5,7 @@
  */
 package Business.Services;
 
+import Business.Providers.Provider;
 import java.util.ArrayList;
 
 /**
@@ -26,14 +27,15 @@ public class ServicesDirectory {
         this.listOfServices = listOfServices;
     }
     
-    public Service createService(String svcCode, String svcDescription, double svcCostPerUnit){
+    public Service createService(String svcCode, String svcDescription, double svcCostPerUnit, 
+            Provider serviceProvider){
         
-        Service svc = new Service();
-        svc.setServiceCode(svcCode);
-        svc.setServiceDescription(svcDescription);
-        svc.setServiceCostPerUnit(svcCostPerUnit);
-        listOfServices.add(svc);
-        return svc;
-    
+        Service newService = new Service();
+        newService.setServiceCode(svcCode);
+        newService.setServiceDescription(svcDescription);
+        newService.setServiceCostPerUnit(svcCostPerUnit);
+        newService.setServiceProvider(serviceProvider);
+        listOfServices.add(newService);
+        return newService;
     }
 }

@@ -13,9 +13,19 @@ import java.util.ArrayList;
  * @author architnigam
  */
 public class Payer {
+    private String payerID;
     private String payerName;
     private String payerBillingAddress;
+    private String payerEmailID;
     ArrayList<Service> listOfServicesCoveredUnderPayer;
+
+    public String getPayerID() {
+        return payerID;
+    }
+
+    public void setPayerID(String payerID) {
+        this.payerID = payerID;
+    }
 
     public String getPayerName() {
         return payerName;
@@ -27,6 +37,14 @@ public class Payer {
 
     public String getPayerBillingAddress() {
         return payerBillingAddress;
+    }
+
+    public String getPayerEmailID() {
+        return payerEmailID;
+    }
+
+    public void setPayerEmailID(String payerEmailID) {
+        this.payerEmailID = payerEmailID;
     }
 
     public void setPayerBillingAddress(String payerBillingAddress) {

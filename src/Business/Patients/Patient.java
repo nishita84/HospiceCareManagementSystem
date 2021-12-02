@@ -6,13 +6,14 @@
 package Business.Patients;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
+import java.util.Date;
 /**
  *
  * @author architnigam
  */
 
 public class Patient {
-    private int patientMRN;
+    private String patientMRN;
     private String patientName;
     private String patientAddress;
     private String patientCity;
@@ -21,17 +22,29 @@ public class Patient {
     private String patientCountry;
     private String patientContactNumber;
     private String patientEmailID;
-    Provider registeredProvider;
-    Payer registeredPayer;
+    private Date dateOfBirth;
+    Provider registeredProvider; // dropdown
+    Payer registeredPayer; //dropdown
+    private boolean isPatientAnInPatient; // Checkbox
+    private Date admissionDatetime; 
+    private Date admissionDischargeTime;
     private double balanceAllocatedToPatient;
-    private String terminalIllnessAssociated;
+    private String terminalIllnessAssociated; // Dropdown
 
-    public int getPatientMRN() {
+    public String getPatientMRN() {
         return patientMRN;
     }
 
-    public void setPatientMRN(int patientMRN) {
+    public void setPatientMRN(String patientMRN) {
         this.patientMRN = patientMRN;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getPatientName() {
@@ -129,4 +142,30 @@ public class Patient {
     public void setTerminalIllnessAssociated(String terminalIllnessAssociated) {
         this.terminalIllnessAssociated = terminalIllnessAssociated;
     }  
+
+    public boolean isIsPatientAnInPatient() {
+        return isPatientAnInPatient;
+    }
+
+    public void setIsPatientAnInPatient(boolean isPatientAnInPatient) {
+        this.isPatientAnInPatient = isPatientAnInPatient;
+    }
+
+    public Date getAdmissionDatetime() {
+        return admissionDatetime;
+    }
+
+    public void setAdmissionDatetime(Date admissionDatetime) {
+        this.admissionDatetime = admissionDatetime;
+    }
+
+    public Date getAdmissionDischargeTime() {
+        return admissionDischargeTime;
+    }
+
+    public void setAdmissionDischargeTime(Date admissionDischargeTime) {
+        this.admissionDischargeTime = admissionDischargeTime;
+    }
+    
+    
 }

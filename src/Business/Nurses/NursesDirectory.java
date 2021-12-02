@@ -8,8 +8,8 @@ package Business.Nurses;
 import Business.EcoSystem;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
-import Business.SetIDsForEnterprises;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -32,14 +32,13 @@ public class NursesDirectory {
         this.listOfNurses = listOfNurses;
     }
     
-     public Nurse createNurse(String nurseName, String nurseAddress, String nurseCity, String nurseState, 
+     public Nurse createNurse(String nurseID, String nurseName, String nurseAddress, String nurseCity, String nurseState, 
              String nurseZipCode, String nurseCountry, String nurseContactNo, String nurseEmailID, Provider providerWhoNurseWorksFor, 
-             ArrayList<Patient> listOfPatientsUnderNurse) {
+             Date dateOfBirth) {
             
-            SetIDsForEnterprises setIDForEnterpises = new SetIDsForEnterprises();
 
             Nurse nurse = new Nurse();
-            nurse.setNurseID(setIDForEnterpises.SetIDForNurse());
+            nurse.setNurseID(nurseID);
             nurse.setNurseName(nurseName);
             nurse.setNurseAddress(nurseAddress);
             nurse.setNurseCity(nurseCity);
@@ -50,6 +49,7 @@ public class NursesDirectory {
             nurse.setNurseEmailID(nurseEmailID);
             nurse.setReportingProvider(providerWhoNurseWorksFor);
             nurse.setPatientsAssigned(patientsUnderNurse);
+            nurse.setDateOfBirth(dateOfBirth);
             listOfNurses.add(nurse);
             return nurse;
     }

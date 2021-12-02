@@ -14,6 +14,9 @@ package Business;
 
 
 public class SetIDsForEnterprises {
+    private final String codeForProvider = "PV";
+    private final String codeForPatients = "PT";
+    private final String codeForPayers = "PY";
     private final String codeForNurses = "NR";
     private final String codeForHospice = "HO";
     private final String codeForCounsellor = "CR";
@@ -61,8 +64,8 @@ public class SetIDsForEnterprises {
     public String SetIDForDonors()
     {
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
-        String idForProvider = codeForDonors + String.valueOf(random_int);
-        return codeForDonors;
+        String idForDonor = codeForDonors + String.valueOf(random_int);
+        return idForDonor;
     }
     
 }

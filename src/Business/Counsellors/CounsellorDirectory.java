@@ -32,18 +32,19 @@ public class CounsellorDirectory {
         this.listOfCounsellors = listOfCounsellors;
     }
     
-    public Counsellor createNewCounsellor(String counsellorName, String counsellorAddress, 
+    public Counsellor createNewCounsellor(String counsellorID, String counsellorName, String counsellorAddress, 
             String counsellorCity, String counsellorState, String counsellorCountry, String counsellorZipCode, 
-            ArrayList<Patient> patientsAssignedToCounsellor)
+            String counsellorContactNo, String counsellorEmailID)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
         Counsellor newCounsellor = new Counsellor();
-        newCounsellor.setCounsellorID(setIDForEnterprises.SetIDForCounsellors());
+        newCounsellor.setCounsellorID(counsellorID);
         newCounsellor.setCounsellorName(counsellorName);
         newCounsellor.setCounsellorAddress(counsellorAddress);
         newCounsellor.setCounsellorCity(counsellorCity);
         newCounsellor.setCounsellorState(counsellorState);
         newCounsellor.setCounsellorZipCode(counsellorZipCode);
+        newCounsellor.setCounsellorEmailID(counsellorEmailID);
+        newCounsellor.setCounsellorContactNo(counsellorContactNo);
         newCounsellor.setPatientsAssignedToCounsellor(patientsAssignedToCounsellor);
         listOfCounsellors.add(newCounsellor);
         return newCounsellor;

@@ -30,13 +30,13 @@ public class DonorsDirectory {
     }
 
     
-    public Donor createNewDonor(String donorName, double donorAmount)
+    public Donor createNewDonor(String donorID, String donorName, String donatorEmailID)
     {
         SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
         Donor newDonor = new Donor();
-        newDonor.setDonorID(setIDForEnterprises.SetIDForDonors());
+        newDonor.setDonorID(donorID);
         newDonor.setDonorName(donorName);
-        newDonor.setDonorAmount(donorAmount);
+        newDonor.setDonorEmailID(donatorEmailID);
         listOfDonors.add(newDonor);
         return newDonor;
     }

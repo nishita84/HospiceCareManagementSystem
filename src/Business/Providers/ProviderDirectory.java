@@ -38,7 +38,7 @@ public class ProviderDirectory {
     }
     
      public Provider createProvider(String NPI, String providerName, String providerAddress, String providerCity, String providerState, 
-             String providerZipCode, String providerCountry, String providerContactNo) {
+             String providerZipCode, String providerCountry, String providerContactNo, String emailID) {
 
             Provider newprovider = new Provider();
             newprovider.setProviderNPI(NPI);
@@ -49,6 +49,7 @@ public class ProviderDirectory {
             newprovider.setProviderCountry(providerCountry);
             newprovider.setZipCode(providerZipCode);
             newprovider.setProviderContactNumber(providerContactNo);
+            newprovider.setProviderEmailID(emailID);
             newprovider.setPatientsRegisteredWithProvider(listOFPatientsUnderProvider);
             newprovider.setListOfServicesProvided(listOfServicesUnderProviders);
             listOfProviders.add(newprovider);

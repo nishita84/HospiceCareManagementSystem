@@ -18,7 +18,7 @@ public class SystemAdminRole extends Role{
 
   
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+        return new SystemAdminWorkAreaJPanel(userProcessContainer, account, system);
     }
     
 }

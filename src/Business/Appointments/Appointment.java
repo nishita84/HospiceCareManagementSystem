@@ -68,6 +68,4 @@ public class Appointment {
     public void setAppointmentReason(String appointmentReason) {
         this.appointmentReason = appointmentReason;
     }
-    
-    
 }

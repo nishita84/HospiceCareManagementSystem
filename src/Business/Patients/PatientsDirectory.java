@@ -6,9 +6,10 @@
 package Business.Patients;
 
 import Business.EcoSystem;
-import Business.Nurses.Nurse;
+import Business.Payers.Payer;
 import Business.Providers.Provider;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -21,6 +22,7 @@ public class PatientsDirectory {
     public PatientsDirectory()
     {
         this.system = system;
+        listOfPatients = new ArrayList<Patient>();
     }
     
     public ArrayList<Patient> getPatientList() {
@@ -33,22 +35,27 @@ public class PatientsDirectory {
     
      public Patient createPatient(String patientMRN, String patientsName, String patientsAddress, String patientsCity, String patientsState, 
              String patientsZipCode, String patientsCountry, String patientsContactNo, String patientsEmailID, Provider registeredProvider, 
-             String terminalIllnessAssociatedWithPatient) {
+             Payer registeredPayer, String terminalIllnessAssociatedWithPatient,  Date dateOfBirth, 
+             boolean isPatientAnInPatient) {
 
-            Patient pn = new Patient();
-            pn.setPatientMRN(Integer.parseInt(patientMRN));
-            pn.setPatientName(patientsName);
-            pn.setPatientAddress(patientsAddress);
-            pn.setPatientCity(patientsCity);
-            pn.setPatientCountry(patientsCountry);
-            pn.setPatientContactNumber(patientsContactNo);
-            pn.setPatientEmailID(patientsEmailID);
-            pn.setPatientZipCode(patientsZipCode);
-            pn.setRegisteredProvider(registeredProvider);
-            pn.setBalanceAllocatedToPatient(1000);
-            pn.setTerminalIllnessAssociated(terminalIllnessAssociatedWithPatient);
-            listOfPatients.add(pn);
-            return pn;
+            Patient newPatient = new Patient();
+            newPatient.setPatientMRN(patientMRN);
+            newPatient.setPatientName(patientsName);
+            newPatient.setPatientAddress(patientsAddress);
+            newPatient.setPatientCity(patientsCity);
+            newPatient.setPatientCountry(patientsCountry);
+            newPatient.setPatientContactNumber(patientsContactNo);
+            newPatient.setPatientEmailID(patientsEmailID);
+            newPatient.setPatientZipCode(patientsZipCode);
+            newPatient.setRegisteredProvider(registeredProvider);
+            newPatient.setDateOfBirth(dateOfBirth);
+            newPatient.setBalanceAllocatedToPatient(1000);
+            newPatient.setTerminalIllnessAssociated(terminalIllnessAssociatedWithPatient);
+            newPatient.setAdmissionDatetime(new Date());
+            newPatient.setIsPatientAnInPatient(isPatientAnInPatient);
+            //newPatient.setAdmissionDischargeTime(new Date());
+            listOfPatients.add(newPatient);
+            return newPatient;
     }
     
     public Patient updatePatient(Patient selectedNurse)
@@ -62,11 +69,11 @@ public class PatientsDirectory {
         listOfPatients.remove(indexOfSelectedRecord);
     }
     
-    public Patient findPatientByMRN(int patientMRN, ArrayList<Patient> listOfPatients)
+    public Patient findPatientByMRN(String patientMRN, ArrayList<Patient> listOfPatients)
     {
         for(Patient patient: listOfPatients)
         {
-            if(patient.getPatientMRN()== patientMRN)
+            if(patient.getPatientMRN().equals(patientMRN))
             {
                 return patient;
             }

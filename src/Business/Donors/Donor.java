@@ -12,8 +12,8 @@ package Business.Donors;
 public class Donor {
     private String donorID;
     private String donorName;
-    private double donorAmount;
-    //Hospice hospiceToWhichAmountDonated;
+    private String donorEmailID;
+
 
     public String getDonorID() {
         return donorID;
@@ -31,13 +31,13 @@ public class Donor {
         this.donorName = donorName;
     }
 
-    public Double getDonorAmount() {
-        return donorAmount;
+    public String getDonorEmailID() {
+        return donorEmailID;
     }
 
-    public void setDonorAmount(double donorAmount) {
-        this.donorAmount = donorAmount;
+    public void setDonorEmailID(String donorEmailID) {
+        this.donorEmailID = donorEmailID;
     }
-    
+   
     
 }

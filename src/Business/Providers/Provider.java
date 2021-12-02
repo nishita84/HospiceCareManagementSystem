@@ -21,6 +21,7 @@ public class Provider {
     private String providerCity;
     private String providerCountry;
     private String zipCode;
+    private String providerEmailID;
     private String providerContactNumber;
     private ArrayList<Patient> patientsRegisteredWithProvider;
     private ArrayList<Service> listOfServicesProvided;
@@ -79,6 +80,14 @@ public class Provider {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public String getProviderEmailID() {
+        return providerEmailID;
+    }
+
+    public void setProviderEmailID(String providerEmailID) {
+        this.providerEmailID = providerEmailID;
     }
 
     public String getProviderContactNumber() {

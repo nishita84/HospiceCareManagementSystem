@@ -44,7 +44,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 139, 190, 30));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 190, 30));
 
         manageEmployeeJButton.setText("Manage Patients");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 150, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 150, -1));
 
         manageOrganizationJButton.setText("Manage Providers");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Hospice:");

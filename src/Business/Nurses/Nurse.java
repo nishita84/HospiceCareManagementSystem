@@ -8,6 +8,7 @@ package Business.Nurses;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Nurse {
     private String nurseCountry;
     private String nurseContactNumber;
     private String nurseEmailID;
+    private Date dateOfBirth;
     ArrayList<Patient> patientsAssigned;
     Provider reportingProvider;
 
@@ -112,6 +114,14 @@ public class Nurse {
 
     public void setNurseEmailID(String nurseEmailID) {
         this.nurseEmailID = nurseEmailID;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
     
 }

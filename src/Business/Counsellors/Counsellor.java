@@ -20,6 +20,8 @@ public class Counsellor {
     private String counsellorState;
     private String counsellorZipCode;
     private String counsellorCountry;
+    private String counsellorEmailID;
+    private String counsellorContactNo;
     private ArrayList<Patient> patientsAssignedToCounsellor;
 
     public String getCounsellorID() {
@@ -85,7 +87,20 @@ public class Counsellor {
     public void setPatientsAssignedToCounsellor(ArrayList<Patient> patientsAssignedToCounsellor) {
         this.patientsAssignedToCounsellor = patientsAssignedToCounsellor;
     }
-    
-    
-    
+
+    public String getCounsellorEmailID() {
+        return counsellorEmailID;
+    }
+
+    public void setCounsellorEmailID(String counsellorEmailID) {
+        this.counsellorEmailID = counsellorEmailID;
+    }
+
+    public String getCounsellorContactNo() {
+        return counsellorContactNo;
+    }
+
+    public void setCounsellorContactNo(String counsellorContactNo) {
+        this.counsellorContactNo = counsellorContactNo;
+    }
 }

@@ -6,12 +6,18 @@
 package Business;
 
 
+import Business.Counsellors.CounsellorDirectory;
+import Business.Diagnosis.DiagnosisDirectory;
+import Business.Donors.DonorsDirectory;
 import Business.Hospice.HospiceDirectory;
 import Business.Nurses.NursesDirectory;
 import Business.Patients.PatientsDirectory;
+import Business.Payers.PayersDirectory;
 import Business.Providers.ProviderDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Services.ServicesDirectory;
+import Business.Volunteers.VolunteerDirectory;
 import java.util.ArrayList;
 
 /**
@@ -25,12 +31,28 @@ public class EcoSystem extends Organization{
     ProviderDirectory providerDirectory;
     NursesDirectory nurseDirectory;
     PatientsDirectory patientDirectory;
+    PayersDirectory payerDirectory;
+    CounsellorDirectory counsellorDirectory;
+    DonorsDirectory donorDirectory;
+    VolunteerDirectory volunteerDirectory;
+    ServicesDirectory serviceDirectory;
+    DiagnosisDirectory diagnosisDirectory;
 
-    public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory)  {
+    public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
+                     , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
+                       VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
+                       DiagnosisDirectory diagnosisDirectory)  
+    {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
         this.patientDirectory = patientDirectory;
         this.providerDirectory = providerDirectory;
+        this.payerDirectory = payerDirectory;
+        this.counsellorDirectory = counsellorDirectory;
+        this.donorDirectory = donorDirectory;
+        this.volunteerDirectory = volunteerDirectory;
+        this.serviceDirectory = serviceDirectory;
+        this.diagnosisDirectory = diagnosisDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -52,6 +74,12 @@ public class EcoSystem extends Organization{
          nurseDirectory = new NursesDirectory();
          patientDirectory = new PatientsDirectory();
          providerDirectory = new ProviderDirectory();
+         payerDirectory = new PayersDirectory();
+         counsellorDirectory = new CounsellorDirectory();
+         donorDirectory = new DonorsDirectory();
+         volunteerDirectory = new VolunteerDirectory();
+         serviceDirectory = new ServicesDirectory();
+         diagnosisDirectory = new DiagnosisDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -86,11 +114,57 @@ public class EcoSystem extends Organization{
     public void setHospiceDirectory(HospiceDirectory hospiceDirectory) {
         this.hospiceDirectory = hospiceDirectory;
     }
+
+    public PayersDirectory getPayerDirectory() {
+        return payerDirectory;
+    }
+
+    public void setPayerDirectory(PayersDirectory payerDirectory) {
+        this.payerDirectory = payerDirectory;
+    }
+
+    public CounsellorDirectory getCounsellorDirectory() {
+        return counsellorDirectory;
+    }
+
+    public void setCounsellorDirectory(CounsellorDirectory counsellorDirectory) {
+        this.counsellorDirectory = counsellorDirectory;
+    }
+
+    public DonorsDirectory getDonorDirectory() {
+        return donorDirectory;
+    }
+
+    public void setDonorDirectory(DonorsDirectory donorDirectory) {
+        this.donorDirectory = donorDirectory;
+    }
+
+    public VolunteerDirectory getVolunteerDirectory() {
+        return volunteerDirectory;
+    }
+
+    public void setVolunteerDirectory(VolunteerDirectory volunteerDirectory) {
+        this.volunteerDirectory = volunteerDirectory;
+    }
+
+    public ServicesDirectory getServiceDirectory() {
+        return serviceDirectory;
+    }
+
+    public void setServiceDirectory(ServicesDirectory serviceDirectory) {
+        this.serviceDirectory = serviceDirectory;
+    }
+
+    public DiagnosisDirectory getDiagnosisDirectory() {
+        return diagnosisDirectory;
+    }
+
+    public void setDiagnosisDirectory(DiagnosisDirectory diagnosisDirectory) {
+        this.diagnosisDirectory = diagnosisDirectory;
+    }
     
     public boolean checkIfUserIsUnique(String userName){
        //
        return false;
-    }
-    
-    
+    }  
 }

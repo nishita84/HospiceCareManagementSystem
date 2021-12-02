@@ -5,6 +5,8 @@
  */
 package Business.Services;
 
+import Business.Providers.Provider;
+
 /**
  *
  * @author architnigam
@@ -13,6 +15,7 @@ public class Service {
     private String serviceCode;
     private String serviceDescription;
     private double serviceCostPerUnit;
+    private Provider serviceProvider;
 
     public String getServiceCode() {
         return serviceCode;
@@ -37,4 +40,13 @@ public class Service {
     public void setServiceCostPerUnit(Double serviceCostPerUnit) {
         this.serviceCostPerUnit = serviceCostPerUnit;
     }
+
+    public Provider getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(Provider serviceProvider) {
+        this.serviceProvider = serviceProvider;
+    }
+    
 }

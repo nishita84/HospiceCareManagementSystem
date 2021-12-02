@@ -15,6 +15,11 @@ import java.util.ArrayList;
  */
 public class DiagnosisDirectory {
     private ArrayList<Diagnosis> diagnosisList;
+    
+    public DiagnosisDirectory()
+    {
+        diagnosisList = new ArrayList<Diagnosis>();
+    }
 
     public ArrayList<Diagnosis> getDiagnosisList() {
         return diagnosisList;
