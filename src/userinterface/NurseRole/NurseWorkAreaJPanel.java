@@ -23,6 +23,7 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
     }
     
     void populateTable(){
+        // Made some changes
     }
 
     /**
