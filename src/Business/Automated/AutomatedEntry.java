@@ -10,6 +10,7 @@ import Business.Diagnosis.Diagnosis;
 import Business.Donors.Donor;
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Hospice.Hospice;
 import Business.Nurses.Nurse;
 import Business.Organization;
 import Business.Patients.Patient;
@@ -17,6 +18,7 @@ import Business.Payers.Payer;
 import Business.Providers.Provider;
 import Business.Role.CounsellorRole;
 import Business.Role.DonorRole;
+import Business.Role.HospiceAdminRole;
 import Business.Role.NurseRole;
 import Business.Role.PatientRole;
 import Business.Role.PayerRole;
@@ -50,6 +52,7 @@ public class AutomatedEntry {
     private Counsellor counsellor;
     private Service service;
     private Diagnosis diagnosis;
+    private Hospice hospice;
     private JPanel userProcessContainer;
     Organization organization;
     private UserAccount userAccount;
@@ -60,6 +63,65 @@ public class AutomatedEntry {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = userAccount;
+    }
+    
+    public boolean AutomatedCreationOfHospice()
+    {
+        String projectPath = System.getProperty("user.dir");
+        try
+             {
+                File hospiceXMLFile = new File(projectPath + "/src/Business/Automated/Hospices.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(hospiceXMLFile);
+                doc.getDocumentElement().normalize();
+
+                NodeList nList = doc.getElementsByTagName("hospice");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) 
+            {
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) 
+                {
+                    Element eElement = (Element) nNode;
+                    String hospiceID = (eElement.getElementsByTagName("hospiceID")
+                                        .item(0).getTextContent());
+                   String hospiceName = (eElement.getElementsByTagName("name")
+                                        .item(0).getTextContent());
+                   String hospiceAddress = eElement.getElementsByTagName("address")
+                                        .item(0).getTextContent();
+                   String hospiceCity = eElement.getElementsByTagName("city")
+                                        .item(0).getTextContent();
+                   String hospiceState = eElement.getElementsByTagName("state")
+                                        .item(0).getTextContent(); 
+                   String hospiceCountry = eElement.getElementsByTagName("country")
+                                        .item(0).getTextContent(); 
+ 
+                   String hospiceZipCode = eElement.getElementsByTagName("zipcode")
+                                        .item(0).getTextContent();
+                   String hospiceContactNumber = eElement.getElementsByTagName("contactno")
+                                        .item(0).getTextContent();
+                   String hospiceEmailID = eElement.getElementsByTagName("emailID")
+                                        .item(0).getTextContent();
+                   String password = eElement.getElementsByTagName("password")
+                                        .item(0).getTextContent();
+                   
+                   
+                   hospice = system.getHospiceDirectory().createNewHospice(hospiceID, hospiceName, 
+                           hospiceAddress, hospiceCity, hospiceState, hospiceCountry, hospiceContactNumber, 
+                           hospiceEmailID, hospiceZipCode);
+                   Employee emp = system.getEmployeeDirectory().createEmployee(hospiceName);
+                    system.getUserAccountDirectory().createUserAccount(hospiceEmailID, password, emp, new HospiceAdminRole());
+                }
+            }
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }   
+        return true;
     }
     
     public boolean AutomatedCreationOfProviders()
@@ -101,10 +163,15 @@ public class AutomatedEntry {
                                         .item(0).getTextContent();
                    String providerPassword = eElement.getElementsByTagName("password")
                                         .item(0).getTextContent();
+                   String hospiceID = eElement.getElementsByTagName("hospiceID")
+                                        .item(0).getTextContent();
+                   hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
+                           system.getHospiceDirectory().getListOfHospice());
+                   
                    
                    provider = system.getProviderDirectory().createProvider(providerNPI, providerName, 
                            providerAddress, providerCity, providerState, 
-                           providerZipCode, providerCity, providerContactNumber, providerEmailID);
+                           providerZipCode, providerCity, providerContactNumber, providerEmailID, hospice);
                    Employee emp = system.getEmployeeDirectory().createEmployee(providerName);
                     system.getUserAccountDirectory().createUserAccount(providerEmailID, providerPassword, emp, new ProviderRole());
                 }
@@ -245,11 +312,15 @@ public class AutomatedEntry {
                    
                    boolean isPatientAnInPatient = Boolean.parseBoolean(eElement.getElementsByTagName("isPatientAnInPatient")
                                         .item(0).getTextContent());
+                   String hospiceID = eElement.getElementsByTagName("hospiceID")
+                                        .item(0).getTextContent();
+                   hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
+                           system.getHospiceDirectory().getListOfHospice());
                    
                     patient = system.getPatientDirectory().createPatient(patientMRN, patientName, 
                             patientAddress, patientCity, patientState, patientZipCode, patientCountry, 
                             patientContactNumber, patientEmailID, registeredProviderForPatient, 
-                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient);
+                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice);
                    
                     Employee emp = system.getEmployeeDirectory().createEmployee(patientName);
                     system.getUserAccountDirectory().createUserAccount(patientEmailID, password, emp, new PatientRole());
@@ -322,10 +393,14 @@ public class AutomatedEntry {
                    
                    Provider registeredProviderForPatient = system.getProviderDirectory().findProviderByNPI(registeredProviderNPI,
                                                     system.getProviderDirectory().getProviderList());
+                   String hospiceID = eElement.getElementsByTagName("hospiceID")
+                                        .item(0).getTextContent();
+                   hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
+                           system.getHospiceDirectory().getListOfHospice());
                    
                 nurse = system.getNurseDirectory().createNurse(nurseID, nurseName, nurseState, 
                         nurseCity, nurseState, nurseZipCode, nurseCountry, nurseContactNumber, nurseEmailID, 
-                        registeredProviderForPatient,dateOfBirth);
+                        registeredProviderForPatient,dateOfBirth, hospice);
                 Employee emp = system.getEmployeeDirectory().createEmployee(nurseName);
                     system.getUserAccountDirectory().createUserAccount(nurseEmailID, password, emp, new NurseRole());
                 }
@@ -387,12 +462,16 @@ public class AutomatedEntry {
                                         .item(0).getTextContent();
                    
                    String password = eElement.getElementsByTagName("password")
-                                        .item(0).getTextContent();      
+                                        .item(0).getTextContent();    
+                    String hospiceID = eElement.getElementsByTagName("hospiceID")
+                                        .item(0).getTextContent();
+                   hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
+                           system.getHospiceDirectory().getListOfHospice());
                    
                    
                 counsellor = system.getCounsellorDirectory().createNewCounsellor(counsellorID, counsellorName, 
                         counsellorState, counsellorCity, counsellorState, counsellorCountry, counsellorZipCode, 
-                        counsellorEmailID, counsellorContactNumber);
+                        counsellorEmailID, counsellorContactNumber, hospice);
                 Employee emp = system.getEmployeeDirectory().createEmployee(counsellorName);
                     system.getUserAccountDirectory().createUserAccount(counsellorEmailID, password, emp, new CounsellorRole());
                 }

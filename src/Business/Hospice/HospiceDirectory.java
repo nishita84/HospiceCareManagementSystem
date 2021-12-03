@@ -37,7 +37,7 @@ public class HospiceDirectory {
         registeredVolunteersInHospice = new ArrayList<Volunteer>();
         registeredDonorsInHospice = new ArrayList<Donor>();
     }
-    
+
     public ArrayList<Hospice> getListOfHospice() {
         return hospiceList;
     }
@@ -47,13 +47,12 @@ public class HospiceDirectory {
     }
 
     
-    public Hospice createNewHospice(String hospiceName, String hospiceAddress, String hospiceCity, String hospiceState, 
-            String hospiceCountry, String hospiceContactNumber, String hospiceEmailID, String hospiceZipCode
-            , String hospiceUsername)
+    public Hospice createNewHospice(String hospiceID, String hospiceName, String hospiceAddress, String hospiceCity, String hospiceState, 
+            String hospiceCountry, String hospiceContactNumber, String hospiceEmailID, String hospiceZipCode)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+        
         Hospice newHospice = new Hospice();
-        newHospice.setHospiceID(setIDForEnterprises.SetIDForHospice());
+        newHospice.setHospiceID(hospiceID);
         newHospice.setHospiceName(hospiceName);
         newHospice.setHospiceAddress(hospiceAddress);
         newHospice.setHospiceCity(hospiceCity);
@@ -69,7 +68,6 @@ public class HospiceDirectory {
         newHospice.setRegisteredVolunteersInHospice(registeredVolunteersInHospice);
         newHospice.setRegisteredCounsellorsInHospice(registeredCounsellorsInHospice);
         newHospice.setRegisteredDonorsInHospice(registeredDonorsInHospice);
-        newHospice.setHospiceUsername(hospiceUsername);
         hospiceList.add(newHospice);
         return newHospice;
     }
@@ -85,7 +83,7 @@ public class HospiceDirectory {
         hospiceList.remove(indexOfSelectedRecord);
     }
     
-    public Hospice findHospiceByID(String hospiceID, ArrayList<Provider> listOfHospices)
+    public Hospice findHospiceByID(String hospiceID, ArrayList<Hospice> listOfHospices)
     {
         for(Hospice hospice: hospiceList)
         {

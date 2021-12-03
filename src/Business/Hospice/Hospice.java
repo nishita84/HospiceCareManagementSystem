@@ -19,7 +19,6 @@ import java.util.ArrayList;
  */
 public class Hospice {
     private String hospiceID;
-    private String hospiceUsername;
     private String hospiceName;
     private String hospiceAddress;
     private String hospiceCity;
@@ -38,14 +37,6 @@ public class Hospice {
 
     public String getHospiceID() {
         return hospiceID;
-    }
-
-    public String getHospiceUsername() {
-        return hospiceUsername;
-    }
-
-    public void setHospiceUsername(String hospiceUsername) {
-        this.hospiceUsername = hospiceUsername;
     }
     
     public void setHospiceID(String hospiceID) {
@@ -170,8 +161,5 @@ public class Hospice {
 
     public void setRegisteredDonorsInHospice(ArrayList<Donor> registeredDonorsInHospice) {
         this.registeredDonorsInHospice = registeredDonorsInHospice;
-    }
-    
-    
-    
+    } 
 }

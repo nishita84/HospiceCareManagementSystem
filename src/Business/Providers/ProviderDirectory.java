@@ -6,6 +6,7 @@
 package Business.Providers;
 
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Services.Service;
 import Business.SetIDsForEnterprises;
@@ -38,7 +39,8 @@ public class ProviderDirectory {
     }
     
      public Provider createProvider(String NPI, String providerName, String providerAddress, String providerCity, String providerState, 
-             String providerZipCode, String providerCountry, String providerContactNo, String emailID) {
+             String providerZipCode, String providerCountry, String providerContactNo, String emailID, 
+             Hospice hospice) {
 
             Provider newprovider = new Provider();
             newprovider.setProviderNPI(NPI);
@@ -52,6 +54,7 @@ public class ProviderDirectory {
             newprovider.setProviderEmailID(emailID);
             newprovider.setPatientsRegisteredWithProvider(listOFPatientsUnderProvider);
             newprovider.setListOfServicesProvided(listOfServicesUnderProviders);
+            newprovider.setOperatingProvider(hospice);
             listOfProviders.add(newprovider);
             return newprovider;
     }

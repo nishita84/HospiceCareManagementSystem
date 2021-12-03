@@ -143,10 +143,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-        for(int index = 0; index < ecosystem.getProviderDirectory().getProviderList().size(); index++)
+        for(int index = 0; index < ecosystem.getHospiceDirectory().getListOfHospice().size(); index++)
         {
-            Diagnosis diagnosis = ecosystem.getDiagnosisDirectory().getDiagnosisList().get(index);
-            System.out.println(diagnosis.getDiagnosisDescription());
+            Hospice hospice = ecosystem.getHospiceDirectory().getListOfHospice().get(index);
+            System.out.println(hospice.getHospiceName());
         }
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
@@ -161,7 +161,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         AutomatedEntry automatedEntry = new AutomatedEntry(userProcessContainer, userAccount, ecosystem);
-        if(automatedEntry.AutomatedCreationOfProviders() && automatedEntry.AutomatedCreationOfPayer()
+        if( automatedEntry.AutomatedCreationOfHospice() &&
+                automatedEntry.AutomatedCreationOfProviders() && automatedEntry.AutomatedCreationOfPayer()
                 && automatedEntry.AutomatedCreationOfPatients() && automatedEntry.AutomatedCreationOfNurses()
                 && automatedEntry.AutomatedCreationOfDonors() && automatedEntry.AutomatedCreationOfCounsellors()
                 && automatedEntry.AutomatedCreationOfDiagnosis() && automatedEntry.AutomatedCreationOfServices())

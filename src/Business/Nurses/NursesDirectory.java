@@ -6,6 +6,7 @@
 package Business.Nurses;
 
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class NursesDirectory {
     
      public Nurse createNurse(String nurseID, String nurseName, String nurseAddress, String nurseCity, String nurseState, 
              String nurseZipCode, String nurseCountry, String nurseContactNo, String nurseEmailID, Provider providerWhoNurseWorksFor, 
-             Date dateOfBirth) {
+             Date dateOfBirth, Hospice hospice) {
             
 
             Nurse nurse = new Nurse();
@@ -50,6 +51,7 @@ public class NursesDirectory {
             nurse.setReportingProvider(providerWhoNurseWorksFor);
             nurse.setPatientsAssigned(patientsUnderNurse);
             nurse.setDateOfBirth(dateOfBirth);
+            nurse.setHospiceNurseWorksIn(hospice);
             listOfNurses.add(nurse);
             return nurse;
     }

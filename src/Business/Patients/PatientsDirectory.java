@@ -6,6 +6,7 @@
 package Business.Patients;
 
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
 import java.util.ArrayList;
@@ -17,11 +18,9 @@ import java.util.Date;
  */
 public class PatientsDirectory {
     private ArrayList<Patient> listOfPatients;
-    EcoSystem system;
     
     public PatientsDirectory()
     {
-        this.system = system;
         listOfPatients = new ArrayList<Patient>();
     }
     
@@ -36,7 +35,7 @@ public class PatientsDirectory {
      public Patient createPatient(String patientMRN, String patientsName, String patientsAddress, String patientsCity, String patientsState, 
              String patientsZipCode, String patientsCountry, String patientsContactNo, String patientsEmailID, Provider registeredProvider, 
              Payer registeredPayer, String terminalIllnessAssociatedWithPatient,  Date dateOfBirth, 
-             boolean isPatientAnInPatient) {
+             boolean isPatientAnInPatient, Hospice hospice) {
 
             Patient newPatient = new Patient();
             newPatient.setPatientMRN(patientMRN);
@@ -53,6 +52,7 @@ public class PatientsDirectory {
             newPatient.setTerminalIllnessAssociated(terminalIllnessAssociatedWithPatient);
             newPatient.setAdmissionDatetime(new Date());
             newPatient.setIsPatientAnInPatient(isPatientAnInPatient);
+            newPatient.setOperatingHospice(hospice);
             //newPatient.setAdmissionDischargeTime(new Date());
             listOfPatients.add(newPatient);
             return newPatient;

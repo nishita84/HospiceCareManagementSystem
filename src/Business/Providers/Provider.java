@@ -5,6 +5,7 @@
  */
 package Business.Providers;
 
+import Business.Hospice.Hospice;
 import java.util.ArrayList;
 import Business.Patients.Patient;
 import Business.Services.Service;
@@ -23,6 +24,7 @@ public class Provider {
     private String zipCode;
     private String providerEmailID;
     private String providerContactNumber;
+    private Hospice operatingProvider;
     private ArrayList<Patient> patientsRegisteredWithProvider;
     private ArrayList<Service> listOfServicesProvided;
 
@@ -112,6 +114,14 @@ public class Provider {
 
     public void setListOfServicesProvided(ArrayList<Service> listOfServicesProvided) {
         this.listOfServicesProvided = listOfServicesProvided;
+    }
+
+    public Hospice getOperatingProvider() {
+        return operatingProvider;
+    }
+
+    public void setOperatingProvider(Hospice operatingProvider) {
+        this.operatingProvider = operatingProvider;
     }
     
 }

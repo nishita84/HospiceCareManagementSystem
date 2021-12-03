@@ -6,18 +6,17 @@ and open the template in the editor.
 -->
 
 
-<providers>
-    <provider>
-        <npi>PV1001</npi>
-        <name>Liam Johnson</name>
-        <address>23 Far Street</address>
+<hospices>
+    <hospice>
+        <hospiceID>HO1001</hospiceID>
+        <name>Boston Hospice Centre</name>
+        <address>29 Queensberry Street</address>
         <city>Boston</city>
         <state>MA</state>
         <country>USA</country>
         <zipcode>02215</zipcode>
-        <contactno>8578671558</contactno>
-        <emailID>j@j.com</emailID>
-        <password>pass123</password>
-        <hospiceID>HO1001</hospiceID>
-    </provider>
-</providers>
+        <contactno>8578671559</contactno>
+        <emailID>bsc@bsc.com</emailID>
+        <password>bsc123</password>
+    </hospice>
+</hospices>
