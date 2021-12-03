@@ -18,7 +18,11 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form NurseWorkAreaJPanel
      */
     public NurseWorkAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+        populateTable();
         initComponents();
+    }
+    
+    void populateTable(){
     }
 
     /**
