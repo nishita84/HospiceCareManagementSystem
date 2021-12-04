@@ -52,7 +52,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         lbNurseID = new javax.swing.JLabel();
         txtNurseId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(255, 204, 204));
 
         lbTitle.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
