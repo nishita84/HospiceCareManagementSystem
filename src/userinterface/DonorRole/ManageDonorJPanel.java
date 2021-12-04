@@ -37,6 +37,8 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         lblimage = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblDonorList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
