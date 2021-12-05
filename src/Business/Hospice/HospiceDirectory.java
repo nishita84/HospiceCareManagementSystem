@@ -94,5 +94,29 @@ public class HospiceDirectory {
         }
         return null;
     }
+    
+    public Hospice findHospiceByName(String hospiceName, ArrayList<Hospice> listOfHospices)
+    {
+        for(Hospice hospice: hospiceList)
+        {
+            if(hospice.getHospiceName().equals(hospiceName))
+            {
+                return hospice;
+            }
+        }
+        return null;
+    }
+    
+     public Hospice findHospiceByEmailID(String hospiceEmailID, ArrayList<Hospice> listOfHospices)
+    {
+        for(Hospice hospice: hospiceList)
+        {
+            if(hospice.getHospiceEmailID().equals(hospiceEmailID))
+            {
+                return hospice;
+            }
+        }
+        return null;
+    }
 
 }

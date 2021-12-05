@@ -31,7 +31,6 @@ public class DiagnosisDirectory {
     
      public Diagnosis createNewDiagnosis(String diagnosisCode, String diagnosisDescription, String ICDCode)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
         Diagnosis newDiagnosis = new Diagnosis();
         newDiagnosis.setDiagnosisCode(diagnosisCode);
         newDiagnosis.setDiagnosisDescription(diagnosisDescription);

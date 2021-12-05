@@ -3,6 +3,9 @@
 package userinterface.HospiceAdminRole;
 
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -12,14 +15,19 @@ import javax.swing.JPanel;
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
-    JPanel userProcessContainer;
-    
+    private JPanel userProcessContainer;
+    private UserAccount userAccount;
+    private EcoSystem system;
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-      
-        //valueLabel.setText();
+        this.userAccount = userAccount;
+        this.system = system;
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(), 
+                system.getHospiceDirectory().getListOfHospice());
+        lblHospiceBalance.setText(String.valueOf(hospice.getTotalHospiceBalance()));
+
     }
     
     /** This method is called from within the constructor to
@@ -35,6 +43,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageOrganizationJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblHospiceBalance = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -68,6 +79,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 130, -1));
+
+        jLabel1.setText("Total Hospice Balance: ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        add(lblHospiceBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 100, 20));
+
+        jLabel3.setText("$");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -86,6 +104,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblHospiceBalance;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton userJButton;

@@ -8,6 +8,7 @@ package Business;
 
 import Business.Counsellors.CounsellorDirectory;
 import Business.Diagnosis.DiagnosisDirectory;
+import Business.Donation.DonationDirectory;
 import Business.Donors.DonorsDirectory;
 import Business.Hospice.HospiceDirectory;
 import Business.Nurses.NursesDirectory;
@@ -37,11 +38,12 @@ public class EcoSystem extends Organization{
     VolunteerDirectory volunteerDirectory;
     ServicesDirectory serviceDirectory;
     DiagnosisDirectory diagnosisDirectory;
+    DonationDirectory donationDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
-                       DiagnosisDirectory diagnosisDirectory)  
+                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -53,6 +55,7 @@ public class EcoSystem extends Organization{
         this.volunteerDirectory = volunteerDirectory;
         this.serviceDirectory = serviceDirectory;
         this.diagnosisDirectory = diagnosisDirectory;
+        this.donationDirectory = donationDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -80,6 +83,7 @@ public class EcoSystem extends Organization{
          volunteerDirectory = new VolunteerDirectory();
          serviceDirectory = new ServicesDirectory();
          diagnosisDirectory = new DiagnosisDirectory();
+         donationDirectory = new DonationDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -162,6 +166,15 @@ public class EcoSystem extends Organization{
     public void setDiagnosisDirectory(DiagnosisDirectory diagnosisDirectory) {
         this.diagnosisDirectory = diagnosisDirectory;
     }
+
+    public DonationDirectory getDonationDirectory() {
+        return donationDirectory;
+    }
+
+    public void setDonationDirectory(DonationDirectory donationDirectory) {
+        this.donationDirectory = donationDirectory;
+    }
+
     
     public boolean checkIfUserIsUnique(String userName){
        //

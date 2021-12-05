@@ -18,6 +18,6 @@ import userinterface.VolunteerRole.VolunteerWorkAreaJPanel;
 public class DonorRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new DonorWorkAreaJPanel(userProcessContainer,account);//To change body of generated methods, choose Tools | Templates.
+        return new DonorWorkAreaJPanel(userProcessContainer,account, business);//To change body of generated methods, choose Tools | Templates.
     }
 }
