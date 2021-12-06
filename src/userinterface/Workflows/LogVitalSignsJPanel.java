@@ -5,6 +5,16 @@
  */
 package userinterface.Workflows;
 
+import Business.AppConstants;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import Business.VitalSigns.BMICalculator;
+import Business.VitalSigns.BloodPressureCalculator;
+import Business.VitalSigns.CholesterolCalculator;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author architnigam
@@ -14,8 +24,20 @@ public class LogVitalSignsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogVitalSignsJPanel
      */
-    public LogVitalSignsJPanel() {
+    BMICalculator bmiCalculator = new BMICalculator();
+    CholesterolCalculator cholesterolCalculator = new CholesterolCalculator();
+    BloodPressureCalculator bloodPressureCalculator = new BloodPressureCalculator();
+    AppConstants AppConstants = new AppConstants();
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    
+    public LogVitalSignsJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount userAccount ) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+        this.userAccount = userAccount;
+        populateMedicalRecordNumberDropdown();
     }
 
     /**
@@ -27,19 +49,325 @@ public class LogVitalSignsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblMRN = new javax.swing.JLabel();
+        lblPrimaryProvider = new javax.swing.JLabel();
+        lblWeight = new javax.swing.JLabel();
+        txtWeight = new javax.swing.JTextField();
+        lblPounds = new javax.swing.JLabel();
+        lblHeight = new javax.swing.JLabel();
+        txtHeight = new javax.swing.JTextField();
+        lblInches = new javax.swing.JLabel();
+        lblSystole = new javax.swing.JLabel();
+        txtSystoleReading = new javax.swing.JTextField();
+        lblDiastole = new javax.swing.JLabel();
+        txtDiastoleReading = new javax.swing.JTextField();
+        lblmmHg1 = new javax.swing.JLabel();
+        lblmmHg2 = new javax.swing.JLabel();
+        lblCholesterolReading = new javax.swing.JLabel();
+        txtCholestrolReading = new javax.swing.JTextField();
+        lblmgdL = new javax.swing.JLabel();
+        btnSaveData = new javax.swing.JButton();
+        lblDistrict = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        lblGender = new javax.swing.JLabel();
+        txtGender = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        txtState = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        ddMRN = new javax.swing.JComboBox();
+
+        lblMRN.setText("Medical Record Number:");
+
+        lblPrimaryProvider.setText("City");
+
+        lblWeight.setText("Weight (in pounds):");
+
+        lblPounds.setText("pounds");
+
+        lblHeight.setText("Height (in Inches):");
+
+        lblInches.setText("inches");
+
+        lblSystole.setText("Systole Reading: ");
+
+        lblDiastole.setText("Diastole Reading: ");
+
+        lblmmHg1.setText("mm Hg");
+
+        lblmmHg2.setText("mm Hg");
+
+        lblCholesterolReading.setText("Cholesterol Reading: ");
+
+        lblmgdL.setText("mg/dL");
+
+        btnSaveData.setText("SAVE DATA");
+        btnSaveData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveDataActionPerformed(evt);
+            }
+        });
+
+        lblDistrict.setText("State:");
+
+        lblTitle.setText("VITAL SIGNS ENCOUNTER:");
+
+        lblAge.setText("Age: ");
+
+        lblGender.setText("Gender: ");
+
+        jButton1.setText("Populate");
+
+        ddMRN.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitle)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMRN)
+                            .addComponent(lblDistrict)
+                            .addComponent(lblSystole)
+                            .addComponent(lblDiastole)
+                            .addComponent(lblCholesterolReading)
+                            .addComponent(lblHeight)
+                            .addComponent(lblWeight)
+                            .addComponent(lblAge)
+                            .addComponent(lblGender)
+                            .addComponent(lblPrimaryProvider))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtCholestrolReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblmgdL))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtDiastoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblmmHg2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtSystoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblmmHg1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblInches))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPounds))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ddMRN, 0, 143, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addComponent(btnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(324, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lblTitle)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMRN)
+                    .addComponent(jButton1)
+                    .addComponent(ddMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAge)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblGender)
+                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblPrimaryProvider)
+                        .addGap(60, 60, 60))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDistrict)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblWeight)
+                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPounds))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHeight)
+                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblInches))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblSystole)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtSystoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblmmHg1)))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDiastole)
+                            .addComponent(txtDiastoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCholesterolReading)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtCholestrolReading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblmgdL))))
+                    .addComponent(lblmmHg2))
+                .addGap(26, 26, 26)
+                .addComponent(btnSaveData)
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 809, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 645, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSaveDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveDataActionPerformed
+        // TODO add your handling code here:
+        String mrn = ddMRN.getSelectedItem().toString();
+        String ageInString = txtAge.getText();
+        String weightInString = (txtWeight.getText());
+        String heightInString = (txtHeight.getText());
+        String totalCholesterolReadingInString = (txtCholestrolReading.getText());
+        String systoleInString = (txtSystoleReading.getText());
+        String diastoleInString = (txtDiastoleReading.getText());
+        String gender = txtGender.getText();
+        String state = txtState.getText();
+        String city = txtCity.getText();
+        ValidationLogic validationLogic = new ValidationLogic(system);
+        if(validationLogic.ValidateIfAllFieldsOnUIAreFilledAndAreNumeric(mrn, ageInString,  weightInString,
+            heightInString, totalCholesterolReadingInString, systoleInString, diastoleInString))
+        {
+            double weight = Double.parseDouble(txtWeight.getText());
+            double height = Double.parseDouble(txtHeight.getText());
+            double totalCholesterolReading = Double.parseDouble(txtCholestrolReading.getText());
+            double systole = Double.parseDouble(txtSystoleReading.getText());
+            double diastole = Double.parseDouble(txtDiastoleReading.getText());
+            double BMIValue = (bmiCalculator.CalculateBMI(weight, height));
+            int age = Integer.parseInt(ageInString);
+
+            int BMICriticality = bmiCalculator.DetermineBMICriticalityOfPatient(weight, height);
+            String BMICriticalityLevel = bmiCalculator.BMIMapCriticalityLevelToCategory(BMICriticality);
+            String BMIMessage = "Patient with MRN '"+mrn+"' BMI value is: '"+BMIValue+"' and the patient's BMI is"
+            + ": "+BMICriticalityLevel;
+
+            int CholesterolCriticality = cholesterolCalculator.DetermineCholesterolDangerLevelCriticalityOfPatient(totalCholesterolReading);
+            String CholesterolCriticalityLevel = cholesterolCalculator.CholesterolMapCriticalityLevelToCategory(CholesterolCriticality);
+            String CholesterolMessage = "Patient with MRN '"+mrn+"' cholesterol level is: "+CholesterolCriticalityLevel;
+
+            int BPCriticality = bloodPressureCalculator.DetermineBloodPressureCriticalityOfPatient(systole, diastole);
+            String BPCriticalityLevel = bloodPressureCalculator.BPMapCriticalityLevelToCategory(BPCriticality);
+            String BPMessage = "Patient with MRN '"+mrn+"' blood pressure level is: "+BPCriticalityLevel;
+
+            String finalMessageOnSave = AppConstants.PatientRecordSuccessfullySavedMessage + "\n \n" +BMIMessage +
+            "\n" +BPMessage+ "\n" +CholesterolMessage ;
+
+//            patientInfo = patientRecords.addPatientRecord();
+//
+//            patientInfo.setMedicalRecordNumber(mrn);
+//            patientInfo.setEthinicity(ethinicity);
+//            patientInfo.setDistrict(district);
+//            patientInfo.setGender(gender);
+//            patientInfo.setAge(age);
+//            patientInfo.setDateOfVisit(new Date());
+//            patientInfo.setHeightInInches(height);
+//            patientInfo.setWeightInPounds(weight);
+//            patientInfo.setSystoleReadingInmmHg(systole);
+//            patientInfo.setDiastoleReadingInmmHg(diastole);
+//            patientInfo.setCholestrolReadingInmgDl(totalCholesterolReading);
+//            patientInfo.setBMI(BMIValue);
+//            patientInfo.setBMIDangerLevel(BMICriticality);
+//            patientInfo.setCholestrolDangerLevel(CholesterolCriticality);
+//            patientInfo.setBloodPressureDangerLevel(BPCriticality);
+
+            JOptionPane.showMessageDialog(this, finalMessageOnSave);
+
+            txtHeight.setText("");
+            txtWeight.setText("");
+            txtSystoleReading.setText("");
+            txtDiastoleReading.setText("");
+            txtCholestrolReading.setText("");
+        }
+    }//GEN-LAST:event_btnSaveDataActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSaveData;
+    private javax.swing.JComboBox<String> ddMRN;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblCholesterolReading;
+    private javax.swing.JLabel lblDiastole;
+    private javax.swing.JLabel lblDistrict;
+    private javax.swing.JLabel lblGender;
+    private javax.swing.JLabel lblHeight;
+    private javax.swing.JLabel lblInches;
+    private javax.swing.JLabel lblMRN;
+    private javax.swing.JLabel lblPounds;
+    private javax.swing.JLabel lblPrimaryProvider;
+    private javax.swing.JLabel lblSystole;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblWeight;
+    private javax.swing.JLabel lblmgdL;
+    private javax.swing.JLabel lblmmHg1;
+    private javax.swing.JLabel lblmmHg2;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtCholestrolReading;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtDiastoleReading;
+    private javax.swing.JTextField txtGender;
+    private javax.swing.JTextField txtHeight;
+    private javax.swing.JTextField txtState;
+    private javax.swing.JTextField txtSystoleReading;
+    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
+
+    private void populateMedicalRecordNumberDropdown() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

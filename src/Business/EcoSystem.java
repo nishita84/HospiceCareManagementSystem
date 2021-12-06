@@ -18,6 +18,7 @@ import Business.Providers.ProviderDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Services.ServicesDirectory;
+import Business.VitalSigns.VitalSignsDirectory;
 import Business.Volunteers.VolunteerDirectory;
 import java.util.ArrayList;
 
@@ -39,11 +40,12 @@ public class EcoSystem extends Organization{
     ServicesDirectory serviceDirectory;
     DiagnosisDirectory diagnosisDirectory;
     DonationDirectory donationDirectory;
+    VitalSignsDirectory vitalSignsDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
-                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory)  
+                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -56,6 +58,7 @@ public class EcoSystem extends Organization{
         this.serviceDirectory = serviceDirectory;
         this.diagnosisDirectory = diagnosisDirectory;
         this.donationDirectory = donationDirectory;
+        this.vitalSignsDirectory = vitalSignsDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -84,6 +87,7 @@ public class EcoSystem extends Organization{
          serviceDirectory = new ServicesDirectory();
          diagnosisDirectory = new DiagnosisDirectory();
          donationDirectory = new DonationDirectory();
+         vitalSignsDirectory = new VitalSignsDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -173,6 +177,14 @@ public class EcoSystem extends Organization{
 
     public void setDonationDirectory(DonationDirectory donationDirectory) {
         this.donationDirectory = donationDirectory;
+    }
+
+    public VitalSignsDirectory getVitalSignsDirectory() {
+        return vitalSignsDirectory;
+    }
+
+    public void setVitalSignsDirectory(VitalSignsDirectory vitalSignsDirectory) {
+        this.vitalSignsDirectory = vitalSignsDirectory;
     }
 
     
