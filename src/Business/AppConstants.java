@@ -69,11 +69,8 @@ public class AppConstants {
     public String ErrorPatientIsAbove18YearsOfAge = "Patient should be above 18 years of age!";
 
     // File paths
-    public String EncountersXMLFilePath = "/src/files/EncounterRecords.xml";
-    public String ResidentXMLFilePath = "/src/files/ResidentRecords.xml";
-    public String PathOfRegisteredPatientXMLFile = "/src/files/RegisteredPatients.xml";
-    public String PathOfRegisteredUsersXMLFile = "/src/files/VerifiedUsers.xml";
-    public String PathOfImageFile = "/src/files/logo.png";
+    public String EncountersXMLFilePath = "/src/Business/Automated/EncounterRecords.xml";
+    // /Users/architnigam/NetBeansProjects/HospiceManagementSystem/src/Business/Automated/EncounterRecords.xml
     
     // XML Nodes
     public String nodePatient = "patient";
@@ -112,14 +109,6 @@ public class AppConstants {
     public String AmericanIndianOrAlaskaNative = "American Indian or Alaska Native";
     public String NativeHawaiian = "Native Hawaiian or Other Pacific Islander";
     
-    // Districts
-    public String Allston = "Allston";
-    public String Fenway = "Fenway";
-    public String BackBay = "Back Bay";
-    public String BeaconHill = "Beacon Hill";
-    public String NorthEnd = "North End";
-    public String BayVillage = "Bay Village";
-    public String Downtown = "Downtown";
     
     // Genders
     public String Male = "Male";

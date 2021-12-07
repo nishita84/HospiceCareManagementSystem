@@ -16,9 +16,10 @@ public class VitalSigns {
     private String vitalSignsRecordID;
     private Patient patient;
     private Date dateOfVisit;
+    private String gender;
+    private String ethinicity;
     private double weightInPounds;
     private double heightInInches;
-    private String gender;
     private double BMI;
     private double systoleReadingInmmHg;
     private double diastoleReadingInmmHg;
@@ -130,6 +131,13 @@ public class VitalSigns {
     public void setBloodPressureDangerLevel(int bloodPressureDangerLevel) {
         this.bloodPressureDangerLevel = bloodPressureDangerLevel;
     }
-    
-    
+
+    public String getEthinicity() {
+        return ethinicity;
+    }
+
+    public void setEthinicity(String ethinicity) {
+        this.ethinicity = ethinicity;
+    }
+      
 }

@@ -5,8 +5,10 @@
  */
 package userinterface.NurseRole;
 
+import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Workflows.VitalSignsReportsJPanel;
 
 /**
  *
@@ -17,9 +19,13 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NurseWorkAreaJPanel
      */
-    public NurseWorkAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    EcoSystem system;
+    UserAccount account;
+    public NurseWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         populateTable();
         initComponents();
+        this.system = system;
+        this.account = account;
     }
     
     void populateTable(){
@@ -46,6 +52,11 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         jButton1.setText("Fill Patient Assessment Form");
 
         jButton2.setText("View Reports and Charts");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Manage Alerts");
 
@@ -109,6 +120,12 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        VitalSignsReportsJPanel vitalSignsJPanel = new VitalSignsReportsJPanel(system, account);
+        jSplitPane1.setRightComponent(vitalSignsJPanel);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

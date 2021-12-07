@@ -160,8 +160,6 @@ public class Claim {
 
     public void setPayerForClaim(Payer payerForClaim) {
         this.payerForClaim = payerForClaim;
-    }
-    
-    
+    } 
     
 }

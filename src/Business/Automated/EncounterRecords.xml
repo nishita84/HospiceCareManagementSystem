@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<encounters>
+    <encounter mrn = "1001">
+        <weight>180</weight>
+        <height>65</height>
+        <ethinicity>White, non-Hispanic</ethinicity>
+        <age>20</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>Fenway</district>
+        <systoleReading>100</systoleReading>
+        <diastoleReading>90</diastoleReading>
+        <cholestrolReading>100</cholestrolReading>
+    </encounter>
+     <encounter mrn = "1002">
+        <weight>156</weight>
+        <height>42</height>
+        <ethinicity>White, non-Hispanic</ethinicity>
+        <age>40</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>Allston</district>
+        <systoleReading>90</systoleReading>
+        <diastoleReading>80</diastoleReading>
+        <cholestrolReading>170</cholestrolReading>
+    </encounter>
+     <encounter mrn = "1003">
+       <weight>160</weight>
+        <height>76</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>50</age>
+        <gender>Female</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>Back Bay</district>
+        <systoleReading>95</systoleReading>
+        <diastoleReading>73</diastoleReading>
+        <cholestrolReading>201</cholestrolReading>
+    </encounter>
+     <encounter mrn = "1004">
+        <weight>200</weight>
+        <height>70</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>62</age>
+        <gender>Female</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>Allston</district>
+        <systoleReading>110</systoleReading>
+        <diastoleReading>89</diastoleReading>
+        <cholestrolReading>202</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1005">
+        <weight>197</weight>
+        <height>100</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>92</age>
+        <gender>Other</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>Beacon Hill</district>
+        <systoleReading>140</systoleReading>
+        <diastoleReading>90</diastoleReading>
+        <cholestrolReading>250</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1006">
+        <weight>157</weight>
+        <height>60</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>46</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>90</systoleReading>
+        <diastoleReading>71</diastoleReading>
+        <cholestrolReading>300</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1007">
+        <weight>110</weight>
+        <height>45</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>67</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>180</systoleReading>
+        <diastoleReading>128</diastoleReading>
+        <cholestrolReading>150</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1008">
+        <weight>220</weight>
+        <height>76</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>78</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>150</systoleReading>
+        <diastoleReading>115</diastoleReading>
+        <cholestrolReading>117</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1009">
+        <weight>300</weight>
+        <height>60</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>49</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>110</systoleReading>
+        <diastoleReading>90</diastoleReading>
+        <cholestrolReading>199</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1010">
+        <weight>158</weight>
+        <height>50</height>
+       <ethinicity>American Indian or Alaska Native</ethinicity>
+        <age>61</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>168</systoleReading>
+        <diastoleReading>86</diastoleReading>
+        <cholestrolReading>208</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1011">
+        <weight>110</weight>
+        <height>49</height>
+       <ethinicity>Asian</ethinicity>
+        <age>71</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>143</systoleReading>
+        <diastoleReading>110</diastoleReading>
+        <cholestrolReading>230</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1012">
+        <weight>190</weight>
+        <height>72</height>
+       <ethinicity>Hispanic</ethinicity>
+        <age>80</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>110</systoleReading>
+        <diastoleReading>60</diastoleReading>
+        <cholestrolReading>250</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1013">
+        <weight>160</weight>
+        <height>78</height>
+       <ethinicity>Asian</ethinicity>
+        <age>57</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>116</systoleReading>
+        <diastoleReading>75</diastoleReading>
+        <cholestrolReading>340</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1014">
+        <weight>170</weight>
+        <height>90</height>
+       <ethinicity>Black non-Hispanic</ethinicity>
+        <age>43</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>120</systoleReading>
+        <diastoleReading>61</diastoleReading>
+        <cholestrolReading>118</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1015">
+        <weight>250</weight>
+        <height>90</height>
+       <ethinicity>Asian</ethinicity>
+        <age>49</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>190</systoleReading>
+        <diastoleReading>128</diastoleReading>
+        <cholestrolReading>151</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1016">
+        <weight>258</weight>
+        <height>70</height>
+       <ethinicity>White, non-Hispanic</ethinicity>
+        <age>75</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>145</systoleReading>
+        <diastoleReading>90</diastoleReading>
+        <cholestrolReading>161</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1017">
+        <weight>179</weight>
+        <height>78</height>
+       <ethinicity>Hispanic</ethinicity>
+        <age>98</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>168</systoleReading>
+        <diastoleReading>86</diastoleReading>
+        <cholestrolReading>176</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1018">
+        <weight>156</weight>
+        <height>67</height>
+       <ethinicity>Asian</ethinicity>
+        <age>92</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>109</systoleReading>
+        <diastoleReading>64</diastoleReading>
+        <cholestrolReading>100</cholestrolReading>
+    </encounter>
+    <encounter mrn = "1019">
+        <weight>180</weight>
+        <height>75</height>
+       <ethinicity>Black non-Hispanic</ethinicity>
+        <age>29</age>
+        <gender>Male</gender>
+        <dateOfVisit>07/02/2021</dateOfVisit>
+        <district>North End</district>
+        <systoleReading>105</systoleReading>
+        <diastoleReading>64</diastoleReading>
+        <cholestrolReading>400</cholestrolReading>
+    </encounter>
+</encounters>

@@ -27,23 +27,22 @@ public class ValidationLogic {
         this.ecosystem = ecosystem;
     }
     
-     public boolean ValidateIfAllFieldsOnUIAreFilledAndAreNumeric(String MRN, String age, String weight, 
+     public boolean ValidateIfAllFieldsOnUIAreFilledAndAreNumeric(String MRN, String weight, 
             String height, String cholesterolReading, String systoleReading, 
             String diastoleReading) {
         
         boolean areAllFieldsFilled = false;
-        if (!(MRN.equals("")) && !(age.equals("")) && !(weight.equals("")) && !(height.equals("")) && !(cholesterolReading.equals(""))
+        if (!(MRN.equals("")) && !(weight.equals("")) && !(height.equals("")) && !(cholesterolReading.equals(""))
                && !(systoleReading.equals("")) && !(diastoleReading.equals("")))
         {
             areAllFieldsFilled = true;
         }
         boolean areAllFieldsNumeric = false;
         
-        if(MRN.length() >= 1 && age.length()>=1 && weight.length() >= 1 && height.length() >= 1 && cholesterolReading.length() >= 1
+        if(MRN.length() >= 1 && weight.length() >= 1 && height.length() >= 1 && cholesterolReading.length() >= 1
                 && systoleReading.length() >= 1 && diastoleReading.length() >= 1)
         {
             if(! MRN.matches(AppConstants.RegularExpressionForNumericFields)
-                    || ! age.matches(AppConstants.RegularExpressionForNumericFields)
                     || ! weight.matches(AppConstants.RegularExpressionForNumericFields)
                     || ! height.matches(AppConstants.RegularExpressionForNumericFields) 
                     || ! cholesterolReading.matches(AppConstants.RegularExpressionForNumericFields)
