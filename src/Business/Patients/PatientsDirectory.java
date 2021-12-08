@@ -81,4 +81,16 @@ public class PatientsDirectory {
         return null;
     }
     
+    public Patient findPatientByEmailID(String patientEmailID, ArrayList<Patient> listOfPatients)
+    {
+        for(Patient patient: listOfPatients)
+        {
+            if(patient.getPatientEmailID().equals(patientEmailID))
+            {
+                return patient;
+            }
+        }
+        return null;
+    }
+    
 }

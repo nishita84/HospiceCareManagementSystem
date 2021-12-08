@@ -19,7 +19,7 @@ public class PatientRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new PatientAreaJPanel(userProcessContainer, account);
+        return new PatientAreaJPanel(userProcessContainer, account, business);
     }
     
     

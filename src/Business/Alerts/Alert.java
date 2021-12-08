@@ -15,19 +15,20 @@ import java.util.Date;
  * @author architnigam
  */
 public class Alert {
-    private int alertID;
+    private String alertID;
     Patient alertPatient;
     Provider alertProvider;
     Nurse alertNurse;
-    private String alertComments;
+    private String alertSymptom;
+    private int alertLevel;
     private Date alertTime;
     private int alertStatus;
 
-    public int getAlertID() {
+    public String getAlertID() {
         return alertID;
     }
 
-    public void setAlertID(int alertID) {
+    public void setAlertID(String alertID) {
         this.alertID = alertID;
     }
 
@@ -47,12 +48,20 @@ public class Alert {
         this.alertProvider = alertProvider;
     }
 
-    public String getAlertComments() {
-        return alertComments;
+    public String getAlertSymptom() {
+        return alertSymptom;
     }
 
-    public void setAlertComments(String alertComments) {
-        this.alertComments = alertComments;
+    public void setAlertSymptom(String alertSymptom) {
+        this.alertSymptom = alertSymptom;
+    }
+
+    public int getAlertLevel() {
+        return alertLevel;
+    }
+
+    public void setAlertLevel(int alertLevel) {
+        this.alertLevel = alertLevel;
     }
 
     public Date getAlertTime() {

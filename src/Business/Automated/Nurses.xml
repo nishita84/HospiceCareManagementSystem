@@ -21,5 +21,6 @@ and open the template in the editor.
         <providerNPI>P1001</providerNPI>
         <password>martin123</password>
         <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
     </nurse>
 </nurses>

@@ -6,6 +6,7 @@
 package Business;
 
 
+import Business.Alerts.AlertsDirectory;
 import Business.Counsellors.CounsellorDirectory;
 import Business.Diagnosis.DiagnosisDirectory;
 import Business.Donation.DonationDirectory;
@@ -41,11 +42,13 @@ public class EcoSystem extends Organization{
     DiagnosisDirectory diagnosisDirectory;
     DonationDirectory donationDirectory;
     VitalSignsDirectory vitalSignsDirectory;
+    AlertsDirectory alertsDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
-                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory)  
+                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory, 
+                       AlertsDirectory alertsDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -59,6 +62,7 @@ public class EcoSystem extends Organization{
         this.diagnosisDirectory = diagnosisDirectory;
         this.donationDirectory = donationDirectory;
         this.vitalSignsDirectory = vitalSignsDirectory;
+        this.alertsDirectory = alertsDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -88,6 +92,7 @@ public class EcoSystem extends Organization{
          diagnosisDirectory = new DiagnosisDirectory();
          donationDirectory = new DonationDirectory();
          vitalSignsDirectory = new VitalSignsDirectory();
+         alertsDirectory = new AlertsDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -185,6 +190,14 @@ public class EcoSystem extends Organization{
 
     public void setVitalSignsDirectory(VitalSignsDirectory vitalSignsDirectory) {
         this.vitalSignsDirectory = vitalSignsDirectory;
+    }
+
+    public AlertsDirectory getAlertsDirectory() {
+        return alertsDirectory;
+    }
+
+    public void setAlertsDirectory(AlertsDirectory alertsDirectory) {
+        this.alertsDirectory = alertsDirectory;
     }
 
     

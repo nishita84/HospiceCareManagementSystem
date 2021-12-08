@@ -6,21 +6,11 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Automated.AutomatedEntry;
-import Business.Diagnosis.Diagnosis;
 import Business.EcoSystem;
-import Business.Employee.Employee;
 import Business.Hospice.Hospice;
-
-import Business.Organization;
-import Business.Providers.Provider;
-import Business.Role.HospiceAdminRole;
 import Business.UserAccount.UserAccount;
-import java.awt.CardLayout;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
+import javax.swing.JPanel;;
 
 /**
  *

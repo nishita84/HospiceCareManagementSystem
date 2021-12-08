@@ -82,4 +82,16 @@ public class ProviderDirectory {
         return null;
     }
     
+    public Provider findProviderByEmailID(String providerEmailID, ArrayList<Provider> listOfProviders)
+    {
+        for(Provider provider: listOfProviders)
+        {
+            if(provider.getProviderEmailID().equals(providerEmailID))
+            {
+                return provider;
+            }
+        }
+        return null;
+    }
+    
 }

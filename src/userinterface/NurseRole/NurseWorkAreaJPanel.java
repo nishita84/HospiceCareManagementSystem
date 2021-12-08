@@ -8,7 +8,8 @@ package userinterface.NurseRole;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.Alerts.ManageAlertsJPanel;
+import userinterface.Alerts.ManageAlertsNurseJPanel;
+import userinterface.Alerts.ManageAlertsProviderJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
 import userinterface.Workflows.VitalSignsReportsJPanel;
 
@@ -147,7 +148,7 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertsActionPerformed
         // TODO add your handling code here:
-        ManageAlertsJPanel manageAlertsPanel = new ManageAlertsJPanel();
+        ManageAlertsNurseJPanel manageAlertsPanel = new ManageAlertsNurseJPanel(system, account);
         jSplitPane1.setRightComponent(manageAlertsPanel);
     }//GEN-LAST:event_btnAlertsActionPerformed
 

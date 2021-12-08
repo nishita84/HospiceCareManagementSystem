@@ -23,16 +23,16 @@ import userinterface.Forms.SelfDiagnosisFormJPanel;
 public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
+    EcoSystem system;
     private UserAccount userAccount;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public PatientAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public PatientAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system ) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
+        this.system = system;
         this.userAccount = account;
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
@@ -169,13 +169,13 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
         // TODO add your handling code here:
-        ScheduleAppointmentJPanel scheduleAppointmentJPanel = new ScheduleAppointmentJPanel();
+        ScheduleAppointmentJPanel scheduleAppointmentJPanel = new ScheduleAppointmentJPanel(system, userAccount);
         jSplitPane1.setRightComponent(scheduleAppointmentJPanel);
     }//GEN-LAST:event_btnAppointmentActionPerformed
 
     private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
         // TODO add your handling code here:
-        CreateAnAlertJPanel createAnAlertJPanel = new CreateAnAlertJPanel();
+        CreateAnAlertJPanel createAnAlertJPanel = new CreateAnAlertJPanel(userAccount,system );
         jSplitPane1.setRightComponent(createAnAlertJPanel);
     }//GEN-LAST:event_btnAlertActionPerformed
 

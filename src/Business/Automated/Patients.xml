@@ -17,7 +17,7 @@ and open the template in the editor.
         <country>USA</country>
         <contactno>8578754321</contactno>
         <emailID>karl@karl.com</emailID>
-        <providerNPI>PR1001</providerNPI>
+        <providerNPI>PV1001</providerNPI>
         <terminalillness>Parkinson's Disease</terminalillness>
         <dateofbirth>01/11/1943</dateofbirth>
         <payerID>PA1001</payerID>

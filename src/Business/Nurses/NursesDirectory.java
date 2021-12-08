@@ -35,7 +35,7 @@ public class NursesDirectory {
     
      public Nurse createNurse(String nurseID, String nurseName, String nurseAddress, String nurseCity, String nurseState, 
              String nurseZipCode, String nurseCountry, String nurseContactNo, String nurseEmailID, Provider providerWhoNurseWorksFor, 
-             Date dateOfBirth, Hospice hospice) {
+             Date dateOfBirth, Hospice hospice, boolean isNurseOnDuty) {
             
 
             Nurse nurse = new Nurse();
@@ -49,9 +49,9 @@ public class NursesDirectory {
             nurse.setNurseContactNumber(nurseContactNo);
             nurse.setNurseEmailID(nurseEmailID);
             nurse.setReportingProvider(providerWhoNurseWorksFor);
-            nurse.setPatientsAssigned(patientsUnderNurse);
             nurse.setDateOfBirth(dateOfBirth);
             nurse.setHospiceNurseWorksIn(hospice);
+            nurse.setIsNurseOnDuty(isNurseOnDuty);
             listOfNurses.add(nurse);
             return nurse;
     }
@@ -72,6 +72,30 @@ public class NursesDirectory {
         for(Nurse nurse: listOfNurses)
         {
             if(nurse.getNurseID().equals(nurseID))
+            {
+                return nurse;
+            }
+        }
+        return null;
+    }
+    
+    public Nurse findNurseByEmailID(String nurseEmailID, ArrayList<Nurse> listOfNurses)
+    {
+        for(Nurse nurse: listOfNurses)
+        {
+            if(nurse.getNurseEmailID().equals(nurseEmailID))
+            {
+                return nurse;
+            }
+        }
+        return null;
+    }
+    
+    public Nurse returnAnOnDutyNurse(ArrayList<Nurse> listOfNurses)
+    {
+        for(Nurse nurse : listOfNurses)
+        {
+            if(nurse.isIsNurseOnDuty())
             {
                 return nurse;
             }

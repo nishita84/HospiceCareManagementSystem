@@ -339,6 +339,7 @@ public class AutomatedEntry {
     
     public boolean AutomatedCreationOfNurses()
     {
+        boolean isNurseOnDuty = false;
         String projectPath = System.getProperty("user.dir");
         try
              {
@@ -389,18 +390,30 @@ public class AutomatedEntry {
                                         .item(0).getTextContent();
                    String password = eElement.getElementsByTagName("password")
                                         .item(0).getTextContent();      
+                   String nurseDutyStatus = eElement.getElementsByTagName("isNurseOnDuty") 
+                                        .item(0).getTextContent();
+                   if(nurseDutyStatus.equalsIgnoreCase("Yes") || nurseDutyStatus.equalsIgnoreCase("true"))
+                   {
+                       isNurseOnDuty = true;
+                   }
+                   else if(nurseDutyStatus.equalsIgnoreCase("No") || nurseDutyStatus.equalsIgnoreCase("false"))
+                   {
+                       isNurseOnDuty = false;
+                   }
                    Date dateOfBirth =new SimpleDateFormat("MM/dd/yyyy").parse(dateOfBirthInString);
                    
                    Provider registeredProviderForPatient = system.getProviderDirectory().findProviderByNPI(registeredProviderNPI,
                                                     system.getProviderDirectory().getProviderList());
-                   String hospiceID = eElement.getElementsByTagName("hospiceID")
+                   String hospiceID = eElement.getElementsByTagName("hospiceID") 
                                         .item(0).getTextContent();
+                   
                    hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
                            system.getHospiceDirectory().getListOfHospice());
                    
                 nurse = system.getNurseDirectory().createNurse(nurseID, nurseName, nurseState, 
                         nurseCity, nurseState, nurseZipCode, nurseCountry, nurseContactNumber, nurseEmailID, 
-                        registeredProviderForPatient,dateOfBirth, hospice);
+                        registeredProviderForPatient,dateOfBirth, hospice, isNurseOnDuty);
+                
                 Employee emp = system.getEmployeeDirectory().createEmployee(nurseName);
                     system.getUserAccountDirectory().createUserAccount(nurseEmailID, password, emp, new NurseRole());
                 }

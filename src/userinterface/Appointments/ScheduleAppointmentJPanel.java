@@ -5,6 +5,12 @@
  */
 package userinterface.Appointments;
 
+import Business.Counsellors.Counsellor;
+import Business.EcoSystem;
+import Business.Patients.Patient;
+import Business.Providers.Provider;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author architnigam
@@ -14,8 +20,13 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ScheduleAppointmentJPanel
      */
-    public ScheduleAppointmentJPanel() {
+    EcoSystem system;
+    UserAccount userAccount;
+    public ScheduleAppointmentJPanel(EcoSystem system, UserAccount userAccount) {
         initComponents();
+        this.system = system;
+        this.userAccount = userAccount;
+        setDynamicView(false);
     }
 
     /**
@@ -27,19 +38,184 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        ddChoose = new javax.swing.JComboBox();
+        btnProceed = new javax.swing.JButton();
+        lblAppointment = new javax.swing.JLabel();
+        ddAppointmentWith = new javax.swing.JComboBox<>();
+        lblAvailableSlots = new javax.swing.JLabel();
+        lblAppointmentReason = new javax.swing.JLabel();
+        txtAppointmentReason = new javax.swing.JTextField();
+        btnScheduleAppointment = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setText("SCHEDULE AN APPOINTMENT");
+
+        jLabel2.setText("Schedule an appointment with: ");
+
+        ddChoose.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provider", "Counsellor" }));
+
+        btnProceed.setText("Proceed");
+        btnProceed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProceedActionPerformed(evt);
+            }
+        });
+
+        ddAppointmentWith.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+
+        lblAvailableSlots.setText("Select a date: ");
+
+        lblAppointmentReason.setText("Appointment Reason: ");
+
+        btnScheduleAppointment.setText("Schedule an appointment");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel3.setText("Select a time:");
+
+        jButton1.setText("Check slot availability");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAvailableSlots)
+                            .addComponent(lblAppointmentReason)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ddChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnScheduleAppointment)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1))))
+                .addContainerGap(314, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(ddChoose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAvailableSlots)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton1)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAppointmentReason)
+                    .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addComponent(btnScheduleAppointment)
+                .addContainerGap(93, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnProceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProceedActionPerformed
+        // TODO add your handling code here:
+        String selectedValue = ddChoose.getSelectedItem().toString();
+        setDynamicView(true);
+        lblAppointment.setText(selectedValue);
+        if(selectedValue.equals("Provider"))
+        {
+            Patient patient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                    system.getPatientDirectory().getPatientList());
+            Provider provider = system.getProviderDirectory().findProviderByNPI(patient.getRegisteredProvider().getProviderNPI()
+                    , system.getProviderDirectory().getProviderList());
+            ddAppointmentWith.addItem(provider.getProviderName());
+        }
+        else{
+            for(Counsellor counsellor : system.getCounsellorDirectory().getListOfCounsellors())
+            {
+                ddAppointmentWith.addItem(counsellor.getCounsellorName());
+            }
+        }
+        ddChoose.setEditable(false);
+        btnProceed.setEnabled(false);
+    }//GEN-LAST:event_btnProceedActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnProceed;
+    private javax.swing.JButton btnScheduleAppointment;
+    private javax.swing.JComboBox<String> ddAppointmentWith;
+    private javax.swing.JComboBox<String> ddChoose;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lblAppointment;
+    private javax.swing.JLabel lblAppointmentReason;
+    private javax.swing.JLabel lblAvailableSlots;
+    private javax.swing.JTextField txtAppointmentReason;
     // End of variables declaration//GEN-END:variables
+
+    private void setDynamicView(boolean viewStatus) {
+        lblAppointment.setVisible(viewStatus);
+        ddAppointmentWith.setVisible(viewStatus);
+        lblAvailableSlots.setVisible(viewStatus);
+//        btnNineAM.setVisible(viewStatus);
+//        btnElevenAM.setVisible(viewStatus);
+//        btnOnePM.setVisible(viewStatus);
+        btnScheduleAppointment.setVisible(viewStatus);
+//        btnThreePM.setVisible(viewStatus);
+//        btnThreeThirtyAM.setVisible(viewStatus);
+//        btnFourPM.setVisible(viewStatus);
+//        btnFivePM.setVisible(viewStatus);
+        lblAppointmentReason.setVisible(viewStatus);
+        lblAvailableSlots.setVisible(viewStatus);
+        txtAppointmentReason.setVisible(viewStatus);
+    }
 }

@@ -27,8 +27,8 @@ public class Nurse {
     private String nurseEmailID;
     private Date dateOfBirth;
     private Hospice hospiceNurseWorksIn;
-    ArrayList<Patient> patientsAssigned;
     Provider reportingProvider;
+    private boolean isNurseOnDuty;
 
     public String getNurseID() {
         return nurseID;
@@ -94,14 +94,6 @@ public class Nurse {
         this.nurseContactNumber = nurseContactNumber;
     }
 
-    public ArrayList<Patient> getPatientsAssigned() {
-        return patientsAssigned;
-    }
-
-    public void setPatientsAssigned(ArrayList<Patient> patientsAssigned) {
-        this.patientsAssigned = patientsAssigned;
-    }
-
     public Provider getReportingProvider() {
         return reportingProvider;
     }
@@ -134,4 +126,12 @@ public class Nurse {
         this.hospiceNurseWorksIn = hospiceNurseWorksIn;
     }
 
+    public boolean isIsNurseOnDuty() {
+        return isNurseOnDuty;
+    }
+
+    public void setIsNurseOnDuty(boolean isNurseOnDuty) {
+        this.isNurseOnDuty = isNurseOnDuty;
+    }
+    
 }
