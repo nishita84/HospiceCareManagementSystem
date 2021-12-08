@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Workflows;
+package userinterface.Alerts;
 
 /**
  *
  * @author architnigam
  */
-public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
+public class ManageAlertsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ScheduleAppointmentJPanel
+     * Creates new form ManageAlertsJPanel
      */
-    public ScheduleAppointmentJPanel() {
+    public ManageAlertsJPanel() {
         initComponents();
     }
 

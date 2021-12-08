@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Workflows;
+package userinterface.Appointments;
 
 /**
  *
  * @author architnigam
  */
-public class NurseVisitationFormJPanel extends javax.swing.JPanel {
+public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form NurseVisitationFormJPanel
+     * Creates new form ScheduleAppointmentJPanel
      */
-    public NurseVisitationFormJPanel() {
+    public ScheduleAppointmentJPanel() {
         initComponents();
     }
 

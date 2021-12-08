@@ -55,7 +55,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 190, 30));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 190, 30));
 
         manageEmployeeJButton.setText("Manage Patients");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,10 +82,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Total Hospice Balance: ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
-        add(lblHospiceBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, 100, 20));
+        add(lblHospiceBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, 100, 20));
 
         jLabel3.setText("$");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed

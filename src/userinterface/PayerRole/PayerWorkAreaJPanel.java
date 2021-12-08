@@ -7,6 +7,8 @@ package userinterface.PayerRole;
 
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Claims.CreateClaimJPanel;
+import userinterface.Claims.ManageClaimsJPanel;
 
 /**
  *
@@ -32,13 +34,23 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCreateClaim = new javax.swing.JButton();
+        btnManageClaims = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("Create a claim");
+        btnCreateClaim.setText("Create a claim");
+        btnCreateClaim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateClaimActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Manage Claims");
+        btnManageClaims.setText("Manage Claims");
+        btnManageClaims.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageClaimsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -46,20 +58,20 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(btnCreateClaim)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnManageClaims)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(109, 109, 109)
-                .addComponent(jButton1)
+                .addComponent(btnCreateClaim)
                 .addGap(64, 64, 64)
-                .addComponent(jButton2)
+                .addComponent(btnManageClaims)
                 .addContainerGap(525, Short.MAX_VALUE))
         );
 
@@ -94,10 +106,22 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreateClaimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateClaimActionPerformed
+        // TODO add your handling code here:
+        CreateClaimJPanel createClaimJPanel = new CreateClaimJPanel();
+        jSplitPane1.setRightComponent(createClaimJPanel);
+    }//GEN-LAST:event_btnCreateClaimActionPerformed
+
+    private void btnManageClaimsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageClaimsActionPerformed
+        // TODO add your handling code here:
+        ManageClaimsJPanel manageClaimJPanel = new ManageClaimsJPanel();
+        jSplitPane1.setRightComponent(manageClaimJPanel);
+    }//GEN-LAST:event_btnManageClaimsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnCreateClaim;
+    private javax.swing.JButton btnManageClaims;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

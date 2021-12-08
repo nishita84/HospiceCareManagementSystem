@@ -9,12 +9,12 @@ package userinterface.Workflows;
  *
  * @author architnigam
  */
-public class SelfDiagnosisFormJPanel extends javax.swing.JPanel {
+public class ViewPatientInformationJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form SelfDiagnosisJPanel
+     * Creates new form ViewPatientInformationData
      */
-    public SelfDiagnosisFormJPanel() {
+    public ViewPatientInformationJPanel() {
         initComponents();
     }
 

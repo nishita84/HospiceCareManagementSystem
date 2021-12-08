@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-package userinterface.DonorRole;
+package userinterface.SystemAdminWorkArea;
 
 /**
  *
@@ -41,8 +41,6 @@ public class AddDonorJPanel extends javax.swing.JPanel {
         lbName.setText("Name:");
 
         lbAmount.setText("Amount:");
-
-        lblimage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/NetBeansProjects/AEDProject/src/Images/donor.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

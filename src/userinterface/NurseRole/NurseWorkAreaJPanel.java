@@ -8,6 +8,8 @@ package userinterface.NurseRole;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Alerts.ManageAlertsJPanel;
+import userinterface.Workflows.ViewPatientInformationJPanel;
 import userinterface.Workflows.VitalSignsReportsJPanel;
 
 /**
@@ -43,24 +45,34 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnNurseVisitationForm = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        btnAlerts = new javax.swing.JButton();
+        btnPatientHealthData = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("Fill Patient Assessment Form");
+        btnNurseVisitationForm.setText("Fill Patient Assessment Form");
 
-        jButton2.setText("View Reports and Charts");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnReports.setText("View Reports and Charts");
+        btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnReportsActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Manage Alerts");
+        btnAlerts.setText("Manage Alerts");
+        btnAlerts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlertsActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("View Patient Health Data");
+        btnPatientHealthData.setText("View Patient Health Data");
+        btnPatientHealthData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientHealthDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,23 +81,23 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPatientHealthData)
+                    .addComponent(btnNurseVisitationForm)
+                    .addComponent(btnReports))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(113, 113, 113)
-                .addComponent(jButton4)
+                .addComponent(btnPatientHealthData)
                 .addGap(48, 48, 48)
-                .addComponent(jButton1)
+                .addComponent(btnNurseVisitationForm)
                 .addGap(39, 39, 39)
-                .addComponent(jButton2)
+                .addComponent(btnReports)
                 .addGap(43, 43, 43)
-                .addComponent(jButton3)
+                .addComponent(btnAlerts)
                 .addContainerGap(328, Short.MAX_VALUE))
         );
 
@@ -121,18 +133,30 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
         VitalSignsReportsJPanel vitalSignsJPanel = new VitalSignsReportsJPanel(system, account);
         jSplitPane1.setRightComponent(vitalSignsJPanel);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnPatientHealthDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHealthDataActionPerformed
+        // TODO add your handling code here:
+        ViewPatientInformationJPanel viewPatientInformationPanel = new ViewPatientInformationJPanel();
+        jSplitPane1.setRightComponent(viewPatientInformationPanel);
+    }//GEN-LAST:event_btnPatientHealthDataActionPerformed
+
+    private void btnAlertsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertsActionPerformed
+        // TODO add your handling code here:
+        ManageAlertsJPanel manageAlertsPanel = new ManageAlertsJPanel();
+        jSplitPane1.setRightComponent(manageAlertsPanel);
+    }//GEN-LAST:event_btnAlertsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnAlerts;
+    private javax.swing.JButton btnNurseVisitationForm;
+    private javax.swing.JButton btnPatientHealthData;
+    private javax.swing.JButton btnReports;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
