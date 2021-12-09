@@ -52,32 +52,41 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         lbCounsellorId = new javax.swing.JLabel();
         txtCounsellorId = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         lbTitle.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitle.setText("Add Counsellor");
 
+        lbName.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbName.setText("Name :");
 
+        lbAddress.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbAddress.setText("Address :");
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
         AddressScrollPane.setViewportView(txtAddress);
 
+        lbCity.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbCity.setText("City :");
 
+        lbState.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbState.setText("State :");
 
+        lbZipCode.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbZipCode.setText("Zip Code :");
 
+        lbCountry.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbCountry.setText("Country :");
 
+        lbContactNumber.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbContactNumber.setText("Contact Number :");
 
+        lbEmailID.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbEmailID.setText("Email ID :");
 
+        lbHospiceAssigned.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbHospiceAssigned.setText("Hospice Assigned :");
 
         HospiceAssignedDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -91,7 +100,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CounsellorImage2.png"))); // NOI18N
 
-        lbCounsellorId.setText("Counesllor ID :");
+        lbCounsellorId.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lbCounsellorId.setText("Counsellor ID :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
