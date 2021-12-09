@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author  raunak
+ * @author rohannayak
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
@@ -158,9 +158,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void btnAddProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProviderActionPerformed
         // TODO add your handling code here:
         AddProviderJPanel addProviderJPanel = new AddProviderJPanel();
-        userProcessContainer.add("Add Provider", addProviderJPanel);
+        userProcessContainer.add("Add Counsellor", addProviderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnAddProviderActionPerformed
 
     private void btnAddCounsellorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCounsellorActionPerformed
