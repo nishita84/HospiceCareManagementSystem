@@ -54,36 +54,46 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         HospiceDropdown = new javax.swing.JComboBox();
 
-        setBackground(new java.awt.Color(255, 204, 204));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        lbTitle.setFont(new java.awt.Font("Helvetica", 0, 24)); // NOI18N
+        lbTitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("Add Nurse");
+        lbTitle.setText("ADD NURSE");
 
+        lbName.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbName.setText("Name :");
 
+        lbAddress.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbAddress.setText("Address :");
 
         txtAddress.setColumns(20);
         txtAddress.setRows(5);
         AddressScrollPane.setViewportView(txtAddress);
 
+        lbCity.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbCity.setText("City :");
 
+        lbState.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbState.setText("State :");
 
+        lbZipCode.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbZipCode.setText("Zip Code :");
 
+        lbCountry.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbCountry.setText("Country :");
 
+        lbContactNumber.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbContactNumber.setText("Contact Number :");
 
+        lbEmailID.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbEmailID.setText("Email ID :");
 
+        lbReportingProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbReportingProvider.setText("Reporting Provider :");
 
         ReportingProviderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnAddNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddNurse.setText("Add Nurse");
         btnAddNurse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +103,10 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Nurse_Image2.png"))); // NOI18N
 
+        lbNurseID.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbNurseID.setText("Nurse ID :");
 
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel2.setText("Hospice :");
 
         HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -142,12 +154,13 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(76, 76, 76)
+                .addComponent(lbTitle)
+                .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbTitle)
-                        .addGap(18, 18, 18)
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbName)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
