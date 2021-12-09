@@ -5,6 +5,7 @@
  */
 package userinterface.PayerRole;
 
+import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Claims.CreateClaimJPanel;
@@ -19,8 +20,14 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PayerWorkAreaJPanel
      */
-    public PayerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem business;
+    public PayerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.business = business;
     }
 
     /**
@@ -108,13 +115,13 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnCreateClaimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateClaimActionPerformed
         // TODO add your handling code here:
-        CreateClaimJPanel createClaimJPanel = new CreateClaimJPanel();
+        CreateClaimJPanel createClaimJPanel = new CreateClaimJPanel(account, business);
         jSplitPane1.setRightComponent(createClaimJPanel);
     }//GEN-LAST:event_btnCreateClaimActionPerformed
 
     private void btnManageClaimsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageClaimsActionPerformed
         // TODO add your handling code here:
-        ManageClaimsJPanel manageClaimJPanel = new ManageClaimsJPanel();
+        ManageClaimsJPanel manageClaimJPanel = new ManageClaimsJPanel(account, business);
         jSplitPane1.setRightComponent(manageClaimJPanel);
     }//GEN-LAST:event_btnManageClaimsActionPerformed
 

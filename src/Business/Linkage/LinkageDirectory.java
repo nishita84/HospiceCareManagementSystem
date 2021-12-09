@@ -33,9 +33,45 @@ public class LinkageDirectory {
     {
         Linkage newLinkage = new Linkage();
         newLinkage.setLinkageID(linkageID);
-        newLinkage.setPatient(patient);
-        newLinkage.setProvider(provider);
+        newLinkage.setLinkedPatient(patient);
+        newLinkage.setLinkedProvider(provider);
         listOfLinkageIDs.add(newLinkage);
         return newLinkage;
+    }
+    
+    public Linkage findLinkageByID(String linkageID, ArrayList<Linkage> listOfLinkages)
+    {
+        for(Linkage linkage : listOfLinkages)
+        {
+            if(linkage.getLinkageID().equals(linkageID))
+            {
+                return linkage;
+            }
+        }
+        return null;
+    }
+    
+    public Patient findPatientByLinkageID(String linkageID, ArrayList<Linkage> listOfLinkages)
+    {
+        for(Linkage linkage : listOfLinkages)
+        {
+            if(linkage.getLinkageID().equals(linkageID))
+            {
+                return linkage.getLinkedPatient();
+            }
+        }
+        return null;
+    }
+    
+    public Provider findProviderByLinkageID(String linkageID, ArrayList<Linkage> listOfLinkages)
+    {
+        for(Linkage linkage : listOfLinkages)
+        {
+            if(linkage.getLinkageID().equals(linkageID))
+            {
+                return linkage.getLinkedProvider();
+            }
+        }
+        return null;
     }
 }

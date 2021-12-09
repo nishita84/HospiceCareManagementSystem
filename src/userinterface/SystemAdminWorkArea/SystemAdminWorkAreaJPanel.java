@@ -53,7 +53,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageNetwork = new javax.swing.JButton();
         btnManageEnterprise = new javax.swing.JButton();
         btnManageAdmin = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAutomatedSetup = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -91,10 +91,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Run Automated Setup");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAutomatedSetup.setText("Run Automated Setup");
+        btnAutomatedSetup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAutomatedSetupActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 138, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jButton1)
+                .addComponent(btnAutomatedSetup)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -123,7 +123,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnManageAdmin)
                     .addComponent(btnManageEnterprise))
                 .addGap(54, 54, 54)
-                .addComponent(jButton1)
+                .addComponent(btnAutomatedSetup)
                 .addContainerGap(508, Short.MAX_VALUE))
         );
 
@@ -148,26 +148,27 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_btnManageAdminActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAutomatedSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutomatedSetupActionPerformed
         // TODO add your handling code here:
         AutomatedEntry automatedEntry = new AutomatedEntry(userProcessContainer, userAccount, ecosystem);
         if( automatedEntry.AutomatedCreationOfHospice() &&
                 automatedEntry.AutomatedCreationOfProviders() && automatedEntry.AutomatedCreationOfPayer()
                 && automatedEntry.AutomatedCreationOfPatients() && automatedEntry.AutomatedCreationOfNurses()
                 && automatedEntry.AutomatedCreationOfDonors() && automatedEntry.AutomatedCreationOfCounsellors()
-                && automatedEntry.AutomatedCreationOfDiagnosis() && automatedEntry.AutomatedCreationOfServices())
+                && automatedEntry.AutomatedCreationOfDiagnosis() && automatedEntry.AutomatedCreationOfServices()
+                && automatedEntry.AutomatedCreationOfLinkages())
         {
             JOptionPane.showMessageDialog(this, "Success, please logout and login again!");
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAutomatedSetupActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAutomatedSetup;
     private javax.swing.JButton btnManageAdmin;
     private javax.swing.JButton btnManageEnterprise;
     private javax.swing.JButton btnManageNetwork;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;

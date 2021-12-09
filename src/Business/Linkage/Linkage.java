@@ -14,8 +14,8 @@ import Business.Providers.Provider;
  */
 public class Linkage {
     private String linkageID;
-    Patient patient;
-    Provider provider;
+    Patient linkedPatient;
+    Provider linkedProvider;
 
     public String getLinkageID() {
         return linkageID;
@@ -25,19 +25,21 @@ public class Linkage {
         this.linkageID = linkageID;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public Patient getLinkedPatient() {
+        return linkedPatient;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setLinkedPatient(Patient linkedPatient) {
+        this.linkedPatient = linkedPatient;
     }
 
-    public Provider getProvider() {
-        return provider;
+    public Provider getLinkedProvider() {
+        return linkedProvider;
     }
 
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    public void setLinkedProvider(Provider linkedProvider) {
+        this.linkedProvider = linkedProvider;
     }
+    
+    
 }

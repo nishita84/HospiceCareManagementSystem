@@ -11,6 +11,24 @@ and open the template in the editor.
         <servicecode>SV1001</servicecode>
         <description>Chemotherapy</description>
         <cost>200</cost>
-        <providerNPI>P1001</providerNPI>
+        <providerNPI>PV1001</providerNPI>
+    </service>
+    <service>
+        <servicecode>SV1002</servicecode>
+        <description>Chemotherapy</description>
+        <cost>1500</cost>
+        <providerNPI>PV1001</providerNPI>
+    </service>
+    <service>
+        <servicecode>SV1003</servicecode>
+        <description>Chemotherapy</description>
+        <cost>600</cost>
+        <providerNPI>PV1001</providerNPI>
+    </service>
+    <service>
+        <servicecode>SV1004</servicecode>
+        <description>Chemotherapy</description>
+        <cost>340</cost>
+        <providerNPI>PV1001</providerNPI>
     </service>
 </services>

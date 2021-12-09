@@ -12,6 +12,9 @@ package Business;
 public class SetIDsForWorkflows {
     private final String codeForDonation = "DON";
     private final String codeForAlert = "AL";
+    private final String codeForAppointment = "AP";
+    private final String codeForLinkage = "LN";
+    private final String codeForClaims = "CL";
     
     private final int min = 1000;
     private final int max = 9999;
@@ -27,5 +30,23 @@ public class SetIDsForWorkflows {
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         String idForAlert = codeForAlert + String.valueOf(random_int);
         return idForAlert;
+    }
+    public String SetIDForAppointment()
+    {
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        String idForAppointment = codeForAppointment + String.valueOf(random_int);
+        return idForAppointment;
+    }
+    public String SetIDForLinkage()
+    {
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        String idForLinkage = codeForLinkage + String.valueOf(random_int);
+        return idForLinkage;
+    }
+    public String SetIDForClaims()
+    {
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        String idForClaim= codeForClaims + String.valueOf(random_int);
+        return idForClaim;
     }
 }

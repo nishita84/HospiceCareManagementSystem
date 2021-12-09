@@ -42,10 +42,12 @@ public class PatientsDirectory {
             newPatient.setPatientName(patientsName);
             newPatient.setPatientAddress(patientsAddress);
             newPatient.setPatientCity(patientsCity);
+            newPatient.setPatientState(patientsState);
             newPatient.setPatientCountry(patientsCountry);
             newPatient.setPatientContactNumber(patientsContactNo);
             newPatient.setPatientEmailID(patientsEmailID);
             newPatient.setPatientZipCode(patientsZipCode);
+            newPatient.setRegisteredPayer(registeredPayer);
             newPatient.setRegisteredProvider(registeredProvider);
             newPatient.setDateOfBirth(dateOfBirth);
             newPatient.setBalanceAllocatedToPatient(1000);

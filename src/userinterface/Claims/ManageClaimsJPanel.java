@@ -5,6 +5,13 @@
  */
 package userinterface.Claims;
 
+import Business.ClaimsBilling.Claim;
+import Business.EcoSystem;
+import Business.LookUpMapping;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author architnigam
@@ -14,8 +21,15 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageClaimsJPanel
      */
-    public ManageClaimsJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    public ManageClaimsJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.system = system;
+        this.userAccount = userAccount;
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
     }
 
     /**
@@ -27,19 +41,231 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        ddSearchType = new javax.swing.JComboBox<>();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblClaims = new javax.swing.JTable();
+        btnFullyAdjudicate = new javax.swing.JButton();
+        btnPartialAdjudication = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
+        lblAdjudicationAmt = new javax.swing.JLabel();
+        txtAdjudicationAmt = new javax.swing.JTextField();
+        btnAdjudicate = new javax.swing.JButton();
+
+        jLabel1.setText("Search claim via: ");
+
+        ddSearchType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Batch Number", "Claim ID"}));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        tblClaims.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Claim ID", "Patient Name", "Provider", "Payer", "Service", "Claim Status", "Claim Amount", "Batch Number", "Claim"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblClaims);
+
+        btnFullyAdjudicate.setText("Fully Adjudicate");
+        btnFullyAdjudicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFullyAdjudicateActionPerformed(evt);
+            }
+        });
+
+        btnPartialAdjudication.setText("Partially Adjudicate");
+        btnPartialAdjudication.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPartialAdjudicationActionPerformed(evt);
+            }
+        });
+
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
+
+        lblAdjudicationAmt.setText("Adjudicate Amount:         $");
+
+        btnAdjudicate.setText("Adjudicate");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(btnFullyAdjudicate)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPartialAdjudication)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReject))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(lblAdjudicationAmt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAdjudicate)
+                            .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnSearch)))))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFullyAdjudicate)
+                    .addComponent(btnPartialAdjudication)
+                    .addComponent(btnReject))
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAdjudicationAmt)
+                    .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btnAdjudicate)
+                .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFullyAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullyAdjudicateActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnFullyAdjudicateActionPerformed
+
+    private void btnPartialAdjudicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartialAdjudicationActionPerformed
+        // TODO add your handling code here:
+        lblAdjudicationAmt.setVisible(true);
+        txtAdjudicationAmt.setVisible(true);
+        btnAdjudicate.setVisible(true);
+    }//GEN-LAST:event_btnPartialAdjudicationActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRejectActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        LookUpMapping lookup = new LookUpMapping();
+        DefaultTableModel model1 = (DefaultTableModel) tblClaims.getModel();
+        model1.setRowCount(0);
+        Object[] row = new Object[9];
+        String searchParameter = ddSearchType.getSelectedItem().toString();
+        String searchValue = txtSearch.getText();
+        switch(searchParameter)
+        {
+            case "Batch Number":
+                for(int index = 0; index < system.getClaimsDirectory().getListOfClaims().size(); index++)
+                {
+                    
+                    Claim selectedClaim = system.getClaimsDirectory().findClaimByBatchNumber(searchValue, 
+                            system.getClaimsDirectory().getListOfClaims());
+                    if(selectedClaim != null)
+                    {
+                        
+                        row[0] = selectedClaim.getClaimID();
+                        row[1] = selectedClaim.getPatient().getPatientName();
+                        row[2] = selectedClaim.getProvider().getProviderName();
+                        row[3] = selectedClaim.getPatient().getRegisteredPayer().getPayerName();
+                        row[4] = selectedClaim.getServiceUsed().getServiceDescription();
+                        String claimStatusValue = lookup.mapClaimStatus(selectedClaim.getClaimStatus());
+                        row[5] = claimStatusValue;
+                        row[6] = selectedClaim.getClaimAmount();
+                        row[7] = selectedClaim.getClaimBatchNumber();
+                        row[8] = selectedClaim;
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
+                                                     +searchValue+"'");
+                    }
+                    model1.addRow(row);
+                }
+                break;
+            case "Claim ID":
+                for(int index = 0; index < system.getClaimsDirectory().getListOfClaims().size(); index++)
+                {
+                    Claim selectedClaim = system.getClaimsDirectory().findClaimByID(searchValue, 
+                            system.getClaimsDirectory().getListOfClaims());
+                    if(selectedClaim != null)
+                    {
+                        row[0] = selectedClaim.getClaimID();
+                        row[1] = selectedClaim.getPatient().getPatientName();
+                        row[2] = selectedClaim.getProvider().getProviderName();
+                        row[3] = selectedClaim.getPatient().getRegisteredPayer().getPayerName();
+                        row[4] = selectedClaim.getServiceUsed().getServiceDescription();
+                        String claimStatusValue = lookup.mapClaimStatus(selectedClaim.getClaimStatus());
+                        row[5] = claimStatusValue;
+                        row[6] = selectedClaim.getClaimAmount();
+                        row[7] = selectedClaim.getClaimBatchNumber();
+                        row[8] = selectedClaim;
+                        
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
+                                                     +searchValue+"'");
+                    }
+                    model1.addRow(row);
+                }
+                break;
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdjudicate;
+    private javax.swing.JButton btnFullyAdjudicate;
+    private javax.swing.JButton btnPartialAdjudication;
+    private javax.swing.JButton btnReject;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> ddSearchType;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAdjudicationAmt;
+    private javax.swing.JTable tblClaims;
+    private javax.swing.JTextField txtAdjudicationAmt;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

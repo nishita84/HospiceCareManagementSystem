@@ -9,7 +9,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.PayerRole.PayerWorkAreaJPanel;
-import userinterface.ProviderRole.ProviderWorkAreaJPanel;
 
 /**
  *
@@ -18,6 +17,6 @@ import userinterface.ProviderRole.ProviderWorkAreaJPanel;
 public class PayerRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new PayerWorkAreaJPanel(userProcessContainer,account);//To change body of generated methods, choose Tools | Templates.
+        return new PayerWorkAreaJPanel(userProcessContainer,account, business);//To change body of generated methods, choose Tools | Templates.
     }
 }

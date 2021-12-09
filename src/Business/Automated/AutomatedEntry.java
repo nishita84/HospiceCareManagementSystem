@@ -11,6 +11,7 @@ import Business.Donors.Donor;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Hospice.Hospice;
+import Business.Linkage.Linkage;
 import Business.Nurses.Nurse;
 import Business.Organization;
 import Business.Patients.Patient;
@@ -53,6 +54,7 @@ public class AutomatedEntry {
     private Service service;
     private Diagnosis diagnosis;
     private Hospice hospice;
+    private Linkage linkage;
     private JPanel userProcessContainer;
     Organization organization;
     private UserAccount userAccount;
@@ -703,8 +705,51 @@ public class AutomatedEntry {
         return true;
     }
     
-    public boolean AutomatedLoggingOfVitalSigns()
+    public boolean AutomatedCreationOfLinkages()
     {
+        String projectPath = System.getProperty("user.dir");
+        try
+             {
+                File patientXMLFile = new File(projectPath + "/src/Business/Automated/Linkages.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(patientXMLFile);
+                doc.getDocumentElement().normalize();
+
+                NodeList nList = doc.getElementsByTagName("linkage");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) 
+            {
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) 
+                {
+                    Element eElement = (Element) nNode;
+                    
+                   String linkageID = (eElement.getElementsByTagName("linkageID")
+                                        .item(0).getTextContent());
+
+                   String mrn = (eElement.getElementsByTagName("patientMRN")
+                                        .item(0).getTextContent());
+                   Patient linkedPatient = system.getPatientDirectory().findPatientByMRN(mrn, 
+                           system.getPatientDirectory().getPatientList());
+                   
+                   String npi = eElement.getElementsByTagName("providerNPI")
+                                        .item(0).getTextContent();
+                   Provider linkedProvider = system.getProviderDirectory().findProviderByNPI(npi, 
+                           system.getProviderDirectory().getProviderList());
+
+                    linkage = system.getLinkageDirectory().createNewLinkage(linkageID, 
+                            linkedPatient, linkedProvider);
+                }
+                
+            }
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }   
         return true;
     }
 }

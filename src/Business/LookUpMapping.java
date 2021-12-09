@@ -44,4 +44,31 @@ public class LookUpMapping {
         }
         return alertLevelValue;
     }
+    
+    public String mapClaimStatus(int claimStatus)
+    {
+        String claimStatusValue = "";
+        switch(claimStatus)
+        {
+            case 0:
+                claimStatusValue = "Created";
+                break;
+            case 1: 
+                claimStatusValue = "Processing ";
+                break;
+             case 2: 
+                claimStatusValue = "Approved ";
+                break;
+             case 3: 
+                claimStatusValue = "Rejected ";
+                break;
+             case 4: 
+                claimStatusValue = "Paid ";
+                break;
+             case 5: 
+                claimStatusValue = "Voided ";
+                break;
+        }
+        return claimStatusValue;
+    }
 }
