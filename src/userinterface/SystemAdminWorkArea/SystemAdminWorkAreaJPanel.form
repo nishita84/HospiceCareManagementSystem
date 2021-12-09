@@ -56,17 +56,32 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnManageNetwork" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="btnManageAdmin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnManageEnterprise" min="-2" pref="185" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="138" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnAddPayer" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddHospice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="btnManageHospice" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAddDonor" min="-2" pref="137" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnManageDonors" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="86" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnManagePayer" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="btnAutomatedSetup" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                      <Component id="btnAutomatedSetup" min="-2" pref="160" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -75,40 +90,46 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnManageNetwork" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnManageEnterprise" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddHospice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManageHospice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddDonor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManageDonors" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="btnAutomatedSetup" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="508" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnAddPayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnManagePayer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="btnAutomatedSetup" min="-2" pref="42" max="-2" attributes="0"/>
+                      <EmptySpace pref="414" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnManageNetwork">
+            <Component class="javax.swing.JButton" name="btnAddHospice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage All Patients"/>
+                <Property name="text" type="java.lang.String" value="Add Hospice"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageNetworkActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddHospiceActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageEnterprise">
+            <Component class="javax.swing.JButton" name="btnAddDonor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Providers"/>
+                <Property name="text" type="java.lang.String" value="Add Donor"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageEnterpriseActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddDonorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManageAdmin">
+            <Component class="javax.swing.JButton" name="btnManageHospice">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Deliveryman"/>
+                <Property name="text" type="java.lang.String" value="Manage Hospice"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageAdminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageHospiceActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAutomatedSetup">
@@ -118,6 +139,24 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAutomatedSetupActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageDonors">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Donors"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageDonorsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAddPayer">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add Payers"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManagePayer">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Payers"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

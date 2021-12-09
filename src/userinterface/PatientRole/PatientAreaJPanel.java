@@ -54,14 +54,19 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnViewPatientDetails = new javax.swing.JButton();
         btnSelfDiagnosisForm = new javax.swing.JButton();
         btnAppointment = new javax.swing.JButton();
         btnAlert = new javax.swing.JButton();
         btnSymptomCatcher = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("View My Details");
+        btnViewPatientDetails.setText("View My Details");
+        btnViewPatientDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPatientDetailsActionPerformed(evt);
+            }
+        });
 
         btnSelfDiagnosisForm.setText("Fill Self Diagnosis Form");
         btnSelfDiagnosisForm.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +108,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                         .addComponent(btnSelfDiagnosisForm))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jButton1))
+                        .addComponent(btnViewPatientDetails))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(btnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,7 +119,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addComponent(jButton1)
+                .addComponent(btnViewPatientDetails)
                 .addGap(34, 34, 34)
                 .addComponent(btnSelfDiagnosisForm)
                 .addGap(35, 35, 35)
@@ -179,12 +184,16 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(createAnAlertJPanel);
     }//GEN-LAST:event_btnAlertActionPerformed
 
+    private void btnViewPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlert;
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnSelfDiagnosisForm;
     private javax.swing.JButton btnSymptomCatcher;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnViewPatientDetails;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

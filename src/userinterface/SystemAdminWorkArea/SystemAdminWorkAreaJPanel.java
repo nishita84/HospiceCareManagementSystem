@@ -7,7 +7,6 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Automated.AutomatedEntry;
 import Business.EcoSystem;
-import Business.Hospice.Hospice;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;;
@@ -50,10 +49,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnManageNetwork = new javax.swing.JButton();
-        btnManageEnterprise = new javax.swing.JButton();
-        btnManageAdmin = new javax.swing.JButton();
+        btnAddHospice = new javax.swing.JButton();
+        btnAddDonor = new javax.swing.JButton();
+        btnManageHospice = new javax.swing.JButton();
         btnAutomatedSetup = new javax.swing.JButton();
+        btnManageDonors = new javax.swing.JButton();
+        btnAddPayer = new javax.swing.JButton();
+        btnManagePayer = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -70,24 +72,24 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        btnManageNetwork.setText("Manage All Patients");
-        btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
+        btnAddHospice.setText("Add Hospice");
+        btnAddHospice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageNetworkActionPerformed(evt);
+                btnAddHospiceActionPerformed(evt);
             }
         });
 
-        btnManageEnterprise.setText("Manage Providers");
-        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+        btnAddDonor.setText("Add Donor");
+        btnAddDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEnterpriseActionPerformed(evt);
+                btnAddDonorActionPerformed(evt);
             }
         });
 
-        btnManageAdmin.setText("Manage Deliveryman");
-        btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
+        btnManageHospice.setText("Manage Hospice");
+        btnManageHospice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageAdminActionPerformed(evt);
+                btnManageHospiceActionPerformed(evt);
             }
         });
 
@@ -98,33 +100,60 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageDonors.setText("Manage Donors");
+        btnManageDonors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageDonorsActionPerformed(evt);
+            }
+        });
+
+        btnAddPayer.setText("Add Payers");
+
+        btnManagePayer.setText("Manage Payers");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(btnManageNetwork)
-                .addGap(37, 37, 37)
-                .addComponent(btnManageAdmin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 138, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAddPayer)
+                    .addComponent(btnAddHospice))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(btnManageHospice)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddDonor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnManageDonors)
+                        .addGap(0, 86, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnManagePayer)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnAutomatedSetup)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(205, 205, 205)
+                .addComponent(btnAutomatedSetup, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManageNetwork)
-                    .addComponent(btnManageAdmin)
-                    .addComponent(btnManageEnterprise))
-                .addGap(54, 54, 54)
-                .addComponent(btnAutomatedSetup)
-                .addContainerGap(508, Short.MAX_VALUE))
+                    .addComponent(btnAddHospice)
+                    .addComponent(btnManageHospice)
+                    .addComponent(btnAddDonor)
+                    .addComponent(btnManageDonors))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddPayer)
+                    .addComponent(btnManagePayer))
+                .addGap(63, 63, 63)
+                .addComponent(btnAutomatedSetup, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(414, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -132,21 +161,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         add(jSplitPane, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-        for(int index = 0; index < ecosystem.getHospiceDirectory().getListOfHospice().size(); index++)
-        {
-            Hospice hospice = ecosystem.getHospiceDirectory().getListOfHospice().get(index);
-            System.out.println(hospice.getHospiceName());
-        }
-    }//GEN-LAST:event_btnManageNetworkActionPerformed
+    private void btnAddHospiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospiceActionPerformed
+        AddHospiceJPanel addHospiceJPanel = new AddHospiceJPanel(userAccount, ecosystem);
+        jSplitPane.setRightComponent(addHospiceJPanel);
+    }//GEN-LAST:event_btnAddHospiceActionPerformed
 
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
+    private void btnAddDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDonorActionPerformed
+        AddDonorJPanel addDonorJPanel = new AddDonorJPanel(userAccount, ecosystem);
+        jSplitPane.setRightComponent(addDonorJPanel);
+    }//GEN-LAST:event_btnAddDonorActionPerformed
 
-    private void btnManageAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAdminActionPerformed
+    private void btnManageHospiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospiceActionPerformed
        
-    }//GEN-LAST:event_btnManageAdminActionPerformed
+    }//GEN-LAST:event_btnManageHospiceActionPerformed
 
     private void btnAutomatedSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutomatedSetupActionPerformed
         // TODO add your handling code here:
@@ -163,12 +190,21 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnAutomatedSetupActionPerformed
 
+    private void btnManageDonorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDonorsActionPerformed
+        // TODO add your handling code here:
+        ManageDonorJPanel manageDonorJPanel = new ManageDonorJPanel(userAccount, ecosystem);
+        jSplitPane.setRightComponent(manageDonorJPanel);
+    }//GEN-LAST:event_btnManageDonorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddDonor;
+    private javax.swing.JButton btnAddHospice;
+    private javax.swing.JButton btnAddPayer;
     private javax.swing.JButton btnAutomatedSetup;
-    private javax.swing.JButton btnManageAdmin;
-    private javax.swing.JButton btnManageEnterprise;
-    private javax.swing.JButton btnManageNetwork;
+    private javax.swing.JButton btnManageDonors;
+    private javax.swing.JButton btnManageHospice;
+    private javax.swing.JButton btnManagePayer;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;

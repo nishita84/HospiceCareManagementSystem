@@ -10,6 +10,7 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Alerts.ManageAlertsNurseJPanel;
 import userinterface.Alerts.ManageAlertsProviderJPanel;
+import userinterface.Forms.NurseVisitationFormJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
 import userinterface.Workflows.VitalSignsReportsJPanel;
 
@@ -53,6 +54,11 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
 
         btnNurseVisitationForm.setText("Fill Patient Assessment Form");
+        btnNurseVisitationForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNurseVisitationFormActionPerformed(evt);
+            }
+        });
 
         btnReports.setText("View Reports and Charts");
         btnReports.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +157,12 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         ManageAlertsNurseJPanel manageAlertsPanel = new ManageAlertsNurseJPanel(system, account);
         jSplitPane1.setRightComponent(manageAlertsPanel);
     }//GEN-LAST:event_btnAlertsActionPerformed
+
+    private void btnNurseVisitationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNurseVisitationFormActionPerformed
+        // TODO add your handling code here:
+        NurseVisitationFormJPanel nurseVisitationFormJPanel = new NurseVisitationFormJPanel();
+        jSplitPane1.setRightComponent(nurseVisitationFormJPanel);
+    }//GEN-LAST:event_btnNurseVisitationFormActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

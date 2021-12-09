@@ -4,6 +4,9 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author nishitasheelendraupadhyay
@@ -13,8 +16,12 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDonorJPanel
      */
-    public ManageDonorJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    public ManageDonorJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
     }
 
     /**
