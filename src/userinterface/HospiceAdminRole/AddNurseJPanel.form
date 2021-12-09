@@ -38,6 +38,7 @@
                           <Component id="lbEmailID" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbReportingProvider" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbNurseID" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -52,6 +53,7 @@
                           <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
                           <Component id="ReportingProviderDropDown" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtNurseId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="HospiceDropdown" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -119,11 +121,16 @@
                           <Component id="lbReportingProvider" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ReportingProviderDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btnAddNurse" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="303" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="HospiceDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="btnAddNurse" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="252" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -244,6 +251,22 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNurseId">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hospice :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="HospiceDropdown">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; })" type="code"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

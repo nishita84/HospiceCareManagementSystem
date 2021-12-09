@@ -51,6 +51,8 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lbNurseID = new javax.swing.JLabel();
         txtNurseId = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        HospiceDropdown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(255, 204, 204));
 
@@ -93,6 +95,10 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
         lbNurseID.setText("Nurse ID :");
 
+        jLabel2.setText("Hospice :");
+
+        HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,7 +119,8 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                             .addComponent(lbContactNumber)
                             .addComponent(lbEmailID)
                             .addComponent(lbReportingProvider)
-                            .addComponent(lbNurseID))
+                            .addComponent(lbNurseID)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAddNurse)
@@ -126,7 +133,8 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
                             .addComponent(ReportingProviderDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNurseId))))
+                            .addComponent(txtNurseId)
+                            .addComponent(HospiceDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -178,10 +186,14 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbReportingProvider)
-                            .addComponent(ReportingProviderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addComponent(btnAddNurse)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                            .addComponent(ReportingProviderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(HospiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(btnAddNurse)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,9 +206,11 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane AddressScrollPane;
+    private javax.swing.JComboBox<String> HospiceDropdown;
     private javax.swing.JComboBox<String> ReportingProviderDropDown;
     private javax.swing.JButton btnAddNurse;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
