@@ -98,6 +98,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(btnAddProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         btnAddPatient.setText("Add Patient");
+        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientActionPerformed(evt);
+            }
+        });
         add(btnAddPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         btnAddNurse.setText("Add Nurse");
@@ -181,6 +186,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddNurseActionPerformed
+
+    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
+        // TODO add your handling code here:
+        AddPatientJPanel addPatientJPanel = new AddPatientJPanel();
+        userProcessContainer.add("Add Patient", addPatientJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddPatientActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -49,6 +49,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         btnAddPatient = new javax.swing.JButton();
         TerminalIllnessDropDown = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        lbPatientMRN = new javax.swing.JLabel();
+        txtPatientMRN = new javax.swing.JTextField();
+        lbDateOfBirth = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -100,6 +108,22 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ImagePatient-2.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(320, 240));
 
+        lbPatientMRN.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        lbPatientMRN.setText("Patient MRN :");
+
+        lbDateOfBirth.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lbDateOfBirth.setText("Date of Birth :");
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel2.setText("Provider :");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        jLabel3.setText("Payer :");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,7 +131,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 951, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -119,7 +143,11 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lbCountry)
                             .addComponent(lbContactNumber)
                             .addComponent(lbEmailID)
-                            .addComponent(lbTerminalIllness))
+                            .addComponent(lbTerminalIllness)
+                            .addComponent(lbPatientMRN)
+                            .addComponent(lbDateOfBirth)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnAddPatient)
@@ -131,10 +159,13 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(txtCountry)
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
-                            .addComponent(TerminalIllnessDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TerminalIllnessDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPatientMRN)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
@@ -142,7 +173,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(102, 102, 102)
                 .addComponent(lbTitle)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,6 +186,17 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbAddress)
                             .addComponent(AddressScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(lbDateOfBirth))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbPatientMRN)
+                            .addComponent(txtPatientMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbCity)
@@ -184,8 +226,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lbTerminalIllness)
                             .addComponent(TerminalIllnessDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnAddPatient)
-                .addContainerGap(559, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,13 +248,20 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane AddressScrollPane;
     private javax.swing.JComboBox<String> TerminalIllnessDropDown;
     private javax.swing.JButton btnAddPatient;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
     private javax.swing.JLabel lbCountry;
+    private javax.swing.JLabel lbDateOfBirth;
     private javax.swing.JLabel lbEmailID;
     private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbPatientMRN;
     private javax.swing.JLabel lbState;
     private javax.swing.JLabel lbTerminalIllness;
     private javax.swing.JLabel lbTitle;
@@ -215,6 +272,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPatientMRN;
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
