@@ -8,6 +8,7 @@ package userinterface.Claims;
 import Business.ClaimsBilling.Claim;
 import Business.Diagnosis.Diagnosis;
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
 import Business.Linkage.Linkage;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
@@ -474,10 +475,11 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
                 system.getLinkageDirectory().getListOfLinkageIDs());
         Provider claimProvider = system.getLinkageDirectory().findProviderByLinkageID(linkageID, 
                 system.getLinkageDirectory().getListOfLinkageIDs());
+        Hospice associatedHospice = claimProvider.getOperatingHospice();
         
         Claim newClaimGenerated = system.getClaimsDirectory().createNewClaim(claimID, claimType, 
                 linkageID, startDate, endDate, diagnosisSelection, units, totalCost, 
-                placeOfService, batchNumber, selectedService, claimPatient, claimProvider);
+                placeOfService, batchNumber, selectedService, claimPatient, claimProvider, associatedHospice);
                 
         if(newClaimGenerated != null)
         {

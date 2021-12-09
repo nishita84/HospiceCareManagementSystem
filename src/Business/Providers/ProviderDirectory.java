@@ -54,7 +54,7 @@ public class ProviderDirectory {
             newprovider.setProviderEmailID(emailID);
             newprovider.setPatientsRegisteredWithProvider(listOFPatientsUnderProvider);
             newprovider.setListOfServicesProvided(listOfServicesUnderProviders);
-            newprovider.setOperatingProvider(hospice);
+            newprovider.setOperatingHospice(hospice);
             listOfProviders.add(newprovider);
             return newprovider;
     }

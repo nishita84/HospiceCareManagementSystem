@@ -24,7 +24,7 @@ public class Provider {
     private String zipCode;
     private String providerEmailID;
     private String providerContactNumber;
-    private Hospice operatingProvider;
+    private Hospice operatingHospice;
     private ArrayList<Patient> patientsRegisteredWithProvider;
     private ArrayList<Service> listOfServicesProvided;
 
@@ -116,12 +116,12 @@ public class Provider {
         this.listOfServicesProvided = listOfServicesProvided;
     }
 
-    public Hospice getOperatingProvider() {
-        return operatingProvider;
+    public Hospice getOperatingHospice() {
+        return operatingHospice;
     }
 
-    public void setOperatingProvider(Hospice operatingProvider) {
-        this.operatingProvider = operatingProvider;
+    public void setOperatingHospice(Hospice operatingHospice) {
+        this.operatingHospice = operatingHospice;
     }
     
 }

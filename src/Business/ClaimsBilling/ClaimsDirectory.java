@@ -6,6 +6,7 @@
 package Business.ClaimsBilling;
 
 import Business.Diagnosis.Diagnosis;
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import Business.Services.Service;
@@ -35,7 +36,7 @@ public class ClaimsDirectory {
     public Claim createNewClaim(String claimID, String claimType, String linkageID,
             Date startDate, Date endDate, String claimDiagnosis,
             int units, double totalClaimAmount, String placeOfService, String claimBatchNumber, 
-            Service selectedService, Patient claimPatient, Provider claimProvider)
+            Service selectedService, Patient claimPatient, Provider claimProvider, Hospice operatingHospice)
     {
         Claim newClaim = new Claim();
         newClaim.setClaimID(claimID);
@@ -52,6 +53,8 @@ public class ClaimsDirectory {
         newClaim.setClaimStatus(0);
         newClaim.setPatient(claimPatient);
         newClaim.setProvider(claimProvider);
+        newClaim.setHospice(operatingHospice);
+        newClaim.setPayerForClaim(claimPatient.getRegisteredPayer());
         newClaim.setClaimBatchNumber(claimBatchNumber);
         listOfClaims.add(newClaim);
         return newClaim;

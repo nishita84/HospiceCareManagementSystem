@@ -60,4 +60,16 @@ public class PayersDirectory {
         }
         return null;
     }
+    
+    public Payer findPayerByEmailID(String payerEmailID, ArrayList<Payer> listOfPayers)
+    {
+        for(Payer payer: listOfPayers)
+        {
+            if(payer.getPayerEmailID().equals(payerEmailID))
+            {
+                return payer;
+            }
+        }
+        return null;
+    }
 }

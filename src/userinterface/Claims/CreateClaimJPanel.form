@@ -85,10 +85,10 @@
                                           <Component id="txtPatientCity" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                                           <Component id="txtPatientState" min="-2" pref="123" max="-2" attributes="0"/>
                                           <Component id="txtPatientZipCode" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                                          <Component id="ddDiagnosis" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="ddDiagnosis" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">

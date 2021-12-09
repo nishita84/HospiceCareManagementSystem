@@ -7,6 +7,7 @@ package userinterface.Claims;
 
 import Business.ClaimsBilling.Claim;
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
 import Business.LookUpMapping;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
@@ -16,14 +17,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author architnigam
  */
-public class ManageClaimsJPanel extends javax.swing.JPanel {
+public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageClaimsJPanel
+     * Creates new form AdjudicateClaimsJPanel
      */
     UserAccount userAccount;
     EcoSystem system;
-    public ManageClaimsJPanel(UserAccount userAccount, EcoSystem system) {
+    LookUpMapping lookUps = new LookUpMapping();
+    public AdjudicateClaimsJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
@@ -173,6 +175,47 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
 
     private void btnFullyAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullyAdjudicateActionPerformed
         // TODO add your handling code here:
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
+        int selectedIndex = tblClaims.getSelectedRow();
+        if(selectedIndex < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblClaims.getModel();
+            Claim selectedClaim = (Claim) model.getValueAt(selectedIndex, 8);
+            double claimAmountOfSelectedClaim = selectedClaim.getClaimAmount();
+            double currentHospiceBalance = selectedClaim.getHospice().getTotalHospiceBalance();
+            
+            if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
+            {
+                if(currentHospiceBalance > claimAmountOfSelectedClaim)
+                {
+                    Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                    updatedClaim.setAdjudicatedAmount(claimAmountOfSelectedClaim);
+                    updatedClaim.setClaimStatus(2);
+
+                    Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
+                    Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);
+                    updatedHospice.setTotalHospiceBalance(hospiceAssociatedWithClaim.getTotalHospiceBalance() - claimAmountOfSelectedClaim);
+                    JOptionPane.showMessageDialog(this, "Claim has been successfully fully adjudicated!"
+                    +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
+                            "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
+
+                    populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Hospice does not have enough funds to fully adjudicate the claim.\n"
+                        + "This claim can be rejected or partially adjudicated");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Claim with status as '"+lookUps.mapClaimStatus(selectedClaim.getClaimStatus())
+                        +"' cannot be fully adjudicated");
+            }
+        }
         
     }//GEN-LAST:event_btnFullyAdjudicateActionPerformed
 
@@ -181,20 +224,124 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
         lblAdjudicationAmt.setVisible(true);
         txtAdjudicationAmt.setVisible(true);
         btnAdjudicate.setVisible(true);
+        int selectedIndex = tblClaims.getSelectedRow();
+        
+        if(selectedIndex < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
+        } 
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblClaims.getModel();
+            Claim selectedClaim = (Claim) model.getValueAt(selectedIndex, 8);
+            double claimAmount = selectedClaim.getClaimAmount();
+            double currentHospiceBalance = selectedClaim.getHospice().getTotalHospiceBalance();
+            
+            String adjudicationAmountInString = txtAdjudicationAmt.getText();
+            double adjudicationAmount = Double.parseDouble(adjudicationAmountInString);
+            if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
+            {
+               if(adjudicationAmount < claimAmount)
+                {
+                    if(adjudicationAmount > currentHospiceBalance)
+                    {
+                        Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                        updatedClaim.setAdjudicatedAmount(adjudicationAmount);
+                        updatedClaim.setClaimStatus(2);
+
+                        Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
+                        Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);
+                        updatedHospice.setTotalHospiceBalance(hospiceAssociatedWithClaim.getTotalHospiceBalance() - adjudicationAmount);
+                        JOptionPane.showMessageDialog(this, "Claim has been successfully fully adjudicated!"
+                        +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
+                            "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
+
+                        populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                    }
+                    else{
+                    JOptionPane.showMessageDialog(this, "Hospice does not have enough funds to fully adjudicate the claim.\n"
+                            + "This claim needs to be rejected");
+                    // Rejection workflow
+                    Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                    updatedClaim.setAdjudicatedAmount(0.00);
+                    updatedClaim.setClaimStatus(3);
+                    populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Adjudication Amount cannot be greater or equal to Claim Amount");
+                    txtAdjudicationAmt.setText("");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Claim with status as '"+lookUps.mapClaimStatus(selectedClaim.getClaimStatus())
+                        +"' cannot be partially adjudicated"); 
+             }
+        }
     }//GEN-LAST:event_btnPartialAdjudicationActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
+         int selectedIndex = tblClaims.getSelectedRow();
+         if(selectedIndex < 0)
+         {
+             JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
+         }
+         else{
+             DefaultTableModel model = (DefaultTableModel) tblClaims.getModel();
+             Claim selectedClaim = (Claim) model.getValueAt(selectedIndex, 8);
+              if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
+              {
+                  Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                updatedClaim.setAdjudicatedAmount(0.00);
+                updatedClaim.setClaimStatus(3);
+                JOptionPane.showMessageDialog(this, "Claim has been successfully rejected!" +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
+                        "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
+                populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+              }
+              else{
+                  JOptionPane.showMessageDialog(this, "Claim with status as '"+lookUps.mapClaimStatus(selectedClaim.getClaimStatus())
+                        +"' cannot be rejected"); 
+              }
+         }
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        String searchParameter = ddSearchType.getSelectedItem().toString();
+        String searchValue = txtSearch.getText();
+        if(!searchValue.equals(""))
+        {
+            populateTable(searchParameter, searchValue);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Enter a search value before proceding");
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdjudicate;
+    private javax.swing.JButton btnFullyAdjudicate;
+    private javax.swing.JButton btnPartialAdjudication;
+    private javax.swing.JButton btnReject;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> ddSearchType;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAdjudicationAmt;
+    private javax.swing.JTable tblClaims;
+    private javax.swing.JTextField txtAdjudicationAmt;
+    private javax.swing.JTextField txtSearch;
+    // End of variables declaration//GEN-END:variables
+
+    private void populateTable(String searchParameter, String searchValue) {
         LookUpMapping lookup = new LookUpMapping();
         DefaultTableModel model1 = (DefaultTableModel) tblClaims.getModel();
         model1.setRowCount(0);
         Object[] row = new Object[9];
-        String searchParameter = ddSearchType.getSelectedItem().toString();
-        String searchValue = txtSearch.getText();
         switch(searchParameter)
         {
             case "Batch Number":
@@ -203,7 +350,10 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
                     
                     Claim selectedClaim = system.getClaimsDirectory().findClaimByBatchNumber(searchValue, 
                             system.getClaimsDirectory().getListOfClaims());
-                    if(selectedClaim != null)
+                    if(selectedClaim != null && 
+                            selectedClaim.getPayerForClaim().equals(
+                            system.getPayerDirectory().findPayerByEmailID(
+                            userAccount.getUsername(), system.getPayerDirectory().getListOfPayers())))
                     {
                         
                         row[0] = selectedClaim.getClaimID();
@@ -219,7 +369,7 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
                     }
                     else{
                         JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
-                                                     +searchValue+"'");
+                                                     +searchValue+"' assigned to logged in Payer");
                     }
                     model1.addRow(row);
                 }
@@ -229,7 +379,10 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
                 {
                     Claim selectedClaim = system.getClaimsDirectory().findClaimByID(searchValue, 
                             system.getClaimsDirectory().getListOfClaims());
-                    if(selectedClaim != null)
+                    if(selectedClaim != null && 
+                            selectedClaim.getPayerForClaim().equals(
+                            system.getPayerDirectory().findPayerByEmailID(
+                            userAccount.getUsername(), system.getPayerDirectory().getListOfPayers())))
                     {
                         row[0] = selectedClaim.getClaimID();
                         row[1] = selectedClaim.getPatient().getPatientName();
@@ -251,21 +404,5 @@ public class ManageClaimsJPanel extends javax.swing.JPanel {
                 }
                 break;
         }
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdjudicate;
-    private javax.swing.JButton btnFullyAdjudicate;
-    private javax.swing.JButton btnPartialAdjudication;
-    private javax.swing.JButton btnReject;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JComboBox<String> ddSearchType;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAdjudicationAmt;
-    private javax.swing.JTable tblClaims;
-    private javax.swing.JTextField txtAdjudicationAmt;
-    private javax.swing.JTextField txtSearch;
-    // End of variables declaration//GEN-END:variables
+    }
 }

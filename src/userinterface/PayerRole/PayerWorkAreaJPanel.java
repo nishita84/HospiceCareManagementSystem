@@ -9,7 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Claims.CreateClaimJPanel;
-import userinterface.Claims.ManageClaimsJPanel;
+import userinterface.Claims.AdjudicateClaimsJPanel;
 
 /**
  *
@@ -121,7 +121,7 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageClaimsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageClaimsActionPerformed
         // TODO add your handling code here:
-        ManageClaimsJPanel manageClaimJPanel = new ManageClaimsJPanel(account, business);
+        AdjudicateClaimsJPanel manageClaimJPanel = new AdjudicateClaimsJPanel(account, business);
         jSplitPane1.setRightComponent(manageClaimJPanel);
     }//GEN-LAST:event_btnManageClaimsActionPerformed
 

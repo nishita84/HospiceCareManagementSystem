@@ -61,7 +61,7 @@ public class HospiceDirectory {
         newHospice.setHospiceZipCode(hospiceZipCode);
         newHospice.setHospiceEmailID(hospiceEmailID);
         newHospice.setHospiceContactNumber(hospiceContactNumber);
-        newHospice.setTotalHospiceBalance(0.00);
+        newHospice.setTotalHospiceBalance(1500);
         newHospice.setRegisteredProvidersInHospice(registeredProvidersInHospice);
         newHospice.setRegisteredNursesInHospice(registeredNursesInHospice);
         newHospice.setRegisteredPatientsInHospice(registeredPatientsInHospice);
