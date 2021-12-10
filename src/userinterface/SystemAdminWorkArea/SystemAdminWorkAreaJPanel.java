@@ -6,6 +6,7 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.Automated.AutomatedEntry;
+import Business.Configurations.Configurations;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
@@ -28,6 +29,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.userAccount = userAccount;
+        for(Configurations config : ecosystem.getConfigDirectory().getListOfConfigurations())
+        {
+            if(config.isHasAutomatedSetupBeenRun())
+            {
+                btnAutomatedSetup.setEnabled(false);
+            }
+        }
         //populateTree();
     }
     
@@ -185,7 +193,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 && automatedEntry.AutomatedCreationOfDiagnosis() && automatedEntry.AutomatedCreationOfServices()
                 && automatedEntry.AutomatedCreationOfLinkages())
         {
-            JOptionPane.showMessageDialog(this, "Success, please logout and login again!");
+            Configurations config = ecosystem.getConfigDirectory().createNewConfigurations(true);
+            if(config != null)
+            {
+                JOptionPane.showMessageDialog(this, "Success, please logout and login again!");
+            }
         }
         
     }//GEN-LAST:event_btnAutomatedSetupActionPerformed

@@ -8,10 +8,12 @@ package Business;
 
 import Business.Alerts.AlertsDirectory;
 import Business.ClaimsBilling.ClaimsDirectory;
+import Business.Configurations.ConfigurationDirectory;
 import Business.Counsellors.CounsellorDirectory;
 import Business.Diagnosis.DiagnosisDirectory;
 import Business.Donation.DonationDirectory;
 import Business.Donors.DonorsDirectory;
+import Business.Forms.COVIDFormsDirectory;
 import Business.Hospice.HospiceDirectory;
 import Business.Linkage.LinkageDirectory;
 import Business.Nurses.NursesDirectory;
@@ -47,12 +49,15 @@ public class EcoSystem extends Organization{
     AlertsDirectory alertsDirectory;
     LinkageDirectory linkageDirectory;
     ClaimsDirectory claimsDirectory;
+    COVIDFormsDirectory covidFormsDirectory;
+    ConfigurationDirectory configDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
                        DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory, 
-                       AlertsDirectory alertsDirectory, LinkageDirectory linkageDirectory, ClaimsDirectory claimsDirectory)  
+                       AlertsDirectory alertsDirectory, LinkageDirectory linkageDirectory, ClaimsDirectory claimsDirectory, 
+                       COVIDFormsDirectory covidFormsDirectory, ConfigurationDirectory configDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -69,6 +74,8 @@ public class EcoSystem extends Organization{
         this.alertsDirectory = alertsDirectory;
         this.linkageDirectory = linkageDirectory;
         this.claimsDirectory = claimsDirectory;
+        this.covidFormsDirectory = covidFormsDirectory;
+        this.configDirectory = configDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -101,6 +108,8 @@ public class EcoSystem extends Organization{
          alertsDirectory = new AlertsDirectory();
          linkageDirectory = new LinkageDirectory();
          claimsDirectory = new ClaimsDirectory();
+         covidFormsDirectory = new COVIDFormsDirectory();
+         configDirectory = new ConfigurationDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -223,7 +232,23 @@ public class EcoSystem extends Organization{
     public void setClaimsDirectory(ClaimsDirectory claimsDirectory) {
         this.claimsDirectory = claimsDirectory;
     }
-    
+
+    public COVIDFormsDirectory getCovidFormsDirectory() {
+        return covidFormsDirectory;
+    }
+
+    public void setCovidFormsDirectory(COVIDFormsDirectory covidFormsDirectory) {
+        this.covidFormsDirectory = covidFormsDirectory;
+    }
+
+    public ConfigurationDirectory getConfigDirectory() {
+        return configDirectory;
+    }
+
+    public void setConfigDirectory(ConfigurationDirectory configDirectory) {
+        this.configDirectory = configDirectory;
+    }
+
     public boolean checkIfUserIsUnique(String userName){
        //
        return false;
