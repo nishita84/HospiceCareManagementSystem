@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author  raunak
+ * @author rohannayak
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
@@ -98,9 +98,19 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(btnAddProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
 
         btnAddPatient.setText("Add Patient");
+        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientActionPerformed(evt);
+            }
+        });
         add(btnAddPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
 
         btnAddNurse.setText("Add Nurse");
+        btnAddNurse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddNurseActionPerformed(evt);
+            }
+        });
         add(btnAddNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 179, 120, 30));
 
         btnAddCounsellor.setText("Add Counsellor");
@@ -148,9 +158,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void btnAddProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProviderActionPerformed
         // TODO add your handling code here:
         AddProviderJPanel addProviderJPanel = new AddProviderJPanel();
-        userProcessContainer.add("Add Provider", addProviderJPanel);
+        userProcessContainer.add("Add Counsellor", addProviderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnAddProviderActionPerformed
 
     private void btnAddCounsellorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCounsellorActionPerformed
@@ -168,6 +179,22 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageCounsellorsActionPerformed
+
+    private void btnAddNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNurseActionPerformed
+        // TODO add your handling code here:
+        AddNurseJPanel addNurseJPanel = new AddNurseJPanel();
+        userProcessContainer.add("Add Nurse", addNurseJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddNurseActionPerformed
+
+    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
+        // TODO add your handling code here:
+        AddPatientJPanel addPatientJPanel = new AddPatientJPanel();
+        userProcessContainer.add("Add Patient", addPatientJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddPatientActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
