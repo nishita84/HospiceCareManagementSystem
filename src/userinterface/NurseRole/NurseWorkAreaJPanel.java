@@ -10,7 +10,7 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Alerts.ManageAlertsNurseJPanel;
 import userinterface.Alerts.ManageAlertsProviderJPanel;
-import userinterface.Forms.NurseVisitationFormJPanel;
+import userinterface.Workflows.LogVitalSignsJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
 import userinterface.Workflows.VitalSignsReportsJPanel;
 
@@ -47,18 +47,11 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnNurseVisitationForm = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
         btnAlerts = new javax.swing.JButton();
         btnPatientHealthData = new javax.swing.JButton();
+        btnLogVitalSigns = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-
-        btnNurseVisitationForm.setText("Fill Patient Assessment Form");
-        btnNurseVisitationForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNurseVisitationFormActionPerformed(evt);
-            }
-        });
 
         btnReports.setText("View Reports and Charts");
         btnReports.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +74,13 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogVitalSigns.setText("Log Vital Signs");
+        btnLogVitalSigns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogVitalSignsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -88,24 +88,27 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPatientHealthData)
-                    .addComponent(btnNurseVisitationForm)
-                    .addComponent(btnReports))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnLogVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReports, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(113, 113, 113)
                 .addComponent(btnPatientHealthData)
-                .addGap(48, 48, 48)
-                .addComponent(btnNurseVisitationForm)
-                .addGap(39, 39, 39)
+                .addGap(47, 47, 47)
+                .addComponent(btnLogVitalSigns)
+                .addGap(40, 40, 40)
                 .addComponent(btnReports)
-                .addGap(43, 43, 43)
+                .addGap(39, 39, 39)
                 .addComponent(btnAlerts)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -158,16 +161,16 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(manageAlertsPanel);
     }//GEN-LAST:event_btnAlertsActionPerformed
 
-    private void btnNurseVisitationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNurseVisitationFormActionPerformed
+    private void btnLogVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogVitalSignsActionPerformed
         // TODO add your handling code here:
-        NurseVisitationFormJPanel nurseVisitationFormJPanel = new NurseVisitationFormJPanel();
-        jSplitPane1.setRightComponent(nurseVisitationFormJPanel);
-    }//GEN-LAST:event_btnNurseVisitationFormActionPerformed
+        LogVitalSignsJPanel logVitalSignsPanel = new LogVitalSignsJPanel(system, account);
+        jSplitPane1.setRightComponent(logVitalSignsPanel);
+    }//GEN-LAST:event_btnLogVitalSignsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlerts;
-    private javax.swing.JButton btnNurseVisitationForm;
+    private javax.swing.JButton btnLogVitalSigns;
     private javax.swing.JButton btnPatientHealthData;
     private javax.swing.JButton btnReports;
     private javax.swing.JPanel jPanel1;

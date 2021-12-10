@@ -18,6 +18,8 @@ public class Patient {
     private String patientName;
     private String patientAddress;
     private String patientCity;
+    private String gender;
+    private String ethincity;
     private String patientState;
     private String patientZipCode;
     private String patientCountry;
@@ -175,5 +177,21 @@ public class Patient {
 
     public void setOperatingHospice(Hospice operatingHospice) {
         this.operatingHospice = operatingHospice;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEthincity() {
+        return ethincity;
+    }
+
+    public void setEthincity(String ethincity) {
+        this.ethincity = ethincity;
     }
 }

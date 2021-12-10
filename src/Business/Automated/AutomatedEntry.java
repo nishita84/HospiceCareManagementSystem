@@ -269,6 +269,12 @@ public class AutomatedEntry {
                    String patientName = (eElement.getElementsByTagName("name")
                                         .item(0).getTextContent());
                    
+                   String patientGender = (eElement.getElementsByTagName("gender")
+                                        .item(0).getTextContent());
+                   
+                   String patientEthnicity = (eElement.getElementsByTagName("ethnicity")
+                                        .item(0).getTextContent());
+                   
                    String patientAddress = eElement.getElementsByTagName("address")
                                         .item(0).getTextContent();
                    
@@ -319,7 +325,7 @@ public class AutomatedEntry {
                    hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
                            system.getHospiceDirectory().getListOfHospice());
                    
-                    patient = system.getPatientDirectory().createPatient(patientMRN, patientName, 
+                    patient = system.getPatientDirectory().createPatient(patientMRN, patientName, patientGender, patientEthnicity, 
                             patientAddress, patientCity, patientState, patientZipCode, patientCountry, 
                             patientContactNumber, patientEmailID, registeredProviderForPatient, 
                             registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice);
