@@ -255,7 +255,7 @@ public class LogVitalSignsJPanel extends javax.swing.JPanel {
         String diastoleInString = (txtDiastoleReading.getText());
         String gender = txtGender.getText();
         String ethinicity = txtEthnicity.getText();
-        ValidationLogic validationLogic = new ValidationLogic(system);
+        ValidationLogic validationLogic = new ValidationLogic();
         if(validationLogic.ValidateIfAllFieldsOnUIAreFilledAndAreNumeric(mrn,  weightInString,
             heightInString, totalCholesterolReadingInString, systoleInString, diastoleInString))
         {
