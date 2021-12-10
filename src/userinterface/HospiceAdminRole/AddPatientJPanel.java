@@ -5,6 +5,16 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Patients.Patient;
+import Business.Providers.Provider;
+import Business.SetIDsForEnterprises;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +24,17 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddPatientJPanel
      */
+    UserAccount userAccount;
+    EcoSystem system;
+    
     public AddPatientJPanel() {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+//        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+//                system.getHospiceDirectory().getListOfHospice());
+//        HospiceDropdown.setSelectedItem(hospice.getHospiceName());
+//        populateProviderDropdown();
     }
 
     /**
@@ -52,9 +71,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbDateOfBirth = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        OperatingProvider = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        Payer = new javax.swing.JComboBox();
         txtAddress = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -109,15 +128,17 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbDateOfBirth.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbDateOfBirth.setText("Date of Birth :");
 
+        jDateChooser1.setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel2.setText("Provider :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        OperatingProvider.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel3.setText("Payer :");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Payer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,8 +176,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(TerminalIllnessDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPatientMRN)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OperatingProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Payer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtAddress))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,11 +242,11 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OperatingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Payer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddPatient)
@@ -235,14 +256,44 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_8(txtName, txtAddress, txtCity, txtState, txtZipCode,
+                txtCountry, txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode)){
+            String patientName = txtName.getText();
+            String patientAddress = txtAddress.getText();
+            String patientCity = txtCity.getText();
+            String patientState = txtState.getText();
+            String patientZipcode = txtZipCode.getText();
+            String patientCountry = txtCountry.getText();
+            String patientContactNumber = txtContactNumber.getText();
+            String patientEmailID = txtEmailID.getText();
+            String patientMRN = txtPatientMRN.getText();
+            String providerNPIChosen = OperatingProvider.getSelectedItem().toString();
+            Date dateOfBirth = jDateChooser1.getDate();
+//            Provider associatedProvider = system.getProviderDirectory().findProviderByNPI(providerNPIChosen, 
+//                    system.getProviderDirectory().getProviderList());
+//            Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName, patientCity, patientAddress,patientState, patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
+//                    registeredProvider, registeredPayer, dateOfBirth, true, hospice);
+//            if(newPatient != null)
+//            {
+//                JOptionPane.showMessageDialog(this, "Patient added successfully!");
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(this, "Patient details are not saved successfully!!");
+//            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+        }
     }//GEN-LAST:event_btnAddPatientActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> OperatingProvider;
+    private javax.swing.JComboBox<String> Payer;
     private javax.swing.JComboBox<String> TerminalIllnessDropDown;
     private javax.swing.JButton btnAddPatient;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -269,4 +320,15 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
+    private void populateProviderDropdown() {
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        for(Provider provider : system.getProviderDirectory().getProviderList())
+        {
+            if(provider.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                OperatingProvider.addItem(provider.getProviderNPI());
+            }
+        }
+    }
 }

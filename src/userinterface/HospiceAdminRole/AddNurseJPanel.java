@@ -5,6 +5,16 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Nurses.Nurse;
+import Business.Providers.Provider;
+import Business.SetIDsForEnterprises;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +24,17 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddNurseJPanel
      */
-    public AddNurseJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    
+    public AddNurseJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        HospiceDropdown.setSelectedItem(hospice.getHospiceName());
+        populateProviderDropdown();
     }
 
     /**
@@ -47,11 +66,11 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         ReportingProviderDropDown = new javax.swing.JComboBox();
         btnAddNurse = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lbNurseID = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         HospiceDropdown = new javax.swing.JComboBox();
-        txtNurseId1 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -86,7 +105,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         lbReportingProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbReportingProvider.setText("Reporting Provider :");
 
-        ReportingProviderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ReportingProviderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
 
         btnAddNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddNurse.setText("Add Nurse");
@@ -98,27 +117,29 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Nurse_Image2.png"))); // NOI18N
 
-        lbNurseID.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
-        lbNurseID.setText("Nurse ID :");
-
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel2.setText("Hospice :");
 
-        HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel4.setText("Date Of  Birth :");
+
+        jDateChooser2.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(63, 63, 63)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbAddress)
-                            .addComponent(lbName)
                             .addComponent(lbCity)
                             .addComponent(lbState)
                             .addComponent(lbZipCode)
@@ -126,23 +147,27 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                             .addComponent(lbContactNumber)
                             .addComponent(lbEmailID)
                             .addComponent(lbReportingProvider)
-                            .addComponent(lbNurseID)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(lbName))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAddNurse)
-                            .addComponent(txtName)
-                            .addComponent(txtCity)
-                            .addComponent(txtState)
-                            .addComponent(txtZipCode)
-                            .addComponent(txtCountry)
-                            .addComponent(txtContactNumber)
-                            .addComponent(txtEmailID)
-                            .addComponent(txtAddress)
-                            .addComponent(HospiceDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNurseId1)
-                            .addComponent(ReportingProviderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCity)
+                                .addComponent(txtState)
+                                .addComponent(txtZipCode)
+                                .addComponent(txtCountry)
+                                .addComponent(txtContactNumber)
+                                .addComponent(txtEmailID)
+                                .addComponent(txtAddress)
+                                .addComponent(HospiceDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ReportingProviderDropDown, 0, 244, Short.MAX_VALUE)
+                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(8, 8, 8)
+                                    .addComponent(btnAddNurse))))))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -151,21 +176,22 @@ public class AddNurseJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(lbTitle)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbName)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lbName)
-                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(4, 4, 4)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lbNurseID)
-                                            .addComponent(txtNurseId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbAddress))
@@ -188,30 +214,60 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                                         .addGap(31, 31, 31))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lbContactNumber))
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbContactNumber)))
                                 .addGap(31, 31, 31))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbEmailID)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ReportingProviderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbReportingProvider))
-                        .addGap(31, 31, 31))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(HospiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)))
-                .addGap(147, 147, 147)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ReportingProviderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbReportingProvider))
+                                .addGap(31, 31, 31))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(HospiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))))
+                .addGap(26, 26, 26)
                 .addComponent(btnAddNurse)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(470, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNurseActionPerformed
         // TODO add your handling code here:
-        //        nurse.setNurseName(txtName.getText());
-        //        nurse.setNurseId(txtNurseId.getText());
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_8(txtName, txtAddress, txtCity, txtState, txtZipCode,
+                txtCountry, txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode)){
+            String nurseName = txtName.getText();
+            String nurseAddress = txtAddress.getText();
+            String nurseCity = txtCity.getText();
+            String nurseState = txtState.getText();
+            String nurseZipcode = txtZipCode.getText();
+            String nurseCountry = txtCountry.getText();
+            String nurseContactNumber = txtContactNumber.getText();
+            String nurseEmailID = txtEmailID.getText();
+            SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+            String nurseID = setIDForEnterprises.SetIDForNurse();
+            String providerNPIChosen = ReportingProviderDropDown.getSelectedItem().toString();
+            Date dateOfBirth = jDateChooser2.getDate();
+            Provider providerWhoNurseWorksFor = system.getProviderDirectory().findProviderByNPI(providerNPIChosen, 
+                    system.getProviderDirectory().getProviderList());
+            Nurse newNurse = system.getNurseDirectory().createNurse(nurseID, nurseName, nurseAddress, nurseCity, nurseState, nurseZipcode, nurseCountry, nurseContactNumber, nurseEmailID, 
+                    providerWhoNurseWorksFor, dateOfBirth, providerWhoNurseWorksFor.getOperatingHospice(), true);
+            if(newNurse != null)
+            {
+                JOptionPane.showMessageDialog(this, "Nurse added successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Nurse details are not saved successfully!!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+        }
     }//GEN-LAST:event_btnAddNurseActionPerformed
 
 
@@ -219,15 +275,16 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> HospiceDropdown;
     private javax.swing.JComboBox<String> ReportingProviderDropDown;
     private javax.swing.JButton btnAddNurse;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
     private javax.swing.JLabel lbCountry;
     private javax.swing.JLabel lbEmailID;
     private javax.swing.JLabel lbName;
-    private javax.swing.JLabel lbNurseID;
     private javax.swing.JLabel lbReportingProvider;
     private javax.swing.JLabel lbState;
     private javax.swing.JLabel lbTitle;
@@ -238,8 +295,19 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtNurseId1;
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
+
+    private void populateProviderDropdown() {
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        for(Provider provider : system.getProviderDirectory().getProviderList())
+        {
+            if(provider.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                ReportingProviderDropDown.addItem(provider.getProviderNPI());
+            }
+        }
+    }
 }
