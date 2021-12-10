@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import userinterface.Workflows.ChatBotSymptomsJPanel;
 import userinterface.Alerts.CreateAnAlertJPanel;
 import userinterface.Appointments.ScheduleAppointmentJPanel;
-import userinterface.Forms.SelfDiagnosisFormJPanel;
+import userinterface.Forms.COVIDSelfDiagnosisFormJPanel;
 
 /**
  *
@@ -34,15 +34,8 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
-    }
-    
-    public void populateRequestTable(){
-        
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -168,8 +161,15 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private void btnSelfDiagnosisFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelfDiagnosisFormActionPerformed
         // TODO add your handling code here:
-        SelfDiagnosisFormJPanel selfDiagnosisFormJPanel = new SelfDiagnosisFormJPanel();
-        jSplitPane1.setRightComponent(selfDiagnosisFormJPanel);
+        try{
+            COVIDSelfDiagnosisFormJPanel selfDiagnosisFormJPanel = new COVIDSelfDiagnosisFormJPanel(userAccount, system);
+            jSplitPane1.setRightComponent(selfDiagnosisFormJPanel);
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+                
     }//GEN-LAST:event_btnSelfDiagnosisFormActionPerformed
 
     private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
