@@ -5,15 +5,27 @@
 
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Payers.Payer;
+import Business.SetIDsForEnterprises;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nishitasheelendraupadhyay
  */
 public class AddPayerJPanel extends javax.swing.JPanel {
+    UserAccount userAccount;
+    EcoSystem system;
 
     /** Creates new form AddPayerJPanel */
+    
     public AddPayerJPanel() {
         initComponents();
+        this.system = system;
+        this.userAccount = userAccount;
     }
 
     /** This method is called from within the constructor to
@@ -31,10 +43,9 @@ public class AddPayerJPanel extends javax.swing.JPanel {
         lbAmount = new javax.swing.JLabel();
         lblimage = new javax.swing.JLabel();
         lbAmount1 = new javax.swing.JLabel();
-        txtAmount1 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        txtEmailID = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        txtBillingAddress = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -56,17 +67,24 @@ public class AddPayerJPanel extends javax.swing.JPanel {
 
         lbAmount1.setText("Email ID:");
 
-        txtAmount1.addActionListener(new java.awt.event.ActionListener() {
+        txtEmailID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmount1ActionPerformed(evt);
+                txtEmailIDActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Save");
+        txtBillingAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBillingAddressActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,10 +103,10 @@ public class AddPayerJPanel extends javax.swing.JPanel {
                             .addComponent(lbAmount1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addComponent(txtAmount1)
+                            .addComponent(txtEmailID)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
+                            .addComponent(btnSave)
+                            .addComponent(txtBillingAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
@@ -106,16 +124,16 @@ public class AddPayerJPanel extends javax.swing.JPanel {
                             .addComponent(lbName)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbAmount)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbAmount1)
-                            .addComponent(txtAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35)
-                .addComponent(jButton1)
-                .addContainerGap(611, Short.MAX_VALUE))
+                            .addComponent(lbAmount)
+                            .addComponent(txtBillingAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbAmount1))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSave)))
+                .addContainerGap(675, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -123,21 +141,50 @@ public class AddPayerJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void txtAmount1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmount1ActionPerformed
+    private void txtEmailIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAmount1ActionPerformed
+    }//GEN-LAST:event_txtEmailIDActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         ValidationLogic validationLogic = new ValidationLogic();
+         if(validationLogic.validateIfAllFieldsAreFilled_3(txtName, txtBillingAddress, txtEmailID))
+         {
+             String PayerName = txtName.getText();
+             String PayerBillingAddress = txtBillingAddress.getText();
+             String PayerEmailID = txtEmailID.getText();
+             SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+             String PayerID = setIDForEnterprises.SetIDForDonors();
+             Payer NewPayer = system.getPayerDirectory().createPayer(PayerID, PayerName, PayerID, PayerEmailID);
+             if(NewPayer!= null)
+             {
+                 JOptionPane.showMessageDialog(this, "Payer details are saved successfully!!");
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(this, "Payer details not saved successfully!");
+             }
+         }
+         else
+         {
+                  JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+         }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtBillingAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBillingAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBillingAddressActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel lbAmount;
     private javax.swing.JLabel lbAmount1;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lblimage;
-    private javax.swing.JTextField txtAmount1;
+    private javax.swing.JTextField txtBillingAddress;
+    private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 

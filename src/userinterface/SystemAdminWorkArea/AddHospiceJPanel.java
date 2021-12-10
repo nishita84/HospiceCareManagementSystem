@@ -6,7 +6,11 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -113,6 +117,11 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         });
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/Hospice.png")); // NOI18N
 
@@ -226,6 +235,35 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
     private void txtEmailIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailIDActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_8(txtName, txtAddress, txtCity, txtState,txtZipCode, txtCountry, txtContactNo,txtEmailID))
+        {
+            String HospiceName = txtName.getText();
+            String HospiceAddress = txtAddress.getText();
+            String HospiceCity = txtCity.getText();
+            String HospiceState = txtState.getText();
+            String Zipcode = txtZipCode.getText();
+            String HospiceCoutry = txtCountry.getText();
+            String HospiceContactNo = txtContactNo.getText();
+            String HospiceEmail = txtEmailID.getText();
+            SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+            String HospiceID = setIDForEnterprises.SetIDForDonors();
+            Hospice newHospice = system.getHospiceDirectory().createNewHospice(HospiceID, HospiceName, HospiceAddress, HospiceCity, HospiceState, HospiceCoutry, HospiceContactNo, HospiceEmail, HospiceID);
+            if(newHospice != null)
+            {
+                JOptionPane.showMessageDialog(this, "Hospice details saved successfully!");
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Hospice details not saved successfully!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

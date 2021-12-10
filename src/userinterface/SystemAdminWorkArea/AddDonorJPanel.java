@@ -91,11 +91,12 @@ public class AddDonorJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(95, 95, 95))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
                 .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(157, Short.MAX_VALUE))
         );
@@ -140,6 +141,14 @@ public class AddDonorJPanel extends javax.swing.JPanel {
             {
                 JOptionPane.showMessageDialog(this, "Donor saved successfully!");
             }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Donor details are not saved successfully!!");
+            }
+        }
+        else
+        {
+             JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 

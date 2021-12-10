@@ -185,6 +185,29 @@ public class ValidationLogic {
     }
     
     
+    public boolean validateIfAllFieldsAreFilled_8(JTextField field1, JTextField field2, JTextField field3, 
+            JTextField field4, JTextField field5, JTextField field6,JTextField field7,JTextField field8)
+    {
+        boolean areAllFieldsFilled = true;
+        String field1Value = field1.getText();
+        String field2Value = field2.getText();
+        String field3Value = field3.getText();
+        String field4Value = field4.getText();
+        String field5Value = field5.getText();
+        String field6Value = field6.getText();
+        String field7Value = field7.getText();
+        String field8Value = field8.getText();
+        
+        if(field1Value.equals("") || field2Value.equals("") || field3Value.equals("")
+                || field4Value.equals("") || field5Value.equals("") || field6Value.equals("") || field7Value.equals("") 
+                || field8Value.equals(""))
+        {
+            areAllFieldsFilled = false;
+        }
+        return areAllFieldsFilled;
+    }
+    
+    
     public boolean validateIfFieldIsNumeric(JTextField field)
     {
         boolean isFilledNumeric = true;
@@ -209,5 +232,9 @@ public class ValidationLogic {
         }
         return isContactNumberValid;
     }
+
+   // public boolean validateIfAllFieldsAreFilled_8(JTextField txtName, JTextField txtAddress, JTextField txtCity, JTextField txtState, JTextField txtZipCode, JTextField txtCountry, JTextField txtContactNo, JTextField txtEmailID) {
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
   
 }
