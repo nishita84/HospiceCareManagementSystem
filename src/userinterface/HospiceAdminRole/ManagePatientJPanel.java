@@ -7,7 +7,7 @@ package userinterface.HospiceAdminRole;
 
 /**
  *
- * @author architnigam
+ * @author rohannayak
  */
 public class ManagePatientJPanel extends javax.swing.JPanel {
 
