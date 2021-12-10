@@ -67,11 +67,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 89, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,6 +81,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         jSplitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
         btnAddHospice.setText("Add Hospice");
         btnAddHospice.addActionListener(new java.awt.event.ActionListener() {
