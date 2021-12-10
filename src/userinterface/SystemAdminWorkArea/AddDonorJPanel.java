@@ -5,8 +5,11 @@
 
 package userinterface.SystemAdminWorkArea;
 
+import Business.Donors.Donor;
 import Business.EcoSystem;
+import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +21,12 @@ public class AddDonorJPanel extends javax.swing.JPanel {
     /** Creates new form AddDonorJPanel */
     UserAccount userAccount;
     EcoSystem system;
+    
     public AddDonorJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
         this.system = system;
+        
     }
 
     /** This method is called from within the constructor to
@@ -37,9 +42,9 @@ public class AddDonorJPanel extends javax.swing.JPanel {
         lbName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lbAmount = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
+        txtEmailID = new javax.swing.JTextField();
         lblimage = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -64,10 +69,10 @@ public class AddDonorJPanel extends javax.swing.JPanel {
 
         lblimage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/donor.png")); // NOI18N
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
@@ -84,9 +89,9 @@ public class AddDonorJPanel extends javax.swing.JPanel {
                             .addComponent(lbAmount))
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)))
@@ -111,19 +116,32 @@ public class AddDonorJPanel extends javax.swing.JPanel {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbAmount)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
-                .addComponent(jButton1)
+                .addComponent(btnSave)
                 .addContainerGap(773, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_2(txtEmailID, txtName))
+        {
+            String donorName = txtName.getText();
+            String emailID = txtEmailID.getText();
+            SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+            String donorID = setIDForEnterprises.SetIDForDonors();
+            Donor newDonor = system.getDonorDirectory().createNewDonor(donorID, donorName, emailID);
+            if(newDonor != null)
+            {
+                JOptionPane.showMessageDialog(this, "Donor saved successfully!");
+            }
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
@@ -135,12 +153,12 @@ public class AddDonorJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel lbAmount;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lblimage;
-    private javax.swing.JTextField txtAmount;
+    private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 

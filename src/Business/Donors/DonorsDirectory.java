@@ -32,7 +32,7 @@ public class DonorsDirectory {
     
     public Donor createNewDonor(String donorID, String donorName, String donatorEmailID)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+        
         Donor newDonor = new Donor();
         newDonor.setDonorID(donorID);
         newDonor.setDonorName(donorName);

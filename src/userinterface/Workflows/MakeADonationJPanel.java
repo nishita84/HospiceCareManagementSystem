@@ -133,7 +133,7 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
 
     private void btnDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonationActionPerformed
         // TODO add your handling code here:
-        ValidationLogic validationLogic = new ValidationLogic(system);
+        ValidationLogic validationLogic = new ValidationLogic();
         String donorName = txtDonorName.getText();
         Donor donor = system.getDonorDirectory().findDonorByName(donorName, system.getDonorDirectory().getListOfDonors());
         String donationAmount = txtAmount.getText(); // add validation for double fields

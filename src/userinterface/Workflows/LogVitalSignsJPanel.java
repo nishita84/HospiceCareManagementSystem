@@ -254,7 +254,7 @@ jPanel1Layout.setHorizontalGroup(
         String diastoleInString = (txtDiastoleReading.getText());
         String gender = txtGender.getText();
         String ethinicity = ddEthinicity.getSelectedItem().toString();
-        ValidationLogic validationLogic = new ValidationLogic(system);
+        ValidationLogic validationLogic = new ValidationLogic();
         if(validationLogic.ValidateIfAllFieldsOnUIAreFilledAndAreNumeric(mrn,  weightInString,
             heightInString, totalCholesterolReadingInString, systoleInString, diastoleInString))
         {
