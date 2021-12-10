@@ -5,6 +5,10 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +18,13 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddCounsellorJPanel
      */
-    public AddCounsellorJPanel() {
+    Hospice hopsice;
+    UserAccount account;
+    EcoSystem system;
+    public AddCounsellorJPanel(UserAccount account, EcoSystem system) {
         initComponents();
+        
+        
     }
 
     /**
@@ -186,8 +195,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
     private void btnAddCounsellorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCounsellorActionPerformed
         // TODO add your handling code here:
-        //        nurse.setNurseName(txtName.getText());
-        //        nurse.setNurseId(txtCounsellorId.getText());
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(account.getUsername(), 
+                system.getHospiceDirectory().getListOfHospice());
     }//GEN-LAST:event_btnAddCounsellorActionPerformed
 
 
