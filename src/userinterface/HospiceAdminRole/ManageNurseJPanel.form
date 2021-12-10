@@ -31,26 +31,28 @@
                       <EmptySpace min="-2" pref="365" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="690" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnRefresh" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="btnUpdate" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnDelete" min="-2" pref="87" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Component id="btnCreate" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" alignment="0" min="-2" pref="690" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-              <Component id="btnUpdate" min="-2" pref="93" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" alignment="0" min="-2" pref="336" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnDelete" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="btnCreate" min="-2" pref="150" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="285" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="336" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -72,6 +74,7 @@
                   <Component id="btnCreate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btnRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="240" max="-2" attributes="0"/>
@@ -177,6 +180,14 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Images/Nurse_Image2.png"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRefresh">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="13" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
     </Component>
   </SubComponents>
