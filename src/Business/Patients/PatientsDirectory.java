@@ -5,7 +5,6 @@
  */
 package Business.Patients;
 
-import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
@@ -32,7 +31,8 @@ public class PatientsDirectory {
         this.listOfPatients = listOfPatients;
     }
     
-     public Patient createPatient(String patientMRN, String patientsName, String patientsAddress, String patientsCity, String patientsState, 
+     public Patient createPatient(String patientMRN, String patientsName, String patientGender, String patientEthnicity,
+             String patientsAddress, String patientsCity, String patientsState, 
              String patientsZipCode, String patientsCountry, String patientsContactNo, String patientsEmailID, Provider registeredProvider, 
              Payer registeredPayer, String terminalIllnessAssociatedWithPatient,  Date dateOfBirth, 
              boolean isPatientAnInPatient, Hospice hospice) {
@@ -55,6 +55,8 @@ public class PatientsDirectory {
             newPatient.setAdmissionDatetime(new Date());
             newPatient.setIsPatientAnInPatient(isPatientAnInPatient);
             newPatient.setOperatingHospice(hospice);
+            newPatient.setEthincity(patientEthnicity);
+            newPatient.setGender(patientGender);
             //newPatient.setAdmissionDischargeTime(new Date());
             listOfPatients.add(newPatient);
             return newPatient;

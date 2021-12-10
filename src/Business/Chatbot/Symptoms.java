@@ -66,7 +66,5 @@ public class Symptoms {
 
     public void setPastOrCurrentIllness(ArrayList<String> pastOrCurrentIllness) {
         this.pastOrCurrentIllness = pastOrCurrentIllness;
-    }
-    
-    
+    } 
 }
