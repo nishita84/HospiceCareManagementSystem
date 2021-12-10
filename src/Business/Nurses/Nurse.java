@@ -5,6 +5,7 @@
  */
 package Business.Nurses;
 
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import java.util.ArrayList;
@@ -25,8 +26,9 @@ public class Nurse {
     private String nurseContactNumber;
     private String nurseEmailID;
     private Date dateOfBirth;
-    ArrayList<Patient> patientsAssigned;
+    private Hospice hospiceNurseWorksIn;
     Provider reportingProvider;
+    private boolean isNurseOnDuty;
 
     public String getNurseID() {
         return nurseID;
@@ -92,14 +94,6 @@ public class Nurse {
         this.nurseContactNumber = nurseContactNumber;
     }
 
-    public ArrayList<Patient> getPatientsAssigned() {
-        return patientsAssigned;
-    }
-
-    public void setPatientsAssigned(ArrayList<Patient> patientsAssigned) {
-        this.patientsAssigned = patientsAssigned;
-    }
-
     public Provider getReportingProvider() {
         return reportingProvider;
     }
@@ -122,6 +116,22 @@ public class Nurse {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Hospice getHospiceNurseWorksIn() {
+        return hospiceNurseWorksIn;
+    }
+
+    public void setHospiceNurseWorksIn(Hospice hospiceNurseWorksIn) {
+        this.hospiceNurseWorksIn = hospiceNurseWorksIn;
+    }
+
+    public boolean isIsNurseOnDuty() {
+        return isNurseOnDuty;
+    }
+
+    public void setIsNurseOnDuty(boolean isNurseOnDuty) {
+        this.isNurseOnDuty = isNurseOnDuty;
     }
     
 }

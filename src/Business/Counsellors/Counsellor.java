@@ -5,6 +5,7 @@
  */
 package Business.Counsellors;
 
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class Counsellor {
     private String counsellorCountry;
     private String counsellorEmailID;
     private String counsellorContactNo;
+    private Hospice operatingHospice;
     private ArrayList<Patient> patientsAssignedToCounsellor;
 
     public String getCounsellorID() {
@@ -103,4 +105,13 @@ public class Counsellor {
     public void setCounsellorContactNo(String counsellorContactNo) {
         this.counsellorContactNo = counsellorContactNo;
     }
+
+    public Hospice getOperatingHospice() {
+        return operatingHospice;
+    }
+
+    public void setOperatingHospice(Hospice operatingHospice) {
+        this.operatingHospice = operatingHospice;
+    }
+    
 }

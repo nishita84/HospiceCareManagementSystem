@@ -38,4 +38,16 @@ public class ServicesDirectory {
         listOfServices.add(newService);
         return newService;
     }
+    
+    public Service findServiceBySvcCode(String svcCode, ArrayList<Service> listOfServices)
+    {
+        for(Service service : listOfServices)
+        {
+            if(service.getServiceCode().equals(svcCode))
+            {
+                return service;
+            }
+        }
+        return null;
+    }
 }

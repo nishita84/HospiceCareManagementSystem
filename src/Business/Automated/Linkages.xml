@@ -6,6 +6,20 @@ and open the template in the editor.
 -->
 
 
-<root>
-    
-</root>
+<linkages>
+    <linkage>
+        <linkageID>LN1001</linkageID>
+        <patientMRN>1001</patientMRN>
+        <providerNPI>PV1001</providerNPI>
+    </linkage>
+    <linkage>
+        <linkageID>LN1002</linkageID>
+        <patientMRN>1002</patientMRN>
+        <providerNPI>PV1001</providerNPI>
+    </linkage>
+    <linkage>
+        <linkageID>LN1001</linkageID>
+        <patientMRN>1003</patientMRN>
+        <providerNPI>PV1001</providerNPI>
+    </linkage>
+</linkages>

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Business.Patients;
+import Business.Hospice.Hospice;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
 import java.util.Date;
@@ -17,6 +18,8 @@ public class Patient {
     private String patientName;
     private String patientAddress;
     private String patientCity;
+    private String gender;
+    private String ethincity;
     private String patientState;
     private String patientZipCode;
     private String patientCountry;
@@ -30,6 +33,7 @@ public class Patient {
     private Date admissionDischargeTime;
     private double balanceAllocatedToPatient;
     private String terminalIllnessAssociated; // Dropdown
+    private Hospice operatingHospice;
 
     public String getPatientMRN() {
         return patientMRN;
@@ -166,6 +170,28 @@ public class Patient {
     public void setAdmissionDischargeTime(Date admissionDischargeTime) {
         this.admissionDischargeTime = admissionDischargeTime;
     }
-    
-    
+
+    public Hospice getOperatingHospice() {
+        return operatingHospice;
+    }
+
+    public void setOperatingHospice(Hospice operatingHospice) {
+        this.operatingHospice = operatingHospice;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getEthincity() {
+        return ethincity;
+    }
+
+    public void setEthincity(String ethincity) {
+        this.ethincity = ethincity;
+    }
 }

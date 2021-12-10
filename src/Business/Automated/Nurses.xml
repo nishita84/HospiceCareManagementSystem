@@ -20,5 +20,7 @@ and open the template in the editor.
         <dateofbirth>11/08/1990</dateofbirth>
         <providerNPI>P1001</providerNPI>
         <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
     </nurse>
 </nurses>

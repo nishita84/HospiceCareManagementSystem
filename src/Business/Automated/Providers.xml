@@ -18,5 +18,6 @@ and open the template in the editor.
         <contactno>8578671558</contactno>
         <emailID>j@j.com</emailID>
         <password>pass123</password>
+        <hospiceID>HO1001</hospiceID>
     </provider>
 </providers>

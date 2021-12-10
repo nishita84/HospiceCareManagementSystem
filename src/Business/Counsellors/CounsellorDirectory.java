@@ -5,6 +5,7 @@
  */
 package Business.Counsellors;
 
+import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import Business.SetIDsForEnterprises;
@@ -34,7 +35,7 @@ public class CounsellorDirectory {
     
     public Counsellor createNewCounsellor(String counsellorID, String counsellorName, String counsellorAddress, 
             String counsellorCity, String counsellorState, String counsellorCountry, String counsellorZipCode, 
-            String counsellorContactNo, String counsellorEmailID)
+            String counsellorContactNo, String counsellorEmailID, Hospice operatingHospice)
     {
         Counsellor newCounsellor = new Counsellor();
         newCounsellor.setCounsellorID(counsellorID);
@@ -46,6 +47,7 @@ public class CounsellorDirectory {
         newCounsellor.setCounsellorEmailID(counsellorEmailID);
         newCounsellor.setCounsellorContactNo(counsellorContactNo);
         newCounsellor.setPatientsAssignedToCounsellor(patientsAssignedToCounsellor);
+        newCounsellor.setOperatingHospice(operatingHospice);
         listOfCounsellors.add(newCounsellor);
         return newCounsellor;
     }

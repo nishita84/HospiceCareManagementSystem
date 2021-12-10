@@ -10,6 +10,7 @@ import Business.Hospice.Hospice;
 import Business.Patients.Patient;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
+import Business.Services.Service;
 import java.util.Date;
 
 /**
@@ -17,30 +18,43 @@ import java.util.Date;
  * @author architnigam
  */
 public class Claim {
-    private int claimID;
+    private String claimID;
     private String claimType;
+    private String linkageID;
     private Date claimSubmissionTime;
     private Date claimApprovalTime;
     private int claimStatus;
     private Patient patient;
     private Provider provider;
     private Hospice hospice;
-    private Diagnosis diagnosis;
+    private String claimDiagnosis;
     private Payer payerForClaim;
     private Date claimStartDate;
     private Date claimEndDate;
+    private Service serviceUsed;
+    private String claimBatchNumber;
     private int units;
     private double claimAmount;
     private double adjudicatedAmount;
-    private int placeOfService;
+    private String placeOfService;
 
-    public int getClaimID() {
+    public String getClaimID() {
         return claimID;
     }
 
-    public void setClaimID(int claimID) {
+    public void setClaimID(String claimID) {
         this.claimID = claimID;
     }
+
+    public String getLinkageID() {
+        return linkageID;
+    }
+
+    public void setLinkageID(String linkageID) {
+        this.linkageID = linkageID;
+    }
+    
+    
 
     public String getClaimType() {
         return claimType;
@@ -138,20 +152,20 @@ public class Claim {
         this.adjudicatedAmount = adjudicatedAmount;
     }
 
-    public int getPlaceOfService() {
+    public String getPlaceOfService() {
         return placeOfService;
     }
 
-    public void setPlaceOfService(int placeOfService) {
+    public void setPlaceOfService(String placeOfService) {
         this.placeOfService = placeOfService;
     }
 
-    public Diagnosis getDiagnosis() {
-        return diagnosis;
+    public String getDiagnosis() {
+        return claimDiagnosis;
     }
 
-    public void setDiagnosis(Diagnosis diagnosis) {
-        this.diagnosis = diagnosis;
+    public void setDiagnosis(String diagnosis) {
+        this.claimDiagnosis = diagnosis;
     }
 
     public Payer getPayerForClaim() {
@@ -160,8 +174,23 @@ public class Claim {
 
     public void setPayerForClaim(Payer payerForClaim) {
         this.payerForClaim = payerForClaim;
+    } 
+
+    public Service getServiceUsed() {
+        return serviceUsed;
     }
-    
+
+    public void setServiceUsed(Service serviceUsed) {
+        this.serviceUsed = serviceUsed;
+    }
+
+    public String getClaimBatchNumber() {
+        return claimBatchNumber;
+    }
+
+    public void setClaimBatchNumber(String claimBatchNumber) {
+        this.claimBatchNumber = claimBatchNumber;
+    }
     
     
 }

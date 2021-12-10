@@ -16,13 +16,268 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="11" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblMRN" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSystole" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDiastole" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCholesterolReading" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblHeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblWeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtCholestrolReading" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblmgdL" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtSystoleReading" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblmmHg1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtHeight" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblInches" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtWeight" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblPounds" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnSaveData" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="ddMRN" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnPopulate" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtDiastoleReading" min="-2" pref="145" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblmmHg2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtEthnicity" max="32767" attributes="0"/>
+                              <Component id="txtGender" pref="143" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="324" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblMRN" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnPopulate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ddMRN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEthnicity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPounds" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtHeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblInches" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
+                          <Component id="lblmmHg1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtSystoleReading" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblSystole" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDiastole" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDiastoleReading" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblmmHg2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCholesterolReading" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCholestrolReading" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblmgdL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btnSaveData" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblMRN">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Medical Record Number:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblWeight">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Weight (in pounds):"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtWeight">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPounds">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="pounds"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblHeight">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Height (in Inches):"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtHeight">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblInches">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="inches"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSystole">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Systole Reading: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtSystoleReading">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDiastole">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Diastole Reading: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtDiastoleReading">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblmmHg1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="mm Hg"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblmmHg2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="mm Hg"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCholesterolReading">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cholesterol Reading: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCholestrolReading">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblmgdL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="mg/dL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSaveData">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SAVE DATA"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveDataActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblTitle">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Grande" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="VITAL SIGNS ENCOUNTER:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAge">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ethinicity:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblGender">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Gender: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtGender">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnPopulate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Populate"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPopulateActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ddMRN">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel(new String[] {  })" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtEthnicity">
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
 </Form>

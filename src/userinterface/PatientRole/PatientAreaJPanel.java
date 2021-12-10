@@ -11,6 +11,10 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.Workflows.ChatBotSymptomsJPanel;
+import userinterface.Alerts.CreateAnAlertJPanel;
+import userinterface.Appointments.ScheduleAppointmentJPanel;
+import userinterface.Forms.COVIDSelfDiagnosisFormJPanel;
 
 /**
  *
@@ -19,26 +23,19 @@ import javax.swing.table.DefaultTableModel;
 public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
+    EcoSystem system;
     private UserAccount userAccount;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public PatientAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public PatientAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system ) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
+        this.system = system;
         this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
-    }
-    
-    public void populateRequestTable(){
-        
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,22 +47,47 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnViewPatientDetails = new javax.swing.JButton();
+        btnSelfDiagnosisForm = new javax.swing.JButton();
+        btnAppointment = new javax.swing.JButton();
+        btnAlert = new javax.swing.JButton();
+        btnSymptomCatcher = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("View My Details");
+        btnViewPatientDetails.setText("View My Details");
+        btnViewPatientDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewPatientDetailsActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Fill Self Diagnosis Form");
+        btnSelfDiagnosisForm.setText("Fill Self Diagnosis Form");
+        btnSelfDiagnosisForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelfDiagnosisFormActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Schedule an Appointment");
+        btnAppointment.setText("Schedule an Appointment");
+        btnAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Create an Alert");
+        btnAlert.setText("Create an Alert");
+        btnAlert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlertActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Chat with SymptomCatcher!");
+        btnSymptomCatcher.setText("Chat with SymptomCatcher!");
+        btnSymptomCatcher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSymptomCatcherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,32 +95,32 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
+                    .addComponent(btnAppointment)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2))
+                        .addComponent(btnSelfDiagnosisForm))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jButton1))
+                        .addComponent(btnViewPatientDetails))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton5))
+                        .addComponent(btnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSymptomCatcher))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(132, 132, 132)
-                .addComponent(jButton1)
+                .addComponent(btnViewPatientDetails)
                 .addGap(34, 34, 34)
-                .addComponent(jButton2)
+                .addComponent(btnSelfDiagnosisForm)
                 .addGap(35, 35, 35)
-                .addComponent(jButton3)
+                .addComponent(btnAppointment)
                 .addGap(33, 33, 33)
-                .addComponent(jButton4)
+                .addComponent(btnAlert)
                 .addGap(48, 48, 48)
-                .addComponent(jButton5)
+                .addComponent(btnSymptomCatcher)
                 .addContainerGap(302, Short.MAX_VALUE))
         );
 
@@ -131,12 +153,47 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSymptomCatcherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSymptomCatcherActionPerformed
+        // TODO add your handling code here:
+        ChatBotSymptomsJPanel chatBotSymptomsPanel = new ChatBotSymptomsJPanel();
+        jSplitPane1.setRightComponent(chatBotSymptomsPanel);
+    }//GEN-LAST:event_btnSymptomCatcherActionPerformed
+
+    private void btnSelfDiagnosisFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelfDiagnosisFormActionPerformed
+        // TODO add your handling code here:
+        try{
+            COVIDSelfDiagnosisFormJPanel selfDiagnosisFormJPanel = new COVIDSelfDiagnosisFormJPanel(userAccount, system);
+            jSplitPane1.setRightComponent(selfDiagnosisFormJPanel);
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+                
+    }//GEN-LAST:event_btnSelfDiagnosisFormActionPerformed
+
+    private void btnAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentActionPerformed
+        // TODO add your handling code here:
+        ScheduleAppointmentJPanel scheduleAppointmentJPanel = new ScheduleAppointmentJPanel(system, userAccount);
+        jSplitPane1.setRightComponent(scheduleAppointmentJPanel);
+    }//GEN-LAST:event_btnAppointmentActionPerformed
+
+    private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
+        // TODO add your handling code here:
+        CreateAnAlertJPanel createAnAlertJPanel = new CreateAnAlertJPanel(userAccount,system );
+        jSplitPane1.setRightComponent(createAnAlertJPanel);
+    }//GEN-LAST:event_btnAlertActionPerformed
+
+    private void btnViewPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnAlert;
+    private javax.swing.JButton btnAppointment;
+    private javax.swing.JButton btnSelfDiagnosisForm;
+    private javax.swing.JButton btnSymptomCatcher;
+    private javax.swing.JButton btnViewPatientDetails;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

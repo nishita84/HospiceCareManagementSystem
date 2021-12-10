@@ -6,10 +6,16 @@
 package Business;
 
 
+import Business.Alerts.AlertsDirectory;
+import Business.ClaimsBilling.ClaimsDirectory;
+import Business.Configurations.ConfigurationDirectory;
 import Business.Counsellors.CounsellorDirectory;
 import Business.Diagnosis.DiagnosisDirectory;
+import Business.Donation.DonationDirectory;
 import Business.Donors.DonorsDirectory;
+import Business.Forms.COVIDFormsDirectory;
 import Business.Hospice.HospiceDirectory;
+import Business.Linkage.LinkageDirectory;
 import Business.Nurses.NursesDirectory;
 import Business.Patients.PatientsDirectory;
 import Business.Payers.PayersDirectory;
@@ -17,12 +23,13 @@ import Business.Providers.ProviderDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Services.ServicesDirectory;
+import Business.VitalSigns.VitalSignsDirectory;
 import Business.Volunteers.VolunteerDirectory;
 import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author nishitasheelendraupadhyay
  */
 public class EcoSystem extends Organization{
     
@@ -37,11 +44,20 @@ public class EcoSystem extends Organization{
     VolunteerDirectory volunteerDirectory;
     ServicesDirectory serviceDirectory;
     DiagnosisDirectory diagnosisDirectory;
+    DonationDirectory donationDirectory;
+    VitalSignsDirectory vitalSignsDirectory;
+    AlertsDirectory alertsDirectory;
+    LinkageDirectory linkageDirectory;
+    ClaimsDirectory claimsDirectory;
+    COVIDFormsDirectory covidFormsDirectory;
+    ConfigurationDirectory configDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
-                       DiagnosisDirectory diagnosisDirectory)  
+                       DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory, 
+                       AlertsDirectory alertsDirectory, LinkageDirectory linkageDirectory, ClaimsDirectory claimsDirectory, 
+                       COVIDFormsDirectory covidFormsDirectory, ConfigurationDirectory configDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -53,6 +69,13 @@ public class EcoSystem extends Organization{
         this.volunteerDirectory = volunteerDirectory;
         this.serviceDirectory = serviceDirectory;
         this.diagnosisDirectory = diagnosisDirectory;
+        this.donationDirectory = donationDirectory;
+        this.vitalSignsDirectory = vitalSignsDirectory;
+        this.alertsDirectory = alertsDirectory;
+        this.linkageDirectory = linkageDirectory;
+        this.claimsDirectory = claimsDirectory;
+        this.covidFormsDirectory = covidFormsDirectory;
+        this.configDirectory = configDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -80,6 +103,13 @@ public class EcoSystem extends Organization{
          volunteerDirectory = new VolunteerDirectory();
          serviceDirectory = new ServicesDirectory();
          diagnosisDirectory = new DiagnosisDirectory();
+         donationDirectory = new DonationDirectory();
+         vitalSignsDirectory = new VitalSignsDirectory();
+         alertsDirectory = new AlertsDirectory();
+         linkageDirectory = new LinkageDirectory();
+         claimsDirectory = new ClaimsDirectory();
+         covidFormsDirectory = new COVIDFormsDirectory();
+         configDirectory = new ConfigurationDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -162,7 +192,63 @@ public class EcoSystem extends Organization{
     public void setDiagnosisDirectory(DiagnosisDirectory diagnosisDirectory) {
         this.diagnosisDirectory = diagnosisDirectory;
     }
-    
+
+    public DonationDirectory getDonationDirectory() {
+        return donationDirectory;
+    }
+
+    public void setDonationDirectory(DonationDirectory donationDirectory) {
+        this.donationDirectory = donationDirectory;
+    }
+
+    public VitalSignsDirectory getVitalSignsDirectory() {
+        return vitalSignsDirectory;
+    }
+
+    public void setVitalSignsDirectory(VitalSignsDirectory vitalSignsDirectory) {
+        this.vitalSignsDirectory = vitalSignsDirectory;
+    }
+
+    public AlertsDirectory getAlertsDirectory() {
+        return alertsDirectory;
+    }
+
+    public void setAlertsDirectory(AlertsDirectory alertsDirectory) {
+        this.alertsDirectory = alertsDirectory;
+    }
+
+    public LinkageDirectory getLinkageDirectory() {
+        return linkageDirectory;
+    }
+
+    public void setLinkageDirectory(LinkageDirectory linkageDirectory) {
+        this.linkageDirectory = linkageDirectory;
+    }
+
+    public ClaimsDirectory getClaimsDirectory() {
+        return claimsDirectory;
+    }
+
+    public void setClaimsDirectory(ClaimsDirectory claimsDirectory) {
+        this.claimsDirectory = claimsDirectory;
+    }
+
+    public COVIDFormsDirectory getCovidFormsDirectory() {
+        return covidFormsDirectory;
+    }
+
+    public void setCovidFormsDirectory(COVIDFormsDirectory covidFormsDirectory) {
+        this.covidFormsDirectory = covidFormsDirectory;
+    }
+
+    public ConfigurationDirectory getConfigDirectory() {
+        return configDirectory;
+    }
+
+    public void setConfigDirectory(ConfigurationDirectory configDirectory) {
+        this.configDirectory = configDirectory;
+    }
+
     public boolean checkIfUserIsUnique(String userName){
        //
        return false;

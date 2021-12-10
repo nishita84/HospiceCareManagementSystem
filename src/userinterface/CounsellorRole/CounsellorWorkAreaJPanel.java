@@ -7,6 +7,9 @@ package userinterface.CounsellorRole;
 
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Forms.CounsellorObservationFormJPanel;
+import userinterface.Appointments.ManageAppointmentsJPanel;
+import userinterface.Workflows.ViewPatientInformationJPanel;
 
 /**
  *
@@ -32,16 +35,31 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPatientInfo = new javax.swing.JButton();
+        btnObservationForm = new javax.swing.JButton();
+        btnAppointments = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
-        jButton1.setText("My Patients");
+        btnPatientInfo.setText("My Patients");
+        btnPatientInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPatientInfoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Record a Meeting");
+        btnObservationForm.setText("Record a Meeting");
+        btnObservationForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObservationFormActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("My Appointments");
+        btnAppointments.setText("My Appointments");
+        btnAppointments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAppointmentsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,20 +68,20 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAppointments)
+                    .addComponent(btnObservationForm)
+                    .addComponent(btnPatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
-                .addComponent(jButton1)
+                .addComponent(btnPatientInfo)
                 .addGap(59, 59, 59)
-                .addComponent(jButton3)
+                .addComponent(btnAppointments)
                 .addGap(57, 57, 57)
-                .addComponent(jButton2)
+                .addComponent(btnObservationForm)
                 .addContainerGap(395, Short.MAX_VALUE))
         );
 
@@ -98,11 +116,29 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
+        // TODO add your handling code here:
+        ManageAppointmentsJPanel manageAppointmentsPanel = new ManageAppointmentsJPanel();
+        jSplitPane1.setRightComponent(manageAppointmentsPanel);
+    }//GEN-LAST:event_btnAppointmentsActionPerformed
+
+    private void btnObservationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservationFormActionPerformed
+        // TODO add your handling code here:
+        CounsellorObservationFormJPanel counsellorForm = new CounsellorObservationFormJPanel();
+        jSplitPane1.setRightComponent(counsellorForm);
+    }//GEN-LAST:event_btnObservationFormActionPerformed
+
+    private void btnPatientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientInfoActionPerformed
+        // TODO add your handling code here:
+        ViewPatientInformationJPanel viewPatientInfoPanel = new ViewPatientInformationJPanel();
+        jSplitPane1.setRightComponent(viewPatientInfoPanel);
+    }//GEN-LAST:event_btnPatientInfoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAppointments;
+    private javax.swing.JButton btnObservationForm;
+    private javax.swing.JButton btnPatientInfo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

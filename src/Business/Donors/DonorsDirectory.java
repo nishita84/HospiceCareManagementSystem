@@ -32,7 +32,7 @@ public class DonorsDirectory {
     
     public Donor createNewDonor(String donorID, String donorName, String donatorEmailID)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+        
         Donor newDonor = new Donor();
         newDonor.setDonorID(donorID);
         newDonor.setDonorName(donorName);
@@ -52,11 +52,35 @@ public class DonorsDirectory {
         listOfDonors.remove(indexOfSelectedRecord);
     }
     
-    public Donor findDonorByID(String donorID, ArrayList<Provider> listOfProviders)
+    public Donor findDonorByID(String donorID, ArrayList<Donor> listOfDonors)
     {
         for(Donor donor: listOfDonors)
         {
             if(donor.getDonorID().equals(donorID))
+            {
+                return donor;
+            }
+        }
+        return null;
+    }
+    
+    public Donor findDonorByEmailID(String emailID, ArrayList<Donor> listOfDonors)
+    {
+        for(Donor donor: listOfDonors)
+        {
+            if(donor.getDonorEmailID().equals(emailID))
+            {
+                return donor;
+            }
+        }
+        return null;
+    }
+    
+    public Donor findDonorByName(String nameOfDonor, ArrayList<Donor> listOfDonors)
+    {
+        for(Donor donor: listOfDonors)
+        {
+            if(donor.getDonorName().equals(nameOfDonor))
             {
                 return donor;
             }

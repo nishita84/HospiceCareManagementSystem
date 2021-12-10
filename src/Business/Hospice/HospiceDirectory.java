@@ -37,7 +37,7 @@ public class HospiceDirectory {
         registeredVolunteersInHospice = new ArrayList<Volunteer>();
         registeredDonorsInHospice = new ArrayList<Donor>();
     }
-    
+
     public ArrayList<Hospice> getListOfHospice() {
         return hospiceList;
     }
@@ -47,13 +47,12 @@ public class HospiceDirectory {
     }
 
     
-    public Hospice createNewHospice(String hospiceName, String hospiceAddress, String hospiceCity, String hospiceState, 
-            String hospiceCountry, String hospiceContactNumber, String hospiceEmailID, String hospiceZipCode
-            , String hospiceUsername)
+    public Hospice createNewHospice(String hospiceID, String hospiceName, String hospiceAddress, String hospiceCity, String hospiceState, 
+            String hospiceCountry, String hospiceContactNumber, String hospiceEmailID, String hospiceZipCode)
     {
-        SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+        
         Hospice newHospice = new Hospice();
-        newHospice.setHospiceID(setIDForEnterprises.SetIDForHospice());
+        newHospice.setHospiceID(hospiceID);
         newHospice.setHospiceName(hospiceName);
         newHospice.setHospiceAddress(hospiceAddress);
         newHospice.setHospiceCity(hospiceCity);
@@ -62,14 +61,13 @@ public class HospiceDirectory {
         newHospice.setHospiceZipCode(hospiceZipCode);
         newHospice.setHospiceEmailID(hospiceEmailID);
         newHospice.setHospiceContactNumber(hospiceContactNumber);
-        newHospice.setTotalHospiceBalance(0.00);
+        newHospice.setTotalHospiceBalance(1500);
         newHospice.setRegisteredProvidersInHospice(registeredProvidersInHospice);
         newHospice.setRegisteredNursesInHospice(registeredNursesInHospice);
         newHospice.setRegisteredPatientsInHospice(registeredPatientsInHospice);
         newHospice.setRegisteredVolunteersInHospice(registeredVolunteersInHospice);
         newHospice.setRegisteredCounsellorsInHospice(registeredCounsellorsInHospice);
         newHospice.setRegisteredDonorsInHospice(registeredDonorsInHospice);
-        newHospice.setHospiceUsername(hospiceUsername);
         hospiceList.add(newHospice);
         return newHospice;
     }
@@ -85,11 +83,35 @@ public class HospiceDirectory {
         hospiceList.remove(indexOfSelectedRecord);
     }
     
-    public Hospice findHospiceByID(String hospiceID, ArrayList<Provider> listOfHospices)
+    public Hospice findHospiceByID(String hospiceID, ArrayList<Hospice> listOfHospices)
     {
         for(Hospice hospice: hospiceList)
         {
             if(hospice.getHospiceID().equals(hospiceID))
+            {
+                return hospice;
+            }
+        }
+        return null;
+    }
+    
+    public Hospice findHospiceByName(String hospiceName, ArrayList<Hospice> listOfHospices)
+    {
+        for(Hospice hospice: hospiceList)
+        {
+            if(hospice.getHospiceName().equals(hospiceName))
+            {
+                return hospice;
+            }
+        }
+        return null;
+    }
+    
+     public Hospice findHospiceByEmailID(String hospiceEmailID, ArrayList<Hospice> listOfHospices)
+    {
+        for(Hospice hospice: hospiceList)
+        {
+            if(hospice.getHospiceEmailID().equals(hospiceEmailID))
             {
                 return hospice;
             }
