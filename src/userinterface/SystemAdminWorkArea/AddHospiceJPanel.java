@@ -250,7 +250,7 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
             String HospiceContactNo = txtContactNo.getText();
             String HospiceEmail = txtEmailID.getText();
             SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
-            String HospiceID = setIDForEnterprises.SetIDForDonors();
+            String HospiceID = setIDForEnterprises.SetIDForHospice();
             Hospice newHospice = system.getHospiceDirectory().createNewHospice(HospiceID, HospiceName, HospiceAddress, HospiceCity, HospiceState, HospiceCoutry, HospiceContactNo, HospiceEmail, HospiceID);
             if(newHospice != null)
             {
