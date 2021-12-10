@@ -52,6 +52,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageCounsellors = new javax.swing.JButton();
         btnViewDonations = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnManageNurse.setText("Manage Nurses");
