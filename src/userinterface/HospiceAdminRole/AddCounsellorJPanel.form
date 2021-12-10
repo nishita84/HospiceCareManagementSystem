@@ -32,12 +32,11 @@
                           <Component id="lbName" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbCity" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbState" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbZipCode" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbCountry" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbContactNumber" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbEmailID" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbHospiceAssigned" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbCounsellorId" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbZipCode" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbCountry" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -50,7 +49,6 @@
                           <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
                           <Component id="HospiceAssignedDropDown" alignment="0" pref="244" max="32767" attributes="0"/>
                           <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCounsellorId1" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -59,7 +57,7 @@
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="311" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
               <Component id="btnAddCounsellor" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -81,15 +79,10 @@
                           <Component id="lbName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbCounsellorId" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCounsellorId1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -98,15 +91,15 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtState" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbState" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtState" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtCountry" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbCountry" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -121,16 +114,16 @@
                           <Component id="txtEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="HospiceAssignedDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbHospiceAssigned" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnAddCounsellor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="463" max="32767" attributes="0"/>
+              <EmptySpace pref="529" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -257,20 +250,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbCounsellorId">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Counsellor ID :"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtCounsellorId1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCounsellorId1ActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

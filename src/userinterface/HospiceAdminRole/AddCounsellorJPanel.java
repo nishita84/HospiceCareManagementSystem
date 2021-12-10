@@ -47,9 +47,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         HospiceAssignedDropDown = new javax.swing.JComboBox();
         btnAddCounsellor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        lbCounsellorId = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        txtCounsellorId1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -95,15 +93,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CounsellorImage2.png"))); // NOI18N
 
-        lbCounsellorId.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        lbCounsellorId.setText("Counsellor ID :");
-
-        txtCounsellorId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCounsellorId1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,12 +108,11 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(lbName)
                             .addComponent(lbCity)
                             .addComponent(lbState)
-                            .addComponent(lbZipCode)
-                            .addComponent(lbCountry)
                             .addComponent(lbContactNumber)
                             .addComponent(lbEmailID)
                             .addComponent(lbHospiceAssigned)
-                            .addComponent(lbCounsellorId))
+                            .addComponent(lbZipCode)
+                            .addComponent(lbCountry))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtName)
@@ -135,13 +123,12 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
                             .addComponent(HospiceAssignedDropDown, 0, 244, Short.MAX_VALUE)
-                            .addComponent(txtAddress)
-                            .addComponent(txtCounsellorId1))))
+                            .addComponent(txtAddress))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(311, 311, 311)
+                .addGap(305, 305, 305)
                 .addComponent(btnAddCounsellor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -159,27 +146,23 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbName)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCounsellorId)
-                            .addComponent(txtCounsellorId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbAddress))
+                            .addComponent(lbAddress)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbCity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbState))
+                            .addComponent(lbState)
+                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbZipCode))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbCountry))
@@ -191,13 +174,13 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbEmailID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(HospiceAssignedDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbHospiceAssigned))))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddCounsellor)
-                .addContainerGap(463, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -207,10 +190,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         //        nurse.setNurseId(txtCounsellorId.getText());
     }//GEN-LAST:event_btnAddCounsellorActionPerformed
 
-    private void txtCounsellorId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCounsellorId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCounsellorId1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> HospiceAssignedDropDown;
@@ -219,7 +198,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
-    private javax.swing.JLabel lbCounsellorId;
     private javax.swing.JLabel lbCountry;
     private javax.swing.JLabel lbEmailID;
     private javax.swing.JLabel lbHospiceAssigned;
@@ -230,7 +208,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtCounsellorId1;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
