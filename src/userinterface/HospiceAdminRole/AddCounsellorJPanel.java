@@ -31,8 +31,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         lbName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lbAddress = new javax.swing.JLabel();
-        AddressScrollPane = new javax.swing.JScrollPane();
-        txtAddress = new javax.swing.JTextArea();
         lbCity = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
         lbState = new javax.swing.JLabel();
@@ -50,7 +48,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         btnAddCounsellor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lbCounsellorId = new javax.swing.JLabel();
-        txtCounsellorId = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtCounsellorId1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -63,10 +62,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         lbAddress.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbAddress.setText("Address :");
-
-        txtAddress.setColumns(20);
-        txtAddress.setRows(5);
-        AddressScrollPane.setViewportView(txtAddress);
 
         lbCity.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbCity.setText("City :");
@@ -103,6 +98,12 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         lbCounsellorId.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbCounsellorId.setText("Counsellor ID :");
 
+        txtCounsellorId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCounsellorId1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,8 +127,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(lbCounsellorId))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAddCounsellor)
-                            .addComponent(AddressScrollPane)
                             .addComponent(txtName)
                             .addComponent(txtCity)
                             .addComponent(txtState)
@@ -135,10 +134,15 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(txtCountry)
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
-                            .addComponent(HospiceAssignedDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtCounsellorId))))
+                            .addComponent(HospiceAssignedDropDown, 0, 244, Short.MAX_VALUE)
+                            .addComponent(txtAddress)
+                            .addComponent(txtCounsellorId1))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(311, 311, 311)
+                .addComponent(btnAddCounsellor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -158,42 +162,42 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                         .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbCounsellorId)
-                            .addComponent(txtCounsellorId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCounsellorId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbAddress))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCity))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbState))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbZipCode))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbAddress)
-                            .addComponent(AddressScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCity)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbCountry))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbState)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbContactNumber))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbZipCode)
-                            .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbEmailID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbCountry)
-                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbContactNumber)
-                            .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbEmailID)
-                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbHospiceAssigned)
-                            .addComponent(HospiceAssignedDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addComponent(btnAddCounsellor)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                            .addComponent(HospiceAssignedDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbHospiceAssigned))))
+                .addGap(30, 30, 30)
+                .addComponent(btnAddCounsellor)
+                .addContainerGap(463, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -203,9 +207,12 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         //        nurse.setNurseId(txtCounsellorId.getText());
     }//GEN-LAST:event_btnAddCounsellorActionPerformed
 
+    private void txtCounsellorId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCounsellorId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCounsellorId1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane AddressScrollPane;
     private javax.swing.JComboBox<String> HospiceAssignedDropDown;
     private javax.swing.JButton btnAddCounsellor;
     private javax.swing.JLabel jLabel1;
@@ -220,10 +227,10 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lbState;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lbZipCode;
-    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtCounsellorId;
+    private javax.swing.JTextField txtCounsellorId1;
     private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
