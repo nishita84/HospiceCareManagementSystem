@@ -57,7 +57,6 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         lbZipCode = new javax.swing.JLabel();
         txtZipCode = new javax.swing.JTextField();
         lbCountry = new javax.swing.JLabel();
-        txtCountry = new javax.swing.JTextField();
         lbContactNumber = new javax.swing.JLabel();
         txtContactNumber = new javax.swing.JTextField();
         lbEmailID = new javax.swing.JLabel();
@@ -71,6 +70,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         HospiceDropdown = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        CountryDropDown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -127,6 +127,8 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
         jDateChooser2.setBackground(new java.awt.Color(204, 204, 255));
 
+        CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,22 +153,21 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(lbName))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtCity)
-                                .addComponent(txtState)
-                                .addComponent(txtZipCode)
-                                .addComponent(txtCountry)
-                                .addComponent(txtContactNumber)
-                                .addComponent(txtEmailID)
-                                .addComponent(txtAddress)
-                                .addComponent(HospiceDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ReportingProviderDropDown, 0, 244, Short.MAX_VALUE)
-                                .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(btnAddNurse))))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(txtCity)
+                            .addComponent(txtState)
+                            .addComponent(txtZipCode)
+                            .addComponent(txtContactNumber)
+                            .addComponent(txtEmailID)
+                            .addComponent(txtAddress)
+                            .addComponent(HospiceDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ReportingProviderDropDown, 0, 244, Short.MAX_VALUE)
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(btnAddNurse))
+                            .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -207,11 +208,11 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(lbZipCode))
-                                        .addGap(6, 6, 6)
+                                        .addGap(7, 7, 7)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbCountry))
-                                        .addGap(31, 31, 31))
+                                            .addComponent(lbCountry)
+                                            .addComponent(CountryDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(29, 29, 29))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(lbContactNumber)))
@@ -238,14 +239,14 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     private void btnAddNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNurseActionPerformed
         // TODO add your handling code here:
         ValidationLogic validationLogic = new ValidationLogic();
-        if(validationLogic.validateIfAllFieldsAreFilled_8(txtName, txtAddress, txtCity, txtState, txtZipCode,
-                txtCountry, txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode)){
+        if(validationLogic.validateIfAllFieldsAreFilled_7(txtName, txtAddress, txtCity, txtState, txtZipCode,
+                txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode)){
             String nurseName = txtName.getText();
             String nurseAddress = txtAddress.getText();
             String nurseCity = txtCity.getText();
             String nurseState = txtState.getText();
             String nurseZipcode = txtZipCode.getText();
-            String nurseCountry = txtCountry.getText();
+            String nurseCountry = CountryDropDown.getSelectedItem().toString();
             String nurseContactNumber = txtContactNumber.getText();
             String nurseEmailID = txtEmailID.getText();
             SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
@@ -272,6 +273,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CountryDropDown;
     private javax.swing.JComboBox<String> HospiceDropdown;
     private javax.swing.JComboBox<String> ReportingProviderDropDown;
     private javax.swing.JButton btnAddNurse;
@@ -292,7 +294,6 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtState;

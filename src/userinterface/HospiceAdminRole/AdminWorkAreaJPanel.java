@@ -191,7 +191,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
-        AddPatientJPanel addPatientJPanel = new AddPatientJPanel();
+        AddPatientJPanel addPatientJPanel = new AddPatientJPanel(userAccount, system);
         userProcessContainer.add("Add Patient", addPatientJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

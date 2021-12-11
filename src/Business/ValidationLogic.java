@@ -188,6 +188,26 @@ public class ValidationLogic {
         return areAllFieldsFilled;
     }
     
+    public boolean validateIfAllFieldsAreFilled_7(JTextField field1, JTextField field2, JTextField field3, 
+            JTextField field4, JTextField field5, JTextField field6,JTextField field7)
+    {
+        boolean areAllFieldsFilled = true;
+        String field1Value = field1.getText();
+        String field2Value = field2.getText();
+        String field3Value = field3.getText();
+        String field4Value = field4.getText();
+        String field5Value = field5.getText();
+        String field6Value = field5.getText();
+        String field7Value = field7.getText();
+        
+        if(field1Value.equals("") || field2Value.equals("") || field3Value.equals("")
+                || field4Value.equals("") || field5Value.equals("") || field6Value.equals("") || field7Value.equals(""))
+        {
+            areAllFieldsFilled = false;
+        }
+        return areAllFieldsFilled;
+    }
+    
     
     public boolean validateIfAllFieldsAreFilled_8(JTextField field1, JTextField field2, JTextField field3, 
             JTextField field4, JTextField field5, JTextField field6,JTextField field7,JTextField field8)

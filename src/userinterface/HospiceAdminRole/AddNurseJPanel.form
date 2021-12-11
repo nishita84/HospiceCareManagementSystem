@@ -43,24 +43,22 @@
                           <Component id="lbName" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtName" min="-2" pref="244" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtState" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtCountry" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtContactNumber" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
-                              <Component id="HospiceDropdown" alignment="0" max="32767" attributes="0"/>
-                              <Component id="ReportingProviderDropDown" pref="244" max="32767" attributes="0"/>
-                              <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                  <Component id="btnAddNurse" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtName" pref="244" max="32767" attributes="0"/>
+                          <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtState" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtContactNumber" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                          <Component id="HospiceDropdown" alignment="0" max="32767" attributes="0"/>
+                          <Component id="ReportingProviderDropDown" pref="244" max="32767" attributes="0"/>
+                          <Component id="jDateChooser2" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Component id="btnAddNurse" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="CountryDropDown" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -112,12 +110,12 @@
                                           <Component id="txtZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lbZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtCountry" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lbCountry" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CountryDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                                       <Component id="txtContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -220,8 +218,6 @@
         <Property name="text" type="java.lang.String" value="Country :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCountry">
-    </Component>
     <Component class="javax.swing.JLabel" name="lbContactNumber">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -314,6 +310,17 @@
           <Color blue="ff" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="CountryDropDown">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; })" type="code"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JComboBox()"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
