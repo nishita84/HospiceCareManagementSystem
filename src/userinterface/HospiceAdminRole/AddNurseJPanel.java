@@ -34,7 +34,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     Nurse Nurse;
     
-    public AddNurseJPanel(UserAccount userAccount, EcoSystem system) {
+    public AddNurseJPanel(JPanel userProcessContainer,UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
         this.system = system;

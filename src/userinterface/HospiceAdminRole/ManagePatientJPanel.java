@@ -31,7 +31,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     EcoSystem system;
     Patient Patient;
-    public ManagePatientJPanel() {
+    public ManagePatientJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -60,6 +60,15 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        lbCity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        lbState = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        lbZipcode = new javax.swing.JLabel();
+        txtZipCode = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
@@ -70,11 +79,11 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Address", "Date of Birth", "Patient MRN", "City", "Zipcode", "Contact no", "Terminal illness", "Provider", "Payer"
+                "Name", "Address", "Date of Birth", "Patient MRN", "City", "Zipcode", "Contact no", "Terminal illness", "Provider", "Payer", "Patient"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -131,6 +140,26 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel2.setText("Address :");
+
+        lbCity.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        lbCity.setText("City :");
+
+        lbState.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        lbState.setText("Contact No :");
+
+        lbZipcode.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        lbZipcode.setText("Zip Code :");
+
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,11 +176,31 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(307, 307, 307))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnRefresh)
-                                .addGap(86, 86, 86)
-                                .addComponent(btnUpdate)
-                                .addGap(119, 119, 119)
-                                .addComponent(btnDelete)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnRefresh)
+                                        .addGap(86, 86, 86)
+                                        .addComponent(btnUpdate))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbCity)
+                                            .addComponent(jLabel2))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtAddress)
+                                            .addComponent(txtCity))))
+                                .addGap(113, 113, 113)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnDelete)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lbState)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lbZipcode)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(166, 166, 166))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,8 +211,13 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                                 .addComponent(lblPatientsList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(418, 418, 418)
+                        .addComponent(btnSave)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,6 +238,20 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnCreate))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbState)
+                    .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCity)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbZipcode)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -212,7 +280,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
         SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
@@ -226,7 +294,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         
         for(Patient p : system.getPatientDirectory().getPatientList())
         {
-            Object [] row = new Object[10];
+            Object [] row = new Object[11];
             row[0] = p.getPatientName();
             row[1] = p.getPatientAddress();
             row[2] = p.getDateOfBirth();
@@ -245,14 +313,36 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblPatientsList.getSelectedRow();
+        
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblPatientsList.getModel();
+            Patient selectedPatient  = (Patient) model.getValueAt(SelectedRow, 10);
+            txtContactNo.setText(selectedPatient.getPatientContactNumber());
+            txtCity.setText(selectedPatient.getPatientCity());
+            txtZipCode.setText(selectedPatient.getPatientZipCode());
+            txtAddress.setText(selectedPatient.getPatientAddress());
+            populateTable();
+            
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddPatientJPanel addPatientJPanel = new AddPatientJPanel(userProcessContainer,userAccount,system);
+        userProcessContainer.add("Add Patient",addPatientJPanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -273,6 +363,30 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblPatientsList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblPatientsList.getModel();
+            Patient selectedPatient = (Patient) model.getValueAt(SelectedRow, 10);
+            Patient updatePatient = system.getPatientDirectory().updatePatient(selectedPatient);
+            updatePatient.setPatientContactNumber(txtContactNo.getText());
+            updatePatient.setPatientCity(txtCity.getText());
+            updatePatient.setPatientZipCode(txtZipCode.getText());
+            updatePatient.setPatientAddress(txtAddress.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtCity.setText("");
+            txtAddress.setText("");
+            txtZipCode.setText("");
+            txtContactNo.setText("");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ProviderScrollPane;
@@ -280,11 +394,20 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbCity;
+    private javax.swing.JLabel lbState;
+    private javax.swing.JLabel lbZipcode;
     private javax.swing.JLabel lblPatientsList;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblPatientsList;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }

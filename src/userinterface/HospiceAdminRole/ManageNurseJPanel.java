@@ -29,7 +29,7 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     EcoSystem system;
     Nurse Nurse;
-    public ManageNurseJPanel() {
+    public ManageNurseJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
