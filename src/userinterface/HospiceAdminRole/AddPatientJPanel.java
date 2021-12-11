@@ -11,7 +11,6 @@ import Business.Organization;
 import Business.Patients.Patient;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
-import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
 import java.awt.CardLayout;
@@ -130,7 +129,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             }
         });
 
-        TerminalIllnessDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+        TerminalIllnessDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Parkinson's Disease", "Terminal Cancer", "Alzheimer's Disease" }));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ImagePatient-2.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(320, 240));

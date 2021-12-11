@@ -35,7 +35,7 @@ public class Patient {
     private String terminalIllnessAssociated; // Dropdown
     private Hospice operatingHospice;
     private String emergencyContactName;
-    private String emergencyContactNumber;
+    private String emergencyEmailID;
 
     public String getPatientMRN() {
         return patientMRN;
@@ -205,11 +205,11 @@ public class Patient {
         this.emergencyContactName = emergencyContactName;
     }
 
-    public String getEmergencyContactNumber() {
-        return emergencyContactNumber;
+    public String getEmergencyEmailID() {
+        return emergencyEmailID;
     }
 
-    public void setEmergencyContactNumber(String emergencyContactNumber) {
-        this.emergencyContactNumber = emergencyContactNumber;
+    public void setEmergencyEmailID(String emergencyEmailIDs) {
+        this.emergencyEmailID = emergencyEmailIDs;
     }
 }
