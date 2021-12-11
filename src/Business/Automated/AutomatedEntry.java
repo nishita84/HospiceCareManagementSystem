@@ -332,8 +332,7 @@ public class AutomatedEntry {
                     patient = system.getPatientDirectory().createPatient(patientMRN, patientName, patientGender, patientEthnicity, 
                             patientAddress, patientCity, patientState, patientZipCode, patientCountry, 
                             patientContactNumber, patientEmailID, registeredProviderForPatient, 
-                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice, 
-                            emergencyContactName, emergencyContactNumber);
+                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice);
                    
                     Employee emp = system.getEmployeeDirectory().createEmployee(patientName);
                     system.getUserAccountDirectory().createUserAccount(patientEmailID, password, emp, new PatientRole());

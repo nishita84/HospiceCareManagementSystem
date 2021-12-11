@@ -12,7 +12,9 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.HospiceAdminRole.AddProviderJPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.AddDonorJPanel;
 import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
@@ -29,7 +31,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     EcoSystem system;
     Provider Provider;
-    public ManageProviderJPanel() {
+    public ManageProviderJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -58,6 +60,21 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtState = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtZipCode = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtEmailID = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
@@ -68,11 +85,11 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "NPI", "Name", "Address", "State", "City", "Country", "Zip Code", "EmailID", "Contact No", "Hospice"
+                "NPI", "Name", "Address", "State", "City", "Country", "Zip Code", "EmailID", "Contact No", "Hospice", "Provider"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -131,6 +148,35 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ManageProvidersImg.png"))); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel2.setText("State :");
+
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel3.setText("City :");
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel4.setText("Zip Code :");
+
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel5.setText("Email ID :");
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel6.setText("Contact No :");
+
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel7.setText("Address :");
+
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel8.setText("Name :");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -151,7 +197,18 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
                                 .addGap(86, 86, 86)
                                 .addComponent(btnUpdate)
                                 .addGap(119, 119, 119)
-                                .addComponent(btnDelete)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnDelete)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel7))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtEmailID)
+                                            .addComponent(txtContactNo)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(166, 166, 166))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,8 +219,26 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
                                 .addComponent(lblProviderList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(148, 148, 148)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel8))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtState)
+                            .addComponent(txtCity)
+                            .addComponent(txtZipCode)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(424, 424, 424)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,8 +259,32 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnCreate))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(btnSave)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(253, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -226,7 +325,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         
         for(Provider p : system.getProviderDirectory().getProviderList())
         {
-            Object [] row = new Object[10];
+            Object [] row = new Object[11];
             row[0] = p.getProviderNPI();
             row[1] = p.getProviderName();
             row[2] = p.getProviderAddress();
@@ -245,6 +344,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -259,7 +359,15 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         else
         {
             DefaultTableModel model = (DefaultTableModel) tblProviderList.getModel();
-            Provider provider  = (Provider) model.getValueAt(SelectedRow, 10);
+            Provider selectedProvider  = (Provider) model.getValueAt(SelectedRow, 10);
+            txtName.setText(selectedProvider.getProviderName());
+            txtState.setText(selectedProvider.getProviderState());
+            txtCity.setText(selectedProvider.getProviderCity());
+            txtZipCode.setText(selectedProvider.getZipCode());
+            txtAddress.setText(selectedProvider.getProviderAddress());
+            txtEmailID.setText(selectedProvider.getProviderEmailID());
+            txtContactNo.setText(selectedProvider.getProviderContactNumber());
+            
             
             //txtName.setText("");
             //txtEmailID.setText("");
@@ -272,6 +380,10 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userProcessContainer,userAccount,system);
+        userProcessContainer.add("Add Provider",addProviderJPanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -292,6 +404,37 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblProviderList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblProviderList.getModel();
+            Provider selectedProvider = (Provider) model.getValueAt(SelectedRow, 10);
+            Provider updateProvider = system.getProviderDirectory().updateProvider(selectedProvider);
+            updateProvider.setProviderName(txtName.getText());
+            updateProvider.setProviderState(txtState.getText());
+            updateProvider.setProviderCity(txtCity.getText());
+            updateProvider.setProviderAddress(txtAddress.getText());
+            updateProvider.setZipCode(txtZipCode.getText());
+            updateProvider.setProviderEmailID(txtEmailID.getText());
+            updateProvider.setProviderContactNumber(txtContactNo.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtName.setText("");
+            txtState.setText("");
+            txtCity.setText("");
+            txtAddress.setText("");
+            txtZipCode.setText("");
+            txtEmailID.setText("");
+            txtContactNo.setText("");
+            
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ProviderScrollPane;
@@ -299,11 +442,26 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblProviderList;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblProviderList;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtState;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
