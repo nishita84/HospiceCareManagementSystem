@@ -5,6 +5,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Donors.Donor;
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nishitasheelendraupadhyay
@@ -14,7 +23,13 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageHospiceJPanel
      */
-    public ManageHospiceJPanel() {
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    EcoSystem ecosystem;
+    public ManageHospiceJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.ecosystem = ecosystem;
         initComponents();
     }
 
@@ -28,7 +43,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         DonorScrollPane = new javax.swing.JScrollPane();
-        tblDonorList = new javax.swing.JTable();
+        tblHospiceList = new javax.swing.JTable();
         lblHospiceList = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -37,10 +52,15 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         lblimage = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        txtEmailID = new javax.swing.JTextField();
+        lblContactNo = new javax.swing.JLabel();
+        lblEmailID = new javax.swing.JLabel();
+        btnSaveUpdates = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
-        tblDonorList.setModel(new javax.swing.table.DefaultTableModel(
+        tblHospiceList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -56,7 +76,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        DonorScrollPane.setViewportView(tblDonorList);
+        DonorScrollPane.setViewportView(tblHospiceList);
 
         lblHospiceList.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblHospiceList.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -103,6 +123,23 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
 
         lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/HospiceManage.png"))); // NOI18N
 
+        txtContactNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactNoActionPerformed(evt);
+            }
+        });
+
+        lblContactNo.setText("Contact No. : ");
+
+        lblEmailID.setText("Email ID : ");
+
+        btnSaveUpdates.setText("Save");
+        btnSaveUpdates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveUpdatesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,7 +149,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnBack)
@@ -132,10 +169,24 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
                                 .addComponent(lblHospiceList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(DonorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblContactNo)
+                            .addComponent(lblEmailID))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(txtEmailID))
+                        .addGap(55, 55, 55))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(btnSaveUpdates)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,22 +205,80 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnCreate)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblContactNo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSaveUpdates)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, ecosystem);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblHospiceList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Hospice d : ecosystem.getHospiceDirectory().getListOfHospice())
+        {
+            Object [] row = new Object[10];
+            row[0] = d.getHospiceName();
+            row[1] = d.getHospiceAddress();
+            row[2] = d.getHospiceCity();
+            row[3] = d.getHospiceState();
+            row[4] = d.getHospiceState();
+            row[5] = d.getHospiceZipCode();
+            row[6] = d.getHospiceCountry();
+            row[7] = d.getHospiceContactNumber();
+            row[8] = d.getHospiceEmailID();
+            row[9] = d;
+            dtm.addRow(row);
+        }
+        
+
+    }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblHospiceList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblHospiceList.getModel();
+            Hospice selectedHospice = (Hospice) model.getValueAt(SelectedRow, 10);
+            
+            txtContactNo.setText(selectedHospice.getHospiceContactNumber());
+            txtEmailID.setText(selectedHospice.getHospiceEmailID());
+        }
+
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -180,6 +289,32 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactNoActionPerformed
+
+    private void btnSaveUpdatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveUpdatesActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblHospiceList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblHospiceList.getModel();
+            Hospice selectedHospice  = (Hospice) model.getValueAt(SelectedRow, 10); 
+            Hospice updatehospice = ecosystem.getHospiceDirectory().updateHospice(selectedHospice);
+            updatehospice.setHospiceContactNumber(txtContactNo.getText());
+            updatehospice.setHospiceEmailID(txtEmailID.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtContactNo.setText("");
+            txtEmailID.setText("");
+        }
+        
+    }//GEN-LAST:event_btnSaveUpdatesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DonorScrollPane;
@@ -187,10 +322,15 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSaveUpdates;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel lblContactNo;
+    private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblHospiceList;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblimage;
-    private javax.swing.JTable tblDonorList;
+    private javax.swing.JTable tblHospiceList;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtEmailID;
     // End of variables declaration//GEN-END:variables
 }
