@@ -10,6 +10,7 @@ import Business.LookUpMapping;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -352,19 +353,31 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         
         if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(2))
         {
-            
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Flu"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Moderate");
         }
         else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(2) && listOfSymptoms.contains(3))
         {
-            
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Allergy"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Moderate");
         }
         else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(6))
         {
-            
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Migraine"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Critical");
         }
         else if(listOfSymptoms.contains(7) && listOfSymptoms.contains(8))
         {
-            
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. COVID-19"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "schedule a COVID-19 test ASAP.\nAlert Level: Extremely Critical");
         }
     }//GEN-LAST:event_btnEvaulateSymptomActionPerformed
 
