@@ -87,6 +87,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         CountryDropDown = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        lbEmergencyContactName = new javax.swing.JLabel();
+        txtEmergencyContactName = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtEmergencyContactNumber = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -172,6 +176,12 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             }
         });
 
+        lbEmergencyContactName.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        lbEmergencyContactName.setText("Emergency Contact Name :");
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel6.setText("Emergency Contact No :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -197,7 +207,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3)
                             .addComponent(lbGender)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                            .addComponent(jLabel5)
+                            .addComponent(lbEmergencyContactName)
+                            .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName)
@@ -214,7 +226,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(txtAddress)
                             .addComponent(GenderDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EthinicityDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEmergencyContactName)
+                            .addComponent(txtEmergencyContactNumber))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
@@ -249,10 +263,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192))
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPatientMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbPatientMRN))
@@ -300,9 +312,17 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(EthinicityDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbEmergencyContactName)
+                            .addComponent(txtEmergencyContactName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtEmergencyContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(btnAddPatient)
-                .addContainerGap(483, Short.MAX_VALUE))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -323,6 +343,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             String providerNPIChosen = OperatingProvider.getSelectedItem().toString();
             String chosenPayer = Payer.getSelectedItem().toString();
             Date dateOfBirth = jDateChooser1.getDate();
+            String patientEmergencyContactName = txtEmergencyContactName.getText();
+            String patientEmergencyContactNumber = txtEmergencyContactNumber.getText();
             String chosenGender = GenderDropDown.getSelectedItem().toString();
             String chosenEthinicity = EthinicityDropDown.getSelectedItem().toString();
             String terminallIllnessAssociated = TerminalIllnessDropDown.getSelectedItem().toString();
@@ -332,7 +354,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     system.getPayerDirectory().getListOfPayers());
             Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName,chosenGender,chosenEthinicity, patientCity, patientAddress,patientState, 
                     patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
-                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth, true, associatedProvider.getOperatingHospice());
+                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth,patientEmergencyContactName,patientEmergencyContactNumber, true, associatedProvider.getOperatingHospice());
             if(newPatient != null)
             {
                 JOptionPane.showMessageDialog(this, "Patient added successfully!");
@@ -372,11 +394,13 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
     private javax.swing.JLabel lbDateOfBirth;
     private javax.swing.JLabel lbEmailID;
+    private javax.swing.JLabel lbEmergencyContactName;
     private javax.swing.JLabel lbGender;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPatientMRN;
@@ -388,6 +412,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
     private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtEmergencyContactName;
+    private javax.swing.JTextField txtEmergencyContactNumber;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPatientMRN;
     private javax.swing.JTextField txtState;

@@ -34,7 +34,7 @@ public class PatientsDirectory {
      public Patient createPatient(String patientMRN, String patientsName, String patientGender, String patientEthnicity,
              String patientsAddress, String patientsCity, String patientsState, 
              String patientsZipCode, String patientsCountry, String patientsContactNo, String patientsEmailID, Provider registeredProvider, 
-             Payer registeredPayer, String terminalIllnessAssociatedWithPatient,  Date dateOfBirth, 
+             Payer registeredPayer, String terminalIllnessAssociatedWithPatient,  Date dateOfBirth, String emergencyContactName, String emergencyContactNumber,
              boolean isPatientAnInPatient, Hospice hospice) {
 
             Patient newPatient = new Patient();
@@ -57,8 +57,8 @@ public class PatientsDirectory {
             newPatient.setOperatingHospice(hospice);
             newPatient.setEthincity(patientEthnicity);
             newPatient.setGender(patientGender);
-            //newPatient.setEmergencyContactName(emergencyContactName);
-            //newPatient.setEmergencyContactNumber(emergencyContactNumber);
+            newPatient.setEmergencyContactName(emergencyContactName);
+            newPatient.setEmergencyContactNumber(emergencyContactNumber);
             //newPatient.setAdmissionDischargeTime(new Date());
             listOfPatients.add(newPatient);
             return newPatient;
