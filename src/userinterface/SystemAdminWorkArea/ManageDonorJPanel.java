@@ -6,6 +6,7 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.ClaimsBilling.Claim;
 import Business.Donors.Donor;
+import Business.Donors.DonorsDirectory;
 import Business.EcoSystem;
 import Business.Organization;
 import Business.UserAccount.UserAccount;
@@ -13,6 +14,12 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JPanel;;
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -60,6 +67,11 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         lblimage = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtEmailID = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnSaveUpdates = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -126,6 +138,23 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
 
         lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manageDonorimg.png"))); // NOI18N
 
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Name:");
+
+        jLabel2.setText("Email ID:");
+
+        btnSaveUpdates.setText("Save");
+        btnSaveUpdates.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveUpdatesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,7 +164,7 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnBack)
@@ -144,13 +173,10 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
                                 .addGap(365, 365, 365))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnUpdate)
-                                        .addGap(127, 127, 127)
-                                        .addComponent(btnDelete)))
-                                .addContainerGap())))
+                                .addComponent(btnUpdate)
+                                .addGap(127, 127, 127)
+                                .addComponent(btnDelete)
+                                .addGap(38, 38, 38))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnCreate)
@@ -158,6 +184,23 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
                                 .addComponent(lblDonorList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(DonorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                            .addComponent(txtName)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(btnSaveUpdates)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(153, 153, 153))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +219,23 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnCreate)
                     .addComponent(btnDelete))
-                .addGap(29, 29, 29)
-                .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSaveUpdates)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -210,6 +267,7 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
     }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -223,12 +281,12 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
         else
         {
             DefaultTableModel model = (DefaultTableModel) tblDonorList.getModel();
-            Donor donor  = (Donor) model.getValueAt(SelectedRow, 3);
+            Donor selectedDonor  = (Donor) model.getValueAt(SelectedRow, 3);
+           
+            txtName.setText(selectedDonor.getDonorName());
+            txtEmailID.setText(selectedDonor.getDonorEmailID());
             
-            //txtName.setText("");
-            //txtEmailID.setText("");
-            
-            populateTable();
+            //populateTable();
 
             
         }
@@ -238,6 +296,10 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddDonorJPanel adddonorjpanel = new AddDonorJPanel(userAccount, system);
+        userProcessContainer.add("Add Donor",adddonorjpanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -258,6 +320,31 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void btnSaveUpdatesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveUpdatesActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblDonorList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblDonorList.getModel();
+            Donor selectedDonor  = (Donor) model.getValueAt(SelectedRow, 3); 
+            Donor updatedonor = system.getDonorDirectory().updateDonor(selectedDonor);
+            updatedonor.setDonorName(txtName.getText());
+            updatedonor.setDonorEmailID(txtEmailID.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtName.setText("");
+            txtEmailID.setText("");
+        }
+    }//GEN-LAST:event_btnSaveUpdatesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane DonorScrollPane;
@@ -265,10 +352,15 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSaveUpdates;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblDonorList;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblimage;
     private javax.swing.JTable tblDonorList;
+    private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
