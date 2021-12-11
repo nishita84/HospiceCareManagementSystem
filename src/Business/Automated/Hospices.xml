@@ -19,6 +19,7 @@ and open the template in the editor.
         <emailID>bostonhospicec@gmail.com</emailID>
         <password>bsc123</password>
     </hospice>
+    <hospice>
     <hospiceID>HO1002</hospiceID>
         <name>Boston Old Age Home</name>
         <address>14 Newberry Streey</address>
@@ -30,6 +31,7 @@ and open the template in the editor.
         <emailID>bostonoldageh@gmail.com</emailID>
         <password>boah123</password>
     </hospice>
+    <hospice>
     <hospiceID>HO1003</hospiceID>
         <name>Hospice Facility</name>
         <address>27 Berry Street</address>
@@ -41,6 +43,7 @@ and open the template in the editor.
         <emailID>hospiceF@gmail.com</emailID>
         <password>hp123</password>
     </hospice>
+    <hospice>
      <hospiceID>HO1004</hospiceID>
         <name>American Care for Adults</name>
         <address>10 Moon Street</address>
@@ -52,6 +55,7 @@ and open the template in the editor.
         <emailID>americanCare@gmail.com</emailID>
         <password>hp123</password>
     </hospice>
+    <hospice>
      <hospiceID>HO1005</hospiceID>
         <name>American Disability Care</name>
         <address>11 London Street</address>
