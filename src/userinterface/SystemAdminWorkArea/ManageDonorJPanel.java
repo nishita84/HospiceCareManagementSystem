@@ -6,6 +6,9 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.*;
 
 /**
  *
@@ -16,13 +19,20 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDonorJPanel
      */
+    JPanel userProcessContainer;
     UserAccount userAccount;
     EcoSystem system;
-    public ManageDonorJPanel(UserAccount userAccount, EcoSystem system) {
+    public ManageDonorJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
+      //  populateTable();
     }
+    //public void populateTable();
+    //{
+        
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +61,7 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Amount"
+                "Name", "Email ID"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -167,7 +177,11 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed

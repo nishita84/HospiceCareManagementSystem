@@ -42,6 +42,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     public void populateTree(){
 //        DefaultTreeModel model=(DefaultTreeModel)jTree.getModel();
 //       // Add the code for draw your system structure shown by JTree
+        
        
         //model.reload();
     }
@@ -208,7 +209,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageDonorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDonorsActionPerformed
         // TODO add your handling code here:
-        ManageDonorJPanel manageDonorJPanel = new ManageDonorJPanel(userAccount, ecosystem);
+        ManageDonorJPanel manageDonorJPanel = new ManageDonorJPanel(userProcessContainer,userAccount, ecosystem);
         jSplitPane.setRightComponent(manageDonorJPanel);
     }//GEN-LAST:event_btnManageDonorsActionPerformed
 
