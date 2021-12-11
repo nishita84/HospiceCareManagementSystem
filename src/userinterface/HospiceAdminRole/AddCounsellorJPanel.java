@@ -5,9 +5,12 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.Counsellors.Counsellor;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
+import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
 
 /**
  *
@@ -21,10 +24,16 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     Hospice hopsice;
     UserAccount account;
     EcoSystem system;
+     
     public AddCounsellorJPanel(UserAccount account, EcoSystem system) {
         initComponents();
-        
-        
+      //this.userAccount = userAccount;
+        //this.system = system;
+        //Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+          //      system.getHospiceDirectory().getListOfHospice());
+        //HospiceDropdown.setSelectedItem(hospice.getHospiceName());
+        //populateHospiceAssignedDropDown();
+        //populateProviderDropdown();
     }
 
     /**
@@ -47,7 +56,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         lbZipCode = new javax.swing.JLabel();
         txtZipCode = new javax.swing.JTextField();
         lbCountry = new javax.swing.JLabel();
-        txtCountry = new javax.swing.JTextField();
         lbContactNumber = new javax.swing.JLabel();
         txtContactNumber = new javax.swing.JTextField();
         lbEmailID = new javax.swing.JLabel();
@@ -57,6 +65,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         btnAddCounsellor = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
+        CountryDropdown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -102,6 +111,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CounsellorImage2.png"))); // NOI18N
 
+        CountryDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,24 +133,24 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(lbHospiceAssigned)
                             .addComponent(lbZipCode)
                             .addComponent(lbCountry))
-                        .addGap(18, 18, 18)
+                        .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtName)
                             .addComponent(txtCity)
                             .addComponent(txtState)
                             .addComponent(txtZipCode)
-                            .addComponent(txtCountry)
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
                             .addComponent(HospiceAssignedDropDown, 0, 244, Short.MAX_VALUE)
-                            .addComponent(txtAddress))))
+                            .addComponent(txtAddress)
+                            .addComponent(CountryDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(305, 305, 305)
                 .addComponent(btnAddCounsellor)
-                .addContainerGap(522, Short.MAX_VALUE))
+                .addContainerGap(624, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,8 +181,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                             .addComponent(lbZipCode))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbCountry))
+                            .addComponent(lbCountry)
+                            .addComponent(CountryDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,18 +200,32 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddCounsellor)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addContainerGap(528, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddCounsellorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCounsellorActionPerformed
         // TODO add your handling code here:
-        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(account.getUsername(), 
-                system.getHospiceDirectory().getListOfHospice());
+       // ValidationLogic validationLogic = new ValidationLogic();
+         ///if(validationLogic.validateIfAllFieldsAreFilled_7(txtName, txtAddress, txtCity, txtState, txtZipCode, txtContactNumber, txtEmailID))
+            //{
+              //  String CounsellorName = txtName.getText();
+                //String CounsellorAddress = txtAddress.getText();
+                //String CounsellorCity = txtCity.getText();
+                //String CounsellorState = txtState.getText();
+                //String CounsellorZipCode = txtZipCode.getText();
+                //String CounsellorContactNumber = txtContactNumber.getText();
+                //String CounsellorEmailID = txtEmailID.getText();
+                //SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+                //String  CounsellorID= setIDForEnterprises.SetIDForCounsellors();
+                
+                //Counsellor newcounsellor = system.getCounsellorDirectory().createNewCounsellor(CounsellorID, txtName, txtAddress, txtCity, txtState, txtZipCode, txtContactNumber, txtEmailID, hospice);
+            //}
     }//GEN-LAST:event_btnAddCounsellorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CountryDropdown;
     private javax.swing.JComboBox<String> HospiceAssignedDropDown;
     private javax.swing.JButton btnAddCounsellor;
     private javax.swing.JLabel jLabel1;
@@ -217,7 +242,6 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtState;
