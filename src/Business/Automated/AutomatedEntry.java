@@ -322,13 +322,18 @@ public class AutomatedEntry {
                                         .item(0).getTextContent());
                    String hospiceID = eElement.getElementsByTagName("hospiceID")
                                         .item(0).getTextContent();
+                   String emergencyContactName = eElement.getElementsByTagName("emergencyContactName")
+                                        .item(0).getTextContent();
+                   String emergencyContactNumber = eElement.getElementsByTagName("emergencyContactNumber")
+                                        .item(0).getTextContent();
                    hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
                            system.getHospiceDirectory().getListOfHospice());
                    
                     patient = system.getPatientDirectory().createPatient(patientMRN, patientName, patientGender, patientEthnicity, 
                             patientAddress, patientCity, patientState, patientZipCode, patientCountry, 
                             patientContactNumber, patientEmailID, registeredProviderForPatient, 
-                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice);
+                            registeredPayer, terminallIllness, dateOfBirth, isPatientAnInPatient, hospice, 
+                            emergencyContactName, emergencyContactNumber);
                    
                     Employee emp = system.getEmployeeDirectory().createEmployee(patientName);
                     system.getUserAccountDirectory().createUserAccount(patientEmailID, password, emp, new PatientRole());

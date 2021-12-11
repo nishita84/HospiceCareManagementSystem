@@ -20,4 +20,43 @@ and open the template in the editor.
         <password>pass123</password>
         <hospiceID>HO1001</hospiceID>
     </provider>
+     <provider>
+        <npi>PV1002</npi>
+        <name>Ryan Johnson</name>
+        <address>23 Far Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8578671558</contactno>
+        <emailID>j@j.com</emailID>
+        <password>pass123</password>
+        <hospiceID>HO1002</hospiceID>
+    </provider>
+     <provider>
+        <npi>PV1003</npi>
+        <name>Liam Johnson</name>
+        <address>23 Far Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8578671558</contactno>
+        <emailID>j@j.com</emailID>
+        <password>pass123</password>
+        <hospiceID>HO1003</hospiceID>
+    </provider>
+     <provider>
+        <npi>PV1004</npi>
+        <name>Liam Johnson</name>
+        <address>23 Far Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8578671558</contactno>
+        <emailID>j@j.com</emailID>
+        <password>pass123</password>
+        <hospiceID>HO1004</hospiceID>
+    </provider>
 </providers>

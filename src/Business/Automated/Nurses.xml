@@ -23,4 +23,84 @@ and open the template in the editor.
         <hospiceID>HO1001</hospiceID>
         <isNurseOnDuty>true</isNurseOnDuty>
     </nurse>
+     <nurse>
+        <nurseID>NR1002</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
+    </nurse>
+     <nurse>
+        <nurseID>NR1003</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
+    </nurse>
+     <nurse>
+        <nurseID>NR1004</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
+    </nurse>
+     <nurse>
+        <nurseID>NR1005</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
+    </nurse>
+     <nurse>
+        <nurseID>NR1006</nurseID>
+        <name>Martin Johnson</name>
+        <address>55 Newberry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578321001</contactno>
+        <emailID>martin@martin.com</emailID>
+        <dateofbirth>11/08/1990</dateofbirth>
+        <providerNPI>P1001</providerNPI>
+        <password>martin123</password>
+        <hospiceID>HO1001</hospiceID>
+        <isNurseOnDuty>true</isNurseOnDuty>
+    </nurse>
 </nurses>

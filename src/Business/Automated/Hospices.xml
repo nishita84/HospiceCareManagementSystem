@@ -16,7 +16,51 @@ and open the template in the editor.
         <country>USA</country>
         <zipcode>02215</zipcode>
         <contactno>8578671559</contactno>
-        <emailID>bsc@bsc.com</emailID>
+        <emailID>bostonhospicec@gmail.com</emailID>
         <password>bsc123</password>
+    </hospice>
+    <hospiceID>HO1002</hospiceID>
+        <name>Boston Old Age Home</name>
+        <address>14 Newberry Streey</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02214</zipcode>
+        <contactno>8578691559</contactno>
+        <emailID>bostonoldageh@gmail.com</emailID>
+        <password>boah123</password>
+    </hospice>
+    <hospiceID>HO1003</hospiceID>
+        <name>Hospice Facility</name>
+        <address>27 Berry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8579671559</contactno>
+        <emailID>hospiceF@gmail.com</emailID>
+        <password>hp123</password>
+    </hospice>
+     <hospiceID>HO1004</hospiceID>
+        <name>American Care for Adults</name>
+        <address>10 Moon Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8579671559</contactno>
+        <emailID>americanCare@gmail.com</emailID>
+        <password>hp123</password>
+    </hospice>
+     <hospiceID>HO1005</hospiceID>
+        <name>American Disability Care</name>
+        <address>11 London Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <country>USA</country>
+        <zipcode>02215</zipcode>
+        <contactno>8579671559</contactno>
+        <emailID>americanDisability@gmail.com</emailID>
+        <password>hp123</password>
     </hospice>
 </hospices>

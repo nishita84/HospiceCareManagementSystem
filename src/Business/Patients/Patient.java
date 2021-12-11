@@ -34,6 +34,8 @@ public class Patient {
     private double balanceAllocatedToPatient;
     private String terminalIllnessAssociated; // Dropdown
     private Hospice operatingHospice;
+    private String emergencyContactName;
+    private String emergencyContactNumber;
 
     public String getPatientMRN() {
         return patientMRN;
@@ -193,5 +195,21 @@ public class Patient {
 
     public void setEthincity(String ethincity) {
         this.ethincity = ethincity;
+    }
+
+    public String getEmergencyContactName() {
+        return emergencyContactName;
+    }
+
+    public void setEmergencyContactName(String emergencyContactName) {
+        this.emergencyContactName = emergencyContactName;
+    }
+
+    public String getEmergencyContactNumber() {
+        return emergencyContactNumber;
+    }
+
+    public void setEmergencyContactNumber(String emergencyContactNumber) {
+        this.emergencyContactNumber = emergencyContactNumber;
     }
 }

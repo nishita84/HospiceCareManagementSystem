@@ -14,4 +14,18 @@ and open the template in the editor.
         <emailID>bmi@bmi.com</emailID>
         <password>bmi123</password>
     </payer>
+    <payer>
+        <payerID>PY1002</payerID>
+        <name>Boston Life Insurance</name>
+        <address>90 Analytica Street, Boston</address>
+        <emailID>bostonlifeI@gmail.com</emailID>
+        <password>bli123</password>
+    </payer>
+    <payer>
+        <payerID>PY1003</payerID>
+        <name>Medicaid</name>
+        <address>29 Folsom Street</address>
+        <emailID>medicaid@medicaid.com</emailID>
+        <password>medi123</password>
+    </payer>
 </payers>
