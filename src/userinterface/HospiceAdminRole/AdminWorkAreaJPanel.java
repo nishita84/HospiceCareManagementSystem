@@ -151,7 +151,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManagePatientsActionPerformed
 
     private void btnManageProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProviderActionPerformed
-        ManageProviderJPanel manageProviderJPanel = new ManageProviderJPanel();
+        ManageProviderJPanel manageProviderJPanel = new ManageProviderJPanel(userAccount, system);
         userProcessContainer.add("Manage Provider", manageProviderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
