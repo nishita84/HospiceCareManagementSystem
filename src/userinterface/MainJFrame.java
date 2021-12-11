@@ -123,7 +123,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/COVID.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/HospiceImgWithoutBG-2.png"))); // NOI18N
         jLabel3.setText("Hospice Care Management System");
         container.add(jLabel3, "card2");
 
