@@ -186,7 +186,7 @@
     <Component class="javax.swing.JLabel" name="lblimage">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/manageDonorimg.png"/>
+          <Image iconType="3" name="/Images/manageDonorimg.png"/>
         </Property>
       </Properties>
     </Component>

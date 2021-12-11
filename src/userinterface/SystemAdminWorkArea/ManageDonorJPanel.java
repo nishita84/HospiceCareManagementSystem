@@ -117,7 +117,7 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblimage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/manageDonorimg.png")); // NOI18N
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manageDonorimg.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

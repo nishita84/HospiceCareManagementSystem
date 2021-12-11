@@ -67,7 +67,7 @@ public class AddDonorJPanel extends javax.swing.JPanel {
 
         lbAmount.setText("Email ID:");
 
-        lblimage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/donor.png")); // NOI18N
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/donor.png"))); // NOI18N
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
