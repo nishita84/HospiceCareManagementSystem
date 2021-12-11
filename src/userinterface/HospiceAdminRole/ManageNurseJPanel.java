@@ -8,6 +8,7 @@ package userinterface.HospiceAdminRole;
 import Business.EcoSystem;
 import Business.Nurses.Nurse;
 import Business.Organization;
+import Business.Nurses.Nurse;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -57,6 +58,15 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtZipCode = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -123,10 +133,34 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
         btnRefresh.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnRefresh.setText("Refresh");
 
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel4.setText("Address :");
+
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel5.setText("City :");
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel6.setText("Contact No :");
+
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel7.setText("Zip Code :");
+
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(285, 285, 285)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(51, 151, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,22 +171,41 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
                         .addGap(365, 365, 365))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnRefresh)
-                                .addGap(99, 99, 99)
-                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(83, 83, 83))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnRefresh)
+                                        .addGap(99, 99, 99)
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel4))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtAddress)
+                                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(45, 45, 45)
+                                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel6))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtContactNo)
+                                            .addComponent(txtZipCode))))))
+                        .addGap(83, 83, 83))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(375, 375, 375))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,6 +225,20 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -183,6 +250,22 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblNurseList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else{
+             DefaultTableModel model = (DefaultTableModel) tblNurseList.getModel();
+             Nurse selectedNurse = (Nurse) model.getValueAt(SelectedRow,9);
+             
+            txtContactNo.setText(selectedNurse.getNurseContactNumber());
+            txtCity.setText(selectedNurse.getNurseCity());
+            txtZipCode.setText(selectedNurse.getNurseZipCode());
+            txtAddress.setText(selectedNurse.getNurseAddress());
+            populateTable();
+        }
     }
     
     public void populateTable()
@@ -211,11 +294,7 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
     }
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
-            // :event_btnUpdateActionPerformed
-            // TODO add your handling code here:
-            //            populateTable();
-            //            tblCustomerList.revalidate();
-            //            tblCustomerList.repaint();
+            populateTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -245,17 +324,51 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblNurseList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblNurseList.getModel();
+            Nurse selectedNurse = (Nurse) model.getValueAt(SelectedRow,9);
+            Nurse updateNurse = system.getNurseDirectory().updateNurse(selectedNurse);
+            updateNurse.setNurseContactNumber(txtContactNo.getText());
+            updateNurse.setNurseCity(txtCity.getText());
+            updateNurse.setNurseZipCode(txtZipCode.getText());
+            updateNurse.setNurseAddress(txtAddress.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtCity.setText("");
+            txtAddress.setText("");
+            txtZipCode.setText("");
+            txtContactNo.setText("");
+        }
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblNurseList;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }
