@@ -5,12 +5,22 @@
  */
 package userinterface.Appointments;
 
+import Business.Appointments.Appointment;
 import Business.Counsellors.Counsellor;
 import Business.EcoSystem;
+import Business.Email.Email;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
+import Business.SetIDsForWorkflows;
 import Business.UserAccount.UserAccount;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import javax.swing.JToggleButton;
 
 /**
  *
@@ -23,16 +33,22 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
      */
     EcoSystem system;
     UserAccount userAccount;
+    ButtonGroup group1;
     public ScheduleAppointmentJPanel(EcoSystem system, UserAccount userAccount) {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
         setDynamicView(false);
         
-        ButtonGroup group1 = new ButtonGroup();
-        group1.add(jToggleButton1);
-        group1.add(jToggleButton2);
-        group1.add(jToggleButton3);
+        group1 = new ButtonGroup();
+        group1.add(btnElevenAM);
+        group1.add(btnOnePM);
+        group1.add(btnTwoPM);
+        group1.add(btnThreePM);
+        group1.add(btnFourPM);
+        group1.add(btnFourThirtyPM);
+        group1.add(btnFivePM);
+        group1.add(btnFiveThirtyPM);
     }
 
     /**
@@ -54,12 +70,18 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         lblAppointmentReason = new javax.swing.JLabel();
         txtAppointmentReason = new javax.swing.JTextField();
         btnScheduleAppointment = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        dateChooser = new com.toedter.calendar.JDateChooser();
+        lblTime = new javax.swing.JLabel();
+        btnElevenAM = new javax.swing.JToggleButton();
+        btnOnePM = new javax.swing.JToggleButton();
+        btnThreePM = new javax.swing.JToggleButton();
+        btnTwoPM = new javax.swing.JToggleButton();
+        btnFourPM = new javax.swing.JToggleButton();
+        btnFourThirtyPM = new javax.swing.JToggleButton();
+        btnFiveThirtyPM = new javax.swing.JToggleButton();
+        btnFivePM = new javax.swing.JToggleButton();
+
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("SCHEDULE AN APPOINTMENT");
@@ -82,16 +104,37 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         lblAppointmentReason.setText("Appointment Reason: ");
 
         btnScheduleAppointment.setText("Schedule an appointment");
+        btnScheduleAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnScheduleAppointmentActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Select a time:");
+        lblTime.setText("Select a time:");
 
-        jButton1.setText("Check slot availability");
+        btnElevenAM.setText("11:00 AM");
+        btnElevenAM.setActionCommand("11:00:00 AM");
 
-        jToggleButton1.setText("11:00 AM");
+        btnOnePM.setText("1:00 PM");
+        btnOnePM.setActionCommand("1:00:00 PM");
 
-        jToggleButton2.setText("1:00 PM");
+        btnThreePM.setText("3:00 PM");
+        btnThreePM.setActionCommand("3:00:00 PM");
 
-        jToggleButton3.setText("3:00 PM");
+        btnTwoPM.setText("2:00 PM");
+        btnTwoPM.setActionCommand("2:00:00 PM");
+
+        btnFourPM.setText("4:00 PM");
+        btnFourPM.setActionCommand("4:00:00 PM");
+
+        btnFourThirtyPM.setText("4:30 PM");
+        btnFourThirtyPM.setActionCommand("4:30:00 PM");
+
+        btnFiveThirtyPM.setText("5:30 PM");
+        btnFiveThirtyPM.setActionCommand("6:00:00 PM");
+
+        btnFivePM.setText("5:00 PM");
+        btnFivePM.setActionCommand("5:00:00 PM");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,7 +152,7 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                             .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAvailableSlots)
                             .addComponent(lblAppointmentReason)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -118,16 +161,25 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                                 .addGap(50, 50, 50)
                                 .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnScheduleAppointment)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jToggleButton1)
+                                .addComponent(btnElevenAM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnOnePM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jToggleButton2)
+                                .addComponent(btnTwoPM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnThreePM))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnFourPM)
                                 .addGap(18, 18, 18)
-                                .addComponent(jToggleButton3)))))
-                .addContainerGap(316, Short.MAX_VALUE))
+                                .addComponent(btnFourThirtyPM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFivePM)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFiveThirtyPM)))))
+                .addContainerGap(476, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,25 +195,30 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblAvailableSlots)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                    .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3))
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addGap(33, 33, 33)
+                    .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnElevenAM)
+                    .addComponent(btnOnePM)
+                    .addComponent(btnTwoPM)
+                    .addComponent(btnThreePM))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFourPM)
+                    .addComponent(btnFourThirtyPM)
+                    .addComponent(btnFiveThirtyPM)
+                    .addComponent(btnFivePM))
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAppointmentReason)
                     .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(48, 48, 48)
                 .addComponent(btnScheduleAppointment)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,23 +245,119 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         btnProceed.setEnabled(false);
     }//GEN-LAST:event_btnProceedActionPerformed
 
+    private void btnScheduleAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleAppointmentActionPerformed
+        // TODO add your handling code here:
+        String role = ddChoose.getSelectedItem().toString();
+        String appointmentReason = txtAppointmentReason.getText();
+        switch(role)
+        {
+            case "Provider":
+                if(dateChooser.getDate() != null && determinePressButton() != null)
+                {
+                    Patient patient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                    system.getPatientDirectory().getPatientList());
+                    
+                    Provider provider = system.getProviderDirectory().findProviderByNPI(patient.getRegisteredProvider().getProviderNPI()
+                    , system.getProviderDirectory().getProviderList());
+                    
+                    Date selectedDate = dateChooser.getDate();
+                    JToggleButton pressedButton = determinePressButton();
+                    String selectedTime = pressedButton.getActionCommand();
+                    
+                    if(validateIfAppointmentDoesNotExistForAProviderAtSameTime(provider, selectedDate, selectedTime))
+                    {
+                         SetIDsForWorkflows setIDForWorkflow = new SetIDsForWorkflows();
+                        String appointmentID = setIDForWorkflow.SetIDForAppointment();
+                        Appointment newAppointment = system.getAppointmentDirectory().createNewAppointmentWithProvider(appointmentID, 
+                            patient, provider, selectedDate, selectedTime, appointmentReason);
+                        if(newAppointment != null)
+                        {
+                            //Email email = new Email();
+                            //email.SendEmailOfAppointment(userAccount.getUsername(), patient.getPatientEmailID());
+                            JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+selectedDate+""
+                                    + "' \n\n Appointment Time:  "+selectedTime+"'");
+                        }
+                        else{
+                            
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "An appointments exists at the selected date and time! Choose a different"
+                                + " time slot!");
+                    }
+                 }
+                break;
+            case "Counsellor":
+                if(dateChooser.getDate() != null && determinePressButton() != null)
+                {
+                    try{
+                        Patient patient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                                          system.getPatientDirectory().getPatientList());
+                    
+                    String selectedCounsellor = ddAppointmentWith.getSelectedItem().toString();
+                    Counsellor counsellor = system.getCounsellorDirectory().findCounsellorByName(selectedCounsellor, 
+                            system.getCounsellorDirectory().getListOfCounsellors());
+                    Date selectedDate = dateChooser.getDate();
+                    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
+                    String strDate = dateFormat.format(selectedDate);  
+                    System.out.print(strDate);
+                    Date appointmentDate =new SimpleDateFormat("MM/dd/yyyy").parse(strDate); 
+                    System.out.println(appointmentDate);
+                    JToggleButton pressedButton = determinePressButton();
+                    String selectedTime = pressedButton.getActionCommand();
+                    
+                    if(!validateIfAppointmentDoesNotExistForACounsellorAtSameTime(counsellor, appointmentDate, selectedTime))
+                    {
+                         SetIDsForWorkflows setIDForWorkflow = new SetIDsForWorkflows();
+                        String appointmentID = setIDForWorkflow.SetIDForAppointment();
+                        Appointment newAppointment = system.getAppointmentDirectory().createNewAppointmentWithCounsellor(appointmentID, 
+                            patient, counsellor, appointmentDate, selectedTime, appointmentReason);
+                        if(newAppointment != null)
+                        {
+                            //Email email = new Email();
+                            //email.SendEmailOfAppointment(userAccount.getUsername(), patient.getPatientEmailID());
+                            JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+appointmentDate+""
+                                    + "' \n\n Appointment Time:  "+selectedTime+"'");
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(this, "Appointment was not created!");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this, "An appointments exists at the selected date and time! Choose a different"
+                                + " time slot!");
+                    }
+                    }
+                    catch(Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+                 }
+                break;    
+        }
+    }//GEN-LAST:event_btnScheduleAppointmentActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnElevenAM;
+    private javax.swing.JToggleButton btnFivePM;
+    private javax.swing.JToggleButton btnFiveThirtyPM;
+    private javax.swing.JToggleButton btnFourPM;
+    private javax.swing.JToggleButton btnFourThirtyPM;
+    private javax.swing.JToggleButton btnOnePM;
     private javax.swing.JButton btnProceed;
     private javax.swing.JButton btnScheduleAppointment;
+    private javax.swing.JToggleButton btnThreePM;
+    private javax.swing.JToggleButton btnTwoPM;
+    private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JComboBox<String> ddAppointmentWith;
     private javax.swing.JComboBox<String> ddChoose;
-    private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JLabel lblAppointment;
     private javax.swing.JLabel lblAppointmentReason;
     private javax.swing.JLabel lblAvailableSlots;
+    private javax.swing.JLabel lblTime;
     private javax.swing.JTextField txtAppointmentReason;
     // End of variables declaration//GEN-END:variables
 
@@ -212,16 +365,100 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         lblAppointment.setVisible(viewStatus);
         ddAppointmentWith.setVisible(viewStatus);
         lblAvailableSlots.setVisible(viewStatus);
-//        btnNineAM.setVisible(viewStatus);
-//        btnElevenAM.setVisible(viewStatus);
-//        btnOnePM.setVisible(viewStatus);
         btnScheduleAppointment.setVisible(viewStatus);
-//        btnThreePM.setVisible(viewStatus);
-//        btnThreeThirtyAM.setVisible(viewStatus);
-//        btnFourPM.setVisible(viewStatus);
-//        btnFivePM.setVisible(viewStatus);
+        btnElevenAM.setVisible(viewStatus);
+        btnOnePM.setVisible(viewStatus);
+        btnTwoPM.setVisible(viewStatus);
+        dateChooser.setVisible(viewStatus);
+        btnThreePM.setVisible(viewStatus);
+        btnFourPM.setVisible(viewStatus);
+        btnFourThirtyPM.setVisible(viewStatus);
+        btnFivePM.setVisible(viewStatus);
+        btnFiveThirtyPM.setVisible(viewStatus);
+        lblTime.setVisible(viewStatus);
         lblAppointmentReason.setVisible(viewStatus);
         lblAvailableSlots.setVisible(viewStatus);
         txtAppointmentReason.setVisible(viewStatus);
+    }
+
+    private JToggleButton determinePressButton() {
+        if(btnElevenAM.isSelected())
+        {
+            return btnElevenAM;
+        }
+        else
+        {
+            if(btnOnePM.isSelected())
+            {
+                return btnOnePM;
+            }
+            else{
+                if(btnThreePM.isSelected())
+                {
+                    return btnThreePM;
+                }
+                else{
+                    if(btnFourPM.isSelected())
+                    {
+                        return btnFourPM;
+                    }
+                    else{
+                        if(btnFourThirtyPM.isSelected())
+                        {
+                            return btnFourThirtyPM;
+                        }
+                        else{
+                            if(btnFivePM.isSelected())
+                            {
+                                return btnFivePM;
+                            }
+                            else{
+                                if(btnFiveThirtyPM.isSelected())
+                                {
+                                    return btnFiveThirtyPM;
+                                }
+                            }
+                        }
+                    }
+                }
+                    
+            }
+        }
+        
+
+
+        return null;
+    }
+    
+    
+    private boolean validateIfAppointmentDoesNotExistForAProviderAtSameTime(Provider provider, Date selectedDate, 
+            String selectedTime)
+    {
+        boolean doesAnAppointmentExistAtSameDateAndTimeForProvider = false;
+        ArrayList<Appointment> listOfAppointmentsByProvider = system.getAppointmentDirectory().findAppointmentByProvider(provider.getProviderNPI(), 
+                system.getAppointmentDirectory().getListOfAppointments());
+        for(Appointment appt : listOfAppointmentsByProvider)
+        {
+            if(appt.getAppointmentDate().equals(selectedDate) && appt.getAppointmentTime().equals(selectedTime))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private boolean validateIfAppointmentDoesNotExistForACounsellorAtSameTime(Counsellor counsellor, Date selectedDate, 
+            String selectedTime)
+    {
+        ArrayList<Appointment> listOfAppointmentsByCounsellor = system.getAppointmentDirectory().findAppointmentByCounsellor(counsellor.getCounsellorID(), 
+                system.getAppointmentDirectory().getListOfAppointments());
+        for(Appointment appt : listOfAppointmentsByCounsellor)
+        {
+            if(appt.getAppointmentDate().equals(selectedDate) && appt.getAppointmentTime().equals(selectedTime))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -71,4 +71,22 @@ public class LookUpMapping {
         }
         return claimStatusValue;
     }
+    
+    public String mapAppointmentStatus(int appointmentStatus)
+    {
+        String appointmentStatusValue = "";
+        switch(appointmentStatus)
+        {
+            case 0:
+                appointmentStatusValue = "Scheduled";
+                break;
+            case 1: 
+                appointmentStatusValue = "Completed ";
+                break;
+             case 2: 
+                appointmentStatusValue = "Canceled ";
+                break;
+        }
+        return appointmentStatusValue;
+    }
 }
