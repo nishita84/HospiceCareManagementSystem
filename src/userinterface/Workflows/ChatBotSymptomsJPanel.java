@@ -6,7 +6,9 @@
 package userinterface.Workflows;
 
 import Business.EcoSystem;
+import Business.LookUpMapping;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 
 /**
@@ -91,7 +93,7 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         jLabel1.setText("WELCOME TO SYMPTOMS CATCHER ");
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Headache", "Body Pain", "Fever", "Cold", "Cough", "Abnormal Heart Rate", "Dizziness", "Breathlessness" };
+            String[] strings = { "Headache", "Body Pain", "Fever", "Cold", "Cough", "Abnormal Heart Rate", "Dizziness", "Breathlessness", "Loss of taste", "Loss of smell" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -160,6 +162,11 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         });
 
         btnEvaulateSymptom.setText("Evaluate Symptoms");
+        btnEvaulateSymptom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaulateSymptomActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Select maximum 3 symptoms: ");
 
@@ -328,6 +335,38 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
             btnAddSymptom.setEnabled(false);
         }
     }//GEN-LAST:event_btnAddSymptomKeyPressed
+
+    private void btnEvaulateSymptomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaulateSymptomActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Integer> listOfSymptoms = new ArrayList<Integer>();
+        String symptom1Value = txtSymptom1.getText();
+        String symptom2Value = txtSymptom2.getText();
+        String symptom3Value = txtSymptom3.getText();
+        LookUpMapping lookups = new LookUpMapping();
+        int symptom1 = lookups.mapSymptoms(symptom1Value);
+        int symptom2 = lookups.mapSymptoms(symptom2Value);
+        int symptom3 = lookups.mapSymptoms(symptom3Value);
+        listOfSymptoms.add(symptom1);
+        listOfSymptoms.add(symptom2);
+        listOfSymptoms.add(symptom3);
+        
+        if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(2))
+        {
+            
+        }
+        else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(2) && listOfSymptoms.contains(3))
+        {
+            
+        }
+        else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(6))
+        {
+            
+        }
+        else if(listOfSymptoms.contains(7) && listOfSymptoms.contains(8))
+        {
+            
+        }
+    }//GEN-LAST:event_btnEvaulateSymptomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

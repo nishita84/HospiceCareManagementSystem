@@ -314,8 +314,9 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                             patient, counsellor, appointmentDate, selectedTime, appointmentReason);
                         if(newAppointment != null)
                         {
-                            //Email email = new Email();
-                            //email.SendEmailOfAppointment(userAccount.getUsername(), patient.getPatientEmailID());
+                            Email email = new Email();
+                            email.SendEmailOfAppointment(userAccount.getUsername(), appointmentID, patient.getPatientName(),
+                                    counsellor.getCounsellorName(), appointmentDate, selectedTime);
                             JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+appointmentDate+""
                                     + "' \n\n Appointment Time:  "+selectedTime+"'");
                         }

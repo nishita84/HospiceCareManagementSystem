@@ -89,4 +89,40 @@ public class LookUpMapping {
         }
         return appointmentStatusValue;
     }
+    
+    public int mapSymptoms(String symptom)
+    {
+        int symptomValue = 0;
+        switch(symptom)
+        {
+            case "Headache":
+                symptomValue = 0;
+                break;
+             case "Body Pain":
+                symptomValue = 1;
+                break;
+             case "Fever":
+                symptomValue = 2;
+                break;
+            case "Cold":
+                symptomValue = 3;
+                break;
+             case "Cough":
+                symptomValue = 4;
+                break;
+             case "Abnormal Heart Rate":
+                symptomValue = 5;
+                break;
+             case "Breathlessness":
+                symptomValue = 6;
+                break;
+             case "Loss of taste":
+                symptomValue = 7;
+                break;
+             case "Loss of smell":
+                symptomValue = 8;
+                break;
+        }
+        return symptomValue;
+    }
 }
