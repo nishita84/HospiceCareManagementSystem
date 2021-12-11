@@ -125,6 +125,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAddPayer.setText("Add Payers");
 
         btnManagePayer.setText("Manage Payers");
+        btnManagePayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagePayerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -215,6 +220,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         ManageDonorJPanel manageDonorJPanel = new ManageDonorJPanel(userProcessContainer,userAccount, ecosystem);
         jSplitPane.setRightComponent(manageDonorJPanel);
     }//GEN-LAST:event_btnManageDonorsActionPerformed
+
+    private void btnManagePayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagePayerActionPerformed
+        // TODO add your handling code here:
+        ManagePayerJPanel managepayerjpanel = new ManagePayerJPanel(userProcessContainer,userAccount, ecosystem);
+        jSplitPane.setRightComponent(managepayerjpanel);
+    }//GEN-LAST:event_btnManagePayerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

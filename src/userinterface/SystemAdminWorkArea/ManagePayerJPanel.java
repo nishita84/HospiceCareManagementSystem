@@ -4,6 +4,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Payers.Payer;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nishitasheelendraupadhyay
@@ -13,8 +22,15 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManagePayerJPanel
      */
-    public ManagePayerJPanel() {
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    EcoSystem ecosystem;
+    public ManagePayerJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.ecosystem = ecosystem;
         initComponents();
+        
     }
 
     /**
@@ -27,7 +43,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         DonorScrollPane = new javax.swing.JScrollPane();
-        tblDonorList = new javax.swing.JTable();
+        tblPayerList = new javax.swing.JTable();
         lblHospiceList = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
@@ -36,26 +52,29 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtEmailID = new javax.swing.JTextField();
+        lblEmailID = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
-        tblDonorList.setModel(new javax.swing.table.DefaultTableModel(
+        tblPayerList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Billing Address", "Email ID"
+                "Name", "Billing Address", "Email ID", "Payer"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        DonorScrollPane.setViewportView(tblDonorList);
+        DonorScrollPane.setViewportView(tblPayerList);
 
         lblHospiceList.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblHospiceList.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -102,6 +121,21 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/ManagePayer.png")); // NOI18N
 
+        txtEmailID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailIDActionPerformed(evt);
+            }
+        });
+
+        lblEmailID.setText("Email ID: ");
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,7 +145,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnBack)
@@ -121,23 +155,32 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(90, 90, 90)
                                 .addComponent(btnUpdate)
-                                .addGap(127, 127, 127)
-                                .addComponent(btnDelete)
                                 .addGap(38, 38, 38))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCreate)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnDelete)
+                                .addGap(45, 45, 45)
+                                .addComponent(btnCreate))
                             .addComponent(DonorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(lblHospiceList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(102, 102, 102)
+                .addComponent(lblHospiceList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblEmailID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSave)
+                        .addGap(110, 110, 110)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,31 +199,113 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnCreate)
                     .addComponent(btnDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave)))
+                .addContainerGap(307, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, ecosystem);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+    public void populateTable()
+    {
+        DefaultTableModel dtm = (DefaultTableModel) tblPayerList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Payer p : ecosystem.getPayerDirectory().getListOfPayers())
+        {
+            Object [] row = new Object[4];
+            row[0] = p.getPayerName();
+            row[1] = p.getPayerBillingAddress();
+            row[2] = p.getPayerEmailID();
+            row[3] = p;
+            dtm.addRow(row);
+        }
+    }
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblPayerList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblPayerList.getModel();
+            Payer selectedPayer = (Payer) model.getValueAt(SelectedRow, 3);
+            
+            txtEmailID.setText(selectedPayer.getPayerEmailID());
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        // TODO add your handling code here:
+        
+        AddPayerJPanel addpayerjpanel = new AddPayerJPanel(userProcessContainer, userAccount, ecosystem);
+        userProcessContainer.add("Add Payer",addpayerjpanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        int SelectedRow = tblPayerList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblPayerList.getModel();
+            Payer payer = (Payer) model.getValueAt(SelectedRow, 3);
+            ecosystem.getPayerDirectory().deletePayer(SelectedRow); 
+            JOptionPane.showMessageDialog(this, "Payer Details Deleted");
+            populateTable();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void txtEmailIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailIDActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblPayerList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblPayerList.getModel();
+            Payer selectedPayer  = (Payer) model.getValueAt(SelectedRow, 3); 
+            Payer updatepayer = ecosystem.getPayerDirectory().updatePayer(selectedPayer);
+            updatepayer.setPayerEmailID(txtEmailID.getText()); 
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtEmailID.setText("");
+        }
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -189,10 +314,13 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblHospiceList;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblDonorList;
+    private javax.swing.JTable tblPayerList;
+    private javax.swing.JTextField txtEmailID;
     // End of variables declaration//GEN-END:variables
 }

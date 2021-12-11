@@ -11,6 +11,7 @@ import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,13 +20,15 @@ import javax.swing.JOptionPane;
 public class AddPayerJPanel extends javax.swing.JPanel {
     UserAccount userAccount;
     EcoSystem system;
+    JPanel userProcessContainer;
 
     /** Creates new form AddPayerJPanel */
     
-    public AddPayerJPanel() {
+    public AddPayerJPanel(JPanel userProcessContainer,UserAccount userAccount, EcoSystem system  ) {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
+        this.userProcessContainer = userProcessContainer;
     }
 
     /** This method is called from within the constructor to

@@ -65,11 +65,11 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Address", "City", "State", "Zip code", "Country", "Contact No.", "Email ID"
+                "Name", "Address", "City", "State", "Zip code", "Country", "Contact No.", "Email ID", "Hospice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -241,17 +241,16 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         
         for(Hospice d : ecosystem.getHospiceDirectory().getListOfHospice())
         {
-            Object [] row = new Object[10];
+            Object [] row = new Object[9];
             row[0] = d.getHospiceName();
             row[1] = d.getHospiceAddress();
             row[2] = d.getHospiceCity();
             row[3] = d.getHospiceState();
-            row[4] = d.getHospiceState();
-            row[5] = d.getHospiceZipCode();
-            row[6] = d.getHospiceCountry();
-            row[7] = d.getHospiceContactNumber();
-            row[8] = d.getHospiceEmailID();
-            row[9] = d;
+            row[4] = d.getHospiceZipCode();
+            row[5] = d.getHospiceCountry();
+            row[6] = d.getHospiceContactNumber();
+            row[7] = d.getHospiceEmailID();
+            row[8] = d;
             dtm.addRow(row);
         }
         
@@ -273,7 +272,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         else
         {
             DefaultTableModel model = (DefaultTableModel) tblHospiceList.getModel();
-            Hospice selectedHospice = (Hospice) model.getValueAt(SelectedRow, 10);
+            Hospice selectedHospice = (Hospice) model.getValueAt(SelectedRow, 8);
             
             txtContactNo.setText(selectedHospice.getHospiceContactNumber());
             txtEmailID.setText(selectedHospice.getHospiceEmailID());
@@ -283,10 +282,29 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddHospiceJPanel addhospicejpanel = new AddHospiceJPanel(userAccount, ecosystem);
+        userProcessContainer.add("Add Hospice",addhospicejpanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblHospiceList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblHospiceList.getModel();
+            Hospice selectedClaim = (Hospice) model.getValueAt(SelectedRow, 8);
+            ecosystem.getHospiceDirectory().deleteHospice(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Hospice Details Deleted");
+            populateTable();
+        }
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNoActionPerformed
@@ -304,7 +322,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         else
         {
             DefaultTableModel model = (DefaultTableModel) tblHospiceList.getModel();
-            Hospice selectedHospice  = (Hospice) model.getValueAt(SelectedRow, 10); 
+            Hospice selectedHospice  = (Hospice) model.getValueAt(SelectedRow, 8); 
             Hospice updatehospice = ecosystem.getHospiceDirectory().updateHospice(selectedHospice);
             updatehospice.setHospiceContactNumber(txtContactNo.getText());
             updatehospice.setHospiceEmailID(txtEmailID.getText());
