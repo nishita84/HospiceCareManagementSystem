@@ -79,6 +79,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         EthinicityDropDown = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
         CountryDropDown = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -156,6 +157,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
 
+        jButton1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jButton1.setText("Back");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,14 +207,21 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
-                .addGap(400, 400, 400)
-                .addComponent(btnAddPatient)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(400, 400, 400)
+                        .addComponent(btnAddPatient))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(55, 55, 55)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
                 .addComponent(lbTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -333,6 +344,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Payer;
     private javax.swing.JComboBox<String> TerminalIllnessDropDown;
     private javax.swing.JButton btnAddPatient;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
