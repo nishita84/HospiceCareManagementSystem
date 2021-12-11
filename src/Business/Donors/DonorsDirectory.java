@@ -41,7 +41,7 @@ public class DonorsDirectory {
         return newDonor;
     }
     
-    public Donor updateCounsellor(Donor selectedDonor)
+    public Donor updateDonor(Donor selectedDonor)
     {
         listOfDonors.set(listOfDonors.indexOf(selectedDonor), selectedDonor);
         return selectedDonor;

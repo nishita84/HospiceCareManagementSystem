@@ -27,6 +27,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(), 
                 system.getHospiceDirectory().getListOfHospice());
         jTextField1.setText(String.valueOf(hospice.getTotalHospiceBalance()));
+       jTextField1.setEditable(false);
 
     }
     
