@@ -5,6 +5,8 @@
  */
 package Business.Automated;
 
+import Business.Agency.Agency;
+import Business.Audits.Audit;
 import Business.Counsellors.Counsellor;
 import Business.Diagnosis.Diagnosis;
 import Business.Donors.Donor;
@@ -19,6 +21,7 @@ import Business.Payers.Payer;
 import Business.Providers.Provider;
 import Business.Role.CounsellorRole;
 import Business.Role.DonorRole;
+import Business.Role.FederalRole;
 import Business.Role.HospiceAdminRole;
 import Business.Role.NurseRole;
 import Business.Role.PatientRole;
@@ -58,6 +61,7 @@ public class AutomatedEntry {
     private JPanel userProcessContainer;
     Organization organization;
     private UserAccount userAccount;
+    private Agency agency;
     EcoSystem system;
     
     public AutomatedEntry(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system)
@@ -65,6 +69,46 @@ public class AutomatedEntry {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.userAccount = userAccount;
+    }
+    
+    public boolean AutomatedCreationOfAgency()
+    {
+        String projectPath = System.getProperty("user.dir");
+        try
+             {
+                File agencyXMLFile = new File(projectPath + "/src/Business/Automated/Agencies.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(agencyXMLFile);
+                doc.getDocumentElement().normalize();
+
+                NodeList nList = doc.getElementsByTagName("agency");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) 
+            {
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) 
+                {
+                    Element eElement = (Element) nNode;
+                    String country = (eElement.getElementsByTagName("country")
+                                        .item(0).getTextContent());
+                   String agencyName = (eElement.getElementsByTagName("name")
+                                        .item(0).getTextContent());
+                   String amountInDollarsInString = (eElement.getElementsByTagName("amountInDollars")
+                                        .item(0).getTextContent());
+                   agency = system.getAgencyDirectory().createNewAgency(country, agencyName, 
+                           Double.parseDouble(amountInDollarsInString));
+                    Employee emp = system.getEmployeeDirectory().createEmployee(agencyName);
+                    system.getUserAccountDirectory().createUserAccount("federalagency@usa.gov.in", "usa123", emp, new FederalRole());
+                }
+            }
+             }
+        catch(Exception ex)
+        {
+            
+        }
+        return true;
     }
     
     public boolean AutomatedCreationOfHospice()
@@ -336,6 +380,16 @@ public class AutomatedEntry {
                    
                     Employee emp = system.getEmployeeDirectory().createEmployee(patientName);
                     system.getUserAccountDirectory().createUserAccount(patientEmailID, password, emp, new PatientRole());
+                    
+                     agency = system.getAgencyDirectory().findAgencyByCountryName(patientCountry, 
+                            system.getAgencyDirectory().getListOfAgencies());
+                     double previousBalanceOfHospice = hospice.getTotalHospiceBalance();
+                     double newBalanceAfterAddingNewPatient = previousBalanceOfHospice + agency.getAmountForEveryPatientAdmitted();
+                     Hospice updateHospice = system.getHospiceDirectory().updateHospice(hospice);
+                     updateHospice.setTotalHospiceBalance(newBalanceAfterAddingNewPatient);
+                    
+                     Audit audit = system.getAuditDirectory().createNewAuditEntryForFederalPatient(agency, 
+                            previousBalanceOfHospice, newBalanceAfterAddingNewPatient, updateHospice);
                 }
                 
             }

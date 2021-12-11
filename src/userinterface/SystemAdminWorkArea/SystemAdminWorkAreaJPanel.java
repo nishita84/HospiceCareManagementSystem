@@ -199,7 +199,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void btnAutomatedSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutomatedSetupActionPerformed
         // TODO add your handling code here:
         AutomatedEntry automatedEntry = new AutomatedEntry(userProcessContainer, userAccount, ecosystem);
-        if( automatedEntry.AutomatedCreationOfHospice() &&
+        if(     automatedEntry.AutomatedCreationOfAgency() &&
+                automatedEntry.AutomatedCreationOfHospice() &&
                 automatedEntry.AutomatedCreationOfProviders() && automatedEntry.AutomatedCreationOfPayer()
                 && automatedEntry.AutomatedCreationOfPatients() && automatedEntry.AutomatedCreationOfNurses()
                 && automatedEntry.AutomatedCreationOfDonors() && automatedEntry.AutomatedCreationOfCounsellors()
