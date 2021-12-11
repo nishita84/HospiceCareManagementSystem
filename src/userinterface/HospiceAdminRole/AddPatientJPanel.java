@@ -7,14 +7,18 @@ package userinterface.HospiceAdminRole;
 
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
+import Business.Organization;
 import Business.Patients.Patient;
 import Business.Payers.Payer;
 import Business.Providers.Provider;
 import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -27,6 +31,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
      */
     UserAccount userAccount;
     EcoSystem system;
+    JPanel userProcessContainer;
+    Organization customerOrg;
+    Patient Patient;
     public AddPatientJPanel(UserAccount account, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
@@ -159,6 +166,11 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         jButton1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -334,6 +346,15 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
         }
     }//GEN-LAST:event_btnAddPatientActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
