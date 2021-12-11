@@ -8,12 +8,16 @@ package userinterface.HospiceAdminRole;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.Nurses.Nurse;
+import Business.Organization;
 import Business.Providers.Provider;
 import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -26,6 +30,9 @@ public class AddNurseJPanel extends javax.swing.JPanel {
      */
     UserAccount userAccount;
     EcoSystem system;
+    JPanel userProcessContainer;
+    Organization customerOrg;
+    Nurse Nurse;
     
     public AddNurseJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
@@ -71,6 +78,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         CountryDropDown = new javax.swing.JComboBox();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -129,6 +137,14 @@ public class AddNurseJPanel extends javax.swing.JPanel {
 
         CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,11 +187,17 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addGap(29, 29, 29)
                 .addComponent(lbTitle)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -220,7 +242,6 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbEmailID)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -232,7 +253,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel2)))))
                 .addGap(26, 26, 26)
                 .addComponent(btnAddNurse)
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addContainerGap(476, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,12 +292,22 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAddNurseActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CountryDropDown;
     private javax.swing.JComboBox<String> HospiceDropdown;
     private javax.swing.JComboBox<String> ReportingProviderDropDown;
     private javax.swing.JButton btnAddNurse;
+    private javax.swing.JButton btnBack;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

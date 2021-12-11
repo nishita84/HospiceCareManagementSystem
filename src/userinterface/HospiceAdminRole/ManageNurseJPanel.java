@@ -5,6 +5,16 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Nurses.Nurse;
+import Business.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +24,18 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageNurseJPanel
      */
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    Organization customerOrg;
+    EcoSystem system;
+    Nurse Nurse;
     public ManageNurseJPanel() {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.system = system;
+        this.customerOrg = customerOrg;
+         populateTable();
     }
 
     /**
@@ -45,9 +65,17 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Nurse ID", "Name", "Address", "City", "State", "Zip Code", "Country", "Contact No", "Email Id"
+                "Nurse ID", "Name", "Address", "City", "Zip Code", "Contact No", "Email Id", "Reporting Provider", "Hospice"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblNurseList);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -155,10 +183,34 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-
+    }
+    
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblNurseList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Nurse n : system.getNurseDirectory().getNurseList())
+        {
+            Object [] row = new Object[9];
+            row[0] = n.getNurseID();
+            row[1] = n.getNurseName();
+            row[2] = n.getNurseAddress();
+            row[3] = n.getNurseCity();
+            row[4] = n.getNurseZipCode();
+            row[5] = n.getNurseContactNumber();
+            row[6] = n.getNurseEmailID();
+            row[7] = n.getReportingProvider().getProviderName();
+            row[8] = n.getHospiceNurseWorksIn().getHospiceName();
+            row[9] = n;
+            dtm.addRow(row);
         }
+        
 
-        private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
+    }
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             // :event_btnUpdateActionPerformed
             // TODO add your handling code here:
             //            populateTable();
@@ -168,41 +220,29 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        //        int selectedRow = tblCustomerList.getSelectedRow();
-        //        if (selectedRow < 0) {
-            //            JOptionPane.showMessageDialog(null, "Please select a row");
-            //            return;
-            //        } else {
-            //            UserAccount ua = (UserAccount) tblCustomerList.getValueAt(selectedRow, 1);
-            //            customerOrg.getUserAccountDirectory().deleteUserAccount(ua);
-            //            customerOrg.getEmployeeDirectory().deleteEmployee(ua.getEmployee());
-            //            JOptionPane.showMessageDialog(null, "User Account deleted successfully");
-            //
-            //            populateTable();
-            //            tblCustomerList.revalidate();
-            //            jScrollPane1.revalidate();
-            //            tblCustomerList.repaint();
-            //            jScrollPane1.repaint();
-            //            jScrollPane1.setViewportView(tblCustomerList);
-            //            this.revalidate();
-            //            this.repaint();
-            //        }
+         int SelectedRow = tblNurseList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblNurseList.getModel();
+            Nurse selectedNurse = (Nurse) model.getValueAt(SelectedRow, 10);
+            system.getProviderDirectory().deleteProvider(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Nurse Details Deleted");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        //        userProcessContainer.remove(this);
-        //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        //        layout.previous(userProcessContainer);
-        //
-        //        Component[] comps = this.userProcessContainer.getComponents();
-        //        for (Component comp : comps) {
-            //            if (comp instanceof SystemAdminWorkAreaJPanel) {
-                //                SystemAdminWorkAreaJPanel systemAdminWorkAreaJPanel = (SystemAdminWorkAreaJPanel) comp;
-                //                systemAdminWorkAreaJPanel.populateTree();
-                //            }
-            //        }
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
 

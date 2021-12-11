@@ -4,6 +4,17 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.Donors.Donor;
+import Business.Providers.Provider;
+import Business.EcoSystem;
+import Business.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 /**
  *
  * @author nishitasheelendraupadhyay
@@ -13,8 +24,18 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageProviderJPanel
      */
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    Organization customerOrg;
+    EcoSystem system;
+    Provider Provider;
     public ManageProviderJPanel() {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.system = system;
+        this.customerOrg = customerOrg;
+         populateTable();
     }
 
     /**
@@ -47,11 +68,11 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Address", "State", "City", "Country", "ZipCode", "EmailID", "ContactNo", "Operating Provider"
+                "NPI", "Name", "Address", "State", "City", "Country", "Zip Code", "EmailID", "Contact No", "Hospice"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -191,14 +212,62 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblProviderList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Provider p : system.getProviderDirectory().getProviderList())
+        {
+            Object [] row = new Object[10];
+            row[0] = p.getProviderNPI();
+            row[1] = p.getProviderName();
+            row[2] = p.getProviderAddress();
+            row[3] = p.getProviderState();
+            row[4] = p.getProviderCity();
+            row[5] = p.getProviderCountry();
+            row[6] = p.getZipCode();
+            row[7] = p.getProviderEmailID();
+            row[8] = p.getProviderContactNumber();
+            row[9] = p.getOperatingHospice().getHospiceName();
+            row[10] = p;
+            dtm.addRow(row);
+        }
+        
 
+    }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblProviderList.getSelectedRow();
+        
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblProviderList.getModel();
+            Provider provider  = (Provider) model.getValueAt(SelectedRow, 10);
+            
+            //txtName.setText("");
+            //txtEmailID.setText("");
+            
+            populateTable();
+
+            
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -207,6 +276,20 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblProviderList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblProviderList.getModel();
+            Provider selectedProvider = (Provider) model.getValueAt(SelectedRow, 10);
+            system.getProviderDirectory().deleteProvider(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Provider Details Deleted");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

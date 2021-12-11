@@ -7,11 +7,16 @@ package userinterface.HospiceAdminRole;
 
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
+import Business.Organization;
+import Business.Providers.Provider;
 import Business.Providers.Provider;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -25,6 +30,9 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     UserAccount userAccount;
     EcoSystem system;
     Hospice hospice;
+    JPanel userProcessContainer;
+    Organization customerOrg;
+    Provider Provider;
     public AddProviderJPanel() {
         initComponents();
         this.userAccount = userAccount;
@@ -66,6 +74,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         HospiceDropDown = new javax.swing.JComboBox();
         CountryDropDown = new javax.swing.JComboBox();
         txtAddress = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -118,6 +127,14 @@ public class AddProviderJPanel extends javax.swing.JPanel {
 
         CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
 
+        btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,9 +144,13 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 963, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBack)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(288, 288, 288)
@@ -172,8 +193,13 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnBack)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -251,11 +277,21 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAddProviderActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CountryDropDown;
     private javax.swing.JComboBox<String> HospiceDropDown;
     private javax.swing.JButton btnAddProvider;
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

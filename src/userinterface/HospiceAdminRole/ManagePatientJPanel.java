@@ -5,6 +5,18 @@
  */
 package userinterface.HospiceAdminRole;
 
+
+import Business.EcoSystem;
+import Business.Organization;
+import Business.Patients.Patient;
+import Business.Providers.Provider;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +26,18 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManagePatientJPanel
      */
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    Organization customerOrg;
+    EcoSystem system;
+    Patient Patient;
     public ManagePatientJPanel() {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.system = system;
+        this.customerOrg = customerOrg;
+         populateTable();
     }
 
     /**
@@ -48,11 +70,11 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Address", "Date of Birth", "Patient MRN", "City", "State", "Zipcode", "Country", "Contact no", "Email ID", "Terminal Disease Associated", "Provider", "Payer"
+                "Name", "Address", "Date of Birth", "Patient MRN", "City", "Zipcode", "Contact no", "Terminal illness", "Provider", "Payer"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -190,8 +212,37 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblPatientsList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Patient p : system.getPatientDirectory().getPatientList())
+        {
+            Object [] row = new Object[10];
+            row[0] = p.getPatientName();
+            row[1] = p.getPatientAddress();
+            row[2] = p.getDateOfBirth();
+            row[3] = p.getPatientMRN();
+            row[4] = p.getPatientCity();
+            row[5] = p.getPatientZipCode();
+            row[6] = p.getPatientContactNumber();
+            row[7] = p.getTermonalIllnessAssociated();
+            row[8] = p.getRegisteredProvider().getProviderName();
+            row[9] = p.getRegisteredPayer().getPayerName();
+            row[10] = p;
+            dtm.addRow(row);
+        }
+        
 
+    }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRefreshActionPerformed
@@ -206,6 +257,20 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblPatientsList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblPatientsList.getModel();
+            Patient selectedPatient = (Patient) model.getValueAt(SelectedRow, 10);
+            system.getPatientDirectory().deletePatient(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Patient Details Deleted");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
