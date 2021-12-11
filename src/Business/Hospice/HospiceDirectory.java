@@ -5,13 +5,6 @@
  */
 package Business.Hospice;
 
-import Business.Counsellors.Counsellor;
-import Business.Donors.Donor;
-import Business.Nurses.Nurse;
-import Business.Patients.Patient;
-import Business.Providers.Provider;
-import Business.SetIDsForEnterprises;
-import Business.Volunteers.Volunteer;
 import java.util.ArrayList;
 
 /**
@@ -20,22 +13,10 @@ import java.util.ArrayList;
  */
 public class HospiceDirectory {
     private ArrayList<Hospice> hospiceList;
-    ArrayList<Patient> registeredPatientsInHospice;
-    ArrayList<Provider> registeredProvidersInHospice;
-    ArrayList<Nurse> registeredNursesInHospice;
-    ArrayList<Counsellor> registeredCounsellorsInHospice;
-    ArrayList<Volunteer> registeredVolunteersInHospice;
-    ArrayList<Donor> registeredDonorsInHospice;
     
     public HospiceDirectory()
     {
         hospiceList = new ArrayList<Hospice>();
-        registeredPatientsInHospice = new ArrayList<Patient>();
-        registeredProvidersInHospice = new ArrayList<Provider>();
-        registeredNursesInHospice = new ArrayList<Nurse>();
-        registeredCounsellorsInHospice = new ArrayList<Counsellor>();
-        registeredVolunteersInHospice = new ArrayList<Volunteer>();
-        registeredDonorsInHospice = new ArrayList<Donor>();
     }
 
     public ArrayList<Hospice> getListOfHospice() {
@@ -61,13 +42,7 @@ public class HospiceDirectory {
         newHospice.setHospiceZipCode(hospiceZipCode);
         newHospice.setHospiceEmailID(hospiceEmailID);
         newHospice.setHospiceContactNumber(hospiceContactNumber);
-        newHospice.setTotalHospiceBalance(1500);
-        newHospice.setRegisteredProvidersInHospice(registeredProvidersInHospice);
-        newHospice.setRegisteredNursesInHospice(registeredNursesInHospice);
-        newHospice.setRegisteredPatientsInHospice(registeredPatientsInHospice);
-        newHospice.setRegisteredVolunteersInHospice(registeredVolunteersInHospice);
-        newHospice.setRegisteredCounsellorsInHospice(registeredCounsellorsInHospice);
-        newHospice.setRegisteredDonorsInHospice(registeredDonorsInHospice);
+        newHospice.setTotalHospiceBalance(0.00);
         hospiceList.add(newHospice);
         return newHospice;
     }

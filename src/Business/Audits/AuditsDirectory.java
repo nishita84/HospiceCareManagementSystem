@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Federal;
+package Business.Audits;
 
+import Business.Agency.Agency;
 import Business.ClaimsBilling.Claim;
 import Business.Donation.Donation;
+import Business.Hospice.Hospice;
 import Business.SetIDsForWorkflows;
 import java.util.ArrayList;
 
@@ -81,7 +83,7 @@ public class AuditsDirectory {
          return newAuditEntry;
     }
     
-    public Audit createNewAuditEntryForFederalPatient(Donation donation, double beforeBalance, double afterBalance)
+    public Audit createNewAuditEntryForFederalPatient(Agency agency, double beforeBalance, double afterBalance, Hospice hospice)
     {
          SetIDsForWorkflows setIDForWorkflows = new SetIDsForWorkflows();
          Audit newAuditEntry = new Audit();
@@ -89,9 +91,9 @@ public class AuditsDirectory {
          newAuditEntry.setTransactionType("R");
          newAuditEntry.setBeforeBalance(beforeBalance);
          newAuditEntry.setAfterBalance(afterBalance);
-         newAuditEntry.setHospice(donation.getHospiceToWhichAmountIsDonated());
-         newAuditEntry.setComments(donation.getDonor().getDonorName()+" contributed to $ "+donation.getDonationAmount()+""
-                 + " to "+donation.getHospiceToWhichAmountIsDonated().getHospiceName() +" on patient registration");
+         newAuditEntry.setHospice(hospice);
+         newAuditEntry.setComments(agency.getAgencyName()+" contributed to $ "+agency.getAmountForEveryPatientAdmitted()+""
+                 + " to "+hospice.getHospiceName() +" on patient registration");
          listOfAudits.add(newAuditEntry);
          return newAuditEntry;
     }

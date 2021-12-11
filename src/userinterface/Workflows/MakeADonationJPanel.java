@@ -8,7 +8,7 @@ package userinterface.Workflows;
 import Business.Donation.Donation;
 import Business.Donors.Donor;
 import Business.EcoSystem;
-import Business.Federal.Audit;
+import Business.Audits.Audit;
 import Business.Hospice.Hospice;
 import Business.Invoice.GenerateInvoices;
 import Business.SetIDsForWorkflows;
