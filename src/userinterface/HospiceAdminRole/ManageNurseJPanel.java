@@ -246,6 +246,10 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddNurseJPanel addNurseJPanel = new AddNurseJPanel(userProcessContainer,userAccount,system);
+        userProcessContainer.add("Add Nurse",addNurseJPanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
