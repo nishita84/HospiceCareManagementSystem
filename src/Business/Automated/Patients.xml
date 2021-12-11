@@ -26,7 +26,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
         <emergencyContactName>Michael Johnson</emergencyContactName>
-        <emergencyContactNumber>8578754312</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1002</mrn>
@@ -48,7 +48,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
         <emergencyContactName>Pam Pitt</emergencyContactName>
-        <emergencyContactNumber>8578671532</emergencyContactNumber>
+        <emergencyEmailID>mj@mj.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1003</mrn>
@@ -70,7 +70,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1002</hospiceID>
         <emergencyContactName>Dwight Reynolds</emergencyContactName>
-        <emergencyContactNumber>8598754322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1004</mrn>
@@ -92,7 +92,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1002</hospiceID>
          <emergencyContactName>Meridith Gosling</emergencyContactName>
-        <emergencyContactNumber>8578754322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1005</mrn>
@@ -114,7 +114,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
          <emergencyContactName>George Bullock</emergencyContactName>
-        <emergencyContactNumber>8578954322</emergencyContactNumber>
+        <emergencyEmailID>mj@mj.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1006</mrn>
@@ -136,7 +136,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1002</hospiceID>
          <emergencyContactName>Scott Timberlake</emergencyContactName>
-        <emergencyContactNumber>8578654322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1007</mrn>
@@ -158,7 +158,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1004</hospiceID>
          <emergencyContactName>Aaron Markle</emergencyContactName>
-        <emergencyContactNumber>8578784322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1008</mrn>
@@ -180,7 +180,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1004</hospiceID>
          <emergencyContactName>Alex Fox</emergencyContactName>
-        <emergencyContactNumber>8578754122</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1009</mrn>
@@ -202,7 +202,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1004</hospiceID>
          <emergencyContactName>David Rowling</emergencyContactName>
-        <emergencyContactNumber>8578752322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1010</mrn>
@@ -224,7 +224,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
          <emergencyContactName>Rajesh Jain</emergencyContactName>
-        <emergencyContactNumber>8578753322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1009</mrn>
@@ -246,7 +246,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
          <emergencyContactName>Alan Gadot</emergencyContactName>
-        <emergencyContactNumber>8578754222</emergencyContactNumber>s
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1010</mrn>
@@ -268,7 +268,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1002</hospiceID>
          <emergencyContactName>Prakash Padukone</emergencyContactName>
-        <emergencyContactNumber>8578754522</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1011</mrn>
@@ -290,7 +290,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1002</hospiceID>
          <emergencyContactName>Luke Johnson</emergencyContactName>
-        <emergencyContactNumber>8578754122</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1012</mrn>
@@ -312,7 +312,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1003</hospiceID>
          <emergencyContactName>Harry Rooney</emergencyContactName>
-        <emergencyContactNumber>8578753322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1013</mrn>
@@ -334,7 +334,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1003</hospiceID>
          <emergencyContactName>Victor Johnson</emergencyContactName>
-        <emergencyContactNumber>8578744322</emergencyContactNumber>
+       <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1014</mrn>
@@ -356,7 +356,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1004</hospiceID>
          <emergencyContactName>Fred Marsh</emergencyContactName>
-        <emergencyContactNumber>8578744322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1015</mrn>
@@ -378,7 +378,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1004</hospiceID>
          <emergencyContactName>Bruno Gaffier</emergencyContactName>
-        <emergencyContactNumber>8571754322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1016</mrn>
@@ -400,7 +400,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1005</hospiceID>
          <emergencyContactName>John Hamilton</emergencyContactName>
-        <emergencyContactNumber>8578752322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1017</mrn>
@@ -423,7 +423,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1005</hospiceID>
          <emergencyContactName>Michael Schumacher</emergencyContactName>
-        <emergencyContactNumber>8578755322</emergencyContactNumber>s
+       <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
     <patient>
         <mrn>1018</mrn>
@@ -445,7 +445,7 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
          <emergencyContactName>Gal Johnson</emergencyContactName>
-        <emergencyContactNumber>8578756322</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
      <patient>
         <mrn>1019</mrn>
@@ -467,6 +467,6 @@ and open the template in the editor.
         <isPatientAnInPatient>true</isPatientAnInPatient>
         <hospiceID>HO1001</hospiceID>
          <emergencyContactName>David Lee</emergencyContactName>
-        <emergencyContactNumber>8578754122</emergencyContactNumber>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
 </patients>

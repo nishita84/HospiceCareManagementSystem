@@ -291,7 +291,7 @@
     <Component class="javax.swing.JComboBox" name="TerminalIllnessDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] {  })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Parkinson&apos;s Disease&quot;, &quot;Terminal Cancer&quot;, &quot;Alzheimer&apos;s Disease&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
