@@ -41,43 +41,29 @@
                           <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lbGender" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEmergencyContactName" max="32767" attributes="0"/>
-                                  <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtState" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtContactNumber" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="TerminalIllnessDropDown" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtPatientMRN" max="32767" attributes="0"/>
-                                  <Component id="jDateChooser1" pref="251" max="32767" attributes="0"/>
-                                  <Component id="OperatingProvider" max="32767" attributes="0"/>
-                                  <Component id="Payer" max="32767" attributes="0"/>
-                                  <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="GenderDropDown" max="32767" attributes="0"/>
-                                  <Component id="EthinicityDropDown" max="32767" attributes="0"/>
-                                  <Component id="CountryDropDown" max="32767" attributes="0"/>
-                                  <Component id="txtEmergencyContactNumber" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCity" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtState" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtZipCode" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtContactNumber" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEmailID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TerminalIllnessDropDown" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPatientMRN" max="32767" attributes="0"/>
+                          <Component id="jDateChooser1" pref="251" max="32767" attributes="0"/>
+                          <Component id="OperatingProvider" max="32767" attributes="0"/>
+                          <Component id="Payer" max="32767" attributes="0"/>
+                          <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
+                          <Component id="GenderDropDown" max="32767" attributes="0"/>
+                          <Component id="EthinicityDropDown" max="32767" attributes="0"/>
+                          <Component id="CountryDropDown" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
@@ -121,8 +107,11 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtPatientMRN" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbPatientMRN" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -178,25 +167,15 @@
                           <Component id="GenderDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="EthinicityDropDown" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEmergencyContactName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EthinicityDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEmergencyContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="393" max="32767" attributes="0"/>
+              <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="483" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -442,7 +421,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
-    <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Helvetica" size="13" style="1"/>
@@ -452,20 +430,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
-        <Property name="text" type="java.lang.String" value="Emergency Contact Name:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEmergencyContactName">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Helvetica" size="13" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Emergency Contact Number:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtEmergencyContactNumber">
     </Component>
   </SubComponents>
 </Form>

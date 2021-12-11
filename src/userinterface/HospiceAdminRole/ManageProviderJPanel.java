@@ -31,7 +31,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     EcoSystem system;
     Provider Provider;
-    public ManageProviderJPanel(UserAccount userAccount, EcoSystem system) {
+    public ManageProviderJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
@@ -380,7 +380,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userAccount,system);
+        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userProcessContainer,userAccount,system);
         userProcessContainer.add("Add Provider",addProviderJPanel);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
         Layout.next(userProcessContainer);
