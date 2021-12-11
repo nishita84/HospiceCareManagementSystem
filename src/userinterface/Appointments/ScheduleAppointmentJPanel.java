@@ -254,37 +254,48 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
             case "Provider":
                 if(dateChooser.getDate() != null && determinePressButton() != null)
                 {
-                    Patient patient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
-                    system.getPatientDirectory().getPatientList());
+                    try{
+                            Patient patient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                                                system.getPatientDirectory().getPatientList());
                     
-                    Provider provider = system.getProviderDirectory().findProviderByNPI(patient.getRegisteredProvider().getProviderNPI()
-                    , system.getProviderDirectory().getProviderList());
+                            Provider provider = system.getProviderDirectory().findProviderByNPI(patient.getRegisteredProvider().getProviderNPI()
+                                                    , system.getProviderDirectory().getProviderList());
                     
-                    Date selectedDate = dateChooser.getDate();
-                    JToggleButton pressedButton = determinePressButton();
-                    String selectedTime = pressedButton.getActionCommand();
+                            Date selectedDate = dateChooser.getDate();
+                            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
+                            String strDate = dateFormat.format(selectedDate);  
+                            Date appointmentDate =new SimpleDateFormat("MM/dd/yyyy").parse(strDate);
+                            JToggleButton pressedButton = determinePressButton();
+                            String selectedTime = pressedButton.getActionCommand();
                     
-                    if(validateIfAppointmentDoesNotExistForAProviderAtSameTime(provider, selectedDate, selectedTime))
-                    {
-                         SetIDsForWorkflows setIDForWorkflow = new SetIDsForWorkflows();
-                        String appointmentID = setIDForWorkflow.SetIDForAppointment();
-                        Appointment newAppointment = system.getAppointmentDirectory().createNewAppointmentWithProvider(appointmentID, 
-                            patient, provider, selectedDate, selectedTime, appointmentReason);
-                        if(newAppointment != null)
-                        {
-                            //Email email = new Email();
-                            //email.SendEmailOfAppointment(userAccount.getUsername(), patient.getPatientEmailID());
-                            JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+selectedDate+""
-                                    + "' \n\n Appointment Time:  "+selectedTime+"'");
-                        }
-                        else{
+                            if(validateIfAppointmentDoesNotExistForAProviderAtSameTime(provider, selectedDate, selectedTime))
+                            {
+                                SetIDsForWorkflows setIDForWorkflow = new SetIDsForWorkflows();
+                                String appointmentID = setIDForWorkflow.SetIDForAppointment();
+                                Appointment newAppointment = system.getAppointmentDirectory().createNewAppointmentWithProvider(appointmentID, 
+                                                            patient, provider, selectedDate, selectedTime, appointmentReason);
+                                if(newAppointment != null)
+                                {
+                                    Email email = new Email();
+                                    email.SendEmailOfAppointment(userAccount.getUsername(), appointmentID, patient.getPatientName(), 
+                                                                   provider.getProviderName(),  appointmentDate, selectedTime);
+                                    JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+selectedDate+""
+                                    + "' \n\n Appointment Time:  "+selectedTime+"'.\n We have also mailed you the confirmation "
+                                            + "email at "+userAccount.getUsername());
+                                }
+                                else{
                             
+                                }
+                            }
+                            else{
+                                    JOptionPane.showMessageDialog(this, "An appointments exists at the selected date and time! Choose a different"
+                                    + " time slot!");
+                                }
                         }
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(this, "An appointments exists at the selected date and time! Choose a different"
-                                + " time slot!");
-                    }
+                        catch(Exception ex)
+                        {
+                        
+                        }
                  }
                 break;
             case "Counsellor":
@@ -300,9 +311,7 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                     Date selectedDate = dateChooser.getDate();
                     DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
                     String strDate = dateFormat.format(selectedDate);  
-                    System.out.print(strDate);
                     Date appointmentDate =new SimpleDateFormat("MM/dd/yyyy").parse(strDate); 
-                    System.out.println(appointmentDate);
                     JToggleButton pressedButton = determinePressButton();
                     String selectedTime = pressedButton.getActionCommand();
                     
@@ -318,7 +327,8 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                             email.SendEmailOfAppointment(userAccount.getUsername(), appointmentID, patient.getPatientName(),
                                     counsellor.getCounsellorName(), appointmentDate, selectedTime);
                             JOptionPane.showMessageDialog(this, "Appointment successfully created on \n\nAppointment Date: '"+appointmentDate+""
-                                    + "' \n\n Appointment Time:  "+selectedTime+"'");
+                                    + "' \n\n Appointment Time:  "+selectedTime+"'\n We have also mailed you the confirmation "
+                                            + "email at "+userAccount.getUsername());
                         }
                         else{
                             JOptionPane.showMessageDialog(this, "Appointment was not created!");
@@ -435,7 +445,6 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
     private boolean validateIfAppointmentDoesNotExistForAProviderAtSameTime(Provider provider, Date selectedDate, 
             String selectedTime)
     {
-        boolean doesAnAppointmentExistAtSameDateAndTimeForProvider = false;
         ArrayList<Appointment> listOfAppointmentsByProvider = system.getAppointmentDirectory().findAppointmentByProvider(provider.getProviderNPI(), 
                 system.getAppointmentDirectory().getListOfAppointments());
         for(Appointment appt : listOfAppointmentsByProvider)
