@@ -12,7 +12,9 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.HospiceAdminRole.AddProviderJPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.AddDonorJPanel;
 import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
 
 /**
@@ -342,6 +344,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
     }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
+        populateTable();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -377,6 +380,10 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userAccount,system);
+        userProcessContainer.add("Add Provider",addProviderJPanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -416,6 +423,15 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
             updateProvider.setZipCode(txtZipCode.getText());
             updateProvider.setProviderEmailID(txtEmailID.getText());
             updateProvider.setProviderContactNumber(txtContactNo.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtName.setText("");
+            txtState.setText("");
+            txtCity.setText("");
+            txtAddress.setText("");
+            txtZipCode.setText("");
+            txtEmailID.setText("");
+            txtContactNo.setText("");
+            
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
