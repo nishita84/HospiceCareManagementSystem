@@ -4,11 +4,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.ClaimsBilling.Claim;
+import Business.Donors.Donor;
 import Business.EcoSystem;
+import Business.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,13 +25,16 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     UserAccount userAccount;
+    Organization customerOrg;
     EcoSystem system;
+    Donor Donor;
     public ManageDonorJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
-      //  populateTable();
+        this.customerOrg = customerOrg;
+         populateTable();
     }
     //public void populateTable();
     //{
@@ -61,11 +68,11 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Email ID"
+                "ID", "Name", "Email ID", "Donor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -183,13 +190,50 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblDonorList.getModel();
+        dtm.setRowCount(0);
+        
+        for(Donor d : system.getDonorDirectory().getListOfDonors())
+        {
+            Object [] row = new Object[4];
+            row[0] = d.getDonorID();
+            row[1] = d.getDonorName();
+            row[2] = d.getDonorEmailID();
+            row[3] = d;
+            dtm.addRow(row);
+        }
+        
 
+    }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        int SelectedRow = tblDonorList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblDonorList.getModel();
+            Donor donor  = (Donor) model.getValueAt(SelectedRow, 3);
+            
+            //txtName.setText("");
+            //txtEmailID.setText("");
+            
+            populateTable();
+
+            
+        }
+        
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -197,6 +241,20 @@ public class ManageDonorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        int SelectedRow = tblDonorList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a particular row");
+            return;
+        }
+        else 
+        {
+            DefaultTableModel model = (DefaultTableModel) tblDonorList.getModel();
+            Donor selectedClaim = (Donor) model.getValueAt(SelectedRow, 3);
+            system.getDonorDirectory().deleteDonor(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Donor Details Deleted");
+            populateTable();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 

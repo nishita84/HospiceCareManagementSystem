@@ -4,6 +4,7 @@
  */
 package Business;
 
+import Business.Donation.DonationDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
@@ -27,7 +28,8 @@ public abstract class Organization {
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
-        SysAdmin("Sysadmin");
+        SysAdmin("Sysadmin"),
+        Donor("Donor");
         
         private String value;
         private Type(String value) {

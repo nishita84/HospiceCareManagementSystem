@@ -47,7 +47,7 @@ public class DonorsDirectory {
         return selectedDonor;
     }
     
-    public void deleteCounsellor(int indexOfSelectedRecord)
+    public void deleteDonor(int indexOfSelectedRecord)
     {
         listOfDonors.remove(indexOfSelectedRecord);
     }
