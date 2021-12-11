@@ -151,7 +151,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManagePatientsActionPerformed
 
     private void btnManageProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProviderActionPerformed
-        ManageProviderJPanel manageProviderJPanel = new ManageProviderJPanel(userAccount, system);
+        ManageProviderJPanel manageProviderJPanel = new ManageProviderJPanel(userProcessContainer,userAccount, system);
         userProcessContainer.add("Manage Provider", manageProviderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -159,7 +159,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAddProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProviderActionPerformed
         // TODO add your handling code here:
-        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userAccount,system);
+        AddProviderJPanel addProviderJPanel = new AddProviderJPanel(userProcessContainer,userAccount,system);
         userProcessContainer.add("Add Counsellor", addProviderJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

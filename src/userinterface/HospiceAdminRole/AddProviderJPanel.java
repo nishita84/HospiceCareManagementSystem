@@ -33,9 +33,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Organization customerOrg;
     Provider Provider;
-    public AddProviderJPanel(UserAccount account, EcoSystem system) {
+    public AddProviderJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
+        this.userProcessContainer = userProcessContainer;
         this.system = system;
         hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
                 system.getHospiceDirectory().getListOfHospice());
