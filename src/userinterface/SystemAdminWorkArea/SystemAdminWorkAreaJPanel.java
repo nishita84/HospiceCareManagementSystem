@@ -9,6 +9,7 @@ import Business.Automated.AutomatedEntry;
 import Business.Configurations.Configurations;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import static java.time.Clock.system;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;;
 
@@ -24,6 +25,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     EcoSystem ecosystem;
     UserAccount userAccount;
+    
     public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -185,7 +187,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddDonorActionPerformed
 
     private void btnManageHospiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageHospiceActionPerformed
-       
+       ManageHospiceJPanel managehospiceJPanel = new ManageHospiceJPanel(userProcessContainer, userAccount, ecosystem);
+       jSplitPane.setRightComponent(managehospiceJPanel);
     }//GEN-LAST:event_btnManageHospiceActionPerformed
 
     private void btnAutomatedSetupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutomatedSetupActionPerformed
