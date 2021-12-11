@@ -8,6 +8,7 @@ package userinterface.Workflows;
 import Business.Donation.Donation;
 import Business.Donors.Donor;
 import Business.EcoSystem;
+import Business.Federal.Audit;
 import Business.Hospice.Hospice;
 import Business.Invoice.GenerateInvoices;
 import Business.SetIDsForWorkflows;
@@ -155,6 +156,8 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 double balanceOfHospice = donationHospice.getTotalHospiceBalance();
                 double newBalance = balanceOfHospice + Double.parseDouble(donationAmount);
                 updatedHospice.setTotalHospiceBalance(newBalance);
+                Audit audit = system.getAuditDirectory().createNewAuditEntryForExternalDonation(addNewDonation, 
+                        balanceOfHospice, newBalance);
             }
              else{
                  JOptionPane.showMessageDialog(this, "Donation could not be added.");

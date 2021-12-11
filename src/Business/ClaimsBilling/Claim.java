@@ -22,7 +22,7 @@ public class Claim {
     private String claimType;
     private String linkageID;
     private Date claimSubmissionTime;
-    private Date claimApprovalTime;
+    private Date claimAdjudicationTime;
     private int claimStatus;
     private Patient patient;
     private Provider provider;
@@ -72,12 +72,12 @@ public class Claim {
         this.claimSubmissionTime = claimSubmissionTime;
     }
 
-    public Date getClaimApprovalTime() {
-        return claimApprovalTime;
+    public Date getClaimAdjudicationTime() {
+        return claimAdjudicationTime;
     }
 
-    public void setClaimApprovalTime(Date claimApprovalTime) {
-        this.claimApprovalTime = claimApprovalTime;
+    public void setClaimAdjudicationTime(Date claimAdjudicationTime) {
+        this.claimAdjudicationTime = claimAdjudicationTime;
     }
 
     public int getClaimStatus() {
