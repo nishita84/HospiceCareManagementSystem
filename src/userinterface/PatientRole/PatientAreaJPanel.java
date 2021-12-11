@@ -155,7 +155,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private void btnSymptomCatcherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSymptomCatcherActionPerformed
         // TODO add your handling code here:
-        ChatBotSymptomsJPanel chatBotSymptomsPanel = new ChatBotSymptomsJPanel();
+        ChatBotSymptomsJPanel chatBotSymptomsPanel = new ChatBotSymptomsJPanel(userAccount, system);
         jSplitPane1.setRightComponent(chatBotSymptomsPanel);
     }//GEN-LAST:event_btnSymptomCatcherActionPerformed
 

@@ -5,6 +5,13 @@
  */
 package userinterface.Workflows;
 
+import Business.EcoSystem;
+import Business.LookUpMapping;
+import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author architnigam
@@ -14,8 +21,37 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ChatBotSymptomsJPanel
      */
-    public ChatBotSymptomsJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    public ChatBotSymptomsJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+        
+        ButtonGroup diabetesBtnGroup = new ButtonGroup();
+        diabetesBtnGroup.add(diabetesYes);
+        diabetesBtnGroup.add(diabetesNo);
+        
+        ButtonGroup bpGroup = new ButtonGroup();
+        bpGroup.add(BPNo);
+        bpGroup.add(BPYes);
+        
+        ButtonGroup chemoGroup = new ButtonGroup();
+        chemoGroup.add(chemoNo);
+        chemoGroup.add(chemoYes);
+        
+        ButtonGroup splGroup = new ButtonGroup();
+        splGroup.add(splNo);
+        splGroup.add(splYes);
+        
+        txtSymptom1.setEditable(false);
+        txtSymptom2.setEditable(false);
+        txtSymptom3.setEditable(false);
+        
+        if(!(  txtSymptom1.getText().equals("") && txtSymptom2.getText().equals("") && txtSymptom3.getText().equals("")))
+         {
+                btnAddSymptom.setEnabled(false);
+          }
     }
 
     /**
@@ -30,58 +66,71 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
+        btnAddSymptom = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        BPYes = new javax.swing.JRadioButton();
+        diabetesNo = new javax.swing.JRadioButton();
+        diabetesYes = new javax.swing.JRadioButton();
+        BPNo = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtSymptom1 = new javax.swing.JTextField();
+        txtSymptom2 = new javax.swing.JTextField();
+        txtSymptom3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        chemoYes = new javax.swing.JRadioButton();
+        chemoNo = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        splYes = new javax.swing.JRadioButton();
+        splNo = new javax.swing.JRadioButton();
+        btnEvaulateSymptom = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
-        jLabel1.setText("WELCOME TO SYMPTOMS CATCHER,  ");
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        jLabel1.setText("WELCOME TO SYMPTOMS CATCHER ");
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Headache", "Body Pain", "Fever", "Cold", "Cough", "Abnormal Heart Rate", "Dizziness", "Breathlessness" };
+            String[] strings = { "Headache", "Body Pain", "Fever", "Cold", "Cough", "Abnormal Heart Rate", "Dizziness", "Breathlessness", "Loss of taste", "Loss of smell" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
-        jButton1.setText("Add Symptoms");
+        btnAddSymptom.setText("Add Symptoms");
+        btnAddSymptom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSymptomActionPerformed(evt);
+            }
+        });
+        btnAddSymptom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAddSymptomKeyPressed(evt);
+            }
+        });
 
         jLabel2.setText("Does the patient have diabetes?");
 
         jLabel3.setText("Does the patient have history of high blood pressure?");
 
-        jRadioButton1.setText("Yes");
+        BPYes.setText("Yes");
 
-        jRadioButton2.setText("No");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        diabetesNo.setText("No");
+        diabetesNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                diabetesNoActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Yes");
+        diabetesYes.setText("Yes");
 
-        jRadioButton4.setText("No");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        BPNo.setText("No");
+        BPNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                BPNoActionPerformed(evt);
             }
         });
 
@@ -93,27 +142,32 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
 
         jLabel7.setText("Is the patient undergoing chemotherapy?");
 
-        jRadioButton5.setText("Yes");
+        chemoYes.setText("Yes");
 
-        jRadioButton6.setText("No");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        chemoNo.setText("No");
+        chemoNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                chemoNoActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Does patient have Parkinson's or Alzheimer's disease?");
 
-        jRadioButton7.setText("Yes");
+        splYes.setText("Yes");
 
-        jRadioButton8.setText("No");
-        jRadioButton8.addActionListener(new java.awt.event.ActionListener() {
+        splNo.setText("No");
+        splNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton8ActionPerformed(evt);
+                splNoActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Evaluate Symptoms");
+        btnEvaulateSymptom.setText("Evaluate Symptoms");
+        btnEvaulateSymptom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEvaulateSymptomActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Select maximum 3 symptoms: ");
 
@@ -124,131 +178,219 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton3))
+                                    .addComponent(jLabel2)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel6)
-                                    .addComponent(jRadioButton2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(diabetesYes)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(diabetesNo)))
                                 .addGap(39, 39, 39)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtSymptom2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSymptom3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSymptom1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(26, 26, 26)
-                                .addComponent(jButton1))
+                                .addComponent(btnAddSymptom))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jRadioButton5))
+                                        .addComponent(chemoYes))
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(BPYes)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton4))
-                                    .addComponent(jRadioButton6)))
+                                        .addComponent(BPNo))
+                                    .addComponent(chemoNo)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton7)
+                                .addComponent(splYes)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton8))))
+                                .addComponent(splNo))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(211, 211, 211)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(386, Short.MAX_VALUE))
+                        .addComponent(btnEvaulateSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSymptom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSymptom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtSymptom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton4)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton2)
-                        .addComponent(jLabel2)
-                        .addComponent(jRadioButton3)))
+                .addComponent(btnAddSymptom)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(diabetesYes)
+                    .addComponent(diabetesNo))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BPYes)
+                    .addComponent(BPNo))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
+                    .addComponent(chemoYes)
+                    .addComponent(chemoNo))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jRadioButton7)
-                    .addComponent(jRadioButton8))
+                    .addComponent(splYes)
+                    .addComponent(splNo))
                 .addGap(47, 47, 47)
-                .addComponent(jButton2)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addComponent(btnEvaulateSymptom)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void diabetesNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diabetesNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_diabetesNoActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void BPNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_BPNoActionPerformed
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void chemoNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chemoNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_chemoNoActionPerformed
 
-    private void jRadioButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton8ActionPerformed
+    private void splNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_splNoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton8ActionPerformed
+    }//GEN-LAST:event_splNoActionPerformed
+
+    private void btnAddSymptomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSymptomActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = jList1.getSelectedIndex();
+        if(selectedIndex < 0)
+        {
+            
+        }
+        else{
+            String selectedValue = jList1.getSelectedValue();
+            if( (txtSymptom1.getText().equals("") && txtSymptom2.getText().equals("") 
+                    && txtSymptom3.getText().equals("")))
+            {
+                txtSymptom1.setText(selectedValue);
+            }
+            else if(!(txtSymptom1.getText().equals("")) 
+                    && txtSymptom2.getText().equals("") && txtSymptom3.getText().equals(""))
+            {
+                txtSymptom2.setText(selectedValue);
+            }
+            else if(!(txtSymptom1.getText().equals("")) && !(txtSymptom2.getText().equals("")))
+            {
+                txtSymptom3.setText(selectedValue);
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnAddSymptomActionPerformed
+
+    private void btnAddSymptomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAddSymptomKeyPressed
+        // TODO add your handling code here:
+        int counterClick = 0;
+        counterClick++;
+        
+        if(counterClick == 3)
+        {
+            btnAddSymptom.setEnabled(false);
+        }
+    }//GEN-LAST:event_btnAddSymptomKeyPressed
+
+    private void btnEvaulateSymptomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvaulateSymptomActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Integer> listOfSymptoms = new ArrayList<Integer>();
+        String symptom1Value = txtSymptom1.getText();
+        String symptom2Value = txtSymptom2.getText();
+        String symptom3Value = txtSymptom3.getText();
+        LookUpMapping lookups = new LookUpMapping();
+        int symptom1 = lookups.mapSymptoms(symptom1Value);
+        int symptom2 = lookups.mapSymptoms(symptom2Value);
+        int symptom3 = lookups.mapSymptoms(symptom3Value);
+        listOfSymptoms.add(symptom1);
+        listOfSymptoms.add(symptom2);
+        listOfSymptoms.add(symptom3);
+        
+        if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(2))
+        {
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Flu"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Moderate");
+        }
+        else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(2) && listOfSymptoms.contains(3))
+        {
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Allergy"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Moderate");
+        }
+        else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(6))
+        {
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. Migraine"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "prescribed medications\nAlert Level: Critical");
+        }
+        else if(listOfSymptoms.contains(7) && listOfSymptoms.contains(8))
+        {
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nPatient might be suffering from the following: \n1. COVID-19"
+                    + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
+                    + "schedule a COVID-19 test ASAP.\nAlert Level: Extremely Critical");
+        }
+    }//GEN-LAST:event_btnEvaulateSymptomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JRadioButton BPNo;
+    private javax.swing.JRadioButton BPYes;
+    private javax.swing.JButton btnAddSymptom;
+    private javax.swing.JButton btnEvaulateSymptom;
+    private javax.swing.JRadioButton chemoNo;
+    private javax.swing.JRadioButton chemoYes;
+    private javax.swing.JRadioButton diabetesNo;
+    private javax.swing.JRadioButton diabetesYes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -259,17 +401,11 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JRadioButton splNo;
+    private javax.swing.JRadioButton splYes;
+    private javax.swing.JTextField txtSymptom1;
+    private javax.swing.JTextField txtSymptom2;
+    private javax.swing.JTextField txtSymptom3;
     // End of variables declaration//GEN-END:variables
 }
