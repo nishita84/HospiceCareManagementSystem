@@ -33,7 +33,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     Organization customerOrg;
     Provider Provider;
-    public AddProviderJPanel() {
+    public AddProviderJPanel(UserAccount account, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
         this.system = system;
