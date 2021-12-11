@@ -5,6 +5,17 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Patients.Patient;
+import Business.Payers.Payer;
+import Business.Providers.Provider;
+import Business.SetIDsForEnterprises;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +25,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddPatientJPanel
      */
-    public AddPatientJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    public AddPatientJPanel(UserAccount account, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+//         hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+//             system.getHospiceDirectory().getListOfHospice());
+        populateProviderDropdown();
+        populatePayerDropdown();
     }
 
     /**
@@ -37,8 +56,6 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         txtState = new javax.swing.JTextField();
         lbZipCode = new javax.swing.JLabel();
         txtZipCode = new javax.swing.JTextField();
-        lbCountry = new javax.swing.JLabel();
-        txtCountry = new javax.swing.JTextField();
         lbContactNumber = new javax.swing.JLabel();
         txtContactNumber = new javax.swing.JTextField();
         lbEmailID = new javax.swing.JLabel();
@@ -52,10 +69,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbDateOfBirth = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        OperatingProvider = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        Payer = new javax.swing.JComboBox();
         txtAddress = new javax.swing.JTextField();
+        lbGender = new javax.swing.JLabel();
+        GenderDropDown = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        EthinicityDropDown = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        CountryDropDown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -78,9 +101,6 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbZipCode.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbZipCode.setText("Zip Code :");
 
-        lbCountry.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
-        lbCountry.setText("Country :");
-
         lbContactNumber.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbContactNumber.setText("Contact Number :");
 
@@ -98,7 +118,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             }
         });
 
-        TerminalIllnessDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        TerminalIllnessDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ImagePatient-2.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(320, 240));
@@ -109,15 +129,32 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbDateOfBirth.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbDateOfBirth.setText("Date of Birth :");
 
+        jDateChooser1.setBackground(new java.awt.Color(204, 204, 255));
+
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel2.setText("Provider :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        OperatingProvider.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel3.setText("Payer :");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Payer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+
+        lbGender.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lbGender.setText("Gender :");
+
+        GenderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel4.setText("Ethinicity :");
+
+        EthinicityDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel5.setText("Country :");
+
+        CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -135,35 +172,38 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lbCity)
                             .addComponent(lbState)
                             .addComponent(lbZipCode)
-                            .addComponent(lbCountry)
                             .addComponent(lbContactNumber)
                             .addComponent(lbEmailID)
                             .addComponent(lbTerminalIllness)
                             .addComponent(lbPatientMRN)
                             .addComponent(lbDateOfBirth)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(lbGender)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName)
                             .addComponent(txtCity)
                             .addComponent(txtState)
                             .addComponent(txtZipCode)
-                            .addComponent(txtCountry)
                             .addComponent(txtContactNumber)
                             .addComponent(txtEmailID)
                             .addComponent(TerminalIllnessDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtPatientMRN)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtAddress))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(OperatingProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Payer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAddress)
+                            .addComponent(GenderDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EthinicityDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
-                .addGap(399, 399, 399)
+                .addGap(400, 400, 400)
                 .addComponent(btnAddPatient)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -187,6 +227,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtPatientMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbPatientMRN))
@@ -204,9 +247,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lbZipCode))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbCountry))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addComponent(CountryDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbContactNumber))
@@ -217,42 +260,91 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(TerminalIllnessDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbTerminalIllness)))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lbTerminalIllness))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(OperatingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Payer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbGender)
+                            .addComponent(GenderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(EthinicityDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(42, 42, 42)))
                 .addComponent(btnAddPatient)
-                .addContainerGap(607, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_7(txtName, txtAddress, txtCity, txtState, txtZipCode,
+                txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtPatientMRN)){
+            String patientName = txtName.getText();
+            String patientAddress = txtAddress.getText();
+            String patientCity = txtCity.getText();
+            String patientState = txtState.getText();
+            String patientZipcode = txtZipCode.getText();
+            String patientCountry = CountryDropDown.getSelectedItem().toString();
+            String patientContactNumber = txtContactNumber.getText();
+            String patientEmailID = txtEmailID.getText();
+            String patientMRN = txtPatientMRN.getText();
+            String providerNPIChosen = OperatingProvider.getSelectedItem().toString();
+            String chosenPayer = Payer.getSelectedItem().toString();
+            Date dateOfBirth = jDateChooser1.getDate();
+            String chosenGender = GenderDropDown.getSelectedItem().toString();
+            String chosenEthinicity = EthinicityDropDown.getSelectedItem().toString();
+            String terminallIllnessAssociated = TerminalIllnessDropDown.getSelectedItem().toString();
+            Provider associatedProvider = system.getProviderDirectory().findProviderByNPI(providerNPIChosen, 
+                    system.getProviderDirectory().getProviderList());
+            Payer payer = system.getPayerDirectory().findPayerByName(chosenPayer,
+                    system.getPayerDirectory().getListOfPayers());
+            Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName,chosenGender,chosenEthinicity, patientCity, patientAddress,patientState, 
+                    patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
+                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth, true, associatedProvider.getOperatingHospice());
+            if(newPatient != null)
+            {
+                JOptionPane.showMessageDialog(this, "Patient added successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Patient details are not saved successfully!!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+        }
     }//GEN-LAST:event_btnAddPatientActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CountryDropDown;
+    private javax.swing.JComboBox<String> EthinicityDropDown;
+    private javax.swing.JComboBox<String> GenderDropDown;
+    private javax.swing.JComboBox<String> OperatingProvider;
+    private javax.swing.JComboBox<String> Payer;
     private javax.swing.JComboBox<String> TerminalIllnessDropDown;
     private javax.swing.JButton btnAddPatient;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
-    private javax.swing.JLabel lbCountry;
     private javax.swing.JLabel lbDateOfBirth;
     private javax.swing.JLabel lbEmailID;
+    private javax.swing.JLabel lbGender;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPatientMRN;
     private javax.swing.JLabel lbState;
@@ -262,11 +354,28 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
-    private javax.swing.JTextField txtCountry;
     private javax.swing.JTextField txtEmailID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPatientMRN;
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
+    private void populateProviderDropdown() {
+        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        for(Provider provider : system.getProviderDirectory().getProviderList())
+        {
+            if(provider.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                OperatingProvider.addItem(provider.getProviderNPI());
+            }
+        }
+    }
+
+    private void populatePayerDropdown() {
+        for(Payer payer : system.getPayerDirectory().getListOfPayers())
+        {
+            Payer.addItem(payer.getPayerName());
+        }
+    }
 }

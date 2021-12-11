@@ -74,4 +74,28 @@ public class CounsellorDirectory {
         }
         return null;
     }
+    
+    public Counsellor findCounsellorByEmailID(String counsellorEmailID, ArrayList<Counsellor> listOfCounsellor)
+    {
+        for(Counsellor counsellor: listOfCounsellors)
+        {
+            if(counsellor.getCounsellorEmailID().equals(counsellorEmailID))
+            {
+                return counsellor;
+            }
+        }
+        return null;
+    }
+    
+    public Counsellor findCounsellorByName(String counsellorName, ArrayList<Counsellor> listOfCounsellor)
+    {
+        for(Counsellor counsellor: listOfCounsellors)
+        {
+            if(counsellor.getCounsellorName().equals(counsellorName))
+            {
+                return counsellor;
+            }
+        }
+        return null;
+    }
 }

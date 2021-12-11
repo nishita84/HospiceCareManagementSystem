@@ -5,6 +5,7 @@
  */
 package Business.Appointments;
 
+import Business.Counsellors.Counsellor;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
 import java.util.Date;
@@ -14,18 +15,20 @@ import java.util.Date;
  * @author architnigam
  */
 public class Appointment {
-    private int appointmentID;
+    private String appointmentID;
     Patient appointmentPatient;
     Provider appointmentProvider;
-    private Date appointmentTime;
+    Counsellor appointmentCounsellor;
+    private Date appointmentDate;
+    private String appointmentTime;
     private int appointmentStatus;
     private String appointmentReason;
 
-    public int getAppointmentID() {
+    public String getAppointmentID() {
         return appointmentID;
     }
 
-    public void setAppointmentID(int appointmentID) {
+    public void setAppointmentID(String appointmentID) {
         this.appointmentID = appointmentID;
     }
 
@@ -45,11 +48,19 @@ public class Appointment {
         this.appointmentProvider = appointmentReceiver;
     }
 
-    public Date getAppointmentTime() {
+    public Date getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
+
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
-    public void setAppointmentTime(Date appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 
@@ -68,4 +79,14 @@ public class Appointment {
     public void setAppointmentReason(String appointmentReason) {
         this.appointmentReason = appointmentReason;
     }
+
+    public Counsellor getAppointmentCounsellor() {
+        return appointmentCounsellor;
+    }
+
+    public void setAppointmentCounsellor(Counsellor appointmentCounsellor) {
+        this.appointmentCounsellor = appointmentCounsellor;
+    }
+    
+    
 }

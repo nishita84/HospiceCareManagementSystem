@@ -5,6 +5,14 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Providers.Provider;
+import Business.UserAccount.UserAccount;
+import Business.ValidationLogic;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rohannayak
@@ -14,8 +22,16 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddProviderJPanel
      */
+    UserAccount userAccount;
+    EcoSystem system;
+    Hospice hospice;
     public AddProviderJPanel() {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+        hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        HospiceDropDown.setSelectedItem(hospice.getHospiceName());
     }
 
     /**
@@ -30,69 +46,77 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtProviderNPI = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtState = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtZipCode = new javax.swing.JTextField();
+        btnAddProvider = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtEmailID = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtContactNumber = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        dropdownHospice = new javax.swing.JComboBox();
+        HospiceDropDown = new javax.swing.JComboBox();
+        CountryDropDown = new javax.swing.JComboBox();
+        txtAddress = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Add Provider");
+        jLabel1.setText("ADD PROVIDER");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ProviderImg.jpg"))); // NOI18N
         jLabel2.setSize(new java.awt.Dimension(87, 100));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel3.setText("NPI :");
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel4.setText("Name :");
 
+        jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel5.setText("Address :");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
+        jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel6.setText("State :");
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel7.setText("City :");
 
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel8.setText("Country :");
 
+        jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel9.setText("Zip Code :");
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddProvider.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAddProvider.setText("Add Provider");
+        btnAddProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddProviderActionPerformed(evt);
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel10.setText("Email ID :");
 
+        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel11.setText("Contact Number :");
 
+        jLabel12.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel12.setText("Hospice :");
 
-        dropdownHospice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        HospiceDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,36 +132,41 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(288, 288, 288)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel11)
+                                        .addComponent(jLabel12))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtState)
+                                        .addComponent(txtCity)
+                                        .addComponent(txtZipCode)
+                                        .addComponent(txtEmailID)
+                                        .addComponent(txtContactNumber)
+                                        .addComponent(HospiceDropDown, 0, 244, Short.MAX_VALUE)
+                                        .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(138, 138, 138)
+                                    .addComponent(btnAddProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(288, 288, 288)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jTextField3)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField6)
-                                    .addComponent(txtEmailID)
-                                    .addComponent(txtContactNumber)
-                                    .addComponent(dropdownHospice, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(426, 426, 426)
-                                .addComponent(jButton1)))
-                        .addGap(0, 308, Short.MAX_VALUE)))
+                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                                    .addComponent(txtProviderNPI)
+                                    .addComponent(txtAddress))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -150,31 +179,31 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProviderNPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CountryDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -186,21 +215,47 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(dropdownHospice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(HospiceDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addContainerGap(315, Short.MAX_VALUE))
+                .addComponent(btnAddProvider)
+                .addContainerGap(370, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProviderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ValidationLogic validationLogic = new ValidationLogic();
+        if(validationLogic.validateIfAllFieldsAreFilled_7(txtName, txtAddress, txtCity, txtState, txtZipCode,
+                txtContactNumber, txtEmailID) && validationLogic.validateIfContactNumberIsCorrect(txtContactNumber) && validationLogic.validateIfEmailIDIsCorrect(txtEmailID) && validationLogic.validateIfZipCodeIsValid(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtZipCode) && validationLogic.validateIfFieldIsNumeric(txtProviderNPI)){
+            String providerName = txtName.getText();
+            String providerNPI = txtProviderNPI.getText();
+            String providerAddress = txtAddress.getText();
+            String providerCity = txtCity.getText();
+            String providerState = txtState.getText();
+            String providerZipcode = txtZipCode.getText();
+            String providerCountry = CountryDropDown.getSelectedItem().toString();
+            String providerContactNumber = txtContactNumber.getText();
+            String providerEmailID = txtEmailID.getText();
+            Provider newProvider = system.getProviderDirectory().createProvider(providerNPI, providerName, providerAddress, providerCity, providerState, providerZipcode, providerCountry, providerContactNumber, providerEmailID, hospice);
+            if(newProvider != null)
+            {
+                JOptionPane.showMessageDialog(this, "Provider added successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Provider details are not saved successfully!!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+        }
+    }//GEN-LAST:event_btnAddProviderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> dropdownHospice;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> CountryDropDown;
+    private javax.swing.JComboBox<String> HospiceDropDown;
+    private javax.swing.JButton btnAddProvider;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -213,15 +268,13 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
     private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtProviderNPI;
+    private javax.swing.JTextField txtState;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }

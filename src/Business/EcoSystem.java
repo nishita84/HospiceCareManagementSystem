@@ -7,6 +7,7 @@ package Business;
 
 
 import Business.Alerts.AlertsDirectory;
+import Business.Appointments.AppointmentsDirectory;
 import Business.ClaimsBilling.ClaimsDirectory;
 import Business.Configurations.ConfigurationDirectory;
 import Business.Counsellors.CounsellorDirectory;
@@ -51,13 +52,15 @@ public class EcoSystem extends Organization{
     ClaimsDirectory claimsDirectory;
     COVIDFormsDirectory covidFormsDirectory;
     ConfigurationDirectory configDirectory;
+    AppointmentsDirectory appointmentDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
                        VolunteerDirectory volunteerDirectory, ServicesDirectory serviceDirectory, 
                        DiagnosisDirectory diagnosisDirectory, DonationDirectory donationDirectory, VitalSignsDirectory vitalSignsDirectory, 
                        AlertsDirectory alertsDirectory, LinkageDirectory linkageDirectory, ClaimsDirectory claimsDirectory, 
-                       COVIDFormsDirectory covidFormsDirectory, ConfigurationDirectory configDirectory)  
+                       COVIDFormsDirectory covidFormsDirectory, ConfigurationDirectory configDirectory, 
+                       AppointmentsDirectory appointmentDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -76,6 +79,7 @@ public class EcoSystem extends Organization{
         this.claimsDirectory = claimsDirectory;
         this.covidFormsDirectory = covidFormsDirectory;
         this.configDirectory = configDirectory;
+        this.appointmentDirectory = appointmentDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -110,6 +114,7 @@ public class EcoSystem extends Organization{
          claimsDirectory = new ClaimsDirectory();
          covidFormsDirectory = new COVIDFormsDirectory();
          configDirectory = new ConfigurationDirectory();
+         appointmentDirectory = new AppointmentsDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -247,6 +252,14 @@ public class EcoSystem extends Organization{
 
     public void setConfigDirectory(ConfigurationDirectory configDirectory) {
         this.configDirectory = configDirectory;
+    }
+
+    public AppointmentsDirectory getAppointmentDirectory() {
+        return appointmentDirectory;
+    }
+
+    public void setAppointmentDirectory(AppointmentsDirectory appointmentDirectory) {
+        this.appointmentDirectory = appointmentDirectory;
     }
 
     public boolean checkIfUserIsUnique(String userName){

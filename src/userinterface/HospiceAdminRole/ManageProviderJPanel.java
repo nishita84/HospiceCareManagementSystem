@@ -38,7 +38,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(975, 1000));
 
@@ -66,8 +66,9 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Manage Providers");
+        lblTitle.setText("MANAGE PROVIDERS");
 
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +76,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRefresh.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +84,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +92,7 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnCreate.setText("Create >>");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,12 +100,15 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ManageProvidersImg.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,8 +123,8 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
                                 .addGap(0, 78, Short.MAX_VALUE)
                                 .addComponent(btnBack)
                                 .addGap(49, 49, 49)
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(307, 307, 307))
+                                .addComponent(lblTitle)
+                                .addGap(295, 295, 295))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRefresh)
                                 .addGap(86, 86, 86)
