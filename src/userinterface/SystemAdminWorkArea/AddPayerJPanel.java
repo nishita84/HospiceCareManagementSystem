@@ -63,7 +63,7 @@ public class AddPayerJPanel extends javax.swing.JPanel {
 
         lbAmount.setText("Billing Address:");
 
-        lblimage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/PayerImg.png")); // NOI18N
+        lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/PayerImg.png"))); // NOI18N
 
         lbAmount1.setText("Email ID:");
 
