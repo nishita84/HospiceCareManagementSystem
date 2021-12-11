@@ -8,6 +8,7 @@ package userinterface.HospiceAdminRole;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.Patients.Patient;
+import Business.Payers.Payer;
 import Business.Providers.Provider;
 import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
@@ -26,15 +27,15 @@ public class AddPatientJPanel extends javax.swing.JPanel {
      */
     UserAccount userAccount;
     EcoSystem system;
-    
+    Hospice hospice;
     public AddPatientJPanel() {
         initComponents();
         this.userAccount = userAccount;
         this.system = system;
-//        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
-//                system.getHospiceDirectory().getListOfHospice());
-//        HospiceDropdown.setSelectedItem(hospice.getHospiceName());
-//        populateProviderDropdown();
+         hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+             system.getHospiceDirectory().getListOfHospice());
+        populateProviderDropdown();
+        populatePayerDropdown();
     }
 
     /**
@@ -75,6 +76,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         Payer = new javax.swing.JComboBox();
         txtAddress = new javax.swing.JTextField();
+        lbGender = new javax.swing.JLabel();
+        GenderDropDown = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        EthinicityDropDown = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -140,6 +145,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         Payer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        lbGender.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        lbGender.setText("Gender :");
+
+        GenderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jLabel4.setText("Ethinicity :");
+
+        EthinicityDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,7 +178,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(lbPatientMRN)
                             .addComponent(lbDateOfBirth)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(lbGender)
+                            .addComponent(jLabel4))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtName)
@@ -178,13 +195,15 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                             .addComponent(OperatingProvider, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Payer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtAddress))
+                            .addComponent(txtAddress)
+                            .addComponent(GenderDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EthinicityDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
-                .addGap(399, 399, 399)
+                .addGap(400, 400, 400)
                 .addComponent(btnAddPatient)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -249,8 +268,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     .addComponent(Payer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbGender)
+                    .addComponent(GenderDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(EthinicityDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
                 .addComponent(btnAddPatient)
-                .addContainerGap(607, Short.MAX_VALUE))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -269,19 +296,26 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             String patientEmailID = txtEmailID.getText();
             String patientMRN = txtPatientMRN.getText();
             String providerNPIChosen = OperatingProvider.getSelectedItem().toString();
+            String chosenPayer = Payer.getSelectedItem().toString();
             Date dateOfBirth = jDateChooser1.getDate();
-//            Provider associatedProvider = system.getProviderDirectory().findProviderByNPI(providerNPIChosen, 
-//                    system.getProviderDirectory().getProviderList());
-//            Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName, patientCity, patientAddress,patientState, patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
-//                    registeredProvider, registeredPayer, dateOfBirth, true, hospice);
-//            if(newPatient != null)
-//            {
-//                JOptionPane.showMessageDialog(this, "Patient added successfully!");
-//            }
-//            else
-//            {
-//                JOptionPane.showMessageDialog(this, "Patient details are not saved successfully!!");
-//            }
+            String chosenGender = GenderDropDown.getSelectedItem().toString();
+            String chosenEthinicity = EthinicityDropDown.getSelectedItem().toString();
+            String terminallIllnessAssociated = TerminalIllnessDropDown.getSelectedItem().toString();
+            Provider associatedProvider = system.getProviderDirectory().findProviderByNPI(providerNPIChosen, 
+                    system.getProviderDirectory().getProviderList());
+            Payer payer = system.getPayerDirectory().findPayerByName(chosenPayer,
+                    system.getPayerDirectory().getListOfPayers());
+            Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName,chosenGender,chosenEthinicity, patientCity, patientAddress,patientState, 
+                    patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
+                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth, true, hospice);
+            if(newPatient != null)
+            {
+                JOptionPane.showMessageDialog(this, "Patient added successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Patient details are not saved successfully!!");
+            }
         }
         else{
             JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
@@ -290,6 +324,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> EthinicityDropDown;
+    private javax.swing.JComboBox<String> GenderDropDown;
     private javax.swing.JComboBox<String> OperatingProvider;
     private javax.swing.JComboBox<String> Payer;
     private javax.swing.JComboBox<String> TerminalIllnessDropDown;
@@ -298,12 +334,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbCity;
     private javax.swing.JLabel lbContactNumber;
     private javax.swing.JLabel lbCountry;
     private javax.swing.JLabel lbDateOfBirth;
     private javax.swing.JLabel lbEmailID;
+    private javax.swing.JLabel lbGender;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbPatientMRN;
     private javax.swing.JLabel lbState;
@@ -329,6 +367,13 @@ public class AddPatientJPanel extends javax.swing.JPanel {
             {
                 OperatingProvider.addItem(provider.getProviderNPI());
             }
+        }
+    }
+
+    private void populatePayerDropdown() {
+        for(Payer payer : system.getPayerDirectory().getListOfPayers())
+        {
+            Payer.addItem(payer.getPayerName());
         }
     }
 }

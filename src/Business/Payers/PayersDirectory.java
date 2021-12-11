@@ -72,4 +72,16 @@ public class PayersDirectory {
         }
         return null;
     }
+    
+    public Payer findPayerByName(String payerName, ArrayList<Payer> listOfPayers)
+    {
+        for(Payer payer: listOfPayers)
+        {
+            if(payer.getPayerName().equals(payerName))
+            {
+                return payer;
+            }
+        }
+        return null;
+    }
 }
