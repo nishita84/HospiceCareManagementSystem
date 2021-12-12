@@ -155,7 +155,7 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPatientHealthDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHealthDataActionPerformed
         // TODO add your handling code here:
-        ViewPatientInformationJPanel viewPatientInformationPanel = new ViewPatientInformationJPanel();
+        ViewPatientInformationJPanel viewPatientInformationPanel = new ViewPatientInformationJPanel(account, system);
         jSplitPane1.setRightComponent(viewPatientInformationPanel);
     }//GEN-LAST:event_btnPatientHealthDataActionPerformed
 
