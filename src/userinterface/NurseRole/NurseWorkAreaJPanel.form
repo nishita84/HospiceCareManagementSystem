@@ -55,17 +55,19 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnPatientHealthData" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="btnLogVitalSigns" alignment="1" min="-2" pref="186" max="-2" attributes="0"/>
                               <Component id="btnReports" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="btnPatientHealthData" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLogVitalSigns" min="-2" pref="186" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               <Component id="btnAlerts" min="-2" pref="164" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -104,7 +106,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnPatientHealthData">
               <Properties>
-                <Property name="text" type="java.lang.String" value="View Patient Health Data"/>
+                <Property name="text" type="java.lang.String" value="View Patient Records"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientHealthDataActionPerformed"/>

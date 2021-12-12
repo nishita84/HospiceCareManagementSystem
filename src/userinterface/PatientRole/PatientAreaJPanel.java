@@ -14,6 +14,7 @@ import userinterface.Workflows.ChatBotSymptomsJPanel;
 import userinterface.Alerts.CreateAnAlertJPanel;
 import userinterface.Appointments.ScheduleAppointmentJPanel;
 import userinterface.Forms.COVIDSelfDiagnosisFormJPanel;
+import userinterface.Workflows.ViewPatientInformationJPanel;
 
 /**
  *
@@ -199,6 +200,8 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
 
     private void btnViewPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDetailsActionPerformed
         // TODO add your handling code here:
+        ViewPatientInformationJPanel viewPatientInformationPanel = new ViewPatientInformationJPanel(userAccount, system, "Own");
+        jSplitPane1.setRightComponent(viewPatientInformationPanel);
     }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

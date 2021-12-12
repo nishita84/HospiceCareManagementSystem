@@ -40,15 +40,20 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnMyDonations = new javax.swing.JButton();
         btnMakeADonation = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(246, 233, 244));
 
-        jButton1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        jButton1.setText("My Donations");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMyDonations.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnMyDonations.setText("My Donations");
+        btnMyDonations.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMyDonations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMyDonationsActionPerformed(evt);
+            }
+        });
 
         btnMakeADonation.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnMakeADonation.setText("Make a donation");
@@ -68,14 +73,14 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnMakeADonation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMyDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(152, 152, 152)
-                .addComponent(jButton1)
+                .addComponent(btnMyDonations)
                 .addGap(47, 47, 47)
                 .addComponent(btnMakeADonation, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(457, Short.MAX_VALUE))
@@ -119,10 +124,16 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(makeADonationPanel);
     }//GEN-LAST:event_btnMakeADonationActionPerformed
 
+    private void btnMyDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMyDonationsActionPerformed
+        // TODO add your handling code here:
+        MyDonationJPanel myDonationPanel = new MyDonationJPanel(account, ecosystem);
+        jSplitPane1.setRightComponent(myDonationPanel);
+    }//GEN-LAST:event_btnMyDonationsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMakeADonation;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnMyDonations;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

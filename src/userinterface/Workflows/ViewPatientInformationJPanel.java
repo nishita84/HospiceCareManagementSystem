@@ -53,6 +53,9 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
               case "Counsellor":
                 populateMedicalRecordNumberForCounsellor();
                 break;
+              case "Own":
+                changeView();
+                break;
         }
     }
 
@@ -66,7 +69,7 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         ddMRN = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblMRN = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
@@ -102,10 +105,10 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
         add(ddMRN);
         ddMRN.setBounds(200, 60, 180, 30);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
-        jLabel1.setText("Select MRN:");
-        add(jLabel1);
-        jLabel1.setBounds(30, 60, 140, 30);
+        lblMRN.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        lblMRN.setText("Select MRN:");
+        add(lblMRN);
+        lblMRN.setBounds(30, 60, 140, 30);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel2.setText("Name: ");
@@ -241,7 +244,6 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> ddMRN;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -256,6 +258,7 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblEmergencyEmailID;
+    private javax.swing.JLabel lblMRN;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNumber;
@@ -309,6 +312,30 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
             {
                 ddMRN.addItem(patient.getPatientMRN());
             }
+        }
+    }
+
+    private void changeView() {
+        ddMRN.setVisible(false);
+        btnSearch.setVisible(false);
+        lblMRN.setVisible(false);
+         Patient patient = system.getPatientDirectory().findPatientByEmailID(account.getUsername(), 
+                system.getPatientDirectory().getPatientList());
+         if(patient != null)
+        {
+            txtName.setText(patient.getPatientName());
+            txtAddress.setText(patient.getPatientAddress());
+            txtCity.setText(patient.getPatientCity());
+            txtState.setText(patient.getPatientState());
+            txtZipCode.setText(patient.getPatientZipCode());
+            txtContactNumber.setText(patient.getPatientContactNumber());
+            txtCountry.setText(patient.getPatientCountry());
+            txtHospice.setText(patient.getOperatingHospice().getHospiceName());
+            txtPayer.setText(patient.getRegisteredPayer().getPayerName());
+            txtReportingProvider.setText(patient.getRegisteredProvider().getProviderName());
+            txtEmergencyContactPerson.setText(patient.getEmergencyContactName());
+            txtEmergencyEmailID.setText(patient.getEmergencyEmailID());
+            txtEmailID.setText(patient.getPatientEmailID());
         }
     }
 }
