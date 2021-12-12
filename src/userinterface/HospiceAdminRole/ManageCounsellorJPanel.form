@@ -22,56 +22,49 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblContactNo" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblEmailID" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtContactNo" pref="101" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtContactNo" max="32767" attributes="0"/>
                                   <Component id="txtEmailID" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                              <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="btnSave" min="-2" pref="86" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblImage" min="-2" pref="336" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnRefresh" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnUpdate" min="-2" pref="93" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                              <Component id="btnDelete" min="-2" pref="87" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="btnCreate" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane" min="-2" pref="690" max="-2" attributes="0"/>
-                              <Component id="lblCounsellorList" min="-2" pref="109" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnRefresh" min="-2" pref="104" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                      <Component id="btnDelete" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                      <Component id="btnCreate" min="-2" pref="150" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane" alignment="0" min="-2" pref="690" max="-2" attributes="0"/>
+                  <Component id="lblCounsellorList" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnBack" min="-2" pref="95" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="lblTitle" min="-2" pref="324" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="51" pref="151" max="32767" attributes="0"/>
-              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
-              <Component id="lblTitle" min="-2" pref="324" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+              <EmptySpace pref="124" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,11 +72,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnBack" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBack" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Component id="lblCounsellorList" min="-2" pref="26" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane" min="-2" pref="115" max="-2" attributes="0"/>
@@ -92,7 +85,7 @@
                   <Component id="btnCreate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnDelete" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnUpdate" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="btnRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRefresh" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -111,7 +104,7 @@
                           <Component id="lblEmailID" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnSave" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSave" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -225,9 +218,14 @@
     <Component class="javax.swing.JButton" name="btnCreate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="1"/>
+          <Font name="Helvetica" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Create&gt;&gt;"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreateActionPerformed"/>
@@ -236,9 +234,14 @@
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="1"/>
+          <Font name="Helvetica" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Update"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
@@ -247,9 +250,14 @@
     <Component class="javax.swing.JButton" name="btnDelete">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="1"/>
+          <Font name="Helvetica" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Delete"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
@@ -261,6 +269,11 @@
           <Font name="Helvetica" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Back"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
@@ -276,9 +289,14 @@
     <Component class="javax.swing.JButton" name="btnRefresh">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Lucida Grande" size="13" style="1"/>
+          <Font name="Helvetica" size="13" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Refresh"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshActionPerformed"/>
@@ -293,17 +311,34 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblContactNo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Contact No:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblEmailID">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Email ID:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSave">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="c8" green="9e" red="a6" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>

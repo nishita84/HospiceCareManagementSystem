@@ -122,8 +122,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbTerminalIllness.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbTerminalIllness.setText("Terminal Illness Associated  :");
 
+        btnAddPatient.setBackground(new java.awt.Color(168, 158, 200));
         btnAddPatient.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnAddPatient.setText("Add Patient");
+        btnAddPatient.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddPatientActionPerformed(evt);
@@ -168,8 +170,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
 
+        jButton1.setBackground(new java.awt.Color(168, 158, 200));
         jButton1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jButton1.setText("Back");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -236,18 +240,18 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(400, 400, 400)
-                        .addComponent(btnAddPatient))
+                        .addComponent(btnAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(jButton1)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -321,8 +325,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(txtEmergencyContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addComponent(btnAddPatient)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addComponent(btnAddPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(428, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

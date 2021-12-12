@@ -56,29 +56,38 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnManageNurse.setBackground(new java.awt.Color(166, 158, 200));
+        btnManageNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnManageNurse.setText("Manage Nurses");
+        btnManageNurse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageNurse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageNurseActionPerformed(evt);
             }
         });
-        add(btnManageNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 150, 30));
+        add(btnManageNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 90));
 
+        btnManagePatients.setBackground(new java.awt.Color(166, 158, 200));
+        btnManagePatients.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnManagePatients.setText("Manage Patients");
+        btnManagePatients.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManagePatients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagePatientsActionPerformed(evt);
             }
         });
-        add(btnManagePatients, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 150, -1));
+        add(btnManagePatients, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 190, 100));
 
+        btnManageProvider.setBackground(new java.awt.Color(166, 158, 200));
+        btnManageProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnManageProvider.setText("Manage Providers");
+        btnManageProvider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageProviderActionPerformed(evt);
             }
         });
-        add(btnManageProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+        add(btnManageProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 170, 100));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Hospice:");
@@ -87,52 +96,71 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 130, -1));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel1.setText("Total Hospice Balance: $ ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 120, 30));
 
+        btnAddProvider.setBackground(new java.awt.Color(166, 158, 200));
+        btnAddProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddProvider.setText("Add Provider");
+        btnAddProvider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProviderActionPerformed(evt);
             }
         });
-        add(btnAddProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        add(btnAddProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 140, 100));
 
+        btnAddPatient.setBackground(new java.awt.Color(166, 158, 200));
+        btnAddPatient.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddPatient.setText("Add Patient");
+        btnAddPatient.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddPatientActionPerformed(evt);
             }
         });
-        add(btnAddPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
+        add(btnAddPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, 100));
 
+        btnAddNurse.setBackground(new java.awt.Color(166, 158, 200));
+        btnAddNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddNurse.setText("Add Nurse");
+        btnAddNurse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddNurse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNurseActionPerformed(evt);
             }
         });
-        add(btnAddNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 179, 120, 30));
+        add(btnAddNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 90));
 
+        btnAddCounsellor.setBackground(new java.awt.Color(166, 158, 200));
+        btnAddCounsellor.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddCounsellor.setText("Add Counsellor");
+        btnAddCounsellor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddCounsellor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddCounsellorActionPerformed(evt);
             }
         });
-        add(btnAddCounsellor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, -1, -1));
+        add(btnAddCounsellor, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 150, 90));
 
+        btnManageCounsellors.setBackground(new java.awt.Color(166, 158, 200));
+        btnManageCounsellors.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnManageCounsellors.setText("Manage Counsellors");
+        btnManageCounsellors.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageCounsellors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageCounsellorsActionPerformed(evt);
             }
         });
-        add(btnManageCounsellors, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, -1, -1));
+        add(btnManageCounsellors, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 190, 90));
 
+        btnViewDonations.setBackground(new java.awt.Color(166, 158, 200));
+        btnViewDonations.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnViewDonations.setText("View Donations");
-        add(btnViewDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        btnViewDonations.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btnViewDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 90));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNurseActionPerformed

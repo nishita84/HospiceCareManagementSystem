@@ -74,6 +74,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         jPanel1.setForeground(new java.awt.Color(255, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(975, 1000));
 
+        tblPatientsList.setBackground(new java.awt.Color(102, 102, 255));
         tblPatientsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -100,45 +101,57 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("MANAGE PATIENTS");
 
-        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnBack.setBackground(new java.awt.Color(166, 158, 200));
+        btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
 
-        btnRefresh.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnRefresh.setBackground(new java.awt.Color(166, 158, 200));
+        btnRefresh.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
 
-        btnUpdate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnUpdate.setBackground(new java.awt.Color(166, 158, 200));
+        btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnCreate.setBackground(new java.awt.Color(166, 158, 200));
+        btnCreate.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnCreate.setText("Create >>");
+        btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
 
-        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnDelete.setBackground(new java.awt.Color(166, 158, 200));
+        btnDelete.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnDelete.setText("Delete");
+        btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ImagePatient-2.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel2.setText("Address :");
@@ -152,8 +165,10 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         lbZipcode.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbZipcode.setText("Zip Code :");
 
+        btnSave.setBackground(new java.awt.Color(166, 158, 200));
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -170,42 +185,41 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 78, Short.MAX_VALUE)
-                                .addComponent(btnBack)
+                                .addGap(0, 49, Short.MAX_VALUE)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49)
                                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(307, 307, 307))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnRefresh)
-                                        .addGap(86, 86, 86)
-                                        .addComponent(btnUpdate))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(lbCity)
                                             .addComponent(jLabel2))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtAddress)
-                                            .addComponent(txtCity))))
-                                .addGap(113, 113, 113)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                                            .addComponent(txtCity)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(85, 85, 85)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnDelete)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(lbState)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(lbState)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(lbZipcode)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(166, 166, 166))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCreate)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(ProviderScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 673, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblPatientsList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -216,8 +230,8 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                         .addGap(112, 112, 112)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(418, 418, 418)
-                        .addComponent(btnSave)))
+                        .addGap(386, 386, 386)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -226,18 +240,19 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle)
-                    .addComponent(btnBack))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addComponent(lblPatientsList, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ProviderScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRefresh)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete)
-                    .addComponent(btnCreate))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCreate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,8 +265,8 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
                     .addComponent(lbZipcode)
                     .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btnSave)
-                .addGap(23, 23, 23)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

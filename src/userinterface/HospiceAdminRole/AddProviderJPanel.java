@@ -105,8 +105,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel9.setText("Zip Code :");
 
+        btnAddProvider.setBackground(new java.awt.Color(166, 158, 200));
         btnAddProvider.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnAddProvider.setText("Add Provider");
+        btnAddProvider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProviderActionPerformed(evt);
@@ -126,8 +128,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
 
         CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
 
+        btnBack.setBackground(new java.awt.Color(166, 158, 200));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -149,33 +153,29 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnBack)
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(288, 288, 288)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel9)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jLabel12))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtState)
-                                        .addComponent(txtCity)
-                                        .addComponent(txtZipCode)
-                                        .addComponent(txtEmailID)
-                                        .addComponent(txtContactNumber)
-                                        .addComponent(HospiceDropDown, 0, 244, Short.MAX_VALUE)
-                                        .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(138, 138, 138)
-                                    .addComponent(btnAddProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtState)
+                                    .addComponent(txtCity)
+                                    .addComponent(txtZipCode)
+                                    .addComponent(txtEmailID)
+                                    .addComponent(txtContactNumber)
+                                    .addComponent(HospiceDropDown, 0, 244, Short.MAX_VALUE)
+                                    .addComponent(CountryDropDown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
@@ -188,6 +188,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                                     .addComponent(txtAddress))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(426, 426, 426)
+                .addComponent(btnAddProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +202,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(btnBack)))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -242,8 +246,8 @@ public class AddProviderJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel12)
                     .addComponent(HospiceDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(btnAddProvider)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addComponent(btnAddProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(364, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
