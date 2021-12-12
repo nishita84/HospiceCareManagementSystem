@@ -58,7 +58,8 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         lblEmailID = new javax.swing.JLabel();
         btnSaveUpdates = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 204, 204));
+        setLayout(null);
 
         tblHospiceList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,150 +79,110 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         });
         DonorScrollPane.setViewportView(tblHospiceList);
 
+        add(DonorScrollPane);
+        DonorScrollPane.setBounds(160, 150, 690, 115);
+
         lblHospiceList.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblHospiceList.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHospiceList.setText("Hospice List");
+        add(lblHospiceList);
+        lblHospiceList.setBounds(150, 110, 109, 26);
 
         lblTitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Manage Hospice");
+        add(lblTitle);
+        lblTitle.setBounds(372, 30, 370, 60);
 
+        btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(170, 40, 90, 40);
 
+        btnRefresh.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnRefresh.setText("Refresh");
+        btnRefresh.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
+        add(btnRefresh);
+        btnRefresh.setBounds(160, 280, 110, 40);
 
+        btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
+        add(btnUpdate);
+        btnUpdate.setBounds(338, 280, 100, 40);
 
+        btnCreate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnCreate.setText("Create >>");
+        btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
+        add(btnCreate);
+        btnCreate.setBounds(718, 280, 130, 40);
 
+        btnDelete.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
+        btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete);
+        btnDelete.setBounds(550, 280, 100, 40);
 
         lblimage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/HospiceManage.png"))); // NOI18N
+        add(lblimage);
+        lblimage.setBounds(460, 360, 733, 278);
 
         txtContactNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactNoActionPerformed(evt);
             }
         });
+        add(txtContactNo);
+        txtContactNo.setBounds(270, 360, 120, 40);
+        add(txtEmailID);
+        txtEmailID.setBounds(270, 410, 120, 40);
 
+        lblContactNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblContactNo.setText("Contact No. : ");
+        add(lblContactNo);
+        lblContactNo.setBounds(150, 380, 130, 15);
 
+        lblEmailID.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblEmailID.setText("Email ID : ");
+        add(lblEmailID);
+        lblEmailID.setBounds(150, 430, 110, 15);
 
+        btnSaveUpdates.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSaveUpdates.setText("Save");
+        btnSaveUpdates.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveUpdates.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveUpdatesActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(85, 85, 85)
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(422, 422, 422))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(90, 90, 90)
-                                .addComponent(btnUpdate)
-                                .addGap(127, 127, 127)
-                                .addComponent(btnDelete)
-                                .addGap(38, 38, 38))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCreate)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblHospiceList, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DonorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblContactNo)
-                            .addComponent(lblEmailID))
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(txtEmailID))
-                        .addGap(55, 55, 55))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(btnSaveUpdates)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(53, 53, 53)
-                .addComponent(lblHospiceList, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(DonorScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRefresh)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnCreate)
-                    .addComponent(btnDelete))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblimage, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContactNo))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmailID))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSaveUpdates)))
-                .addContainerGap())
-        );
+        add(btnSaveUpdates);
+        btnSaveUpdates.setBounds(210, 510, 130, 50);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -282,7 +243,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        AddHospiceJPanel addhospicejpanel = new AddHospiceJPanel(userAccount, ecosystem);
+        AddHospiceJPanel addhospicejpanel = new AddHospiceJPanel(userProcessContainer, userAccount, ecosystem);
         userProcessContainer.add("Add Hospice",addhospicejpanel);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
         Layout.next(userProcessContainer);

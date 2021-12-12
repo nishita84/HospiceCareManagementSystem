@@ -10,7 +10,9 @@ import Business.Hospice.Hospice;
 import Business.SetIDsForEnterprises;
 import Business.UserAccount.UserAccount;
 import Business.ValidationLogic;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,10 +25,12 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
      */
     UserAccount userAccount;
     EcoSystem system;
-    public AddHospiceJPanel(UserAccount userAccount, EcoSystem system) {
+    JPanel userProcessContainer;
+    public AddHospiceJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
+        this.userProcessContainer = userProcessContainer;
     }
 
     /**
@@ -55,161 +59,136 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         txtCountry = new javax.swing.JTextField();
         txtContactNo = new javax.swing.JTextField();
         txtEmailID = new javax.swing.JTextField();
-        btnSave = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnSave1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 204, 204));
         setForeground(new java.awt.Color(204, 204, 255));
+        setLayout(null);
 
         lbltitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lbltitle.setText("Add Hospice");
+        add(lbltitle);
+        lbltitle.setBounds(360, 20, 310, 50);
 
+        lblName.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblName.setText("Name:");
+        add(lblName);
+        lblName.setBounds(310, 80, 90, 60);
 
+        lblAddress.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblAddress.setText("Address:");
+        add(lblAddress);
+        lblAddress.setBounds(310, 150, 62, 15);
 
+        lblCity.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblCity.setText("City:");
+        add(lblCity);
+        lblCity.setBounds(310, 250, 32, 15);
 
+        lblState.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblState.setText("State:");
+        add(lblState);
+        lblState.setBounds(308, 195, 40, 15);
 
+        lblZipCode.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblZipCode.setText("Zip Code:");
+        add(lblZipCode);
+        lblZipCode.setBounds(310, 300, 67, 15);
 
+        lblCountry.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblCountry.setText("Country:");
+        add(lblCountry);
+        lblCountry.setBounds(310, 350, 60, 15);
 
+        lblContactNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblContactNo.setText("Contact No:");
+        add(lblContactNo);
+        lblContactNo.setBounds(290, 460, 82, 15);
 
+        lblEmailID.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblEmailID.setText("Email ID:");
+        add(lblEmailID);
+        lblEmailID.setBounds(310, 410, 60, 15);
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
             }
         });
+        add(txtAddress);
+        txtAddress.setBounds(390, 130, 220, 40);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
             }
         });
+        add(txtName);
+        txtName.setBounds(389, 84, 220, 40);
 
         txtCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCityActionPerformed(evt);
             }
         });
+        add(txtCity);
+        txtCity.setBounds(390, 230, 220, 40);
 
         txtState.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStateActionPerformed(evt);
             }
         });
+        add(txtState);
+        txtState.setBounds(390, 180, 220, 40);
+        add(txtZipCode);
+        txtZipCode.setBounds(390, 280, 220, 40);
+        add(txtCountry);
+        txtCountry.setBounds(390, 330, 220, 40);
 
         txtContactNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactNoActionPerformed(evt);
             }
         });
+        add(txtContactNo);
+        txtContactNo.setBounds(390, 440, 220, 40);
 
         txtEmailID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailIDActionPerformed(evt);
             }
         });
+        add(txtEmailID);
+        txtEmailID.setBounds(390, 390, 220, 40);
 
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setText("Back");
+        btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(120, 20, 130, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hospice.png"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(600, 80, 472, 324);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnSave)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAddress)
-                                    .addComponent(lblCity)
-                                    .addComponent(lblState)
-                                    .addComponent(lblContactNo)
-                                    .addComponent(lblCountry)
-                                    .addComponent(lblZipCode)
-                                    .addComponent(lblEmailID))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(txtCountry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(txtContactNo, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtZipCode, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(347, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAddress)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCity)
-                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblState)
-                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblZipCode)
-                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCountry)
-                    .addComponent(txtCountry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContactNo)
-                    .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmailID)
-                    .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btnSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(244, Short.MAX_VALUE))
-        );
+        btnSave1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSave1.setText("Save");
+        btnSave1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSave1ActionPerformed(evt);
+            }
+        });
+        add(btnSave1);
+        btnSave1.setBounds(350, 540, 130, 60);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
@@ -236,38 +215,24 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailIDActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        ValidationLogic validationLogic = new ValidationLogic();
-        if(validationLogic.validateIfAllFieldsAreFilled_8(txtName, txtAddress, txtCity, txtState,txtZipCode, txtCountry, txtContactNo,txtEmailID))
-        {
-            String HospiceName = txtName.getText();
-            String HospiceAddress = txtAddress.getText();
-            String HospiceCity = txtCity.getText();
-            String HospiceState = txtState.getText();
-            String Zipcode = txtZipCode.getText();
-            String HospiceCoutry = txtCountry.getText();
-            String HospiceContactNo = txtContactNo.getText();
-            String HospiceEmail = txtEmailID.getText();
-            SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
-            String HospiceID = setIDForEnterprises.SetIDForHospice();
-            Hospice newHospice = system.getHospiceDirectory().createNewHospice(HospiceID, HospiceName, HospiceAddress, HospiceCity, HospiceState, HospiceCoutry, HospiceContactNo, HospiceEmail, HospiceID);
-            if(newHospice != null)
-            {
-                JOptionPane.showMessageDialog(this, "Hospice details saved successfully!");
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Hospice details not saved successfully!");
-            }
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
-        }
-    }//GEN-LAST:event_btnSaveActionPerformed
+        
+         userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSave1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSave1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;

@@ -67,6 +67,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageDonors = new javax.swing.JButton();
         btnAddPayer = new javax.swing.JButton();
         btnManagePayer = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -80,106 +82,100 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 996, Short.MAX_VALUE)
         );
 
         jSplitPane.setLeftComponent(jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setLayout(null);
 
+        btnAddHospice.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddHospice.setText("Add Hospice");
+        btnAddHospice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddHospice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddHospiceActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAddHospice);
+        btnAddHospice.setBounds(16, 87, 225, 66);
 
+        btnAddDonor.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddDonor.setText("Add Donor");
+        btnAddDonor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddDonorActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAddDonor);
+        btnAddDonor.setBounds(306, 87, 225, 66);
 
+        btnManageHospice.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageHospice.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManageHospice.setText("Manage Hospice");
+        btnManageHospice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageHospice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageHospiceActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageHospice);
+        btnManageHospice.setBounds(16, 190, 225, 69);
 
+        btnAutomatedSetup.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAutomatedSetup.setText("Run Automated Setup");
+        btnAutomatedSetup.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAutomatedSetup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAutomatedSetupActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAutomatedSetup);
+        btnAutomatedSetup.setBounds(306, 357, 225, 80);
 
+        btnManageDonors.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManageDonors.setText("Manage Donors");
+        btnManageDonors.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageDonors.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageDonorsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManageDonors);
+        btnManageDonors.setBounds(306, 191, 225, 67);
 
+        btnAddPayer.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddPayer.setText("Add Payers");
+        btnAddPayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddPayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddPayerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAddPayer);
+        btnAddPayer.setBounds(582, 87, 213, 67);
 
+        btnManagePayer.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManagePayer.setText("Manage Payers");
+        btnManagePayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManagePayer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManagePayerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnManagePayer);
+        btnManagePayer.setBounds(582, 190, 213, 69);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAddPayer)
-                    .addComponent(btnAddHospice))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(btnManageHospice)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAddDonor, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnManageDonors)
-                        .addGap(0, 86, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnManagePayer)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(205, 205, 205)
-                .addComponent(btnAutomatedSetup, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddHospice)
-                    .addComponent(btnManageHospice)
-                    .addComponent(btnAddDonor)
-                    .addComponent(btnManageDonors))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddPayer)
-                    .addComponent(btnManagePayer))
-                .addGap(63, 63, 63)
-                .addComponent(btnAutomatedSetup, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
+        jLabel1.setText("Welcome to Hospice Management System");
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(268, 16, 512, 31);
+
+        lblImage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/SystemAdmin.png")); // NOI18N
+        jPanel2.add(lblImage);
+        lblImage.setBounds(6, 443, 758, 305);
 
         jSplitPane.setRightComponent(jPanel2);
 
@@ -187,12 +183,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddHospiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospiceActionPerformed
-        AddHospiceJPanel addHospiceJPanel = new AddHospiceJPanel(userAccount, ecosystem);
+        AddHospiceJPanel addHospiceJPanel = new AddHospiceJPanel(userProcessContainer,userAccount, ecosystem);
         jSplitPane.setRightComponent(addHospiceJPanel);
     }//GEN-LAST:event_btnAddHospiceActionPerformed
 
     private void btnAddDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDonorActionPerformed
-        AddDonorJPanel addDonorJPanel = new AddDonorJPanel(userAccount, ecosystem);
+        AddDonorJPanel addDonorJPanel = new AddDonorJPanel(userProcessContainer, userAccount, ecosystem);
         jSplitPane.setRightComponent(addDonorJPanel);
     }//GEN-LAST:event_btnAddDonorActionPerformed
 
@@ -248,8 +244,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageDonors;
     private javax.swing.JButton btnManageHospice;
     private javax.swing.JButton btnManagePayer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;
+    private javax.swing.JLabel lblImage;
     // End of variables declaration//GEN-END:variables
 }
