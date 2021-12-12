@@ -88,7 +88,7 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
 
         ddSymptom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chest pain", "Dizziness", "Increased Heart Rate", "Flu-like symptoms" }));
         add(ddSymptom);
-        ddSymptom.setBounds(440, 220, 200, 70);
+        ddSymptom.setBounds(450, 240, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Patient's Reporting Provider:");
