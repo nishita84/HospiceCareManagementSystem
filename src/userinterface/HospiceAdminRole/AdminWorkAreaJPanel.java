@@ -52,9 +52,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAddCounsellor = new javax.swing.JButton();
         btnManageCounsellors = new javax.swing.JButton();
         btnViewDonations = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         btnManageNurse.setBackground(new java.awt.Color(166, 158, 200));
         btnManageNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -65,7 +66,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageNurseActionPerformed(evt);
             }
         });
-        add(btnManageNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 90));
+        add(btnManageNurse);
+        btnManageNurse.setBounds(220, 260, 170, 90);
 
         btnManagePatients.setBackground(new java.awt.Color(166, 158, 200));
         btnManagePatients.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -76,7 +78,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManagePatientsActionPerformed(evt);
             }
         });
-        add(btnManagePatients, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, 190, 100));
+        add(btnManagePatients);
+        btnManagePatients.setBounds(570, 120, 190, 100);
 
         btnManageProvider.setBackground(new java.awt.Color(166, 158, 200));
         btnManageProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -87,19 +90,24 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageProviderActionPerformed(evt);
             }
         });
-        add(btnManageProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 170, 100));
+        add(btnManageProvider);
+        btnManageProvider.setBounds(220, 120, 170, 100);
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Hospice:");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 120, 30));
+        add(enterpriseLabel);
+        enterpriseLabel.setBounds(60, 30, 120, 30);
 
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 130, -1));
+        add(valueLabel);
+        valueLabel.setBounds(160, 40, 130, 16);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel1.setText("Total Hospice Balance: $ ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 120, 30));
+        add(jLabel1);
+        jLabel1.setBounds(380, 40, 157, 13);
+        add(jTextField1);
+        jTextField1.setBounds(540, 30, 120, 30);
 
         btnAddProvider.setBackground(new java.awt.Color(166, 158, 200));
         btnAddProvider.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -110,7 +118,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAddProviderActionPerformed(evt);
             }
         });
-        add(btnAddProvider, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 140, 100));
+        add(btnAddProvider);
+        btnAddProvider.setBounds(60, 120, 140, 100);
 
         btnAddPatient.setBackground(new java.awt.Color(166, 158, 200));
         btnAddPatient.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -121,7 +130,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAddPatientActionPerformed(evt);
             }
         });
-        add(btnAddPatient, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, 100));
+        add(btnAddPatient);
+        btnAddPatient.setBounds(400, 120, 150, 100);
 
         btnAddNurse.setBackground(new java.awt.Color(166, 158, 200));
         btnAddNurse.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -132,7 +142,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAddNurseActionPerformed(evt);
             }
         });
-        add(btnAddNurse, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 140, 90));
+        add(btnAddNurse);
+        btnAddNurse.setBounds(60, 260, 140, 90);
 
         btnAddCounsellor.setBackground(new java.awt.Color(166, 158, 200));
         btnAddCounsellor.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -143,7 +154,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnAddCounsellorActionPerformed(evt);
             }
         });
-        add(btnAddCounsellor, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, 150, 90));
+        add(btnAddCounsellor);
+        btnAddCounsellor.setBounds(400, 260, 150, 90);
 
         btnManageCounsellors.setBackground(new java.awt.Color(166, 158, 200));
         btnManageCounsellors.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -154,13 +166,19 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageCounsellorsActionPerformed(evt);
             }
         });
-        add(btnManageCounsellors, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 190, 90));
+        add(btnManageCounsellors);
+        btnManageCounsellors.setBounds(570, 260, 190, 90);
 
         btnViewDonations.setBackground(new java.awt.Color(166, 158, 200));
         btnViewDonations.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnViewDonations.setText("View Donations");
         btnViewDonations.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btnViewDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 90));
+        add(btnViewDonations);
+        btnViewDonations.setBounds(60, 370, 320, 90);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/HospiceBG-removebg-preview.png"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(400, 370, 360, 260);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNurseActionPerformed
@@ -239,6 +257,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewDonations;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
