@@ -31,9 +31,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
-//        lblAdjudicationAmt.setVisible(false);
-//        txtAdjudicationAmt.setVisible(false);
-//        btnAdjudicate.setVisible(false);
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
     }
 
     /**
@@ -56,7 +56,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         btnReject = new javax.swing.JButton();
         lblAdjudicationAmt = new javax.swing.JLabel();
         btnAdjudicate = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtAdjudicationAmt = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel1.setText("Search claim via: ");
@@ -126,6 +126,11 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         btnAdjudicate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAdjudicate.setText("Adjudicate");
         btnAdjudicate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAdjudicate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjudicateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,7 +161,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         .addGap(79, 79, 79)
                         .addComponent(lblAdjudicationAmt)
                         .addGap(10, 10, 10)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(190, 190, 190)
                         .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -184,7 +189,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(lblAdjudicationAmt))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -192,9 +197,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
 
     private void btnFullyAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullyAdjudicateActionPerformed
         // TODO add your handling code here:
-//        lblAdjudicationAmt.setVisible(false);
-//        txtAdjudicationAmt.setVisible(false);
-//        btnAdjudicate.setVisible(false);
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
         int selectedIndex = tblClaims.getSelectedRow();
         if(selectedIndex < 0)
         {
@@ -240,72 +245,17 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
 
     private void btnPartialAdjudicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartialAdjudicationActionPerformed
         // TODO add your handling code here:
-//        lblAdjudicationAmt.setVisible(true);
-//        jTextField1.setVisible(true);
-//        btnAdjudicate.setVisible(true);
-        int selectedIndex = tblClaims.getSelectedRow();
-        if(selectedIndex < 0)
-        {
-            JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
-        } 
-        else{
-            DefaultTableModel model = (DefaultTableModel) tblClaims.getModel();
-            Claim selectedClaim = (Claim) model.getValueAt(selectedIndex, 8);
-            double claimAmount = selectedClaim.getClaimAmount();
-            double currentHospiceBalance = selectedClaim.getHospice().getTotalHospiceBalance();
-            
-            String adjudicationAmountInString = jTextField1.getText();
-            double adjudicationAmount = Double.valueOf(adjudicationAmountInString);
-            //double adjudicationAmount = Double.parseDouble(adjudicationAmountInString);
-            if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
-            {
-                System.out.println(adjudicationAmount);
-                 System.out.println(claimAmount);
-                 System.out.println("Hospice Balance: "+currentHospiceBalance);
-               if(adjudicationAmount < claimAmount)
-                {
-                    if(adjudicationAmount > currentHospiceBalance)
-                    {
-                        Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
-                        updatedClaim.setAdjudicatedAmount(adjudicationAmount);
-                        updatedClaim.setClaimStatus(2);
-
-                        Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
-                        Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);
-                        updatedHospice.setTotalHospiceBalance(hospiceAssociatedWithClaim.getTotalHospiceBalance() - adjudicationAmount);
-                        JOptionPane.showMessageDialog(this, "Claim has been successfully partiallu adjudicated!"
-                        +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
-                            "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
-                       Audit audit = system.getAuditDirectory().createNewAuditEntryForAdjudication(updatedClaim);
-                        populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
-                    }
-                    else{
-                    JOptionPane.showMessageDialog(this, "Hospice does not have enough funds to fully adjudicate the claim.\n"
-                            + "This claim needs to be rejected");
-                    // Rejection workflow
-                    Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
-                    updatedClaim.setAdjudicatedAmount(0.00);
-                    updatedClaim.setClaimStatus(3);
-                    populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Adjudication Amount cannot be greater or equal to Claim Amount");
-                    //txtAdjudicationAmt.setText("");
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Claim with status as '"+lookUps.mapClaimStatus(selectedClaim.getClaimStatus())
-                        +"' cannot be partially adjudicated"); 
-             }
-        }
+        lblAdjudicationAmt.setVisible(true);
+        txtAdjudicationAmt.setVisible(true);
+        btnAdjudicate.setVisible(true);
+        
     }//GEN-LAST:event_btnPartialAdjudicationActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-//        lblAdjudicationAmt.setVisible(false);
-//        txtAdjudicationAmt.setVisible(false);
-//        btnAdjudicate.setVisible(false);
+        lblAdjudicationAmt.setVisible(false);
+        txtAdjudicationAmt.setVisible(false);
+        btnAdjudicate.setVisible(false);
          int selectedIndex = tblClaims.getSelectedRow();
          if(selectedIndex < 0)
          {
@@ -343,6 +293,62 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void btnAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjudicateActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = tblClaims.getSelectedRow();
+        if(selectedIndex < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
+        } 
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblClaims.getModel();
+            Claim selectedClaim = (Claim) model.getValueAt(selectedIndex, 8);
+            double claimAmount = selectedClaim.getClaimAmount();
+            double currentHospiceBalance = selectedClaim.getHospice().getTotalHospiceBalance();
+            
+            String adjudicationAmountInString = txtAdjudicationAmt.getText();
+            double adjudicationAmount = Double.valueOf(adjudicationAmountInString);
+            if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
+            {
+               if(adjudicationAmount < claimAmount)
+                {
+                    if(adjudicationAmount < currentHospiceBalance)
+                    {
+                        Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                        updatedClaim.setAdjudicatedAmount(adjudicationAmount);
+                        updatedClaim.setClaimStatus(2);
+
+                        Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
+                        Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);
+                        updatedHospice.setTotalHospiceBalance(hospiceAssociatedWithClaim.getTotalHospiceBalance() - adjudicationAmount);
+                        JOptionPane.showMessageDialog(this, "Claim has been successfully partiallu adjudicated!"
+                        +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
+                            "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
+                       Audit audit = system.getAuditDirectory().createNewAuditEntryForAdjudication(updatedClaim);
+                        populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                    }
+                    else{
+                    JOptionPane.showMessageDialog(this, "Hospice does not have enough funds to fully adjudicate the claim.\n"
+                            + "This claim needs to be rejected");
+                    // Rejection workflow
+                    Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
+                    updatedClaim.setAdjudicatedAmount(0.00);
+                    updatedClaim.setClaimStatus(3);
+                    populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                    }
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Adjudication Amount cannot be greater or equal to Claim Amount");
+                    txtAdjudicationAmt.setText("");
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Claim with status as '"+lookUps.mapClaimStatus(selectedClaim.getClaimStatus())
+                        +"' cannot be partially adjudicated"); 
+             }
+        }
+    }//GEN-LAST:event_btnAdjudicateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdjudicate;
@@ -353,9 +359,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ddSearchType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAdjudicationAmt;
     private javax.swing.JTable tblClaims;
+    private javax.swing.JTextField txtAdjudicationAmt;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
