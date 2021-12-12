@@ -11,6 +11,8 @@ import Business.LookUpMapping;
 import Business.Nurses.Nurse;
 import Business.Providers.Provider;
 import Business.UserAccount.UserAccount;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +32,8 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         this.system = system;
         this.account = account;
         populateTable();
+        cbAlertAttended.setVisible(false);
+        btnSave.setVisible(false);
     }
 
     /**
@@ -44,8 +48,10 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAlerts = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        cbAlertAttended = new javax.swing.JRadioButton();
+        btnSave = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -70,32 +76,92 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(70, 90, 770, 224);
 
-        jButton2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        jButton2.setText("Update");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        add(jButton2);
-        jButton2.setBounds(670, 330, 174, 55);
+        add(btnUpdate);
+        btnUpdate.setBounds(670, 330, 174, 55);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(0, 0, 1440, 880);
+        cbAlertAttended.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        cbAlertAttended.setText("Alert Attended?");
+        cbAlertAttended.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbAlertAttendedActionPerformed(evt);
+            }
+        });
+        add(cbAlertAttended);
+        cbAlertAttended.setBounds(270, 420, 160, 30);
+
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        add(btnSave);
+        btnSave.setBounds(270, 480, 97, 21);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(5, -4, 1440, 880);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        int selectedIndex = tblAlerts.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblAlerts.getModel();
+        Alert selectedAlert = (Alert) model.getValueAt(selectedIndex, 5);
+        if(selectedAlert.getAlertStatus() == 0)
+        {
+            cbAlertAttended.setVisible(true);
+            btnSave.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "User cannot update a closed alert");
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = tblAlerts.getSelectedRow();
+        if(selectedIndex < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select an alert before proceding!");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblAlerts.getModel();
+            Alert selectedAlert = (Alert) model.getValueAt(selectedIndex, 5);
+            Alert updatedAlert = system.getAlertsDirectory().updateAlert(selectedAlert);
+            if(cbAlertAttended.isSelected())
+            {
+                updatedAlert.setAlertStatus(1);
+                updatedAlert.setAlertCloseTime(new Date());
+            }
+            cbAlertAttended.setVisible(false);
+            btnSave.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Alert successfully closed!");
+            populateTable();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void cbAlertAttendedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbAlertAttendedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbAlertAttendedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JRadioButton cbAlertAttended;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblAlerts;
     // End of variables declaration//GEN-END:variables

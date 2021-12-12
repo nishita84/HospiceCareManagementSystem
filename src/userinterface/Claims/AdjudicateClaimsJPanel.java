@@ -10,6 +10,7 @@ import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.LookUpMapping;
 import Business.UserAccount.UserAccount;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -174,6 +175,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                     Claim updatedClaim = system.getClaimsDirectory().updateClaim(selectedClaim);
                     updatedClaim.setAdjudicatedAmount(claimAmountOfSelectedClaim);
                     updatedClaim.setClaimStatus(2);
+                    updatedClaim.setClaimAdjudicationTime(new Date());
 
                     Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
                     Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);

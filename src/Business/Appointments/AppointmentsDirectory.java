@@ -5,6 +5,7 @@
  */
 package Business.Appointments;
 
+import Business.Alerts.Alert;
 import Business.Counsellors.Counsellor;
 import Business.Patients.Patient;
 import Business.Providers.Provider;
@@ -87,5 +88,11 @@ public class AppointmentsDirectory {
             }
         }
         return listOfAppointmentsByCounsellor;
+    }
+    
+    public Appointment updateAppointment(Appointment selectedAppointment)
+    {
+        listOfAppointments.set(listOfAppointments.indexOf(selectedAppointment), selectedAppointment);
+        return selectedAppointment;
     }
 }

@@ -544,13 +544,12 @@ public class AutomatedEntry {
                                         .item(0).getTextContent();    
                     String hospiceID = eElement.getElementsByTagName("hospiceID")
                                         .item(0).getTextContent();
-                   hospice = system.getHospiceDirectory().findHospiceByID(hospiceID, 
+                   Hospice hospiceOfCounsellor = system.getHospiceDirectory().findHospiceByID(hospiceID, 
                            system.getHospiceDirectory().getListOfHospice());
-                   
                    
                 counsellor = system.getCounsellorDirectory().createNewCounsellor(counsellorID, counsellorName, 
                         counsellorState, counsellorCity, counsellorState, counsellorCountry, counsellorZipCode, 
-                        counsellorEmailID, counsellorContactNumber, hospice);
+                        counsellorEmailID, counsellorContactNumber, hospiceOfCounsellor);
                 Employee emp = system.getEmployeeDirectory().createEmployee(counsellorName);
                     system.getUserAccountDirectory().createUserAccount(counsellorEmailID, password, emp, new CounsellorRole());
                 }

@@ -8,8 +8,8 @@ package userinterface.CounsellorRole;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.Appointments.ManageAppointmentsCounsellorJPanel;
 import userinterface.Forms.CounsellorObservationFormJPanel;
-import userinterface.Appointments.ManageAppointmentsJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
 
 /**
@@ -122,7 +122,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAppointmentsActionPerformed
         // TODO add your handling code here:
-        ManageAppointmentsJPanel manageAppointmentsPanel = new ManageAppointmentsJPanel();
+        ManageAppointmentsCounsellorJPanel manageAppointmentsPanel = new ManageAppointmentsCounsellorJPanel(account, system);
         jSplitPane1.setRightComponent(manageAppointmentsPanel);
     }//GEN-LAST:event_btnAppointmentsActionPerformed
 
@@ -134,7 +134,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPatientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientInfoActionPerformed
         // TODO add your handling code here:
-        ViewPatientInformationJPanel viewPatientInfoPanel = new ViewPatientInformationJPanel(account, system);
+        ViewPatientInformationJPanel viewPatientInfoPanel = new ViewPatientInformationJPanel(account, system, "Counsellor");
         jSplitPane1.setRightComponent(viewPatientInfoPanel);
     }//GEN-LAST:event_btnPatientInfoActionPerformed
 

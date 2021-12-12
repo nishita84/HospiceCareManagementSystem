@@ -20,4 +20,17 @@ and open the template in the editor.
         <password>james123</password>
         <hospiceID>HO1001</hospiceID>
     </counsellor>
+    <counsellor>
+        <counsellorID>CR1002</counsellorID>
+        <name>Michelle Bluth</name>
+        <address>101 Cambridge Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578671598</contactno>
+        <emailID>counsellor</emailID>
+        <password>counsellor</password>
+        <hospiceID>HO1001</hospiceID>
+    </counsellor>
 </counsellors>

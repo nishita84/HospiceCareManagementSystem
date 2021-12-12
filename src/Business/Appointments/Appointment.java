@@ -23,6 +23,7 @@ public class Appointment {
     private String appointmentTime;
     private int appointmentStatus;
     private String appointmentReason;
+    private String appointmentClosingComments;
 
     public String getAppointmentID() {
         return appointmentID;
@@ -86,6 +87,14 @@ public class Appointment {
 
     public void setAppointmentCounsellor(Counsellor appointmentCounsellor) {
         this.appointmentCounsellor = appointmentCounsellor;
+    }
+
+    public String getAppointmentClosingComments() {
+        return appointmentClosingComments;
+    }
+
+    public void setAppointmentClosingComments(String appointmentClosingComments) {
+        this.appointmentClosingComments = appointmentClosingComments;
     }
     
     

@@ -8,11 +8,9 @@ package userinterface.Alerts;
 import Business.Alerts.Alert;
 import Business.EcoSystem;
 import Business.Providers.Provider;
-import Business.Role.NurseRole;
-import Business.Role.Role;
-import Business.Role.Role.RoleType;
-import static Business.Role.Role.RoleType.Provider;
 import Business.UserAccount.UserAccount;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,6 +29,8 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
         this.system = system;
         this.account = account;
         populateTable();
+        cbAlertAttended.setVisible(false);
+        btnSave.setVisible(false);
     }
 
     /**
@@ -44,8 +44,10 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAlerts = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        cbAlertAttended = new javax.swing.JCheckBox();
+        btnSave = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setLayout(null);
@@ -66,26 +68,87 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(368, 123, 730, 230);
 
-        jButton1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        jButton1.setText("Update");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jButton1);
-        jButton1.setBounds(956, 371, 142, 52);
+        btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        add(btnUpdate);
+        btnUpdate.setBounds(956, 371, 142, 52);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel1.setText("ALERTS ASSIGNED TO ME:");
         add(jLabel1);
         jLabel1.setBounds(368, 68, 239, 43);
 
+        cbAlertAttended.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        cbAlertAttended.setText("Alert Attended?");
+        add(cbAlertAttended);
+        cbAlertAttended.setBounds(560, 450, 180, 80);
+
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        add(btnSave);
+        btnSave.setBounds(570, 560, 110, 30);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1440, 880);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = tblAlerts.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tblAlerts.getModel();
+        Alert selectedAlert = (Alert) model.getValueAt(selectedIndex, 4);
+        if(selectedAlert.getAlertStatus() == 0)
+        {
+            cbAlertAttended.setVisible(true);
+            btnSave.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "User cannot update a closed alert");
+        }
+        
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int selectedIndex = tblAlerts.getSelectedRow();
+        if(selectedIndex < 0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select an alert before proceding!");
+        }
+        else{
+            DefaultTableModel model = (DefaultTableModel) tblAlerts.getModel();
+            Alert selectedAlert = (Alert) model.getValueAt(selectedIndex, 4);
+            Alert updatedAlert = system.getAlertsDirectory().updateAlert(selectedAlert);
+            if(cbAlertAttended.isSelected())
+            {
+                updatedAlert.setAlertStatus(1);
+                updatedAlert.setAlertCloseTime(new Date());
+            }
+            cbAlertAttended.setVisible(false);
+            btnSave.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Alert successfully closed!");
+            populateTable();
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JCheckBox cbAlertAttended;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -99,7 +162,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
         model1.setRowCount(0);
         for(int index = 0; index < system.getAlertsDirectory().getListOfAlerts().size(); index++)
         {
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             Alert currentAlert = system.getAlertsDirectory().getListOfAlerts().get(index);
             if(currentAlert.getAlertProvider().getProviderNPI().equals(
             provider.getProviderNPI()))
@@ -108,6 +171,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
                 row[1] = currentAlert.getAlertSymptom();
                 row[2] = currentAlert.getAlertTime();
                 row[3] = currentAlert.getAlertStatus();
+                row[4] = currentAlert;
             }
             model1.addRow(row);
         }

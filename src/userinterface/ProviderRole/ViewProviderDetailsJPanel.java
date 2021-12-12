@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.Appointments;
+package userinterface.ProviderRole;
 
 /**
  *
  * @author architnigam
  */
-public class ManageAppointmentsJPanel extends javax.swing.JPanel {
+public class ViewProviderDetailsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageAppointmentsJPanel
+     * Creates new form ViewProviderDetails
      */
-    public ManageAppointmentsJPanel() {
+    public ViewProviderDetailsJPanel() {
         initComponents();
     }
 

@@ -104,20 +104,32 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         ddPlaceOfService = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel1.setText("Claim Type: ");
+        add(jLabel1);
+        jLabel1.setBounds(41, 42, 85, 15);
 
         ddClaimType.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddClaimType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Professional", "Institutional"}));
+        add(ddClaimType);
+        ddClaimType.setBounds(173, 37, 177, 27);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Linkage ID:");
+        add(jLabel2);
+        jLabel2.setBounds(41, 100, 78, 15);
+        add(txtLinkageID);
+        txtLinkageID.setBounds(173, 95, 154, 21);
 
         jLabel3.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel3.setText("Patient Information");
+        add(jLabel3);
+        jLabel3.setBounds(41, 145, 164, 19);
 
         btnPopulate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPopulate.setText("Populate");
@@ -127,62 +139,130 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
                 btnPopulateActionPerformed(evt);
             }
         });
+        add(btnPopulate);
+        btnPopulate.setBounds(365, 97, 112, 21);
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Name: ");
+        add(jLabel4);
+        jLabel4.setBounds(41, 196, 47, 15);
+        add(txtPatientName);
+        txtPatientName.setBounds(158, 189, 146, 26);
 
         jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel5.setText("Address:");
+        add(jLabel5);
+        jLabel5.setBounds(41, 293, 62, 15);
+        add(txtProviderAddress);
+        txtProviderAddress.setBounds(634, 274, 245, 51);
 
         jLabel6.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel6.setText("State: ");
+        add(jLabel6);
+        jLabel6.setBounds(41, 341, 44, 15);
 
         jLabel7.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel7.setText("City: ");
+        add(jLabel7);
+        jLabel7.setBounds(41, 437, 36, 15);
+        add(txtPatientState);
+        txtPatientState.setBounds(162, 380, 216, 40);
+        add(txtPatientCity);
+        txtPatientCity.setBounds(162, 509, 164, 26);
 
         jLabel8.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel8.setText("Zip Code:");
+        add(jLabel8);
+        jLabel8.setBounds(41, 516, 67, 15);
+        add(txtPatientZipCode);
+        txtPatientZipCode.setBounds(162, 428, 154, 30);
 
         jLabel9.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel9.setText("Diagnosis:");
+        add(jLabel9);
+        jLabel9.setBounds(41, 632, 74, 15);
 
         ddDiagnosis.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddDiagnosis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+        add(ddDiagnosis);
+        ddDiagnosis.setBounds(162, 616, 166, 27);
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel10.setText("Provider Information");
+        add(jLabel10);
+        jLabel10.setBounds(534, 141, 192, 22);
 
         jLabel11.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel11.setText("Name:");
+        add(jLabel11);
+        jLabel11.setBounds(535, 217, 43, 15);
+        add(txtProviderState);
+        txtProviderState.setBounds(630, 500, 182, 35);
 
         jLabel12.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel12.setText("Address:");
+        add(jLabel12);
+        jLabel12.setBounds(535, 279, 62, 15);
+        add(txtPatientAddress);
+        txtPatientAddress.setBounds(162, 264, 226, 71);
 
         jLabel13.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel13.setText("State: ");
+        add(jLabel13);
+        jLabel13.setBounds(535, 394, 44, 15);
+        add(txtProviderName);
+        txtProviderName.setBounds(634, 210, 154, 26);
 
         jLabel14.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel14.setText("City:");
+        add(jLabel14);
+        jLabel14.setBounds(535, 437, 32, 15);
+        add(txtProviderCity);
+        txtProviderCity.setBounds(634, 382, 182, 37);
 
         jLabel15.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel15.setText("Zip Code:");
+        add(jLabel15);
+        jLabel15.setBounds(520, 511, 67, 15);
+        add(txtProviderZipCode);
+        txtProviderZipCode.setBounds(630, 440, 182, 34);
 
         jLabel16.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel16.setText("Claim Batch Number: ");
+        add(jLabel16);
+        jLabel16.setBounds(468, 611, 148, 15);
+        add(txtBatchNo);
+        txtBatchNo.setBounds(634, 604, 176, 26);
 
         jLabel17.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel17.setText("Start Date:");
+        add(jLabel17);
+        jLabel17.setBounds(41, 735, 72, 15);
 
         jLabel18.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel18.setText("End Date:");
+        add(jLabel18);
+        jLabel18.setBounds(178, 735, 67, 15);
 
         ddServiceCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+        add(ddServiceCode);
+        ddServiceCode.setBounds(312, 762, 126, 27);
 
         jLabel19.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel19.setText("Service Code:");
+        add(jLabel19);
+        jLabel19.setBounds(322, 735, 95, 15);
+        add(txtEndDate);
+        txtEndDate.setBounds(41, 756, 99, 26);
+        add(txtUnits);
+        txtUnits.setBounds(514, 756, 88, 29);
+        add(txtStartDate);
+        txtStartDate.setBounds(178, 756, 99, 26);
 
         jLabel20.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel20.setText("Units:");
+        add(jLabel20);
+        jLabel20.setBounds(537, 710, 46, 15);
 
         btnComputeCost.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnComputeCost.setText("Compute Cost:");
@@ -192,11 +272,19 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
                 btnComputeCostActionPerformed(evt);
             }
         });
+        add(btnComputeCost);
+        btnComputeCost.setBounds(681, 762, 129, 18);
 
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel21.setText("Cost:");
+        add(jLabel21);
+        jLabel21.setBounds(902, 710, 36, 17);
+        add(txtCost);
+        txtCost.setBounds(902, 764, 100, 21);
 
         jLabel22.setText("$");
+        add(jLabel22);
+        jLabel22.setBounds(860, 767, 8, 16);
 
         btnSubmitClaim.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSubmitClaim.setText("SUBMIT CLAIM");
@@ -206,248 +294,27 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
                 btnSubmitClaimActionPerformed(evt);
             }
         });
+        add(btnSubmitClaim);
+        btnSubmitClaim.setBounds(312, 821, 230, 33);
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel23.setText("Place of Service:");
+        add(jLabel23);
+        jLabel23.setBounds(1043, 710, 115, 17);
 
         ddPlaceOfService.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddPlaceOfService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Home", "Institution"}));
+        add(ddPlaceOfService);
+        ddPlaceOfService.setBounds(1043, 756, 136, 27);
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/claim.png"))); // NOI18N
         jLabel24.setText("jLabel24");
+        add(jLabel24);
+        jLabel24.setBounds(815, 18, 366, 118);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2))
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ddClaimType, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtLinkageID, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(38, 38, 38)
-                                        .addComponent(btnPopulate, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(338, 338, 338)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(txtEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel19))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(35, 35, 35)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnSubmitClaim, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(ddServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(76, 76, 76)
-                                                .addComponent(txtUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(70, 70, 70)
-                                .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel9))
-                                .addGap(47, 47, 47)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPatientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPatientState, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ddDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPatientCity, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPatientZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(412, 412, 412)
-                                        .addComponent(jLabel15))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(426, 426, 426)
-                                        .addComponent(jLabel10))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(360, 360, 360)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                            .addComponent(jLabel11)
-                                                            .addGap(56, 56, 56))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                            .addComponent(jLabel12)
-                                                            .addGap(37, 37, 37)))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jLabel13)
-                                                        .addGap(55, 55, 55))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jLabel14)
-                                                        .addGap(67, 67, 67))
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                        .addComponent(jLabel16)
-                                                        .addGap(18, 18, 18))))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(51, 51, 51)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtProviderZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtProviderCity, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtProviderAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtProviderName, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(txtProviderState, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(145, 145, 145))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addComponent(txtBatchNo, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(btnComputeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGap(50, 50, 50)
-                                                        .addComponent(jLabel22)
-                                                        .addGap(34, 34, 34)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel21))
-                                                        .addGap(41, 41, 41)))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel23)
-                                                    .addComponent(ddPlaceOfService, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                        .addContainerGap(8, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txtProviderName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel12))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(txtPatientAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtProviderAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPatientState, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13)
-                                    .addComponent(txtProviderCity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(ddClaimType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLinkageID, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(btnPopulate))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel10))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txtProviderZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtPatientZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(txtPatientCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtProviderState, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel15)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel9)
-                        .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19))
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ddDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtBatchNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel23)
-                                .addComponent(jLabel21))
-                            .addComponent(jLabel20))
-                        .addGap(29, 29, 29)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtUnits, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnComputeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel22)
-                                    .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txtEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ddPlaceOfService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ddServiceCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)))
-                .addComponent(btnSubmitClaim, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146))
-        );
+        jLabel25.setText("jLabel25");
+        add(jLabel25);
+        jLabel25.setBounds(0, 0, 1190, 1000);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPopulateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopulateActionPerformed
@@ -574,6 +441,7 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

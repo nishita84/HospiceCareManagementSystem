@@ -23,6 +23,7 @@ public class Alert {
     private int alertLevel;
     private Date alertTime;
     private int alertStatus;
+    private Date alertCloseTime;
 
     public String getAlertID() {
         return alertID;
@@ -87,7 +88,12 @@ public class Alert {
     public void setAlertStatus(int alertStatus) {
         this.alertStatus = alertStatus;
     }
-    
-    
-    
+
+    public Date getAlertCloseTime() {
+        return alertCloseTime;
+    }
+
+    public void setAlertCloseTime(Date alertCloseTime) {
+        this.alertCloseTime = alertCloseTime;
+    }
 }

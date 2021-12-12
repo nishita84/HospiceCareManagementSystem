@@ -63,4 +63,10 @@ public class AlertsDirectory {
         }
         return false;
     }
+    
+    public Alert updateAlert(Alert selectedAlert)
+    {
+        listOfAlerts.set(listOfAlerts.indexOf(selectedAlert), selectedAlert);
+        return selectedAlert;
+    }
 }

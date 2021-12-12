@@ -5,10 +5,12 @@
  */
 package userinterface.Workflows;
 
+import Business.Counsellors.Counsellor;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.Nurses.Nurse;
 import Business.Patients.Patient;
+import Business.Providers.Provider;
 import Business.UserAccount.UserAccount;
 
 /**
@@ -22,7 +24,7 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
      */
     UserAccount account;
     EcoSystem system;
-    public ViewPatientInformationJPanel(UserAccount account, EcoSystem system) {
+    public ViewPatientInformationJPanel(UserAccount account, EcoSystem system, String viewer) {
         initComponents();
         this.account = account;
         this.system = system;
@@ -39,7 +41,19 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
         txtEmergencyContactPerson.setEditable(false);
         txtEmergencyEmailID.setEditable(false);
         txtEmailID.setEditable(false);
-        populateMedicalRecordNumber();
+        
+        switch(viewer)
+        {
+            case "Nurse":
+                populateMedicalRecordNumberForNurse();
+                break;
+             case "Provider":
+                populateMedicalRecordNumberForProvider();
+                break;
+              case "Counsellor":
+                populateMedicalRecordNumberForCounsellor();
+                break;
+        }
     }
 
     /**
@@ -257,7 +271,7 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 
-    private void populateMedicalRecordNumber() {
+    private void populateMedicalRecordNumberForNurse() {
         Nurse loggedInNurse = system.getNurseDirectory().findNurseByEmailID(account.getUsername(), 
                 system.getNurseDirectory().getNurseList());
         Hospice hospice = loggedInNurse.getHospiceNurseWorksIn();
@@ -265,6 +279,33 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
         {
             Patient patient = system.getPatientDirectory().getPatientList().get(index);
             if(patient.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                ddMRN.addItem(patient.getPatientMRN());
+            }
+        }
+    }
+    
+    private void populateMedicalRecordNumberForCounsellor() {
+        Counsellor loggedInCounsellor = system.getCounsellorDirectory().findCounsellorByEmailID(account.getUsername(), 
+                system.getCounsellorDirectory().getListOfCounsellors());
+        //Hospice hospice = loggedInCounsellor.getOperatingHospice();
+        for(int index = 0; index < system.getPatientDirectory().getPatientList().size(); index++)
+        {
+            Patient patient = system.getPatientDirectory().getPatientList().get(index);
+//            if(patient.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+//            {
+                ddMRN.addItem(patient.getPatientMRN());
+            //}
+        }
+    }
+        
+    private void populateMedicalRecordNumberForProvider() {
+        Provider loggedInProvider = system.getProviderDirectory().findProviderByEmailID(account.getUsername(), 
+                system.getProviderDirectory().getProviderList());
+        for(int index = 0; index < system.getPatientDirectory().getPatientList().size(); index++)
+        {
+            Patient patient = system.getPatientDirectory().getPatientList().get(index);
+            if(patient.getRegisteredProvider().getProviderNPI().equals(loggedInProvider.getProviderNPI()))
             {
                 ddMRN.addItem(patient.getPatientMRN());
             }
