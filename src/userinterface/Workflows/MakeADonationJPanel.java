@@ -64,23 +64,40 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(155, 199, 199));
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
         jLabel1.setText("Make a Donation");
+        add(jLabel1);
+        jLabel1.setBounds(188, 31, 244, 43);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Donor Name: ");
+        add(jLabel2);
+        jLabel2.setBounds(132, 317, 93, 15);
+        add(txtDonorName);
+        txtDonorName.setBounds(296, 310, 159, 26);
 
         jLabel3.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel3.setText("Amount: ");
+        add(jLabel3);
+        jLabel3.setBounds(144, 406, 63, 15);
+        add(txtAmount);
+        txtAmount.setBounds(296, 399, 159, 26);
 
         jLabel4.setText("$");
+        add(jLabel4);
+        jLabel4.setBounds(266, 399, 18, 26);
 
         ddHospice.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddHospice.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+        add(ddHospice);
+        ddHospice.setBounds(296, 487, 186, 27);
 
         jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel5.setText("Hospice:");
+        add(jLabel5);
+        jLabel5.setBounds(144, 492, 61, 15);
 
         btnDonation.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnDonation.setText("Donate");
@@ -90,70 +107,13 @@ public class MakeADonationJPanel extends javax.swing.JPanel {
                 btnDonationActionPerformed(evt);
             }
         });
+        add(btnDonation);
+        btnDonation.setBounds(296, 581, 186, 21);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/donation.jpeg"))); // NOI18N
         jLabel6.setText("jLabel6");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addGap(91, 91, 91))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnDonation, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDonorName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(482, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDonorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(67, 67, 67)
-                .addComponent(btnDonation)
-                .addGap(98, 98, 98))
-        );
+        add(jLabel6);
+        jLabel6.setBounds(132, 92, 490, 200);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonationActionPerformed
