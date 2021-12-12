@@ -11,6 +11,7 @@ package Business.Configurations;
  */
 public class Configurations {
     private boolean hasAutomatedSetupBeenRun;
+    private boolean hasVitalSignsDataBeenLoaded;
 
     public boolean isHasAutomatedSetupBeenRun() {
         return hasAutomatedSetupBeenRun;
@@ -18,6 +19,14 @@ public class Configurations {
 
     public void setHasAutomatedSetupBeenRun(boolean hasAutomatedSetupBeenRun) {
         this.hasAutomatedSetupBeenRun = hasAutomatedSetupBeenRun;
+    }
+
+    public boolean isHasVitalSignsDataBeenLoaded() {
+        return hasVitalSignsDataBeenLoaded;
+    }
+
+    public void setHasVitalSignsDataBeenLoaded(boolean hasVitalSignsDataBeenLoaded) {
+        this.hasVitalSignsDataBeenLoaded = hasVitalSignsDataBeenLoaded;
     }
 
 }
