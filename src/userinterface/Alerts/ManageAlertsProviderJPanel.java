@@ -7,6 +7,7 @@ package userinterface.Alerts;
 
 import Business.Alerts.Alert;
 import Business.EcoSystem;
+import Business.LookUpMapping;
 import Business.Providers.Provider;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
@@ -54,19 +55,19 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
 
         tblAlerts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Alert ID", "Alert Symptom", "Alert Time", "Alert Status"
+                "Alert ID", "Alert Symptom", "Alert Time", "Alert Status", "Alert"
             }
         ));
         jScrollPane1.setViewportView(tblAlerts);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(368, 123, 730, 230);
+        jScrollPane1.setBounds(90, 140, 730, 230);
 
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
@@ -77,17 +78,17 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(956, 371, 142, 52);
+        btnUpdate.setBounds(670, 390, 142, 52);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel1.setText("ALERTS ASSIGNED TO ME:");
         add(jLabel1);
-        jLabel1.setBounds(368, 68, 239, 43);
+        jLabel1.setBounds(100, 50, 239, 43);
 
         cbAlertAttended.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         cbAlertAttended.setText("Alert Attended?");
         add(cbAlertAttended);
-        cbAlertAttended.setBounds(560, 450, 180, 80);
+        cbAlertAttended.setBounds(380, 440, 180, 80);
 
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
@@ -98,7 +99,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSave);
-        btnSave.setBounds(570, 560, 110, 30);
+        btnSave.setBounds(400, 550, 110, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
         add(jLabel2);
@@ -157,6 +158,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         DefaultTableModel model1 = (DefaultTableModel) tblAlerts.getModel();
+        LookUpMapping lookups = new LookUpMapping();
         Provider provider = system.getProviderDirectory().findProviderByEmailID(account.getUsername(), 
                 system.getProviderDirectory().getProviderList());
         model1.setRowCount(0);
@@ -170,7 +172,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
                 row[0] = currentAlert.getAlertID();
                 row[1] = currentAlert.getAlertSymptom();
                 row[2] = currentAlert.getAlertTime();
-                row[3] = currentAlert.getAlertStatus();
+                row[3] =  lookups.mapAlertStatus(currentAlert.getAlertStatus());
                 row[4] = currentAlert;
             }
             model1.addRow(row);
