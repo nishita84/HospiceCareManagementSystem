@@ -60,17 +60,35 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtReportingProvider = new javax.swing.JTextField();
         btnAlert = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("CREATE AN ALERT: ");
+        add(jLabel1);
+        jLabel1.setBounds(175, 59, 230, 41);
 
         jLabel2.setText("Patient MRN: ");
+        add(jLabel2);
+        jLabel2.setBounds(149, 156, 84, 16);
+        add(txtMRN);
+        txtMRN.setBounds(311, 151, 134, 26);
 
         jLabel3.setText("Which major symptom are your experiencing?:");
+        add(jLabel3);
+        jLabel3.setBounds(15, 241, 290, 16);
 
         ddSymptom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chest pain", "Dizziness", "Increased Heart Rate", "Flu-like symptoms" }));
+        add(ddSymptom);
+        ddSymptom.setBounds(311, 228, 180, 44);
 
         jLabel4.setText("Patient's Reporting Provider:");
+        add(jLabel4);
+        jLabel4.setBounds(57, 321, 177, 16);
+        add(txtReportingProvider);
+        txtReportingProvider.setBounds(311, 316, 166, 26);
 
         btnAlert.setText("Send an alert ");
         btnAlert.addActionListener(new java.awt.event.ActionListener() {
@@ -78,57 +96,12 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
                 btnAlertActionPerformed(evt);
             }
         });
+        add(btnAlert);
+        btnAlert.setBounds(311, 422, 129, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel2)
-                        .addGap(78, 78, 78)
-                        .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ddSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtReportingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlert))))
-                .addContainerGap(409, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ddSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtReportingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addComponent(btnAlert)
-                .addContainerGap(262, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreateAnAlertIMG2.png"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(240, 0, 900, 710);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
@@ -184,6 +157,7 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtMRN;
     private javax.swing.JTextField txtReportingProvider;
     // End of variables declaration//GEN-END:variables
