@@ -36,6 +36,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
     
     public AddNurseJPanel(JPanel userProcessContainer,UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
         Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
@@ -296,7 +297,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
-        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

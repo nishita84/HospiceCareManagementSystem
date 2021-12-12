@@ -60,7 +60,7 @@ public class HospiceDirectory {
     
     public Hospice findHospiceByID(String hospiceID, ArrayList<Hospice> listOfHospices)
     {
-        for(Hospice hospice: hospiceList)
+        for(Hospice hospice: listOfHospices)
         {
             if(hospice.getHospiceID().equals(hospiceID))
             {
@@ -72,7 +72,7 @@ public class HospiceDirectory {
     
     public Hospice findHospiceByName(String hospiceName, ArrayList<Hospice> listOfHospices)
     {
-        for(Hospice hospice: hospiceList)
+        for(Hospice hospice: listOfHospices)
         {
             if(hospice.getHospiceName().equals(hospiceName))
             {
@@ -84,7 +84,7 @@ public class HospiceDirectory {
     
      public Hospice findHospiceByEmailID(String hospiceEmailID, ArrayList<Hospice> listOfHospices)
     {
-        for(Hospice hospice: hospiceList)
+        for(Hospice hospice: listOfHospices)
         {
             if(hospice.getHospiceEmailID().equals(hospiceEmailID))
             {

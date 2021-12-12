@@ -38,9 +38,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
-                system.getHospiceDirectory().getListOfHospice());
-        HospiceDropDown.setSelectedItem(hospice.getHospiceName());
+        populateHospiceDropdown();
     }
 
     /**
@@ -282,7 +280,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
-        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -314,4 +312,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHospiceDropdown() {
+       Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+                system.getHospiceDirectory().getListOfHospice());
+        HospiceDropDown.setSelectedItem(hospice.getHospiceName());
+    }
 }
