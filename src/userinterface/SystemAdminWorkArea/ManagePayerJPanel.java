@@ -171,7 +171,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(btnSave);
         btnSave.setBounds(100, 460, 110, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/ManagePayer.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ManagePayer.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         add(jLabel1);
         jLabel1.setBounds(320, 360, 590, 390);

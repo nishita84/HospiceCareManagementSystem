@@ -173,7 +173,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(268, 16, 512, 31);
 
-        lblImage.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/SystemAdmin.png")); // NOI18N
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/SystemAdmin.png"))); // NOI18N
         jPanel2.add(lblImage);
         lblImage.setBounds(6, 443, 758, 305);
 

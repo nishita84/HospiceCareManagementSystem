@@ -18,7 +18,7 @@ import userinterface.Workflows.ViewPatientInformationJPanel;
 
 /**
  *
- * @author raunak
+ * @author nishitasheelendraupadhyay
  */
 public class PatientAreaJPanel extends javax.swing.JPanel {
 

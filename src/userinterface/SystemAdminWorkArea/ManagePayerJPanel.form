@@ -256,7 +256,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/ManagePayer.png"/>
+          <Image iconType="3" name="/Images/ManagePayer.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>

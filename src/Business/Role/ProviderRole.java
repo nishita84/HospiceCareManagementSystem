@@ -12,7 +12,7 @@ import userinterface.ProviderRole.ProviderWorkAreaJPanel;
 
 /**
  *
- * @author harold
+ * @author architnigam
  */
 public class ProviderRole extends Role {
 
