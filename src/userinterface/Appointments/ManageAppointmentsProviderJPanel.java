@@ -171,10 +171,10 @@ public class ManageAppointmentsProviderJPanel extends javax.swing.JPanel {
         Appointment selectedAppointment = (Appointment) model.getValueAt(selectedIndex, 5);
         if(selectedAppointment.getAppointmentStatus() == 0)
         {
-            btnSave.setVisible(false);
-            txtComments.setVisible(false);
-            lblComments.setVisible(false);
-            cbAppointmentCompleted.setVisible(false);
+            btnSave.setVisible(true);
+            txtComments.setVisible(true);
+            lblComments.setVisible(true);
+            cbAppointmentCompleted.setVisible(true);
         }
         else{
             String appointmentStatusValue = lookups.mapAppointmentStatus(selectedAppointment.getAppointmentStatus());

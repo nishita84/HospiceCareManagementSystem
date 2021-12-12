@@ -549,7 +549,7 @@ public class AutomatedEntry {
                    
                 counsellor = system.getCounsellorDirectory().createNewCounsellor(counsellorID, counsellorName, 
                         counsellorState, counsellorCity, counsellorState, counsellorCountry, counsellorZipCode, 
-                        counsellorEmailID, counsellorContactNumber, hospiceOfCounsellor);
+                       counsellorContactNumber, counsellorEmailID,  hospiceOfCounsellor);
                 Employee emp = system.getEmployeeDirectory().createEmployee(counsellorName);
                     system.getUserAccountDirectory().createUserAccount(counsellorEmailID, password, emp, new CounsellorRole());
                 }

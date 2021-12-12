@@ -63,9 +63,9 @@ public class CounsellorDirectory {
         listOfCounsellors.remove(indexOfSelectedRecord);
     }
     
-    public Counsellor findCounsellorByID(String counsellorID, ArrayList<Provider> listOfProviders)
+    public Counsellor findCounsellorByID(String counsellorID, ArrayList<Counsellor> listOfCounsellorSystem)
     {
-        for(Counsellor counsellor: listOfCounsellors)
+        for(Counsellor counsellor: listOfCounsellorSystem)
         {
             if(counsellor.getCounsellorID().equals(counsellorID))
             {
@@ -75,10 +75,12 @@ public class CounsellorDirectory {
         return null;
     }
     
-    public Counsellor findCounsellorByEmailID(String counsellorEmailID, ArrayList<Counsellor> listOfCounsellor)
+    public Counsellor findCounsellorByEmailID(String counsellorEmailID, ArrayList<Counsellor> listOfCounsellorSystem)
     {
-        for(Counsellor counsellor: listOfCounsellors)
+        for(Counsellor counsellor: listOfCounsellorSystem)
         {
+            System.out.println(counsellorEmailID);
+            System.out.println(counsellor.getCounsellorEmailID());
             if(counsellor.getCounsellorEmailID().equals(counsellorEmailID))
             {
                 return counsellor;
@@ -87,9 +89,9 @@ public class CounsellorDirectory {
         return null;
     }
     
-    public Counsellor findCounsellorByName(String counsellorName, ArrayList<Counsellor> listOfCounsellor)
+    public Counsellor findCounsellorByName(String counsellorName, ArrayList<Counsellor> listOfCounsellorSystem)
     {
-        for(Counsellor counsellor: listOfCounsellors)
+        for(Counsellor counsellor: listOfCounsellorSystem)
         {
             if(counsellor.getCounsellorName().equals(counsellorName))
             {
