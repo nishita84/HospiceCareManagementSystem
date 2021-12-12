@@ -51,7 +51,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAddNurse = new javax.swing.JButton();
         btnAddCounsellor = new javax.swing.JButton();
         btnManageCounsellors = new javax.swing.JButton();
-        btnViewDonations = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -169,16 +168,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(btnManageCounsellors);
         btnManageCounsellors.setBounds(570, 260, 190, 90);
 
-        btnViewDonations.setBackground(new java.awt.Color(166, 158, 200));
-        btnViewDonations.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
-        btnViewDonations.setText("View Donations");
-        btnViewDonations.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btnViewDonations);
-        btnViewDonations.setBounds(60, 370, 320, 90);
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/HospiceBG-removebg-preview.png"))); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(400, 370, 360, 260);
+        jLabel2.setBounds(210, 370, 360, 260);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNurseActionPerformed
@@ -254,7 +246,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageNurse;
     private javax.swing.JButton btnManagePatients;
     private javax.swing.JButton btnManageProvider;
-    private javax.swing.JButton btnViewDonations;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
