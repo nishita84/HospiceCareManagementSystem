@@ -87,11 +87,15 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         splNo = new javax.swing.JRadioButton();
         btnEvaulateSymptom = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setText("WELCOME TO SYMPTOMS CATCHER ");
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
+        jLabel1.setText("Welcome to Disease Catcher!");
+        add(jLabel1);
+        jLabel1.setBounds(10, 30, 570, 70);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Headache", "Body Pain", "Fever", "Cold", "Cough", "Abnormal Heart Rate", "Dizziness", "Breathlessness", "Loss of taste", "Loss of smell" };
@@ -100,7 +104,12 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(30, 180, 240, 170);
+
+        btnAddSymptom.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAddSymptom.setText("Add Symptoms");
+        btnAddSymptom.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddSymptom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddSymptomActionPerformed(evt);
@@ -111,12 +120,22 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                 btnAddSymptomKeyPressed(evt);
             }
         });
+        add(btnAddSymptom);
+        btnAddSymptom.setBounds(50, 370, 130, 30);
 
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Does the patient have diabetes?");
+        add(jLabel2);
+        jLabel2.setBounds(30, 430, 250, 20);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel3.setText("Does the patient have history of high blood pressure?");
+        add(jLabel3);
+        jLabel3.setBounds(30, 500, 380, 20);
 
         BPYes.setText("Yes");
+        add(BPYes);
+        BPYes.setBounds(430, 500, 54, 23);
 
         diabetesNo.setText("No");
         diabetesNo.addActionListener(new java.awt.event.ActionListener() {
@@ -124,8 +143,17 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                 diabetesNoActionPerformed(evt);
             }
         });
+        add(diabetesNo);
+        diabetesNo.setBounds(520, 430, 50, 23);
 
         diabetesYes.setText("Yes");
+        diabetesYes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diabetesYesActionPerformed(evt);
+            }
+        });
+        add(diabetesYes);
+        diabetesYes.setBounds(430, 430, 54, 23);
 
         BPNo.setText("No");
         BPNo.addActionListener(new java.awt.event.ActionListener() {
@@ -133,16 +161,38 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                 BPNoActionPerformed(evt);
             }
         });
+        add(BPNo);
+        BPNo.setBounds(520, 500, 50, 23);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Symptom 1: ");
+        add(jLabel4);
+        jLabel4.setBounds(320, 190, 110, 20);
+        add(txtSymptom1);
+        txtSymptom1.setBounds(450, 190, 113, 26);
+        add(txtSymptom2);
+        txtSymptom2.setBounds(450, 230, 113, 26);
+        add(txtSymptom3);
+        txtSymptom3.setBounds(450, 290, 113, 26);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel5.setText("Symptom 2: ");
+        add(jLabel5);
+        jLabel5.setBounds(320, 240, 110, 20);
 
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel6.setText("Symptom 3:");
+        add(jLabel6);
+        jLabel6.setBounds(330, 300, 110, 20);
 
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel7.setText("Is the patient undergoing chemotherapy?");
+        add(jLabel7);
+        jLabel7.setBounds(40, 570, 300, 20);
 
         chemoYes.setText("Yes");
+        add(chemoYes);
+        chemoYes.setBounds(430, 560, 54, 23);
 
         chemoNo.setText("No");
         chemoNo.addActionListener(new java.awt.event.ActionListener() {
@@ -150,10 +200,17 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                 chemoNoActionPerformed(evt);
             }
         });
+        add(chemoNo);
+        chemoNo.setBounds(520, 560, 50, 23);
 
+        jLabel8.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel8.setText("Does patient have Parkinson's or Alzheimer's disease?");
+        add(jLabel8);
+        jLabel8.setBounds(40, 630, 380, 20);
 
         splYes.setText("Yes");
+        add(splYes);
+        splYes.setBounds(440, 620, 54, 23);
 
         splNo.setText("No");
         splNo.addActionListener(new java.awt.event.ActionListener() {
@@ -161,125 +218,29 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                 splNoActionPerformed(evt);
             }
         });
+        add(splNo);
+        splNo.setBounds(530, 620, 50, 23);
 
+        btnEvaulateSymptom.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnEvaulateSymptom.setText("Evaluate Symptoms");
+        btnEvaulateSymptom.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEvaulateSymptom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEvaulateSymptomActionPerformed(evt);
             }
         });
+        add(btnEvaulateSymptom);
+        btnEvaulateSymptom.setBounds(276, 691, 190, 40);
 
+        jLabel9.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel9.setText("Select maximum 3 symptoms: ");
+        add(jLabel9);
+        jLabel9.setBounds(40, 130, 230, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(diabetesYes)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(diabetesNo)))
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSymptom2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSymptom3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSymptom1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(btnAddSymptom))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(chemoYes))
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(BPYes)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BPNo))
-                                    .addComponent(chemoNo)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(splYes)
-                                .addGap(18, 18, 18)
-                                .addComponent(splNo))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(btnEvaulateSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(375, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtSymptom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtSymptom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtSymptom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addComponent(btnAddSymptom)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(diabetesYes)
-                    .addComponent(diabetesNo))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BPYes)
-                    .addComponent(BPNo))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(chemoYes)
-                    .addComponent(chemoNo))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(splYes)
-                    .addComponent(splNo))
-                .addGap(47, 47, 47)
-                .addComponent(btnEvaulateSymptom)
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/robot.jpeg"))); // NOI18N
+        jLabel10.setText("jLabel10");
+        add(jLabel10);
+        jLabel10.setBounds(600, 10, 350, 260);
     }// </editor-fold>//GEN-END:initComponents
 
     private void diabetesNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diabetesNoActionPerformed
@@ -354,32 +315,36 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
         if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(2))
         {
             JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
-                    + "\nPatient might be suffering from the following: \n1. Flu"
+                    + "\nPatient might be suffering from the following: \n-  Flu"
                     + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
                     + "prescribed medications\nAlert Level: Moderate");
         }
         else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(2) && listOfSymptoms.contains(3))
         {
             JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
-                    + "\nPatient might be suffering from the following: \n1. Allergy"
+                    + "\nPatient might be suffering from the following: \n- Allergies"
                     + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
                     + "prescribed medications\nAlert Level: Moderate");
         }
         else if(listOfSymptoms.contains(0) && listOfSymptoms.contains(1) && listOfSymptoms.contains(6))
         {
             JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
-                    + "\nPatient might be suffering from the following: \n1. Migraine"
+                    + "\nPatient might be suffering from the following: \n - Migraine"
                     + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
                     + "prescribed medications\nAlert Level: Critical");
         }
         else if(listOfSymptoms.contains(7) && listOfSymptoms.contains(8))
         {
             JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
-                    + "\nPatient might be suffering from the following: \n1. COVID-19"
+                    + "\nPatient might be suffering from the following: \n- COVID-19"
                     + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
                     + "schedule a COVID-19 test ASAP.\nAlert Level: Extremely Critical");
         }
     }//GEN-LAST:event_btnEvaulateSymptomActionPerformed
+
+    private void diabetesYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diabetesYesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diabetesYesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -392,6 +357,7 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton diabetesNo;
     private javax.swing.JRadioButton diabetesYes;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

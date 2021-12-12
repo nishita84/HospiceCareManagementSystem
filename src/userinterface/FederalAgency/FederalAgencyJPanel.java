@@ -6,7 +6,6 @@
 package userinterface.FederalAgency;
 
 import Business.Audits.Audit;
-import Business.ClaimsBilling.Claim;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
 import Business.LookUpMapping;
@@ -49,10 +48,16 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
         ddHospice = new javax.swing.JComboBox<>();
         btnViewTransactions = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setRequestFocusEnabled(false);
+        setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel1.setText("Select a Hospice: ");
+        add(jLabel1);
+        jLabel1.setBounds(10, 200, 130, 20);
 
         tblAudits.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,52 +80,38 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblAudits);
 
-        ddHospice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        add(jScrollPane1);
+        jScrollPane1.setBounds(6, 260, 1679, 248);
 
+        ddHospice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        ddHospice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ddHospiceActionPerformed(evt);
+            }
+        });
+        add(ddHospice);
+        ddHospice.setBounds(140, 200, 186, 27);
+
+        btnViewTransactions.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnViewTransactions.setText("View Transactions");
+        btnViewTransactions.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnViewTransactions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewTransactionsActionPerformed(evt);
             }
         });
+        add(btnViewTransactions);
+        btnViewTransactions.setBounds(350, 200, 132, 21);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usa.png"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(15, 6, 209, 169);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(35, 35, 35)
-                        .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnViewTransactions)
-                        .addGap(0, 1162, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnViewTransactions))
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(671, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usa.jpeg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setPreferredSize(new java.awt.Dimension(1691, 1179));
+        add(jLabel3);
+        jLabel3.setBounds(-5, -4, 1370, 1180);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTransactionsActionPerformed
@@ -149,12 +140,17 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnViewTransactionsActionPerformed
 
+    private void ddHospiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ddHospiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ddHospiceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnViewTransactions;
     private javax.swing.JComboBox<String> ddHospice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblAudits;
     // End of variables declaration//GEN-END:variables

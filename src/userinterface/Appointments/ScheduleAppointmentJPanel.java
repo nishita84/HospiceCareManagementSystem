@@ -228,7 +228,7 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                             JToggleButton pressedButton = determinePressButton();
                             String selectedTime = pressedButton.getActionCommand();
                     
-                            if(validateIfAppointmentDoesNotExistForAProviderAtSameTime(provider, selectedDate, selectedTime))
+                            if(!validateIfAppointmentDoesNotExistForAProviderAtSameTime(provider, selectedDate, selectedTime))
                             {
                                 SetIDsForWorkflows setIDForWorkflow = new SetIDsForWorkflows();
                                 String appointmentID = setIDForWorkflow.SetIDForAppointment();
