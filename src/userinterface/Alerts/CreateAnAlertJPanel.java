@@ -61,74 +61,52 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
         txtReportingProvider = new javax.swing.JTextField();
         btnAlert = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        jLabel1.setText("CREATE AN ALERT: ");
+        setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
+        jLabel1.setText("Create an Alert");
+        add(jLabel1);
+        jLabel1.setBounds(250, 40, 270, 80);
+
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Patient MRN: ");
+        add(jLabel2);
+        jLabel2.setBounds(80, 180, 170, 40);
 
-        jLabel3.setText("Which major symptom are your experiencing?:");
+        txtMRN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMRNActionPerformed(evt);
+            }
+        });
+        add(txtMRN);
+        txtMRN.setBounds(450, 190, 150, 40);
+
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel3.setText("Which major symptom are you experiencing?:");
+        add(jLabel3);
+        jLabel3.setBounds(80, 250, 340, 15);
 
         ddSymptom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chest pain", "Dizziness", "Increased Heart Rate", "Flu-like symptoms" }));
+        add(ddSymptom);
+        ddSymptom.setBounds(440, 220, 200, 70);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Patient's Reporting Provider:");
+        add(jLabel4);
+        jLabel4.setBounds(80, 300, 197, 15);
+        add(txtReportingProvider);
+        txtReportingProvider.setBounds(446, 286, 160, 40);
 
+        btnAlert.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAlert.setText("Send an alert ");
+        btnAlert.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlertActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel2)
-                        .addGap(78, 78, 78)
-                        .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel4)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ddSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtReportingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAlert))))
-                .addContainerGap(409, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(ddSymptom, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtReportingProvider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addComponent(btnAlert)
-                .addContainerGap(262, Short.MAX_VALUE))
-        );
+        add(btnAlert);
+        btnAlert.setBounds(320, 390, 160, 60);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
@@ -175,6 +153,10 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
             btnAlert.setEnabled(false);
         }
     }//GEN-LAST:event_btnAlertActionPerformed
+
+    private void txtMRNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMRNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMRNActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
