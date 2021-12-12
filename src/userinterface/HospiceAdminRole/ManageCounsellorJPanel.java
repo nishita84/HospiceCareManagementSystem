@@ -32,12 +32,12 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
     Organization customerOrg;
     EcoSystem system;
     Donor Donor;
-    public ManageCounsellorJPanel() {
+    public ManageCounsellorJPanel(JPanel userProcessContainer,UserAccount userAccount, EcoSystem system) {
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
         this.customerOrg = customerOrg;
-         populateTable();
+        populateTable();
         initComponents();
     }
 

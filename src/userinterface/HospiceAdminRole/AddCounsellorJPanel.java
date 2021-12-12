@@ -34,7 +34,8 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         initComponents();
       this.userAccount = userAccount;
       this.system = system;
-      this.hospice = 
+      this.hospice = hospice;
+      this.userProcessContainer = userProcessContainer;
       hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
                 system.getHospiceDirectory().getListOfHospice());
         HospiceDropdown.setSelectedItem(hospice.getHospiceName());

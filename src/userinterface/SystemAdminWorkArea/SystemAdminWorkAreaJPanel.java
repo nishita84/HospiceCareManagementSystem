@@ -123,6 +123,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnAddPayer.setText("Add Payers");
+        btnAddPayer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPayerActionPerformed(evt);
+            }
+        });
 
         btnManagePayer.setText("Manage Payers");
         btnManagePayer.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +232,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         ManagePayerJPanel managepayerjpanel = new ManagePayerJPanel(userProcessContainer,userAccount, ecosystem);
         jSplitPane.setRightComponent(managepayerjpanel);
     }//GEN-LAST:event_btnManagePayerActionPerformed
+
+    private void btnAddPayerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPayerActionPerformed
+        // TODO add your handling code here:
+        AddPayerJPanel addPayerJPanel = new AddPayerJPanel(userProcessContainer, userAccount, ecosystem);
+        jSplitPane.setRightComponent(addPayerJPanel);
+    }//GEN-LAST:event_btnAddPayerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
