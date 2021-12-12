@@ -81,7 +81,7 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         add(jButton2);
         jButton2.setBounds(670, 330, 174, 55);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Downloads/NurseAlerts.jpg")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
         add(jLabel3);
         jLabel3.setBounds(0, 0, 1440, 880);

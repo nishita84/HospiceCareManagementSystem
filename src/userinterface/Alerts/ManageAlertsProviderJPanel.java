@@ -77,7 +77,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(368, 68, 239, 43);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/nishitasheelendraupadhyay/Desktop/HospiceCareManagementSystem/src/Images/NurseAlerts.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1440, 880);
