@@ -77,167 +77,135 @@ public class LogVitalSignsJPanel extends javax.swing.JPanel {
         btnPopulate = new javax.swing.JButton();
         ddMRN = new javax.swing.JComboBox();
         txtEthnicity = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
+        jPanel1.setBackground(new java.awt.Color(204, 216, 216));
+        jPanel1.setLayout(null);
+
+        lblMRN.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblMRN.setText("Medical Record Number:");
+        jPanel1.add(lblMRN);
+        lblMRN.setBounds(67, 291, 168, 15);
 
+        lblWeight.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblWeight.setText("Weight (in pounds):");
+        jPanel1.add(lblWeight);
+        lblWeight.setBounds(60, 470, 137, 15);
+        jPanel1.add(txtWeight);
+        txtWeight.setBounds(260, 460, 145, 26);
 
+        lblPounds.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblPounds.setText("pounds");
+        jPanel1.add(lblPounds);
+        lblPounds.setBounds(430, 470, 53, 15);
 
+        lblHeight.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblHeight.setText("Height (in Inches):");
+        jPanel1.add(lblHeight);
+        lblHeight.setBounds(60, 530, 127, 15);
+        jPanel1.add(txtHeight);
+        txtHeight.setBounds(260, 530, 145, 26);
 
+        lblInches.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblInches.setText("inches");
+        jPanel1.add(lblInches);
+        lblInches.setBounds(430, 530, 46, 15);
 
+        lblSystole.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblSystole.setText("Systole Reading: ");
+        jPanel1.add(lblSystole);
+        lblSystole.setBounds(50, 600, 121, 15);
+        jPanel1.add(txtSystoleReading);
+        txtSystoleReading.setBounds(260, 600, 145, 26);
 
+        lblDiastole.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblDiastole.setText("Diastole Reading: ");
+        jPanel1.add(lblDiastole);
+        lblDiastole.setBounds(50, 670, 126, 15);
+        jPanel1.add(txtDiastoleReading);
+        txtDiastoleReading.setBounds(260, 670, 145, 26);
 
+        lblmmHg1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblmmHg1.setText("mm Hg");
+        jPanel1.add(lblmmHg1);
+        lblmmHg1.setBounds(430, 610, 47, 15);
 
+        lblmmHg2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblmmHg2.setText("mm Hg");
+        jPanel1.add(lblmmHg2);
+        lblmmHg2.setBounds(430, 680, 47, 15);
 
+        lblCholesterolReading.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblCholesterolReading.setText("Cholesterol Reading: ");
+        jPanel1.add(lblCholesterolReading);
+        lblCholesterolReading.setBounds(50, 740, 149, 15);
+        jPanel1.add(txtCholestrolReading);
+        txtCholestrolReading.setBounds(260, 740, 145, 26);
 
+        lblmgdL.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblmgdL.setText("mg/dL");
+        jPanel1.add(lblmgdL);
+        lblmgdL.setBounds(430, 740, 43, 15);
 
-        btnSaveData.setText("SAVE DATA");
+        btnSaveData.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSaveData.setText("Save Data");
+        btnSaveData.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveDataActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSaveData);
+        btnSaveData.setBounds(270, 810, 130, 27);
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        lblTitle.setText("VITAL SIGNS ENCOUNTER:");
+        lblTitle.setBackground(new java.awt.Color(255, 255, 255));
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
+        lblTitle.setText("Vital Signs Encounter");
+        jPanel1.add(lblTitle);
+        lblTitle.setBounds(125, 19, 470, 54);
 
-        lblAge.setText("Ethinicity:");
+        lblAge.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        lblAge.setText("Ethnicity:");
+        jPanel1.add(lblAge);
+        lblAge.setBounds(70, 400, 66, 15);
 
+        lblGender.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblGender.setText("Gender: ");
+        jPanel1.add(lblGender);
+        lblGender.setBounds(70, 340, 59, 15);
+        jPanel1.add(txtGender);
+        txtGender.setBounds(260, 340, 143, 26);
 
+        btnPopulate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPopulate.setText("Populate");
+        btnPopulate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPopulate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPopulateActionPerformed(evt);
             }
         });
+        jPanel1.add(btnPopulate);
+        btnPopulate.setBounds(408, 288, 81, 21);
 
         ddMRN.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+        jPanel1.add(ddMRN);
+        ddMRN.setBounds(253, 285, 143, 27);
+        jPanel1.add(txtEthnicity);
+        txtEthnicity.setBounds(260, 400, 143, 26);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblMRN)
-                    .addComponent(lblSystole)
-                    .addComponent(lblDiastole)
-                    .addComponent(lblCholesterolReading)
-                    .addComponent(lblHeight)
-                    .addComponent(lblWeight)
-                    .addComponent(lblGender)
-                    .addComponent(lblAge))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtCholestrolReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblmgdL))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtSystoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblmmHg1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblInches))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPounds))
-                    .addComponent(btnSaveData, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ddMRN, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPopulate))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtDiastoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblmmHg2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtEthnicity)
-                            .addComponent(txtGender, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))))
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lblTitle)
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMRN)
-                            .addComponent(btnPopulate)
-                            .addComponent(ddMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblGender))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAge)
-                            .addComponent(txtEthnicity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblWeight)
-                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPounds))
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHeight)
-                            .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblInches))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                        .addComponent(lblmmHg1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSystoleReading, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSystole, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDiastole)
-                    .addComponent(txtDiastoleReading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblmmHg2))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCholesterolReading)
-                    .addComponent(txtCholestrolReading, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblmgdL))
-                .addGap(35, 35, 35)
-                .addComponent(btnSaveData)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logsigns.jpeg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(100, 90, 715, 160);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,6 +277,7 @@ public class LogVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPopulate;
     private javax.swing.JButton btnSaveData;
     private javax.swing.JComboBox<String> ddMRN;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCholesterolReading;
