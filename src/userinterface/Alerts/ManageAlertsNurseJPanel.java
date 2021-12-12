@@ -58,7 +58,7 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel1.setText("Alerts Assigned To Me");
         add(jLabel1);
-        jLabel1.setBounds(61, 21, 215, 46);
+        jLabel1.setBounds(50, 20, 215, 46);
 
         tblAlerts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,7 +74,7 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblAlerts);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 90, 770, 224);
+        jScrollPane1.setBounds(50, 90, 720, 224);
 
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
@@ -85,7 +85,7 @@ public class ManageAlertsNurseJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(670, 330, 174, 55);
+        btnUpdate.setBounds(50, 330, 174, 55);
 
         cbAlertAttended.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         cbAlertAttended.setText("Alert Attended?");
