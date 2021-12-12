@@ -5,6 +5,7 @@
  */
 package userinterface.CounsellorRole;
 
+import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Forms.CounsellorObservationFormJPanel;
@@ -20,8 +21,14 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CounsellorWorkAreaJPanel
      */
-    public CounsellorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    public CounsellorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -127,7 +134,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnPatientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientInfoActionPerformed
         // TODO add your handling code here:
-        ViewPatientInformationJPanel viewPatientInfoPanel = new ViewPatientInformationJPanel();
+        ViewPatientInformationJPanel viewPatientInfoPanel = new ViewPatientInformationJPanel(account, system);
         jSplitPane1.setRightComponent(viewPatientInfoPanel);
     }//GEN-LAST:event_btnPatientInfoActionPerformed
 
