@@ -211,8 +211,8 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setText("");
 
         container.removeAll();
-        JPanel blankJP = new JPanel();
-        container.add("blank", blankJP);
+        BackJPanel BackJP = new BackJPanel();
+        container.add("blank", BackJP);
         CardLayout crdLyt = (CardLayout) container.getLayout();
         crdLyt.next(container);
         dB4OUtil.storeSystem(system);
