@@ -5,6 +5,8 @@
  */
 package Business.Email;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 import java.util.*;
 import javax.mail.*;
@@ -64,8 +66,16 @@ public class Email {
          message.setSubject("Appointment Confirmed:  #"+appointmentID+" for "+appointeeName);
 
          // Now set the actual message
+         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+  
+        // Get the date using calendar object;
+  
+        // Convert the date into a
+        // string using format() method
+        String dateToString = df.format(dateOfAppointment); 
+        dateToString = dateToString.substring(0, 10);
          message.setText("Hi, \nThis is a message on behalf of "+appointerName+". Your appointment has been confirmed"
-                 + "on "+dateOfAppointment+" at "+time+"\n\n Please carry your medical card and arrive 15 minutes "
+                 + " on "+dateToString+" at "+time+"\n\n Please carry your medical card and arrive 15 minutes "
                          + "before your appointment. \n\n We appreciate your cooperation! Looking forwarding to seeing you!"
                          + "\n\n Thanks, \n "+appointerName);
 
