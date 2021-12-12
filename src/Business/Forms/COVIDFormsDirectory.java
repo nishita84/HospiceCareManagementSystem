@@ -37,11 +37,16 @@ public class COVIDFormsDirectory {
             boolean hasPatientAgreedTAndC) throws ParseException
     {
         COVIDSelfDiagnosisForm newCOVIDForm = new COVIDSelfDiagnosisForm();
-        newCOVIDForm.setPatientFillingForm(patientFillingForm);
+        
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         Date todayDate = new Date();
         Date todayDateWithZeroTime = formatter.parse(formatter.format(todayDate)); 
-        newCOVIDForm.setDateOfForm(todayDateWithZeroTime);
+        String dateToString = formatter.format(todayDateWithZeroTime); 
+        dateToString = dateToString.substring(0, 10);
+        Date dateOfFormSubmission =new SimpleDateFormat("MM/dd/yyyy").parse(dateToString);
+        
+        newCOVIDForm.setPatientFillingForm(patientFillingForm);
+        newCOVIDForm.setDateOfForm(dateOfFormSubmission);
         newCOVIDForm.setHasPatientTraveledAbroadInLastFourteenDays(hasPatientTraveledAbroad);
         newCOVIDForm.setHasPatientBeenInCloseContactWithConfirmedCase(hasPatientBeenInContactWithPositivePatient);
         newCOVIDForm.setHasPatientBeenExperiencingSymptoms(isPatientExperiencingSymptoms);

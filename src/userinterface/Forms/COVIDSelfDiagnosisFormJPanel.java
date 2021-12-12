@@ -46,8 +46,10 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
         
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         Date todayDate = new Date();
-        Date todayDateWithZeroTime = formatter.parse(formatter.format(todayDate));  
-        txtTodayDate.setText(String.valueOf(todayDateWithZeroTime));
+        Date todayDateWithZeroTime = formatter.parse(formatter.format(todayDate)); 
+        String dateToString = formatter.format(todayDateWithZeroTime); 
+        dateToString = dateToString.substring(0, 10);
+        txtTodayDate.setText(String.valueOf(dateToString));
         txtTodayDate.setEditable(false);
         
         ButtonGroup group1 = new ButtonGroup();
@@ -96,156 +98,112 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(null);
 
         lblHeading.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblHeading.setText("CORONAVIRUS SELF ASSESSMENT FORM");
+        add(lblHeading);
+        lblHeading.setBounds(182, 52, 365, 41);
 
+        lblName.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblName.setText("Name: ");
+        add(lblName);
+        lblName.setBounds(136, 162, 47, 15);
+        add(txtName);
+        txtName.setBounds(236, 155, 155, 26);
 
+        lblLocation.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblLocation.setText("MRN:");
+        add(lblLocation);
+        lblLocation.setBounds(136, 236, 37, 15);
+        add(txtMRN);
+        txtMRN.setBounds(236, 229, 155, 26);
 
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel3.setText("Have you been to one of the COVID-19 affected countries in the last 14 days?");
+        add(jLabel3);
+        jLabel3.setBounds(6, 304, 530, 23);
 
+        rbQOneYes.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQOneYes.setText("Yes");
+        add(rbQOneYes);
+        rbQOneYes.setBounds(542, 303, 67, 23);
 
+        rbQOneNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQOneNo.setText("No");
+        add(rbQOneNo);
+        rbQOneNo.setBounds(627, 303, 72, 23);
 
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Have you been in close contact with a confirmed case of coronavirus? ");
+        add(jLabel4);
+        jLabel4.setBounds(40, 373, 487, 15);
 
+        rbQTwoYes.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQTwoYes.setText("Yes");
+        add(rbQTwoYes);
+        rbQTwoYes.setBounds(542, 368, 67, 23);
 
+        rbQTwoNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQTwoNo.setText("No");
+        add(rbQTwoNo);
+        rbQTwoNo.setBounds(627, 368, 72, 23);
 
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel5.setText("Are you currently experiencing symptoms (cough, shortness of breath, fever)");
+        add(jLabel5);
+        jLabel5.setBounds(0, 443, 529, 15);
 
+        rbQThreeYes.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQThreeYes.setText("Yes");
+        add(rbQThreeYes);
+        rbQThreeYes.setBounds(562, 438, 67, 23);
 
+        rbQThreeNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         rbQThreeNo.setText("No");
+        add(rbQThreeNo);
+        rbQThreeNo.setBounds(647, 438, 72, 23);
 
+        lblConditions.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblConditions.setText("By submitting I hereby confirm that the information I have given above is true, and that I will comply with the terms and conditions outlined above. ");
+        add(lblConditions);
+        lblConditions.setBounds(6, 479, 955, 114);
 
+        cbAgreeTermsAndConditions.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         cbAgreeTermsAndConditions.setText("I agree to terms & conditions. * ");
+        add(cbAgreeTermsAndConditions);
+        cbAgreeTermsAndConditions.setBounds(32, 605, 303, 34);
+        add(txtSignatureName);
+        txtSignatureName.setBounds(97, 664, 146, 34);
 
+        lblSignatureName.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblSignatureName.setText("Name: ");
+        add(lblSignatureName);
+        lblSignatureName.setBounds(32, 675, 47, 15);
 
+        lblSignatureDate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblSignatureDate.setText("Today's Date: ");
+        add(lblSignatureDate);
+        lblSignatureDate.setBounds(289, 665, 98, 34);
 
+        btnSubmitForm.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSubmitForm.setText("Submit COVID-19 Self Diagnosis Form");
+        btnSubmitForm.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSubmitForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitFormActionPerformed(evt);
             }
         });
+        add(btnSubmitForm);
+        btnSubmitForm.setBounds(137, 761, 402, 38);
+        add(txtTodayDate);
+        txtTodayDate.setBounds(399, 664, 232, 34);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/COVID.png"))); // NOI18N
         jLabel9.setText("jLabel9");
         jLabel9.setPreferredSize(new java.awt.Dimension(116, 109));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbAgreeTermsAndConditions, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblSignatureName)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSignatureName, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(lblSignatureDate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTodayDate, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblName)
-                            .addComponent(lblLocation))
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(rbQTwoYes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbQOneYes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbQOneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbQTwoNo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(33, 33, 33)
-                        .addComponent(rbQThreeYes, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(rbQThreeNo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(btnSubmitForm, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblLocation)
-                    .addComponent(txtMRN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rbQOneYes)
-                    .addComponent(rbQOneNo))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(rbQTwoYes)
-                    .addComponent(rbQTwoNo))
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(rbQThreeYes)
-                    .addComponent(rbQThreeNo))
-                .addGap(18, 18, 18)
-                .addComponent(lblConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbAgreeTermsAndConditions, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSignatureName)
-                    .addComponent(txtSignatureName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSignatureDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTodayDate, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(62, 62, 62)
-                .addComponent(btnSubmitForm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(178, Short.MAX_VALUE))
-        );
+        add(jLabel9);
+        jLabel9.setBounds(20, 20, 116, 109);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitFormActionPerformed
@@ -295,20 +253,25 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
         {
             for(int index = 0; index < system.getCovidFormsDirectory().getListOfCOVIDForms().size(); index++)
             {
+               try{
+                    Date todayDate = new Date();
+                DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy"); 
+                String dateToString = formatter.format(todayDate); 
+                dateToString = dateToString.substring(0, 10);
+                Date todaysDate =new SimpleDateFormat("MM/dd/yyyy").parse(dateToString);
                 COVIDSelfDiagnosisForm currentCOVIDForm = system.getCovidFormsDirectory().getListOfCOVIDForms().get(index);
                 if(currentCOVIDForm.getPatientFillingForm().getPatientMRN().equals(patientLoggedIn.getPatientMRN()))
                 {
-                    if(currentCOVIDForm.getDateOfForm().equals(new Date()))
+                    if(currentCOVIDForm.getDateOfForm().equals(todaysDate))
                     {
                         JOptionPane.showMessageDialog(this, "COVID - 19 self assessment already submitted for today!");
                     }
-                }
-            }
-            try{
-                COVIDSelfDiagnosisForm newCOVIDForm = system.getCovidFormsDirectory().createCOVIDSelfDiagnosisForm(patientLoggedIn, 
-                    hasPatientTraveledAbroad, hasPatientBeenInContactWithPositivePatient, isPatientExperiencingSymptoms, 
-                    hasPatientAgreedTAndC);
-                if(newCOVIDForm != null)
+                    else{
+                        try{
+                        COVIDSelfDiagnosisForm newCOVIDForm = system.getCovidFormsDirectory().createCOVIDSelfDiagnosisForm(patientLoggedIn, 
+                                hasPatientTraveledAbroad, hasPatientBeenInContactWithPositivePatient, isPatientExperiencingSymptoms, 
+                                hasPatientAgreedTAndC);
+                 if(newCOVIDForm != null)
                 {
                     JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!");
                 }
@@ -320,13 +283,21 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
             {
                 ex.printStackTrace();
             }
+                    }
+                }
+               }
+               catch(Exception ex)
+               {
+                    
+                }
+            }
+            
         }
         else{
             JOptionPane.showMessageDialog(this, "Please ensure you have agreed terms and conditions before submitting "
                     + "the COVID- 19 Self Assessment form");
         }
     }//GEN-LAST:event_btnSubmitFormActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmitForm;
