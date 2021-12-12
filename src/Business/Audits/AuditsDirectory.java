@@ -9,6 +9,7 @@ import Business.Agency.Agency;
 import Business.ClaimsBilling.Claim;
 import Business.Donation.Donation;
 import Business.Hospice.Hospice;
+import Business.Patients.Patient;
 import Business.SetIDsForWorkflows;
 import java.util.ArrayList;
 
@@ -83,18 +84,32 @@ public class AuditsDirectory {
          return newAuditEntry;
     }
     
-    public Audit createNewAuditEntryForFederalPatient(Agency agency, double beforeBalance, double afterBalance, Hospice hospice)
+    public Audit createNewAuditEntryForFederalPatient(Agency agency, double beforeBalance, double afterBalance, Hospice hospice, Patient patient)
     {
          SetIDsForWorkflows setIDForWorkflows = new SetIDsForWorkflows();
          Audit newAuditEntry = new Audit();
          newAuditEntry.setAuditID(setIDForWorkflows.SetIDForAudits());
-         newAuditEntry.setTransactionType("R");
+         newAuditEntry.setTransactionType("P");
          newAuditEntry.setBeforeBalance(beforeBalance);
          newAuditEntry.setAfterBalance(afterBalance);
+         newAuditEntry.setTimeOfTransaction(patient.getAdmissionDatetime());
          newAuditEntry.setHospice(hospice);
          newAuditEntry.setComments(agency.getAgencyName()+" contributed to $ "+agency.getAmountForEveryPatientAdmitted()+""
                  + " to "+hospice.getHospiceName() +" on patient registration");
          listOfAudits.add(newAuditEntry);
          return newAuditEntry;
+    }
+    
+    public Audit ReturnAuditRecordsDependingOnHospice(Hospice hospice, ArrayList<Audit> listOfAudits)
+            
+    {
+        for(Audit audit : listOfAudits)
+        {
+            if(audit.getHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                return audit;
+            }
+        }
+        return null;
     }
 }

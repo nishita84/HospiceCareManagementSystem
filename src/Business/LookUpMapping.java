@@ -125,4 +125,25 @@ public class LookUpMapping {
         }
         return symptomValue;
     }
+    
+    public String MapTransactionCodes(String transactionTypeCode)
+    {
+        String transactionTypeValue = "";
+        switch(transactionTypeCode)
+        {
+            case "C":
+                transactionTypeValue = "Claim Creation";
+                break;
+            case "A":
+                transactionTypeValue = "Claim Adjudication";
+                break;
+            case "D":
+                transactionTypeValue = "External Donation";
+                break;
+            case "P":
+                transactionTypeValue = "Patient Registration";
+                break; 
+        }
+        return transactionTypeValue;
+    }
 }

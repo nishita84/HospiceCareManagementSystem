@@ -389,7 +389,7 @@ public class AutomatedEntry {
                      updateHospice.setTotalHospiceBalance(newBalanceAfterAddingNewPatient);
                     
                      Audit audit = system.getAuditDirectory().createNewAuditEntryForFederalPatient(agency, 
-                            previousBalanceOfHospice, newBalanceAfterAddingNewPatient, updateHospice);
+                            previousBalanceOfHospice, newBalanceAfterAddingNewPatient, updateHospice, patient);
                 }
                 
             }

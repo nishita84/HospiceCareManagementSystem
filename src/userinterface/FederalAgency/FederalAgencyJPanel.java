@@ -5,9 +5,14 @@
  */
 package userinterface.FederalAgency;
 
+import Business.Audits.Audit;
+import Business.ClaimsBilling.Claim;
 import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.LookUpMapping;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +31,7 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
+        populateHospiceDropdown();
     }
 
     /**
@@ -39,28 +45,46 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        tblAudits = new javax.swing.JTable();
+        ddHospice = new javax.swing.JComboBox<>();
+        btnViewTransactions = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setText("Select a Hospice: ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblAudits.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Audit ID", "Transaction Type", "Balance Before Transaction", "Balance After Transaction", "Transaction Time", "Comments"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblAudits);
 
-        jButton1.setText("View Transactions");
+        ddHospice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+
+        btnViewTransactions.setText("View Transactions");
+        btnViewTransactions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewTransactionsActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/usa.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,35 +93,76 @@ public class FederalAgencyJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(39, 39, 39)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton1)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnViewTransactions)
+                        .addGap(0, 1162, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(182, 182, 182)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ddHospice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(54, 54, 54)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(447, Short.MAX_VALUE))
+                    .addComponent(btnViewTransactions))
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(671, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViewTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewTransactionsActionPerformed
+        // TODO add your handling code here:
+        LookUpMapping lookups = new LookUpMapping();
+        String selectedHospice = ddHospice.getSelectedItem().toString();
+        Hospice hospice = system.getHospiceDirectory().findHospiceByName(selectedHospice, 
+                system.getHospiceDirectory().getListOfHospice());
+         DefaultTableModel model = (DefaultTableModel) tblAudits.getModel();
+         model.setRowCount(0);
+         Object[] row = new Object[6];
+        for(Audit audit : system.getAuditDirectory().getListOfAudits())
+        {
+            if(audit.getHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+               row[0] = audit.getAuditID();
+               String transactionCode = audit.getTransactionType();
+               String transactionCodeValue = lookups.MapTransactionCodes(transactionCode);
+               row[1] = transactionCodeValue;
+               row[2] = "$ "+ audit.getBeforeBalance();
+               row[3] = "$ "+ audit.getAfterBalance();
+               row[4] = audit.getTimeOfTransaction();
+               row[5] = audit.getComments();
+               model.addRow(row);
+            }
+        }
+    }//GEN-LAST:event_btnViewTransactionsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnViewTransactions;
+    private javax.swing.JComboBox<String> ddHospice;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblAudits;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHospiceDropdown() {
+        for(Hospice hospice : system.getHospiceDirectory().getListOfHospice())
+        {
+            ddHospice.addItem(hospice.getHospiceName());
+        }
+    }
 }
