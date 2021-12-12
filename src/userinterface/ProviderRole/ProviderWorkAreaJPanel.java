@@ -169,7 +169,7 @@ public class ProviderWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnProviderDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProviderDetailsActionPerformed
         // TODO add your handling code here:
-        ViewProviderDetailsJPanel viewProviderPanel = new ViewProviderDetailsJPanel();
+        ViewProviderDetailsJPanel viewProviderPanel = new ViewProviderDetailsJPanel(userAccount, system);
         jSplitPane1.setRightComponent(viewProviderPanel);
     }//GEN-LAST:event_btnProviderDetailsActionPerformed
 
