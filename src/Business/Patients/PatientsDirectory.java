@@ -59,6 +59,7 @@ public class PatientsDirectory {
             newPatient.setGender(patientGender);
             newPatient.setEmergencyContactName(emergencyContactName);
             newPatient.setEmergencyEmailID(emergencyEmailID);
+            newPatient.setCovidExposureLevels(0);
             //newPatient.setAdmissionDischargeTime(new Date());
             listOfPatients.add(newPatient);
             return newPatient;

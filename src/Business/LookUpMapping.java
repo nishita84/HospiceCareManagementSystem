@@ -146,4 +146,25 @@ public class LookUpMapping {
         }
         return transactionTypeValue;
     }
+    
+    public String MapCOVIDTestStatus(int covidTestStatus)
+    {
+        String covidTestStatusValue = "";
+        switch(covidTestStatus)
+        {
+            case 0:
+                covidTestStatusValue = "Scheduled";
+                break;
+            case 1:
+                covidTestStatusValue = "Results awaiting";
+                break;
+            case 2:
+                covidTestStatusValue = "COVID-19 Test Positive";
+                break;
+            case 3:
+                covidTestStatusValue = "COVID-19 Test Negative";
+                break; 
+        }
+        return covidTestStatusValue;
+    }
 }

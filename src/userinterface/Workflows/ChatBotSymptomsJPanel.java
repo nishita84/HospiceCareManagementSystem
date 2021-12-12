@@ -7,6 +7,7 @@ package userinterface.Workflows;
 
 import Business.EcoSystem;
 import Business.LookUpMapping;
+import Business.Patients.Patient;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
@@ -339,6 +340,18 @@ public class ChatBotSymptomsJPanel extends javax.swing.JPanel {
                     + "\nPatient might be suffering from the following: \n- COVID-19"
                     + "\nIt is advised that the patient wear a mask if stepping outdoors and take "
                     + "schedule a COVID-19 test ASAP.\nAlert Level: Extremely Critical");
+            Patient loggedInPatient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                    system.getPatientDirectory().getPatientList());
+            Patient updatePatient = system.getPatientDirectory().updatePatient(loggedInPatient);
+            updatePatient.setCovidExposureLevels(1);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Symptom Catcher Analysis: \n"
+                    + "\nThe entered list of symptoms don't match up. Please re-enter");
+            txtSymptom1.setText("");
+            txtSymptom2.setText("");
+            txtSymptom3.setText("");
         }
     }//GEN-LAST:event_btnEvaulateSymptomActionPerformed
 

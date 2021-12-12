@@ -263,6 +263,10 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
                             {
                                 JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!"
                                         + "\n We recommend you to schedule a COVID test ASAP");
+                                Patient loggedInPatient = system.getPatientDirectory().findPatientByEmailID(userAccount.getUsername(), 
+                                system.getPatientDirectory().getPatientList());
+                                Patient updatePatient = system.getPatientDirectory().updatePatient(loggedInPatient);
+                                updatePatient.setCovidExposureLevels(1);
                             }
                             else{
                                 JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!");

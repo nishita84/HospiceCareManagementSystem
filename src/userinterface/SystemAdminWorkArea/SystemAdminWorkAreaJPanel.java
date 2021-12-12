@@ -206,7 +206,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 && automatedEntry.AutomatedCreationOfPatients() && automatedEntry.AutomatedCreationOfNurses()
                 && automatedEntry.AutomatedCreationOfDonors() && automatedEntry.AutomatedCreationOfCounsellors()
                 && automatedEntry.AutomatedCreationOfDiagnosis() && automatedEntry.AutomatedCreationOfServices()
-                && automatedEntry.AutomatedCreationOfLinkages())
+                && automatedEntry.AutomatedCreationOfLinkages() &&automatedEntry.AutomatedCreationOfTestingCentres())
         {
             Configurations config = ecosystem.getConfigDirectory().createNewConfigurations(true);
             if(config != null)

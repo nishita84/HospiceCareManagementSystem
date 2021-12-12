@@ -16,6 +16,7 @@ import Business.Diagnosis.DiagnosisDirectory;
 import Business.Donation.DonationDirectory;
 import Business.Donors.DonorsDirectory;
 import Business.Audits.AuditsDirectory;
+import Business.COVID.COVIDTestsDirectory;
 import Business.Forms.COVIDFormsDirectory;
 import Business.Hospice.HospiceDirectory;
 import Business.Linkage.LinkageDirectory;
@@ -26,6 +27,7 @@ import Business.Providers.ProviderDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Services.ServicesDirectory;
+import Business.TestingCentre.TestingCentreDirectory;
 import Business.VitalSigns.VitalSignsDirectory;
 import Business.Volunteers.VolunteerDirectory;
 import java.util.ArrayList;
@@ -57,6 +59,8 @@ public class EcoSystem extends Organization{
     AppointmentsDirectory appointmentDirectory;
     AuditsDirectory auditDirectory;
     AgencyDirectory agencyDirectory;
+    COVIDTestsDirectory covidTestDirectory;
+    TestingCentreDirectory testingCentreDirectory;
 
     public EcoSystem(HospiceDirectory hospiceDirectory, ProviderDirectory providerDirectory, NursesDirectory nurseDirectory, PatientsDirectory patientDirectory
                      , PayersDirectory payerDirectory, CounsellorDirectory counsellorDirectory, DonorsDirectory donorDirectory, 
@@ -65,7 +69,8 @@ public class EcoSystem extends Organization{
                        AlertsDirectory alertsDirectory, LinkageDirectory linkageDirectory, ClaimsDirectory claimsDirectory, 
                        COVIDFormsDirectory covidFormsDirectory, ConfigurationDirectory configDirectory, 
                        AppointmentsDirectory appointmentDirectory, AuditsDirectory auditDirectory, 
-                       AgencyDirectory agencyDirectory)  
+                       AgencyDirectory agencyDirectory, COVIDTestsDirectory covidTestDirectory, 
+                       TestingCentreDirectory testingCentreDirectory)  
     {
         this.hospiceDirectory = hospiceDirectory;
         this.nurseDirectory = nurseDirectory;
@@ -87,6 +92,8 @@ public class EcoSystem extends Organization{
         this.appointmentDirectory = appointmentDirectory;
         this.auditDirectory = auditDirectory;
         this.agencyDirectory = agencyDirectory;
+        this.covidTestDirectory = covidTestDirectory;
+        this.testingCentreDirectory = testingCentreDirectory;
     }
     
     public static EcoSystem getInstance(){
@@ -124,6 +131,8 @@ public class EcoSystem extends Organization{
          appointmentDirectory = new AppointmentsDirectory();
          auditDirectory = new AuditsDirectory();
          agencyDirectory = new AgencyDirectory();
+         covidTestDirectory = new COVIDTestsDirectory();
+         testingCentreDirectory = new TestingCentreDirectory();
     }
 
     public ProviderDirectory getProviderDirectory() {
@@ -285,6 +294,22 @@ public class EcoSystem extends Organization{
 
     public void setAgencyDirectory(AgencyDirectory agencyDirectory) {
         this.agencyDirectory = agencyDirectory;
+    }
+
+    public COVIDTestsDirectory getCovidTestDirectory() {
+        return covidTestDirectory;
+    }
+
+    public void setCovidTestDirectory(COVIDTestsDirectory covidTestDirectory) {
+        this.covidTestDirectory = covidTestDirectory;
+    }
+
+    public TestingCentreDirectory getTestingCentreDirectory() {
+        return testingCentreDirectory;
+    }
+
+    public void setTestingCentreDirectory(TestingCentreDirectory testingCentreDirectory) {
+        this.testingCentreDirectory = testingCentreDirectory;
     }
 
     public boolean checkIfUserIsUnique(String userName){
