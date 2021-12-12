@@ -5,6 +5,12 @@
  */
 package userinterface.Workflows;
 
+import Business.EcoSystem;
+import Business.Hospice.Hospice;
+import Business.Nurses.Nurse;
+import Business.Patients.Patient;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author architnigam
@@ -14,8 +20,26 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ViewPatientInformationData
      */
-    public ViewPatientInformationJPanel() {
+    UserAccount account;
+    EcoSystem system;
+    public ViewPatientInformationJPanel(UserAccount account, EcoSystem system) {
         initComponents();
+        this.account = account;
+        this.system = system;
+        txtName.setEditable(false);
+        txtAddress.setEditable(false);
+        txtCity.setEditable(false);
+        txtState.setEditable(false);
+        txtZipCode.setEditable(false);
+        txtContactNumber.setEditable(false);
+        txtCountry.setEditable(false);
+        txtHospice.setEditable(false);
+        txtPayer.setEditable(false);
+        txtReportingProvider.setEditable(false);
+        txtEmergencyContactPerson.setEditable(false);
+        txtEmergencyEmailID.setEditable(false);
+        txtEmailID.setEditable(false);
+        populateMedicalRecordNumber();
     }
 
     /**
@@ -27,19 +51,223 @@ public class ViewPatientInformationJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        ddMRN = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        txtState = new javax.swing.JTextField();
+        txtZipCode = new javax.swing.JTextField();
+        txtCountry = new javax.swing.JTextField();
+        txtReportingProvider = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtContactNumber = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtEmailID = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtHospice = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtPayer = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtEmergencyContactPerson = new javax.swing.JTextField();
+        lblEmergencyEmailID = new javax.swing.JLabel();
+        txtEmergencyEmailID = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+
+        setLayout(null);
+
+        ddMRN.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        add(ddMRN);
+        ddMRN.setBounds(200, 60, 180, 30);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel1.setText("Select MRN:");
+        add(jLabel1);
+        jLabel1.setBounds(30, 60, 140, 30);
+
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel2.setText("Name: ");
+        add(jLabel2);
+        jLabel2.setBounds(30, 140, 60, 19);
+
+        btnSearch.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSearch.setText("Search");
+        btnSearch.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+        add(btnSearch);
+        btnSearch.setBounds(430, 60, 110, 30);
+        add(txtName);
+        txtName.setBounds(140, 140, 130, 30);
+
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel3.setText("Address:");
+        add(jLabel3);
+        jLabel3.setBounds(30, 220, 80, 20);
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel4.setText("City:");
+        add(jLabel4);
+        jLabel4.setBounds(30, 320, 40, 19);
+
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel5.setText("State:");
+        add(jLabel5);
+        jLabel5.setBounds(30, 380, 50, 19);
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel6.setText("Zip Code:");
+        add(jLabel6);
+        jLabel6.setBounds(20, 450, 100, 40);
+
+        jLabel7.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel7.setText("Country:");
+        add(jLabel7);
+        jLabel7.setBounds(20, 530, 120, 40);
+
+        jLabel8.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel8.setText("Reporting Provider: ");
+        add(jLabel8);
+        jLabel8.setBounds(0, 620, 190, 30);
+        add(txtAddress);
+        txtAddress.setBounds(140, 210, 200, 80);
+        add(txtCity);
+        txtCity.setBounds(170, 310, 140, 30);
+        add(txtState);
+        txtState.setBounds(180, 370, 150, 30);
+        add(txtZipCode);
+        txtZipCode.setBounds(190, 450, 150, 40);
+        add(txtCountry);
+        txtCountry.setBounds(190, 530, 150, 30);
+        add(txtReportingProvider);
+        txtReportingProvider.setBounds(180, 610, 170, 40);
+
+        jLabel9.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel9.setText("Contact Number: ");
+        add(jLabel9);
+        jLabel9.setBounds(390, 160, 170, 30);
+        add(txtContactNumber);
+        txtContactNumber.setBounds(590, 150, 160, 40);
+
+        jLabel10.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel10.setText("Email  ID: ");
+        add(jLabel10);
+        jLabel10.setBounds(10, 700, 110, 20);
+        add(txtEmailID);
+        txtEmailID.setBounds(180, 690, 170, 30);
+
+        jLabel11.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel11.setText("Hospice Admitted To:");
+        add(jLabel11);
+        jLabel11.setBounds(370, 290, 220, 30);
+        add(txtHospice);
+        txtHospice.setBounds(580, 290, 180, 30);
+
+        jLabel12.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel12.setText("Payer: ");
+        add(jLabel12);
+        jLabel12.setBounds(430, 370, 90, 20);
+        add(txtPayer);
+        txtPayer.setBounds(580, 370, 180, 30);
+
+        jLabel13.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        jLabel13.setText("Emergency Contact Person: ");
+        add(jLabel13);
+        jLabel13.setBounds(360, 570, 260, 30);
+        add(txtEmergencyContactPerson);
+        txtEmergencyContactPerson.setBounds(640, 570, 140, 30);
+
+        lblEmergencyEmailID.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
+        lblEmergencyEmailID.setText("Emergency Email ID: ");
+        add(lblEmergencyEmailID);
+        lblEmergencyEmailID.setBounds(400, 680, 210, 30);
+        add(txtEmergencyEmailID);
+        txtEmergencyEmailID.setBounds(640, 670, 160, 40);
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/patientImg1.png"))); // NOI18N
+        add(jLabel15);
+        jLabel15.setBounds(0, 0, 1120, 800);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String mrn = ddMRN.getSelectedItem().toString();
+        Patient patient = system.getPatientDirectory().findPatientByMRN(mrn, 
+                system.getPatientDirectory().getPatientList());
+        if(patient != null)
+        {
+            txtName.setText(patient.getPatientName());
+            txtAddress.setText(patient.getPatientAddress());
+            txtCity.setText(patient.getPatientCity());
+            txtState.setText(patient.getPatientState());
+            txtZipCode.setText(patient.getPatientZipCode());
+            txtContactNumber.setText(patient.getPatientContactNumber());
+            txtCountry.setText(patient.getPatientCountry());
+            txtHospice.setText(patient.getOperatingHospice().getHospiceName());
+            txtPayer.setText(patient.getRegisteredPayer().getPayerName());
+            txtReportingProvider.setText(patient.getRegisteredProvider().getProviderName());
+            txtEmergencyContactPerson.setText(patient.getEmergencyContactName());
+            txtEmergencyEmailID.setText(patient.getEmergencyEmailID());
+            txtEmailID.setText(patient.getPatientEmailID());
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> ddMRN;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblEmergencyEmailID;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtContactNumber;
+    private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtEmailID;
+    private javax.swing.JTextField txtEmergencyContactPerson;
+    private javax.swing.JTextField txtEmergencyEmailID;
+    private javax.swing.JTextField txtHospice;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPayer;
+    private javax.swing.JTextField txtReportingProvider;
+    private javax.swing.JTextField txtState;
+    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
+
+    private void populateMedicalRecordNumber() {
+        Nurse loggedInNurse = system.getNurseDirectory().findNurseByEmailID(account.getUsername(), 
+                system.getNurseDirectory().getNurseList());
+        Hospice hospice = loggedInNurse.getHospiceNurseWorksIn();
+        for(int index = 0; index < system.getPatientDirectory().getPatientList().size(); index++)
+        {
+            Patient patient = system.getPatientDirectory().getPatientList().get(index);
+            if(patient.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+            {
+                ddMRN.addItem(patient.getPatientMRN());
+            }
+        }
+    }
 }
