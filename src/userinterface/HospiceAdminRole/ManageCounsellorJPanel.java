@@ -5,6 +5,19 @@
  */
 package userinterface.HospiceAdminRole;
 
+import Business.Counsellors.Counsellor;
+import Business.Donors.Donor;
+import Business.EcoSystem;
+import Business.Organization;
+import Business.Providers.Provider;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.AddDonorJPanel;
+import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+
 /**
  *
  * @author rohannayak
@@ -14,7 +27,17 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageCounsellorJPanel
      */
+    JPanel userProcessContainer;
+    UserAccount userAccount;
+    Organization customerOrg;
+    EcoSystem system;
+    Donor Donor;
     public ManageCounsellorJPanel() {
+        this.userProcessContainer = userProcessContainer;
+        this.userAccount = userAccount;
+        this.system = system;
+        this.customerOrg = customerOrg;
+         populateTable();
         initComponents();
     }
 
@@ -37,6 +60,11 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
+        txtContactNo = new javax.swing.JTextField();
+        txtEmailID = new javax.swing.JTextField();
+        lblContactNo = new javax.swing.JLabel();
+        lblEmailID = new javax.swing.JLabel();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -45,9 +73,17 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Counsellor ID", "Name", "Address", "City", "State", "Zip Code", "Country", "Contact No", "Email Id"
+                "Counsellor ID", "Name", "Address", "City", "State", "Zip Code", "Country", "Contact No", "Email Id", "Counsellor"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane.setViewportView(tblCounsellorList);
 
         lblCounsellorList.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -94,6 +130,28 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
 
         btnRefresh.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
+        txtEmailID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailIDActionPerformed(evt);
+            }
+        });
+
+        lblContactNo.setText("Contact No:");
+
+        lblEmailID.setText("Email ID:");
+
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -102,7 +160,20 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(297, 297, 297)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblContactNo)
+                                    .addComponent(lblEmailID))
+                                .addGap(50, 50, 50)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtContactNo, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                    .addComponent(txtEmailID)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(btnSave)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(161, 161, 161)
@@ -143,23 +214,38 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh))
-                .addGap(18, 18, 18)
-                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblContactNo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailID))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSave)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+          AddCounsellorJPanel addCounsellorjpanel = new AddCounsellorJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add("Add Counsellor",addCounsellorjpanel);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
 
-        }
+        
 
-        private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
-            // :event_btnUpdateActionPerformed
             // TODO add your handling code here:
             //            populateTable();
             //            tblCustomerList.revalidate();
@@ -167,43 +253,87 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        //        int selectedRow = tblCustomerList.getSelectedRow();
-        //        if (selectedRow < 0) {
-            //            JOptionPane.showMessageDialog(null, "Please select a row");
-            //            return;
-            //        } else {
-            //            UserAccount ua = (UserAccount) tblCustomerList.getValueAt(selectedRow, 1);
-            //            customerOrg.getUserAccountDirectory().deleteUserAccount(ua);
-            //            customerOrg.getEmployeeDirectory().deleteEmployee(ua.getEmployee());
-            //            JOptionPane.showMessageDialog(null, "User Account deleted successfully");
-            //
-            //            populateTable();
-            //            tblCustomerList.revalidate();
-            //            jScrollPane1.revalidate();
-            //            tblCustomerList.repaint();
-            //            jScrollPane1.repaint();
-            //            jScrollPane1.setViewportView(tblCustomerList);
-            //            this.revalidate();
-            //            this.repaint();
-            //        }
+                int SelectedRow = tblCounsellorList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblCounsellorList.getModel();
+            Counsellor selectedcounsellor = (Counsellor) model.getValueAt(SelectedRow, 10);
+            system.getProviderDirectory().deleteProvider(SelectedRow);
+            JOptionPane.showMessageDialog(this, "Counsellor Details Deleted");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        userProcessContainer.add(a);
+        Layout.next(userProcessContainer);
 
-        //        userProcessContainer.remove(this);
-        //        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        //        layout.previous(userProcessContainer);
-        //
-        //        Component[] comps = this.userProcessContainer.getComponents();
-        //        for (Component comp : comps) {
-            //            if (comp instanceof SystemAdminWorkAreaJPanel) {
-                //                SystemAdminWorkAreaJPanel systemAdminWorkAreaJPanel = (SystemAdminWorkAreaJPanel) comp;
-                //                systemAdminWorkAreaJPanel.populateTree();
-                //            }
-            //        }
+        
     }//GEN-LAST:event_btnBackActionPerformed
+
+    public void populateTable()
+    {
+     
+        DefaultTableModel dtm = (DefaultTableModel) tblCounsellorList.getModel();
+        dtm.setRowCount(0);
+        
+        for( Counsellor d : system.getCounsellorDirectory().getListOfCounsellors())
+        {
+            Object [] row = new Object[10];
+            row[0] = d.getCounsellorName();
+            row[1] = d.getCounsellorAddress();
+            row[2] = d.getCounsellorCity();
+            row[3] = d.getCounsellorState();
+            row[4] = d.getCounsellorZipCode();
+            row[5] = d.getCounsellorCountry();
+            row[6] = d.getCounsellorContactNo();
+            row[7] = d.getCounsellorEmailID();
+            row[8] = d.getOperatingHospice().getHospiceName();
+            row[9] = d;
+            dtm.addRow(row);
+        }
+    }
+    
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+  populateTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        int SelectedRow = tblCounsellorList.getSelectedRow();
+        if(SelectedRow < 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a particular row");
+            return;
+        }
+        else
+        {
+            DefaultTableModel model = (DefaultTableModel) tblCounsellorList.getModel();
+            Counsellor selectedCounsellor = (Counsellor) model.getValueAt(SelectedRow, 9);
+            Counsellor updateCounsellor = system.getCounsellorDirectory().updateCounsellor(selectedCounsellor);
+            updateCounsellor.setCounsellorContactNo(txtContactNo.getText());
+            updateCounsellor.setCounsellorEmailID(txtEmailID.getText());
+            JOptionPane.showMessageDialog(null, "Updates have been saved!!");
+            txtContactNo.setText("");
+            txtEmailID.setText("");
+
+        }
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtEmailIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,11 +341,16 @@ public class ManageCounsellorJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JLabel lblContactNo;
     private javax.swing.JLabel lblCounsellorList;
+    private javax.swing.JLabel lblEmailID;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblCounsellorList;
+    private javax.swing.JTextField txtContactNo;
+    private javax.swing.JTextField txtEmailID;
     // End of variables declaration//GEN-END:variables
 }
