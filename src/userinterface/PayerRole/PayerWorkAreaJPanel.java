@@ -45,14 +45,20 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
         btnManageClaims = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(246, 233, 244));
+
+        btnCreateClaim.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnCreateClaim.setText("Create a claim");
+        btnCreateClaim.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCreateClaim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateClaimActionPerformed(evt);
             }
         });
 
+        btnManageClaims.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnManageClaims.setText("Manage Claims");
+        btnManageClaims.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnManageClaims.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageClaimsActionPerformed(evt);
@@ -65,21 +71,20 @@ public class PayerWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnCreateClaim)
+                .addComponent(btnManageClaims, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnManageClaims)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btnCreateClaim, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(109, 109, 109)
+                .addGap(125, 125, 125)
                 .addComponent(btnCreateClaim)
-                .addGap(64, 64, 64)
+                .addGap(96, 96, 96)
                 .addComponent(btnManageClaims)
-                .addContainerGap(525, Short.MAX_VALUE))
+                .addContainerGap(493, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);

@@ -167,8 +167,8 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnLogVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogVitalSignsActionPerformed
         // TODO add your handling code here:
-        LogVitalSignsJPanel logVitalSignsPanel = new LogVitalSignsJPanel(system, account);
-        jSplitPane1.setRightComponent(logVitalSignsPanel);
+        LogVitalSignsJPanel logVitalSignsJPanel = new LogVitalSignsJPanel(system, account);
+        jSplitPane1.setRightComponent(logVitalSignsJPanel);
     }//GEN-LAST:event_btnLogVitalSignsActionPerformed
 
 

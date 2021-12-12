@@ -40,13 +40,18 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
         btnAppointments = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(246, 233, 244));
+
+        btnPatientInfo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPatientInfo.setText("My Patients");
+        btnPatientInfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPatientInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientInfoActionPerformed(evt);
             }
         });
 
+        btnObservationForm.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnObservationForm.setText("Record a Meeting");
         btnObservationForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,7 +59,9 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAppointments.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAppointments.setText("My Appointments");
+        btnAppointments.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentsActionPerformed(evt);
@@ -69,8 +76,8 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAppointments)
-                    .addComponent(btnObservationForm)
-                    .addComponent(btnPatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnObservationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,24 +87,14 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnPatientInfo)
                 .addGap(59, 59, 59)
                 .addComponent(btnAppointments)
-                .addGap(57, 57, 57)
+                .addGap(54, 54, 54)
                 .addComponent(btnObservationForm)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(414, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 727, Short.MAX_VALUE)
-        );
-
+        jPanel2.setLayout(null);
         jSplitPane1.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
