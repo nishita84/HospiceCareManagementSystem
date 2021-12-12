@@ -161,16 +161,18 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        
         int selectedIndex = tblAppointments.getSelectedRow();
         LookUpMapping lookups = new LookUpMapping();
         DefaultTableModel model = (DefaultTableModel) tblAppointments.getModel();
         Appointment selectedAppointment = (Appointment) model.getValueAt(selectedIndex, 5);
         if(selectedAppointment.getAppointmentStatus() == 0)
         {
-            btnSave.setVisible(false);
-            txtComments.setVisible(false);
-            lblComments.setVisible(false);
-            cbAppointmentCompleted.setVisible(false);
+            btnSave.setVisible(true);
+            txtComments.setVisible(true);
+            lblComments.setVisible(true);
+            cbAppointmentCompleted.setVisible(true);
+        
         }
         else{
             String appointmentStatusValue = lookups.mapAppointmentStatus(selectedAppointment.getAppointmentStatus());
@@ -236,7 +238,8 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        DefaultTableModel model1 = (DefaultTableModel) tblAppointments.getModel();
+        try{
+            DefaultTableModel model1 = (DefaultTableModel) tblAppointments.getModel();
         LookUpMapping lookups = new LookUpMapping();
         Counsellor counsellor = system.getCounsellorDirectory().findCounsellorByEmailID(userAccount.getUsername(), 
                  system.getCounsellorDirectory().getListOfCounsellors());
@@ -258,6 +261,11 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
                 row[5] = currentAppointment;
             }
             model1.addRow(row);
+        }
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
         }
     }
 }
