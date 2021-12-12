@@ -251,54 +251,71 @@ public class COVIDSelfDiagnosisFormJPanel extends javax.swing.JPanel {
         
         if(hasPatientAgreedTAndC)
         {
-            for(int index = 0; index < system.getCovidFormsDirectory().getListOfCOVIDForms().size(); index++)
-            {
-               try{
-                    Date todayDate = new Date();
-                DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy"); 
-                String dateToString = formatter.format(todayDate); 
-                dateToString = dateToString.substring(0, 10);
-                Date todaysDate =new SimpleDateFormat("MM/dd/yyyy").parse(dateToString);
-                COVIDSelfDiagnosisForm currentCOVIDForm = system.getCovidFormsDirectory().getListOfCOVIDForms().get(index);
-                if(currentCOVIDForm.getPatientFillingForm().getPatientMRN().equals(patientLoggedIn.getPatientMRN()))
-                {
-                    if(currentCOVIDForm.getDateOfForm().equals(todaysDate))
-                    {
-                        JOptionPane.showMessageDialog(this, "COVID - 19 self assessment already submitted for today!");
-                    }
-                    else{
-                        try{
+             if(!verifyIfPatientHasAlreadySubmittedFormForToday())
+             {
+                 try{
                         COVIDSelfDiagnosisForm newCOVIDForm = system.getCovidFormsDirectory().createCOVIDSelfDiagnosisForm(patientLoggedIn, 
-                                hasPatientTraveledAbroad, hasPatientBeenInContactWithPositivePatient, isPatientExperiencingSymptoms, 
-                                hasPatientAgreedTAndC);
-                 if(newCOVIDForm != null)
-                {
-                    JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!");
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Some error, please fill the form again");
-                }
-            }
-            catch(Exception ex)
-            {
-                ex.printStackTrace();
-            }
+                                    hasPatientTraveledAbroad, hasPatientBeenInContactWithPositivePatient, isPatientExperiencingSymptoms, 
+                                    hasPatientAgreedTAndC);
+                        if(newCOVIDForm != null)
+                        {
+                            if(rbQOneYes.isSelected() || rbQTwoYes.isSelected() || rbQThreeYes.isSelected())
+                            {
+                                JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!"
+                                        + "\n We recommend you to schedule a COVID test ASAP");
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(this, "Thanks! COVID - 19 self assessment has been submitted for today!");
+                            }
+                            
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(this, "Some error, please fill the form again");
+                        }
                     }
-                }
-               }
-               catch(Exception ex)
-               {
-                    
-                }
+                    catch(Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
             }
-            
-        }
+        }       
         else{
             JOptionPane.showMessageDialog(this, "Please ensure you have agreed terms and conditions before submitting "
                     + "the COVID- 19 Self Assessment form");
         }
     }//GEN-LAST:event_btnSubmitFormActionPerformed
 
+    
+    private boolean verifyIfPatientHasAlreadySubmittedFormForToday()
+    {
+        try
+        {
+            Date todayDate = new Date();
+            DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy"); 
+            String dateToString = formatter.format(todayDate); 
+            dateToString = dateToString.substring(0, 10);
+            Date todaysDate =new SimpleDateFormat("MM/dd/yyyy").parse(dateToString);
+            for(int index = 0; index < system.getCovidFormsDirectory().getListOfCOVIDForms().size(); index++)
+            {
+                COVIDSelfDiagnosisForm currentCOVIDForm = system.getCovidFormsDirectory().getListOfCOVIDForms().get(index);
+                if(currentCOVIDForm.getPatientFillingForm().getPatientMRN().equals(patientLoggedIn.getPatientMRN()))
+                {
+                    if(currentCOVIDForm.getDateOfForm().equals(todaysDate))
+                    {
+                        JOptionPane.showMessageDialog(this, "COVID - 19 self assessment already submitted for today! You can fill"
+                                + " only one form per day");
+                        return true;
+                    }
+                }
+            }
+            
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        return false;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmitForm;
     private javax.swing.JCheckBox cbAgreeTermsAndConditions;
