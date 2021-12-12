@@ -43,6 +43,7 @@ public class AddNurseJPanel extends javax.swing.JPanel {
                 system.getHospiceDirectory().getListOfHospice());
         HospiceDropdown.setSelectedItem(hospice.getHospiceName());
         populateProviderDropdown();
+        jDateChooser2.setMaxSelectableDate(new Date());
     }
 
     /**

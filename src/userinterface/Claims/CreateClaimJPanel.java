@@ -46,6 +46,9 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
         txtCost.setEditable(false);
         populateDiagnosisDropdown();
         txtBatchNo.setText("CLM1");
+        
+        txtEndDate.setMaxSelectableDate(new Date());
+        txtStartDate.setMaxSelectableDate(new Date());
     }
 
     /**

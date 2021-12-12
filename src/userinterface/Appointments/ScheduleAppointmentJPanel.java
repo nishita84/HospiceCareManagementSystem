@@ -49,6 +49,8 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         group1.add(btnFourThirtyPM);
         group1.add(btnFivePM);
         group1.add(btnFiveThirtyPM);
+        
+        dateChooser.setMinSelectableDate(new Date());
     }
 
     /**

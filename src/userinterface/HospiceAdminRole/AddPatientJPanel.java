@@ -42,6 +42,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 //             system.getHospiceDirectory().getListOfHospice());
         populateProviderDropdown();
         populatePayerDropdown();
+        
+        jDateChooser1.setMaxSelectableDate(new Date());
     }
 
     /**
