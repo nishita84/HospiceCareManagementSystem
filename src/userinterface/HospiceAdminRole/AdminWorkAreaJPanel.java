@@ -168,7 +168,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAddCounsellorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCounsellorActionPerformed
         // TODO add your handling code here:
-        AddCounsellorJPanel addCounsellorJPanel = new AddCounsellorJPanel(userAccount, system);
+        AddCounsellorJPanel addCounsellorJPanel = new AddCounsellorJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add("Add Counsellor", addCounsellorJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
