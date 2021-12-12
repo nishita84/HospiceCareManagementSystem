@@ -28,4 +28,11 @@ and open the template in the editor.
         <emailID>medicaid@medicaid.com</emailID>
         <password>medi123</password>
     </payer>
+    <payer>
+        <payerID>PY1004</payerID>
+        <name>Medicaid</name>
+        <address>29 Folsom Street</address>
+        <emailID>payer</emailID>
+        <password>payer</password>
+    </payer>
 </payers>

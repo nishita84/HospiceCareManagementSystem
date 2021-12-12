@@ -469,4 +469,26 @@ and open the template in the editor.
          <emergencyContactName>David Lee</emergencyContactName>
         <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
     </patient>
+    <patient>
+        <mrn>1020</mrn>
+        <name>Archit Nigam</name>
+        <gender>Male</gender>
+        <ethnicity>Hispanic</ethnicity>
+        <address>30 Terry Street</address>
+        <city>Boston</city>
+        <state>MA</state>
+        <zipcode>02215</zipcode>
+        <country>USA</country>
+        <contactno>8578754321</contactno>
+        <emailID>patient</emailID>
+        <providerNPI>PV1001</providerNPI>
+        <terminalillness>Alzheimer's Disease</terminalillness>
+        <dateofbirth>05/12/1951</dateofbirth>
+        <payerID>PY1002</payerID>
+        <password>patient</password>
+        <isPatientAnInPatient>true</isPatientAnInPatient>
+        <hospiceID>HO1001</hospiceID>
+         <emergencyContactName>David Lee</emergencyContactName>
+        <emergencyEmailID>aedprojectgroup84@gmail.com</emergencyEmailID>
+    </patient>
 </patients>
