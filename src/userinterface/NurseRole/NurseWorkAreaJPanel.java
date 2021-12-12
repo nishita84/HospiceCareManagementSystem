@@ -53,6 +53,8 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         btnLogVitalSigns = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(928, 766));
+
         btnReports.setText("View Reports and Charts");
         btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +97,7 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,20 +110,22 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnReports)
                 .addGap(39, 39, 39)
                 .addComponent(btnAlerts)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(581, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(928, 766));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGap(0, 1659, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 687, Short.MAX_VALUE)
+            .addGap(0, 936, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -131,15 +135,15 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 78, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1882, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -163,8 +167,8 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnLogVitalSignsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogVitalSignsActionPerformed
         // TODO add your handling code here:
-        LogVitalSignsJPanel logVitalSignsPanel = new LogVitalSignsJPanel(system, account);
-        jSplitPane1.setRightComponent(logVitalSignsPanel);
+        LogVitalSignsJPanel logVitalSignsJPanel = new LogVitalSignsJPanel(system, account);
+        jSplitPane1.setRightComponent(logVitalSignsJPanel);
     }//GEN-LAST:event_btnLogVitalSignsActionPerformed
 
 

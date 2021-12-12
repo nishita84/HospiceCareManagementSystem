@@ -13,4 +13,10 @@ and open the template in the editor.
         <emailID>john@john.com</emailID>
         <password>john123</password>
     </donor>
+    <donor>
+        <donorID>DR1002</donorID>
+        <name>Anonymous</name>
+        <emailID>donor</emailID>
+        <password>donor</password>
+    </donor>
 </donors>

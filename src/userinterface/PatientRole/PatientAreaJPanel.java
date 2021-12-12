@@ -53,35 +53,47 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         btnSymptomCatcher = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(246, 233, 244));
+
+        btnViewPatientDetails.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnViewPatientDetails.setText("View My Details");
+        btnViewPatientDetails.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnViewPatientDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewPatientDetailsActionPerformed(evt);
             }
         });
 
+        btnSelfDiagnosisForm.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSelfDiagnosisForm.setText("Fill Self Diagnosis Form");
+        btnSelfDiagnosisForm.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSelfDiagnosisForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelfDiagnosisFormActionPerformed(evt);
             }
         });
 
+        btnAppointment.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAppointment.setText("Schedule an Appointment");
+        btnAppointment.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentActionPerformed(evt);
             }
         });
 
+        btnAlert.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAlert.setText("Create an Alert");
+        btnAlert.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAlert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlertActionPerformed(evt);
             }
         });
 
+        btnSymptomCatcher.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSymptomCatcher.setText("Chat with SymptomCatcher!");
+        btnSymptomCatcher.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSymptomCatcher.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSymptomCatcherActionPerformed(evt);
@@ -94,18 +106,24 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAppointment)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSymptomCatcher))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSelfDiagnosisForm))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnViewPatientDetails))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnSymptomCatcher))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btnAlert, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btnAppointment))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnSelfDiagnosisForm)
+                                    .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 18, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,13 +132,13 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnViewPatientDetails)
                 .addGap(34, 34, 34)
                 .addComponent(btnSelfDiagnosisForm)
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addComponent(btnAppointment)
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addComponent(btnAlert)
-                .addGap(48, 48, 48)
+                .addGap(38, 38, 38)
                 .addComponent(btnSymptomCatcher)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
