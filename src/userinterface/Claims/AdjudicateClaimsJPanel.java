@@ -5,6 +5,7 @@
  */
 package userinterface.Claims;
 
+import Business.Audits.Audit;
 import Business.ClaimsBilling.Claim;
 import Business.EcoSystem;
 import Business.Hospice.Hospice;
@@ -30,9 +31,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.userAccount = userAccount;
-        lblAdjudicationAmt.setVisible(false);
-        txtAdjudicationAmt.setVisible(false);
-        btnAdjudicate.setVisible(false);
+//        lblAdjudicationAmt.setVisible(false);
+//        txtAdjudicationAmt.setVisible(false);
+//        btnAdjudicate.setVisible(false);
     }
 
     /**
@@ -54,21 +55,13 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         btnPartialAdjudication = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         lblAdjudicationAmt = new javax.swing.JLabel();
-        txtAdjudicationAmt = new javax.swing.JTextField();
         btnAdjudicate = new javax.swing.JButton();
-
-        setLayout(null);
+        jTextField1 = new javax.swing.JTextField();
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel1.setText("Search claim via: ");
-        add(jLabel1);
-        jLabel1.setBounds(34, 67, 120, 39);
 
         ddSearchType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Batch Number", "Claim ID"}));
-        add(ddSearchType);
-        ddSearchType.setBounds(213, 67, 124, 39);
-        add(txtSearch);
-        txtSearch.setBounds(538, 70, 119, 36);
 
         btnSearch.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSearch.setText("Search");
@@ -78,8 +71,6 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        add(btnSearch);
-        btnSearch.setBounds(691, 67, 91, 39);
 
         tblClaims.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,9 +93,6 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblClaims);
 
-        add(jScrollPane1);
-        jScrollPane1.setBounds(34, 152, 748, 128);
-
         btnFullyAdjudicate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFullyAdjudicate.setText("Fully Adjudicate");
         btnFullyAdjudicate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -113,8 +101,6 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnFullyAdjudicateActionPerformed(evt);
             }
         });
-        add(btnFullyAdjudicate);
-        btnFullyAdjudicate.setBounds(40, 290, 128, 39);
 
         btnPartialAdjudication.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPartialAdjudication.setText("Partially Adjudicate");
@@ -124,8 +110,6 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnPartialAdjudicationActionPerformed(evt);
             }
         });
-        add(btnPartialAdjudication);
-        btnPartialAdjudication.setBounds(350, 290, 139, 39);
 
         btnReject.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnReject.setText("Reject");
@@ -135,28 +119,82 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
-        add(btnReject);
-        btnReject.setBounds(670, 290, 97, 39);
 
         lblAdjudicationAmt.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblAdjudicationAmt.setText("Adjudicate Amount:         $");
-        add(lblAdjudicationAmt);
-        lblAdjudicationAmt.setBounds(79, 385, 181, 15);
-        add(txtAdjudicationAmt);
-        txtAdjudicationAmt.setBounds(260, 370, 140, 40);
 
         btnAdjudicate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAdjudicate.setText("Adjudicate");
         btnAdjudicate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btnAdjudicate);
-        btnAdjudicate.setBounds(190, 440, 110, 40);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel1)
+                        .addGap(59, 59, 59)
+                        .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnFullyAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(182, 182, 182)
+                        .addComponent(btnPartialAdjudication)
+                        .addGap(181, 181, 181)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(lblAdjudicationAmt)
+                        .addGap(10, 10, 10)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(200, 200, 200))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnFullyAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPartialAdjudication, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(lblAdjudicationAmt))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFullyAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullyAdjudicateActionPerformed
         // TODO add your handling code here:
-        lblAdjudicationAmt.setVisible(false);
-        txtAdjudicationAmt.setVisible(false);
-        btnAdjudicate.setVisible(false);
+//        lblAdjudicationAmt.setVisible(false);
+//        txtAdjudicationAmt.setVisible(false);
+//        btnAdjudicate.setVisible(false);
         int selectedIndex = tblClaims.getSelectedRow();
         if(selectedIndex < 0)
         {
@@ -185,6 +223,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                             "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
 
                     populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
+                    Audit audit = system.getAuditDirectory().createNewAuditEntryForAdjudication(updatedClaim);
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Hospice does not have enough funds to fully adjudicate the claim.\n"
@@ -201,11 +240,10 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
 
     private void btnPartialAdjudicationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartialAdjudicationActionPerformed
         // TODO add your handling code here:
-        lblAdjudicationAmt.setVisible(true);
-        txtAdjudicationAmt.setVisible(true);
-        btnAdjudicate.setVisible(true);
+//        lblAdjudicationAmt.setVisible(true);
+//        jTextField1.setVisible(true);
+//        btnAdjudicate.setVisible(true);
         int selectedIndex = tblClaims.getSelectedRow();
-        
         if(selectedIndex < 0)
         {
             JOptionPane.showMessageDialog(this, "Please select a claim before proceding!");
@@ -216,10 +254,14 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
             double claimAmount = selectedClaim.getClaimAmount();
             double currentHospiceBalance = selectedClaim.getHospice().getTotalHospiceBalance();
             
-            String adjudicationAmountInString = txtAdjudicationAmt.getText();
-            double adjudicationAmount = Double.parseDouble(adjudicationAmountInString);
+            String adjudicationAmountInString = jTextField1.getText();
+            double adjudicationAmount = Double.valueOf(adjudicationAmountInString);
+            //double adjudicationAmount = Double.parseDouble(adjudicationAmountInString);
             if(selectedClaim.getClaimStatus() == 0 || selectedClaim.getClaimStatus() == 1)
             {
+                System.out.println(adjudicationAmount);
+                 System.out.println(claimAmount);
+                 System.out.println("Hospice Balance: "+currentHospiceBalance);
                if(adjudicationAmount < claimAmount)
                 {
                     if(adjudicationAmount > currentHospiceBalance)
@@ -231,10 +273,10 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         Hospice hospiceAssociatedWithClaim = selectedClaim.getHospice();
                         Hospice updatedHospice = system.getHospiceDirectory().updateHospice(hospiceAssociatedWithClaim);
                         updatedHospice.setTotalHospiceBalance(hospiceAssociatedWithClaim.getTotalHospiceBalance() - adjudicationAmount);
-                        JOptionPane.showMessageDialog(this, "Claim has been successfully fully adjudicated!"
+                        JOptionPane.showMessageDialog(this, "Claim has been successfully partiallu adjudicated!"
                         +"\n Claim Amount: $"+updatedClaim.getClaimAmount()+
                             "\n Adjudicated Amount: $"+updatedClaim.getAdjudicatedAmount());
-
+                       Audit audit = system.getAuditDirectory().createNewAuditEntryForAdjudication(updatedClaim);
                         populateTable("Batch Number", updatedClaim.getClaimBatchNumber());
                     }
                     else{
@@ -249,7 +291,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 }
                 else{
                     JOptionPane.showMessageDialog(this, "Adjudication Amount cannot be greater or equal to Claim Amount");
-                    txtAdjudicationAmt.setText("");
+                    //txtAdjudicationAmt.setText("");
                 }
             }
             else{
@@ -261,9 +303,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-        lblAdjudicationAmt.setVisible(false);
-        txtAdjudicationAmt.setVisible(false);
-        btnAdjudicate.setVisible(false);
+//        lblAdjudicationAmt.setVisible(false);
+//        txtAdjudicationAmt.setVisible(false);
+//        btnAdjudicate.setVisible(false);
          int selectedIndex = tblClaims.getSelectedRow();
          if(selectedIndex < 0)
          {
@@ -311,9 +353,9 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ddSearchType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAdjudicationAmt;
     private javax.swing.JTable tblClaims;
-    private javax.swing.JTextField txtAdjudicationAmt;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 

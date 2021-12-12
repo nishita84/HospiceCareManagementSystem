@@ -5,6 +5,7 @@
  */
 package userinterface.Claims;
 
+import Business.Audits.Audit;
 import Business.ClaimsBilling.Claim;
 import Business.Diagnosis.Diagnosis;
 import Business.EcoSystem;
@@ -115,24 +116,24 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel1.setText("Claim Type: ");
         add(jLabel1);
-        jLabel1.setBounds(41, 42, 85, 15);
+        jLabel1.setBounds(20, 20, 85, 15);
 
         ddClaimType.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddClaimType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Professional", "Institutional"}));
         add(ddClaimType);
-        ddClaimType.setBounds(173, 37, 177, 27);
+        ddClaimType.setBounds(120, 20, 177, 27);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Linkage ID:");
         add(jLabel2);
-        jLabel2.setBounds(41, 100, 78, 15);
+        jLabel2.setBounds(20, 80, 78, 15);
         add(txtLinkageID);
-        txtLinkageID.setBounds(173, 95, 154, 21);
+        txtLinkageID.setBounds(120, 80, 154, 21);
 
         jLabel3.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel3.setText("Patient Information");
         add(jLabel3);
-        jLabel3.setBounds(41, 145, 164, 19);
+        jLabel3.setBounds(60, 130, 164, 19);
 
         btnPopulate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPopulate.setText("Populate");
@@ -143,129 +144,129 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPopulate);
-        btnPopulate.setBounds(365, 97, 112, 21);
+        btnPopulate.setBounds(310, 80, 112, 21);
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel4.setText("Name: ");
         add(jLabel4);
-        jLabel4.setBounds(41, 196, 47, 15);
+        jLabel4.setBounds(60, 190, 47, 15);
         add(txtPatientName);
-        txtPatientName.setBounds(158, 189, 146, 26);
+        txtPatientName.setBounds(170, 190, 146, 26);
 
         jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel5.setText("Address:");
         add(jLabel5);
-        jLabel5.setBounds(41, 293, 62, 15);
+        jLabel5.setBounds(50, 260, 62, 15);
         add(txtProviderAddress);
-        txtProviderAddress.setBounds(634, 274, 245, 51);
+        txtProviderAddress.setBounds(610, 240, 245, 51);
 
         jLabel6.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel6.setText("State: ");
         add(jLabel6);
-        jLabel6.setBounds(41, 341, 44, 15);
+        jLabel6.setBounds(50, 360, 44, 15);
 
         jLabel7.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel7.setText("City: ");
         add(jLabel7);
-        jLabel7.setBounds(41, 437, 36, 15);
+        jLabel7.setBounds(50, 440, 36, 15);
         add(txtPatientState);
-        txtPatientState.setBounds(162, 380, 216, 40);
+        txtPatientState.setBounds(170, 350, 216, 40);
         add(txtPatientCity);
-        txtPatientCity.setBounds(162, 509, 164, 26);
+        txtPatientCity.setBounds(180, 500, 164, 26);
 
         jLabel8.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel8.setText("Zip Code:");
         add(jLabel8);
         jLabel8.setBounds(41, 516, 67, 15);
         add(txtPatientZipCode);
-        txtPatientZipCode.setBounds(162, 428, 154, 30);
+        txtPatientZipCode.setBounds(180, 430, 180, 30);
 
         jLabel9.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel9.setText("Diagnosis:");
         add(jLabel9);
-        jLabel9.setBounds(41, 632, 74, 15);
+        jLabel9.setBounds(50, 580, 74, 15);
 
         ddDiagnosis.setFont(new java.awt.Font("Helvetica", 0, 14)); // NOI18N
         ddDiagnosis.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
         add(ddDiagnosis);
-        ddDiagnosis.setBounds(162, 616, 166, 27);
+        ddDiagnosis.setBounds(190, 570, 166, 27);
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel10.setText("Provider Information");
         add(jLabel10);
-        jLabel10.setBounds(534, 141, 192, 22);
+        jLabel10.setBounds(510, 120, 192, 22);
 
         jLabel11.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel11.setText("Name:");
         add(jLabel11);
-        jLabel11.setBounds(535, 217, 43, 15);
+        jLabel11.setBounds(520, 180, 43, 15);
         add(txtProviderState);
-        txtProviderState.setBounds(630, 500, 182, 35);
+        txtProviderState.setBounds(630, 480, 182, 35);
 
         jLabel12.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel12.setText("Address:");
         add(jLabel12);
-        jLabel12.setBounds(535, 279, 62, 15);
+        jLabel12.setBounds(510, 260, 62, 15);
         add(txtPatientAddress);
-        txtPatientAddress.setBounds(162, 264, 226, 71);
+        txtPatientAddress.setBounds(170, 250, 226, 71);
 
         jLabel13.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel13.setText("State: ");
         add(jLabel13);
-        jLabel13.setBounds(535, 394, 44, 15);
+        jLabel13.setBounds(520, 340, 44, 15);
         add(txtProviderName);
-        txtProviderName.setBounds(634, 210, 154, 26);
+        txtProviderName.setBounds(610, 170, 154, 26);
 
         jLabel14.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel14.setText("City:");
         add(jLabel14);
-        jLabel14.setBounds(535, 437, 32, 15);
+        jLabel14.setBounds(530, 410, 32, 15);
         add(txtProviderCity);
-        txtProviderCity.setBounds(634, 382, 182, 37);
+        txtProviderCity.setBounds(620, 330, 182, 37);
 
         jLabel15.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel15.setText("Zip Code:");
         add(jLabel15);
-        jLabel15.setBounds(520, 511, 67, 15);
+        jLabel15.setBounds(520, 490, 67, 15);
         add(txtProviderZipCode);
-        txtProviderZipCode.setBounds(630, 440, 182, 34);
+        txtProviderZipCode.setBounds(630, 410, 182, 34);
 
         jLabel16.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel16.setText("Claim Batch Number: ");
         add(jLabel16);
-        jLabel16.setBounds(468, 611, 148, 15);
+        jLabel16.setBounds(470, 560, 148, 15);
         add(txtBatchNo);
-        txtBatchNo.setBounds(634, 604, 176, 26);
+        txtBatchNo.setBounds(640, 560, 176, 26);
 
         jLabel17.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel17.setText("Start Date:");
         add(jLabel17);
-        jLabel17.setBounds(41, 735, 72, 15);
+        jLabel17.setBounds(50, 640, 72, 15);
 
         jLabel18.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel18.setText("End Date:");
         add(jLabel18);
-        jLabel18.setBounds(178, 735, 67, 15);
+        jLabel18.setBounds(200, 640, 67, 15);
 
         ddServiceCode.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
         add(ddServiceCode);
-        ddServiceCode.setBounds(312, 762, 126, 27);
+        ddServiceCode.setBounds(320, 680, 126, 27);
 
         jLabel19.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel19.setText("Service Code:");
         add(jLabel19);
-        jLabel19.setBounds(322, 735, 95, 15);
+        jLabel19.setBounds(340, 640, 95, 15);
         add(txtEndDate);
-        txtEndDate.setBounds(41, 756, 99, 26);
+        txtEndDate.setBounds(40, 680, 99, 26);
         add(txtUnits);
-        txtUnits.setBounds(514, 756, 88, 29);
+        txtUnits.setBounds(490, 680, 88, 29);
         add(txtStartDate);
-        txtStartDate.setBounds(178, 756, 99, 26);
+        txtStartDate.setBounds(180, 680, 99, 26);
 
         jLabel20.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel20.setText("Units:");
         add(jLabel20);
-        jLabel20.setBounds(537, 710, 46, 15);
+        jLabel20.setBounds(510, 630, 46, 15);
 
         btnComputeCost.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnComputeCost.setText("Compute Cost:");
@@ -276,18 +277,18 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
             }
         });
         add(btnComputeCost);
-        btnComputeCost.setBounds(681, 762, 129, 18);
+        btnComputeCost.setBounds(480, 740, 129, 18);
 
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel21.setText("Cost:");
         add(jLabel21);
-        jLabel21.setBounds(902, 710, 36, 17);
+        jLabel21.setBounds(630, 620, 36, 17);
         add(txtCost);
-        txtCost.setBounds(902, 764, 100, 21);
+        txtCost.setBounds(650, 670, 100, 21);
 
         jLabel22.setText("$");
         add(jLabel22);
-        jLabel22.setBounds(860, 767, 8, 16);
+        jLabel22.setBounds(630, 680, 8, 16);
 
         btnSubmitClaim.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSubmitClaim.setText("SUBMIT CLAIM");
@@ -298,7 +299,7 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSubmitClaim);
-        btnSubmitClaim.setBounds(312, 821, 230, 33);
+        btnSubmitClaim.setBounds(90, 760, 240, 40);
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel23.setText("Place of Service:");
@@ -313,9 +314,7 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/claim.png"))); // NOI18N
         jLabel24.setText("jLabel24");
         add(jLabel24);
-        jLabel24.setBounds(815, 18, 366, 118);
-
-        jLabel25.setText("jLabel25");
+        jLabel24.setBounds(450, 0, 360, 100);
         add(jLabel25);
         jLabel25.setBounds(0, 0, 1190, 1000);
     }// </editor-fold>//GEN-END:initComponents
@@ -401,6 +400,7 @@ public class CreateClaimJPanel extends javax.swing.JPanel {
         if(newClaimGenerated != null)
         {
             JOptionPane.showMessageDialog(this, "Claim with ID '"+claimID+"' succesfully submitted!");
+            Audit audit = system.getAuditDirectory().createNewAuditEntryForClaimCreation(newClaimGenerated);
         }
         else{
             JOptionPane.showMessageDialog(this, "Claim submission unsuccessful.");

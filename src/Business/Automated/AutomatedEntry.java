@@ -710,7 +710,7 @@ public class AutomatedEntry {
                                                     system.getProviderDirectory().getProviderList());
                     
                    service = system.getServiceDirectory().createService(serviceCode, serviceDescription, 
-                           Double.parseDouble(cost), provider);
+                           Double.parseDouble(cost), registeredProviderForPatient);
                 }
                 
             }

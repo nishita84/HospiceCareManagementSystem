@@ -38,14 +38,15 @@ public class AuditsDirectory {
         SetIDsForWorkflows setIDForWorkflows = new SetIDsForWorkflows();
         Audit newAuditEntry = new Audit();
         newAuditEntry.setAuditID(setIDForWorkflows.SetIDForAudits());
+        Hospice hospice = createdClaim.getProvider().getOperatingHospice();
         newAuditEntry.setTransactionType("C");
         newAuditEntry.setPatient(createdClaim.getPatient());
         newAuditEntry.setPayer(createdClaim.getPayerForClaim());
         newAuditEntry.setProvider(createdClaim.getProvider());
         newAuditEntry.setHospice(createdClaim.getHospice());
         newAuditEntry.setTimeOfTransaction(createdClaim.getClaimSubmissionTime());
-        newAuditEntry.setBeforeBalance(0.00);
-        newAuditEntry.setAfterBalance(createdClaim.getClaimAmount());
+        newAuditEntry.setBeforeBalance(hospice.getTotalHospiceBalance());
+        newAuditEntry.setAfterBalance(hospice.getTotalHospiceBalance());
         newAuditEntry.setComments("Claim created for patient with claim amount :$ "+createdClaim.getClaimAmount());
         listOfAudits.add(newAuditEntry);
         return newAuditEntry;
@@ -55,6 +56,7 @@ public class AuditsDirectory {
     {
         SetIDsForWorkflows setIDForWorkflows = new SetIDsForWorkflows();
         Audit newAuditEntry = new Audit();
+        Hospice hospice = adjudicatedClaim.getProvider().getOperatingHospice();
         newAuditEntry.setAuditID(setIDForWorkflows.SetIDForAudits());
         newAuditEntry.setTransactionType("A");
         newAuditEntry.setPatient(adjudicatedClaim.getPatient());
@@ -62,8 +64,8 @@ public class AuditsDirectory {
         newAuditEntry.setProvider(adjudicatedClaim.getProvider());
         newAuditEntry.setHospice(adjudicatedClaim.getHospice());
         newAuditEntry.setTimeOfTransaction(adjudicatedClaim.getClaimAdjudicationTime());
-        newAuditEntry.setBeforeBalance(adjudicatedClaim.getClaimAmount());
-        newAuditEntry.setAfterBalance(adjudicatedClaim.getAdjudicatedAmount());
+        newAuditEntry.setBeforeBalance(hospice.getTotalHospiceBalance() + adjudicatedClaim.getAdjudicatedAmount());
+        newAuditEntry.setAfterBalance(hospice.getTotalHospiceBalance());
         newAuditEntry.setComments("Claim adjudicated for patient with adjudication amount :$ "+adjudicatedClaim.getAdjudicatedAmount());
         listOfAudits.add(newAuditEntry);
         return newAuditEntry;
