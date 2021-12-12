@@ -37,7 +37,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.system = system;
         this.customerOrg = customerOrg;
-         populateTable();
+        populateTable();
     }
 
     /**
@@ -282,7 +282,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
-        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

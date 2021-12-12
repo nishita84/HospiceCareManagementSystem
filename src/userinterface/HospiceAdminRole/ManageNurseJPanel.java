@@ -323,7 +323,7 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
-        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
