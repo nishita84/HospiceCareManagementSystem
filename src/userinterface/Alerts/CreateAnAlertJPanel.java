@@ -60,7 +60,9 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtReportingProvider = new javax.swing.JTextField();
         btnAlert = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
@@ -107,6 +109,10 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
         });
         add(btnAlert);
         btnAlert.setBounds(320, 390, 160, 60);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreateAnAlertIMG2-2.png"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(340, 0, 1000, 1000);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertActionPerformed
@@ -166,6 +172,7 @@ public class CreateAnAlertJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtMRN;
     private javax.swing.JTextField txtReportingProvider;
     // End of variables declaration//GEN-END:variables
