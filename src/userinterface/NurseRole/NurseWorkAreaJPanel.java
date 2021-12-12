@@ -55,28 +55,38 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(928, 766));
 
+        jPanel1.setBackground(new java.awt.Color(237, 235, 235));
+
+        btnReports.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnReports.setText("View Reports and Charts");
+        btnReports.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportsActionPerformed(evt);
             }
         });
 
+        btnAlerts.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAlerts.setText("Manage Alerts");
+        btnAlerts.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAlerts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlertsActionPerformed(evt);
             }
         });
 
+        btnPatientHealthData.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnPatientHealthData.setText("View Patient Records");
+        btnPatientHealthData.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPatientHealthData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientHealthDataActionPerformed(evt);
             }
         });
 
+        btnLogVitalSigns.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnLogVitalSigns.setText("Log Vital Signs");
+        btnLogVitalSigns.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLogVitalSigns.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogVitalSignsActionPerformed(evt);
@@ -90,15 +100,12 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnReports, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPatientHealthData)
-                            .addComponent(btnLogVitalSigns, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnLogVitalSigns, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                        .addComponent(btnPatientHealthData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +118,7 @@ public class NurseWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnReports)
                 .addGap(39, 39, 39)
                 .addComponent(btnAlerts)
-                .addContainerGap(581, Short.MAX_VALUE))
+                .addContainerGap(621, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
