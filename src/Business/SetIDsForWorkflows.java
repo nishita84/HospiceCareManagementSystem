@@ -16,6 +16,7 @@ public class SetIDsForWorkflows {
     private final String codeForLinkage = "LN";
     private final String codeForClaims = "CL";
     private final String codeForAudit = "AD";
+    private final String codeForCOVIDTest = "CVD";
     
     private final int min = 1000;
     private final int max = 9999;
@@ -54,6 +55,13 @@ public class SetIDsForWorkflows {
     {
         int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
         String idForClaim= codeForAudit + String.valueOf(random_int);
+        return idForClaim;
+    }
+    
+    public String SetIDForCOVIDTest()
+    {
+        int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
+        String idForClaim= codeForCOVIDTest + String.valueOf(random_int);
         return idForClaim;
     }
 }

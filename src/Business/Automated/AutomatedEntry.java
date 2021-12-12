@@ -27,8 +27,10 @@ import Business.Role.NurseRole;
 import Business.Role.PatientRole;
 import Business.Role.PayerRole;
 import Business.Role.ProviderRole;
+import Business.Role.TestingCentreRole;
 import Business.Role.VolunteerRole;
 import Business.Services.Service;
+import Business.TestingCentre.TestingCentre;
 import Business.UserAccount.UserAccount;
 import Business.Volunteers.Volunteer;
 import java.io.File;
@@ -804,6 +806,62 @@ public class AutomatedEntry {
 
                     linkage = system.getLinkageDirectory().createNewLinkage(linkageID, 
                             linkedPatient, linkedProvider);
+                }
+                
+            }
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }   
+        return true;
+    }
+    
+    public boolean AutomatedCreationOfTestingCentres()
+    {
+        String projectPath = System.getProperty("user.dir");
+        try
+             {
+                File testingCentreXMLFile = new File(projectPath + "/src/Business/Automated/TestingCentres.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(testingCentreXMLFile);
+                doc.getDocumentElement().normalize();
+
+                NodeList nList = doc.getElementsByTagName("testingCentre");
+
+            for (int temp = 0; temp < nList.getLength(); temp++) 
+            {
+                Node nNode = nList.item(temp);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) 
+                {
+                    Element eElement = (Element) nNode;
+                    
+                   String testingCentreID = (eElement.getElementsByTagName("ID")
+                                        .item(0).getTextContent());
+
+                   String testingCentreName = (eElement.getElementsByTagName("name")
+                                        .item(0).getTextContent());
+                   String address = eElement.getElementsByTagName("address")
+                                        .item(0).getTextContent();
+                   
+                   String city = eElement.getElementsByTagName("city")
+                                        .item(0).getTextContent();
+                   String state = eElement.getElementsByTagName("state")
+                                        .item(0).getTextContent();
+                    String zipCode = eElement.getElementsByTagName("zipcode")
+                                        .item(0).getTextContent();
+                    String emailID = eElement.getElementsByTagName("emailID")
+                                        .item(0).getTextContent();
+                    String password = eElement.getElementsByTagName("password")
+                                        .item(0).getTextContent();
+                   
+                    TestingCentre testCentre = system.getTestingCentreDirectory().addNewTestingCentre(testingCentreID, 
+                            testingCentreName, address, city, state, zipCode, emailID);
+                    Employee emp = system.getEmployeeDirectory().createEmployee(testingCentreName);
+                system.getUserAccountDirectory().createUserAccount(emailID, password, emp, new TestingCentreRole());
                 }
                 
             }

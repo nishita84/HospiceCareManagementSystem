@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.Workflows.ChatBotSymptomsJPanel;
 import userinterface.Alerts.CreateAnAlertJPanel;
+import userinterface.Appointments.ScheduleACOVIDTestAppointment;
 import userinterface.Appointments.ScheduleAppointmentJPanel;
 import userinterface.Forms.COVIDSelfDiagnosisFormJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
@@ -52,6 +53,7 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         btnAppointment = new javax.swing.JButton();
         btnAlert = new javax.swing.JButton();
         btnSymptomCatcher = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(246, 233, 244));
@@ -101,6 +103,15 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jButton1.setText("Schedule a COVID-19 Test");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -119,7 +130,8 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnAppointment)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSelfDiagnosisForm)))))
+                                .addComponent(btnSelfDiagnosisForm))))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -135,7 +147,9 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnAlert)
                 .addGap(54, 54, 54)
                 .addComponent(btnSymptomCatcher)
-                .addContainerGap(415, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addComponent(jButton1)
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -204,12 +218,19 @@ public class PatientAreaJPanel extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(viewPatientInformationPanel);
     }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ScheduleACOVIDTestAppointment scheduleCOVIDTest = new ScheduleACOVIDTestAppointment(userAccount,system);
+        jSplitPane1.setRightComponent(scheduleCOVIDTest);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlert;
     private javax.swing.JButton btnAppointment;
     private javax.swing.JButton btnSelfDiagnosisForm;
     private javax.swing.JButton btnSymptomCatcher;
     private javax.swing.JButton btnViewPatientDetails;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

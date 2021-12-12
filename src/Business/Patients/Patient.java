@@ -36,6 +36,7 @@ public class Patient {
     private Hospice operatingHospice;
     private String emergencyContactName;
     private String emergencyEmailID;
+    private int covidExposureLevels;
 
     public String getPatientMRN() {
         return patientMRN;
@@ -212,4 +213,14 @@ public class Patient {
     public void setEmergencyEmailID(String emergencyEmailIDs) {
         this.emergencyEmailID = emergencyEmailIDs;
     }
+
+    public int getCovidExposureLevels() {
+        return covidExposureLevels;
+    }
+
+    public void setCovidExposureLevels(int covidExposureLevels) {
+        this.covidExposureLevels = covidExposureLevels;
+    }
+    
+    
 }
