@@ -9,7 +9,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.CounsellorRole.CounsellorWorkAreaJPanel;
-import userinterface.PayerRole.PayerWorkAreaJPanel;
 
 /**
  *
@@ -18,6 +17,6 @@ import userinterface.PayerRole.PayerWorkAreaJPanel;
 public class CounsellorRole extends Role {
      @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new CounsellorWorkAreaJPanel(userProcessContainer,account);//To change body of generated methods, choose Tools | Templates.
+        return new CounsellorWorkAreaJPanel(userProcessContainer,account, business);//To change body of generated methods, choose Tools | Templates.
     }
 }
