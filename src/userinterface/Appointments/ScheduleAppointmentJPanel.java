@@ -80,15 +80,22 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
         btnFourThirtyPM = new javax.swing.JToggleButton();
         btnFiveThirtyPM = new javax.swing.JToggleButton();
         btnFivePM = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setText("SCHEDULE AN APPOINTMENT");
+        add(jLabel1);
+        jLabel1.setBounds(171, 54, 250, 34);
 
         jLabel2.setText("Schedule an appointment with: ");
+        add(jLabel2);
+        jLabel2.setBounds(81, 124, 198, 16);
 
         ddChoose.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Provider", "Counsellor" }));
+        add(ddChoose);
+        ddChoose.setBounds(291, 120, 158, 27);
 
         btnProceed.setText("Proceed");
         btnProceed.addActionListener(new java.awt.event.ActionListener() {
@@ -96,12 +103,24 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                 btnProceedActionPerformed(evt);
             }
         });
+        add(btnProceed);
+        btnProceed.setBounds(499, 120, 107, 27);
+        add(lblAppointment);
+        lblAppointment.setBounds(81, 193, 76, 24);
 
         ddAppointmentWith.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        add(ddAppointmentWith);
+        ddAppointmentWith.setBounds(291, 193, 137, 27);
 
         lblAvailableSlots.setText("Select a date: ");
+        add(lblAvailableSlots);
+        lblAvailableSlots.setBounds(81, 260, 87, 16);
 
         lblAppointmentReason.setText("Appointment Reason: ");
+        add(lblAppointmentReason);
+        lblAppointmentReason.setBounds(81, 483, 139, 16);
+        add(txtAppointmentReason);
+        txtAppointmentReason.setBounds(291, 455, 255, 73);
 
         btnScheduleAppointment.setText("Schedule an appointment");
         btnScheduleAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -109,117 +128,58 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
                 btnScheduleAppointmentActionPerformed(evt);
             }
         });
+        add(btnScheduleAppointment);
+        btnScheduleAppointment.setBounds(291, 576, 203, 29);
+        add(dateChooser);
+        dateChooser.setBounds(291, 250, 129, 26);
 
         lblTime.setText("Select a time:");
+        add(lblTime);
+        lblTime.setBounds(81, 316, 96, 27);
 
         btnElevenAM.setText("11:00 AM");
         btnElevenAM.setActionCommand("11:00:00 AM");
+        add(btnElevenAM);
+        btnElevenAM.setBounds(291, 316, 104, 29);
 
         btnOnePM.setText("1:00 PM");
         btnOnePM.setActionCommand("1:00:00 PM");
+        add(btnOnePM);
+        btnOnePM.setBounds(401, 316, 94, 29);
 
         btnThreePM.setText("3:00 PM");
         btnThreePM.setActionCommand("3:00:00 PM");
+        add(btnThreePM);
+        btnThreePM.setBounds(607, 316, 94, 29);
 
         btnTwoPM.setText("2:00 PM");
         btnTwoPM.setActionCommand("2:00:00 PM");
+        add(btnTwoPM);
+        btnTwoPM.setBounds(507, 316, 94, 29);
 
         btnFourPM.setText("4:00 PM");
         btnFourPM.setActionCommand("4:00:00 PM");
+        add(btnFourPM);
+        btnFourPM.setBounds(291, 387, 94, 29);
 
         btnFourThirtyPM.setText("4:30 PM");
         btnFourThirtyPM.setActionCommand("4:30:00 PM");
+        add(btnFourThirtyPM);
+        btnFourThirtyPM.setBounds(403, 387, 94, 29);
 
         btnFiveThirtyPM.setText("5:30 PM");
         btnFiveThirtyPM.setActionCommand("6:00:00 PM");
+        add(btnFiveThirtyPM);
+        btnFiveThirtyPM.setBounds(603, 387, 94, 29);
 
         btnFivePM.setText("5:00 PM");
         btnFivePM.setActionCommand("5:00:00 PM");
+        add(btnFivePM);
+        btnFivePM.setBounds(503, 387, 94, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAvailableSlots)
-                            .addComponent(lblAppointmentReason)
-                            .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(ddChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnScheduleAppointment)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnElevenAM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnOnePM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTwoPM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnThreePM))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnFourPM)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnFourThirtyPM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnFivePM)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnFiveThirtyPM)))))
-                .addContainerGap(476, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ddChoose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProceed, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ddAppointmentWith, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblAvailableSlots)
-                    .addComponent(dateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTime, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnElevenAM)
-                    .addComponent(btnOnePM)
-                    .addComponent(btnTwoPM)
-                    .addComponent(btnThreePM))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFourPM)
-                    .addComponent(btnFourThirtyPM)
-                    .addComponent(btnFiveThirtyPM)
-                    .addComponent(btnFivePM))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAppointmentReason)
-                    .addComponent(txtAppointmentReason, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(btnScheduleAppointment)
-                .addContainerGap(179, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AppointmentScheduleFinal.jpg"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(0, 0, 1180, 790);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProceedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProceedActionPerformed
@@ -365,6 +325,7 @@ public class ScheduleAppointmentJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ddChoose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblAppointment;
     private javax.swing.JLabel lblAppointmentReason;
     private javax.swing.JLabel lblAvailableSlots;
