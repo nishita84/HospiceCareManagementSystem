@@ -75,7 +75,7 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblCOVIDTest);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(20, 90, 600, 186);
+        jScrollPane1.setBounds(50, 120, 600, 186);
 
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update Test Result");
@@ -86,11 +86,11 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(372, 290, 180, 50);
+        btnUpdate.setBounds(460, 330, 180, 50);
 
         cbIsTestPositive.setText("Is COVID Test positive  for selected patient?");
         add(cbIsTestPositive);
-        cbIsTestPositive.setBounds(180, 370, 326, 50);
+        cbIsTestPositive.setBounds(190, 410, 326, 50);
 
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
@@ -101,7 +101,7 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSave);
-        btnSave.setBounds(290, 420, 120, 50);
+        btnSave.setBounds(230, 510, 120, 50);
 
         btnMarkTest.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnMarkTest.setText("Mark Test as Completed");
@@ -112,7 +112,7 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
             }
         });
         add(btnMarkTest);
-        btnMarkTest.setBounds(66, 290, 210, 50);
+        btnMarkTest.setBounds(210, 320, 210, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/testingcentre.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -175,11 +175,12 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
         {
             COVIDTest updatedCOVIDTest = system.getCovidTestDirectory().updateCOVIDTest(selectedCOVIDTest);
             updatedCOVIDTest.setTestStatus(1);
+            JOptionPane.showMessageDialog(this, "Status changed to test completed");
+            populateTable();
         }
         else{
             String testStatusValue = lookups.mapAppointmentStatus(selectedCOVIDTest.getTestStatus());
             JOptionPane.showMessageDialog(this, "COVID Test with status '"+testStatusValue+"' cannot be marked as done");
-            populateTable();
         }
     }//GEN-LAST:event_btnMarkTestActionPerformed
 
@@ -210,7 +211,7 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
                 row[0] = covidTest.getCOVIDTestID();
                 row[1] = covidTest.getPatient().getPatientName();
                 row[2] = covidTest.getTime();
-                row[3] = lookups.mapAppointmentStatus(covidTest.getTestStatus());
+                row[3] = lookups.MapCOVIDTestStatus(covidTest.getTestStatus());
                 row[4] = covidTest;
             }
             model1.addRow(row);
