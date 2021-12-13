@@ -319,7 +319,7 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
             row[6] = p.getPatientContactNumber();
             row[7] = p.getTermonalIllnessAssociated();
             row[8] = p.getRegisteredProvider().getProviderName();
-            row[9] = p.getRegisteredPayer().getPayerName();
+            row[9] = p.getRegisteredPayer().getPayerEmailID();
             row[10] = p;
             dtm.addRow(row);
         }
