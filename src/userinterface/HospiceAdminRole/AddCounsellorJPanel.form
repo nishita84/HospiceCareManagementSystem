@@ -234,7 +234,7 @@
     <Component class="javax.swing.JComboBox" name="HospiceDropdown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;HO1001&quot;, &quot;HO1002&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -273,7 +273,7 @@
     <Component class="javax.swing.JComboBox" name="CountryDropdown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;USA&quot;, &quot;India&quot;, &quot;UK&quot;})" type="code"/>
         </Property>
       </Properties>
       <AuxValues>

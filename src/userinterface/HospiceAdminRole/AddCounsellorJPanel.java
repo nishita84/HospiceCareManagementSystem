@@ -107,7 +107,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         lbHospiceAssigned.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbHospiceAssigned.setText("Hospice :");
 
-        HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        HospiceDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HO1001", "HO1002" }));
 
         btnAddCounsellor.setBackground(new java.awt.Color(166, 158, 200));
         btnAddCounsellor.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -121,7 +121,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CounsellorImage2.png"))); // NOI18N
 
-        CountryDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+        CountryDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "USA", "India", "UK"}));
 
         btnBack.setBackground(new java.awt.Color(166, 158, 200));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -269,7 +269,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         userProcessContainer.remove(this);
         CardLayout Layout = (CardLayout) userProcessContainer.getLayout();
-        SystemAdminWorkAreaJPanel a = new SystemAdminWorkAreaJPanel(userProcessContainer, userAccount, system);
+        AdminWorkAreaJPanel a = new AdminWorkAreaJPanel(userProcessContainer, userAccount, system);
         userProcessContainer.add(a);
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

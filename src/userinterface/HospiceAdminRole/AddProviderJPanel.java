@@ -29,7 +29,6 @@ public class AddProviderJPanel extends javax.swing.JPanel {
      */
     UserAccount userAccount;
     EcoSystem system;
-    Hospice hospice;
     JPanel userProcessContainer;
     Organization customerOrg;
     Provider Provider;
@@ -38,7 +37,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        populateHospiceDropdown();
+        //populateHospiceDropdown();
     }
 
     /**
@@ -160,7 +159,7 @@ public class AddProviderJPanel extends javax.swing.JPanel {
         add(jLabel12);
         jLabel12.setBounds(300, 550, 60, 16);
 
-        HospiceDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        HospiceDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HO1001", "HO1002", "HO1003", "HO1004" }));
         add(HospiceDropDown);
         HospiceDropDown.setBounds(370, 550, 244, 27);
 
@@ -202,7 +201,10 @@ public class AddProviderJPanel extends javax.swing.JPanel {
             String providerCountry = CountryDropDown.getSelectedItem().toString();
             String providerContactNumber = txtContactNumber.getText();
             String providerEmailID = txtEmailID.getText();
-            Provider newProvider = system.getProviderDirectory().createProvider(providerNPI, providerName, providerAddress, providerCity, providerState, providerZipcode, providerCountry, providerContactNumber, providerEmailID, hospice);
+            Hospice hospiceMgt = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(), 
+                    system.getHospiceDirectory().getListOfHospice());
+            Provider newProvider = system.getProviderDirectory().createProvider(providerNPI, providerName, providerAddress, 
+                    providerCity, providerState, providerZipcode, providerCountry, providerContactNumber, providerEmailID, hospiceMgt);
             if(newProvider != null)
             {
                 JOptionPane.showMessageDialog(this, "Provider added successfully!");
@@ -255,8 +257,8 @@ public class AddProviderJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateHospiceDropdown() {
-       Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+       Hospice loggedInHospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
                 system.getHospiceDirectory().getListOfHospice());
-        HospiceDropDown.setSelectedItem(hospice.getHospiceName());
+        HospiceDropDown.addItem(loggedInHospice.getHospiceName());
     }
 }

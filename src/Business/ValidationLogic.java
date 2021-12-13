@@ -308,11 +308,6 @@ public class ValidationLogic {
         }
         return isContactNumberValid;
     }
-     
- 
-
-   // public boolean validateIfAllFieldsAreFilled_8(JTextField txtName, JTextField txtAddress, JTextField txtCity, JTextField txtState, JTextField txtZipCode, JTextField txtCountry, JTextField txtContactNo, JTextField txtEmailID) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    //}
+    
   
 }
