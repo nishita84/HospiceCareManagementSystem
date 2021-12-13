@@ -88,7 +88,7 @@ public class AddDonorJPanel extends javax.swing.JPanel {
         add(lblimage);
         lblimage.setBounds(550, 20, 450, 380);
 
-        btnSave.setBackground(new java.awt.Color(255, 255, 255));
+        btnSave.setBackground(new java.awt.Color(193, 137, 165));
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -100,8 +100,9 @@ public class AddDonorJPanel extends javax.swing.JPanel {
         add(btnSave);
         btnSave.setBounds(260, 279, 120, 50);
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(193, 137, 165));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {

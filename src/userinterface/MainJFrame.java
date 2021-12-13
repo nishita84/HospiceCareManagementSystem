@@ -59,6 +59,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
+        loginJButton.setBackground(new java.awt.Color(193, 137, 165));
         loginJButton.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         loginJButton.setText("Login");
         loginJButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -76,6 +77,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel2.setText("Password");
 
+        logoutJButton.setBackground(new java.awt.Color(193, 137, 165));
         logoutJButton.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         logoutJButton.setText("Logout");
         logoutJButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

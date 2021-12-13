@@ -96,6 +96,7 @@ public class AddPayerJPanel extends javax.swing.JPanel {
         add(txtEmailID);
         txtEmailID.setBounds(310, 230, 244, 26);
 
+        btnSave.setBackground(new java.awt.Color(193, 137, 165));
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -115,7 +116,9 @@ public class AddPayerJPanel extends javax.swing.JPanel {
         add(txtBillingAddress);
         txtBillingAddress.setBounds(310, 190, 244, 26);
 
+        btnBack.setBackground(new java.awt.Color(193, 137, 165));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {

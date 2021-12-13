@@ -99,10 +99,11 @@ public class ManagePatientJPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE PATIENTS");
+        lblTitle.setText("Manage Patients");
 
         btnBack.setBackground(new java.awt.Color(166, 158, 200));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
