@@ -52,35 +52,47 @@ public class ProviderWorkAreaJPanel extends javax.swing.JPanel {
         btnProviderDetails = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+
+        btnPatientDetails.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPatientDetails.setText("View Patient Detail");
+        btnPatientDetails.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnPatientDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientDetailsActionPerformed(evt);
             }
         });
 
+        btnReports.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnReports.setText("View Reports");
+        btnReports.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReportsActionPerformed(evt);
             }
         });
 
+        btnAppointments.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAppointments.setText("My Appointments");
+        btnAppointments.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAppointmentsActionPerformed(evt);
             }
         });
 
+        btnViewAlerts.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnViewAlerts.setText("My Alerts");
+        btnViewAlerts.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnViewAlerts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewAlertsActionPerformed(evt);
             }
         });
 
+        btnProviderDetails.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnProviderDetails.setText("View my Details");
+        btnProviderDetails.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnProviderDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProviderDetailsActionPerformed(evt);
@@ -93,37 +105,37 @@ public class ProviderWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnViewAlerts, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(btnProviderDetails)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnViewAlerts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(btnProviderDetails)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(84, 84, 84)
                 .addComponent(btnProviderDetails)
-                .addGap(50, 50, 50)
+                .addGap(41, 41, 41)
                 .addComponent(btnPatientDetails)
                 .addGap(41, 41, 41)
                 .addComponent(btnReports)
-                .addGap(45, 45, 45)
+                .addGap(47, 47, 47)
                 .addComponent(btnAppointments)
-                .addGap(46, 46, 46)
+                .addGap(44, 44, 44)
                 .addComponent(btnViewAlerts)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
