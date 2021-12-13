@@ -57,12 +57,23 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         lblAdjudicationAmt = new javax.swing.JLabel();
         btnAdjudicate = new javax.swing.JButton();
         txtAdjudicationAmt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         jLabel1.setText("Search claim via: ");
+        add(jLabel1);
+        jLabel1.setBounds(70, 50, 170, 80);
 
         ddSearchType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Batch Number", "Claim ID"}));
+        add(ddSearchType);
+        ddSearchType.setBounds(260, 70, 124, 39);
+        add(txtSearch);
+        txtSearch.setBounds(510, 70, 119, 36);
 
+        btnSearch.setBackground(new java.awt.Color(255, 153, 153));
         btnSearch.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSearch.setText("Search");
         btnSearch.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -71,6 +82,8 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
+        add(btnSearch);
+        btnSearch.setBounds(670, 70, 91, 39);
 
         tblClaims.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,6 +106,10 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblClaims);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(34, 152, 810, 160);
+
+        btnFullyAdjudicate.setBackground(new java.awt.Color(255, 153, 153));
         btnFullyAdjudicate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFullyAdjudicate.setText("Fully Adjudicate");
         btnFullyAdjudicate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -101,7 +118,10 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnFullyAdjudicateActionPerformed(evt);
             }
         });
+        add(btnFullyAdjudicate);
+        btnFullyAdjudicate.setBounds(60, 320, 160, 50);
 
+        btnPartialAdjudication.setBackground(new java.awt.Color(255, 153, 153));
         btnPartialAdjudication.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnPartialAdjudication.setText("Partially Adjudicate");
         btnPartialAdjudication.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -110,7 +130,10 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnPartialAdjudicationActionPerformed(evt);
             }
         });
+        add(btnPartialAdjudication);
+        btnPartialAdjudication.setBounds(360, 320, 170, 50);
 
+        btnReject.setBackground(new java.awt.Color(255, 153, 153));
         btnReject.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnReject.setText("Reject");
         btnReject.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -119,10 +142,15 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnRejectActionPerformed(evt);
             }
         });
+        add(btnReject);
+        btnReject.setBounds(610, 320, 160, 50);
 
         lblAdjudicationAmt.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblAdjudicationAmt.setText("Adjudicate Amount:         $");
+        add(lblAdjudicationAmt);
+        lblAdjudicationAmt.setBounds(50, 470, 181, 15);
 
+        btnAdjudicate.setBackground(new java.awt.Color(255, 153, 153));
         btnAdjudicate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnAdjudicate.setText("Adjudicate");
         btnAdjudicate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -131,68 +159,14 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 btnAdjudicateActionPerformed(evt);
             }
         });
+        add(btnAdjudicate);
+        btnAdjudicate.setBounds(200, 520, 110, 40);
+        add(txtAdjudicationAmt);
+        txtAdjudicationAmt.setBounds(260, 460, 120, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)
-                        .addGap(59, 59, 59)
-                        .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 748, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnFullyAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(182, 182, 182)
-                        .addComponent(btnPartialAdjudication)
-                        .addGap(181, 181, 181)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(lblAdjudicationAmt)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(200, 200, 200))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ddSearchType, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFullyAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPartialAdjudication, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(lblAdjudicationAmt))
-                    .addComponent(txtAdjudicationAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(btnAdjudicate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Untitled design-2.png"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(0, -160, 1000, 1240);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFullyAdjudicateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFullyAdjudicateActionPerformed
@@ -358,6 +332,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> ddSearchType;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAdjudicationAmt;
     private javax.swing.JTable tblClaims;
