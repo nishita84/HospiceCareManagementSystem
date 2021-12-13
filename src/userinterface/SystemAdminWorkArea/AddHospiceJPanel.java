@@ -61,7 +61,7 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         txtEmailID = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnSave1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setForeground(new java.awt.Color(204, 204, 255));
@@ -181,17 +181,17 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(600, 80, 472, 324);
 
-        btnSave1.setBackground(new java.awt.Color(193, 137, 165));
-        btnSave1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        btnSave1.setText("Save");
-        btnSave1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSave1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setBackground(new java.awt.Color(193, 137, 165));
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSave1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave1);
-        btnSave1.setBounds(350, 540, 130, 60);
+        add(btnSave);
+        btnSave.setBounds(350, 540, 130, 60);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
@@ -228,14 +228,51 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         Layout.next(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSave1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        ValidationLogic validationLogic = new ValidationLogic();
+         if(validationLogic.validateIfAllFieldsAreFilled_8(txtAddress,txtCity,txtContactNo, txtCountry,txtEmailID,txtName,txtState,txtZipCode))
+         {
+             String HospiceName = txtName.getText();
+             String HospiceAddress = txtAddress.getText();
+             String HospiceState = txtState.getText();
+             String HospiceCity = txtCity.getText();
+             String HospiceZipcode = txtZipCode.getText();
+             String HospiceCountry = txtCountry.getText();
+             String HospiceEmailID = txtEmailID.getText();
+             String HospiceContactNo = txtContactNo.getText();
+             
+             SetIDsForEnterprises setIDForEnterprises = new SetIDsForEnterprises();
+             String HospiceID = setIDForEnterprises.SetIDForHospice();
+             
+             Hospice Newhospice = system.getHospiceDirectory().createNewHospice(HospiceID, HospiceName, HospiceAddress, HospiceCity, HospiceState, HospiceCountry, HospiceContactNo, HospiceEmailID, HospiceZipcode);
+             
+             if(Newhospice!= null)
+             {
+                 JOptionPane.showMessageDialog(this, "Hospice details are saved successfully!!");
+                 txtName.setText("");
+                 txtAddress.setText("");
+                 txtState.setText("");
+                 txtCity.setText("");
+                 txtZipCode.setText("");
+                 txtCountry.setText("");
+                 txtEmailID.setText("");
+                 txtContactNo.setText("");
+             }
+             else
+             {
+                 JOptionPane.showMessageDialog(this, "Hospice details not saved successfully!");
+             }
+         }
+         else
+         {
+             JOptionPane.showMessageDialog(this, "Please ensure that all fields are filled!!");
+         }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSave1;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
