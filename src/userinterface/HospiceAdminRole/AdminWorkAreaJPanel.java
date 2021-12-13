@@ -28,6 +28,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 system.getHospiceDirectory().getListOfHospice());
         jTextField1.setText(String.valueOf(hospice.getTotalHospiceBalance()));
        jTextField1.setEditable(false);
+       enterpriseLabel.setText(hospice.getHospiceName());
 
     }
     
@@ -43,7 +44,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManagePatients = new javax.swing.JButton();
         btnManageProvider = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         btnAddProvider = new javax.swing.JButton();
@@ -95,11 +95,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Hospice:");
         add(enterpriseLabel);
-        enterpriseLabel.setBounds(60, 30, 120, 30);
-
-        valueLabel.setText("<value>");
-        add(valueLabel);
-        valueLabel.setBounds(160, 40, 130, 16);
+        enterpriseLabel.setBounds(60, 30, 270, 30);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel1.setText("Total Hospice Balance: $ ");
@@ -250,7 +246,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
     
 }
