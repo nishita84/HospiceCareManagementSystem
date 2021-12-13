@@ -345,20 +345,16 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
         DefaultTableModel model1 = (DefaultTableModel) tblClaims.getModel();
         model1.setRowCount(0);
         Object[] row = new Object[9];
+        int findCounter = 0;
         switch(searchParameter)
         {
             case "Batch Number":
                 for(int index = 0; index < system.getClaimsDirectory().getListOfClaims().size(); index++)
                 {
                     
-                    Claim selectedClaim = system.getClaimsDirectory().findClaimByBatchNumber(searchValue, 
-                            system.getClaimsDirectory().getListOfClaims());
-                    if(selectedClaim != null && 
-                            selectedClaim.getPayerForClaim().equals(
-                            system.getPayerDirectory().findPayerByEmailID(
-                            userAccount.getUsername(), system.getPayerDirectory().getListOfPayers())))
+                    Claim selectedClaim = system.getClaimsDirectory().getListOfClaims().get(index);
+                    if(selectedClaim.getClaimBatchNumber().equals(searchValue))
                     {
-                        
                         row[0] = selectedClaim.getClaimID();
                         row[1] = selectedClaim.getPatient().getPatientName();
                         row[2] = selectedClaim.getProvider().getProviderName();
@@ -369,12 +365,18 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         row[6] = selectedClaim.getClaimAmount();
                         row[7] = selectedClaim.getClaimBatchNumber();
                         row[8] = selectedClaim;
+                        model1.addRow(row);
+                        findCounter++;
                     }
                     else{
-                        JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
-                                                     +searchValue+"' assigned to logged in Payer");
+                        
+                        
                     }
-                    model1.addRow(row);
+                }
+                if(findCounter == 0)
+                {
+                    JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
+                                                     +searchValue+"' assigned to logged in Payer");
                 }
                 break;
             case "Claim ID":
@@ -382,10 +384,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                 {
                     Claim selectedClaim = system.getClaimsDirectory().findClaimByID(searchValue, 
                             system.getClaimsDirectory().getListOfClaims());
-                    if(selectedClaim != null && 
-                            selectedClaim.getPayerForClaim().equals(
-                            system.getPayerDirectory().findPayerByEmailID(
-                            userAccount.getUsername(), system.getPayerDirectory().getListOfPayers())))
+                    if(selectedClaim != null )
                     {
                         row[0] = selectedClaim.getClaimID();
                         row[1] = selectedClaim.getPatient().getPatientName();
@@ -397,13 +396,13 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         row[6] = selectedClaim.getClaimAmount();
                         row[7] = selectedClaim.getClaimBatchNumber();
                         row[8] = selectedClaim;
-                        
+                        model1.addRow(row);
                     }
                     else{
                         JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
                                                      +searchValue+"'");
                     }
-                    model1.addRow(row);
+                    
                 }
                 break;
         }
