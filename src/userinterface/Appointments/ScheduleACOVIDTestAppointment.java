@@ -72,6 +72,7 @@ public class ScheduleACOVIDTestAppointment extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         ddTestingCentre = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -80,45 +81,53 @@ public class ScheduleACOVIDTestAppointment extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(80, 240, 150, 20);
 
+        btnElevenAM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnElevenAM.setText("11:00 AM");
         btnElevenAM.setActionCommand("11:00:00 AM");
         add(btnElevenAM);
-        btnElevenAM.setBounds(270, 320, 104, 29);
+        btnElevenAM.setBounds(270, 320, 107, 29);
 
+        btnOnePM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnOnePM.setText("1:00 PM");
         btnOnePM.setActionCommand("1:00:00 PM");
         add(btnOnePM);
-        btnOnePM.setBounds(390, 320, 94, 29);
+        btnOnePM.setBounds(390, 320, 98, 29);
 
+        btnThreePM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnThreePM.setText("3:00 PM");
         btnThreePM.setActionCommand("3:00:00 PM");
         add(btnThreePM);
-        btnThreePM.setBounds(640, 320, 94, 29);
+        btnThreePM.setBounds(640, 320, 98, 29);
 
+        btnTwoPM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnTwoPM.setText("2:00 PM");
         btnTwoPM.setActionCommand("2:00:00 PM");
         add(btnTwoPM);
-        btnTwoPM.setBounds(510, 320, 94, 29);
+        btnTwoPM.setBounds(510, 320, 98, 29);
 
+        btnFourPM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFourPM.setText("4:00 PM");
         btnFourPM.setActionCommand("4:00:00 PM");
         add(btnFourPM);
-        btnFourPM.setBounds(280, 390, 94, 29);
+        btnFourPM.setBounds(280, 390, 98, 29);
 
+        btnFourThirtyPM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFourThirtyPM.setText("4:30 PM");
         btnFourThirtyPM.setActionCommand("4:30:00 PM");
         add(btnFourThirtyPM);
-        btnFourThirtyPM.setBounds(400, 390, 94, 29);
+        btnFourThirtyPM.setBounds(400, 390, 98, 29);
 
+        btnFiveThirtyPM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFiveThirtyPM.setText("5:30 PM");
         btnFiveThirtyPM.setActionCommand("6:00:00 PM");
         add(btnFiveThirtyPM);
-        btnFiveThirtyPM.setBounds(640, 390, 94, 29);
+        btnFiveThirtyPM.setBounds(640, 390, 98, 29);
 
+        btnFivePM.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnFivePM.setText("5:00 PM");
         btnFivePM.setActionCommand("5:00:00 PM");
         add(btnFivePM);
-        btnFivePM.setBounds(520, 390, 94, 29);
+        btnFivePM.setBounds(520, 390, 98, 29);
 
         jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jLabel2.setText("Select a Time Slot: ");
@@ -136,18 +145,19 @@ public class ScheduleACOVIDTestAppointment extends javax.swing.JPanel {
             }
         });
         add(btnCOVIDTest);
-        btnCOVIDTest.setBounds(270, 540, 200, 40);
+        btnCOVIDTest.setBounds(270, 560, 200, 40);
 
         jCheckBox1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         jCheckBox1.setText("I need special accomodations for this COVID Test");
         add(jCheckBox1);
-        jCheckBox1.setBounds(270, 460, 410, 40);
+        jCheckBox1.setBounds(250, 470, 410, 40);
 
         jLabel3.setFont(new java.awt.Font("Helvetica", 1, 20)); // NOI18N
         jLabel3.setText("Schedule a COVID-19 Test: ");
         add(jLabel3);
         jLabel3.setBounds(190, 50, 400, 50);
 
+        ddTestingCentre.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         ddTestingCentre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { }));
         add(ddTestingCentre);
         ddTestingCentre.setBounds(270, 160, 210, 30);
@@ -156,6 +166,10 @@ public class ScheduleACOVIDTestAppointment extends javax.swing.JPanel {
         jLabel4.setText("Testing Centre: ");
         add(jLabel4);
         jLabel4.setBounds(80, 160, 150, 30);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/COVIDTest_1.png"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(0, 0, 1200, 840);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCOVIDTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCOVIDTestActionPerformed
@@ -252,6 +266,7 @@ public class ScheduleACOVIDTestAppointment extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private com.toedter.calendar.JDateChooser txtDate;
     // End of variables declaration//GEN-END:variables
 
