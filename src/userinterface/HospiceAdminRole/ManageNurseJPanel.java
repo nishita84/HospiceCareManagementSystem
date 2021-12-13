@@ -297,7 +297,7 @@ public class ManageNurseJPanel extends javax.swing.JPanel {
         
         for(Nurse n : system.getNurseDirectory().getNurseList())
         {
-            Object [] row = new Object[9];
+            Object [] row = new Object[10];
             row[0] = n.getNurseID();
             row[1] = n.getNurseName();
             row[2] = n.getNurseAddress();

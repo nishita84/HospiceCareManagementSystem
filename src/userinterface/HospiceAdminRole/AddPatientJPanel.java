@@ -39,7 +39,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         this.system = system;
 //         hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
-//             system.getHospiceDirectory().getListOfHospice());
+//            system.getHospiceDirectory().getListOfHospice());
         populateProviderDropdown();
         populatePayerDropdown();
         
@@ -160,17 +160,17 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbGender.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         lbGender.setText("Gender :");
 
-        GenderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {  }));
+        GenderDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female", "Other" }));
 
         jLabel4.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel4.setText("Ethinicity :");
 
-        EthinicityDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+        EthinicityDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"White, non-Hispanic", "Black, non-Hispanic", "Hispanic", "Asian", "American Indian or Alaska Native", "Native Hawaiian or Other Pacific Islander" }));
 
         jLabel5.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         jLabel5.setText("Country :");
 
-        CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { }));
+        CountryDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "USA", "India", "UK" }));
 
         jButton1.setBackground(new java.awt.Color(168, 158, 200));
         jButton1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
@@ -361,7 +361,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                     system.getPayerDirectory().getListOfPayers());
             Patient newPatient = system.getPatientDirectory().createPatient(patientMRN, patientName,chosenGender,chosenEthinicity, patientCity, patientAddress,patientState, 
                     patientZipcode, patientCountry, patientContactNumber, patientEmailID, 
-                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth,patientEmergencyContactName,patientEmergencyContactNumber, true, associatedProvider.getOperatingHospice());
+                    associatedProvider, payer, terminallIllnessAssociated, dateOfBirth,
+                    patientEmergencyContactName,patientEmergencyContactNumber, true, associatedProvider.getOperatingHospice());
             if(newPatient != null)
             {
                 JOptionPane.showMessageDialog(this, "Patient added successfully!");
@@ -427,14 +428,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
     private void populateProviderDropdown() {
-        Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
-                system.getHospiceDirectory().getListOfHospice());
+        //Hospice hospice = system.getHospiceDirectory().findHospiceByEmailID(userAccount.getUsername(),
+          //      system.getHospiceDirectory().getListOfHospice());
         for(Provider provider : system.getProviderDirectory().getProviderList())
         {
-            if(provider.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
-            {
+//            if(provider.getOperatingHospice().getHospiceID().equals(hospice.getHospiceID()))
+//            {
                 OperatingProvider.addItem(provider.getProviderNPI());
-            }
+            //}
         }
     }
 

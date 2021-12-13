@@ -28,7 +28,6 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     UserAccount userAccount;
-    Organization customerOrg;
     EcoSystem system;
     Provider Provider;
     public ManageProviderJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem system) {
@@ -36,7 +35,6 @@ public class ManageProviderJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.userAccount = userAccount;
         this.system = system;
-        this.customerOrg = customerOrg;
          populateTable();
     }
 

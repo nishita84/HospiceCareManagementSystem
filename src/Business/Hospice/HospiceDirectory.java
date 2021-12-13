@@ -84,11 +84,11 @@ public class HospiceDirectory {
     
      public Hospice findHospiceByEmailID(String hospiceEmailID, ArrayList<Hospice> listOfHospices)
     {
-        for(Hospice hospice: listOfHospices)
+        for(Hospice hos: listOfHospices)
         {
-            if(hospice.getHospiceEmailID().equals(hospiceEmailID))
+            if(hos.getHospiceEmailID().equals(hospiceEmailID))
             {
-                return hospice;
+                return hos;
             }
         }
         return null;

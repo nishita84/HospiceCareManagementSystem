@@ -393,7 +393,7 @@
     <Component class="javax.swing.JComboBox" name="GenderDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] {  })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Male&quot;, &quot;Female&quot;, &quot;Other&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -412,7 +412,7 @@
     <Component class="javax.swing.JComboBox" name="EthinicityDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] {})" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] {&quot;White, non-Hispanic&quot;, &quot;Black, non-Hispanic&quot;, &quot;Hispanic&quot;, &quot;Asian&quot;, &quot;American Indian or Alaska Native&quot;, &quot;Native Hawaiian or Other Pacific Islander&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -431,7 +431,7 @@
     <Component class="javax.swing.JComboBox" name="CountryDropDown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;USA&quot;, &quot;India&quot;, &quot;UK&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
