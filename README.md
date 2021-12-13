@@ -24,7 +24,6 @@
 - Enabling Donations to hospices which are then dynamically updated in the backend , These logs are reflected within the Federal role in our system.
 - Integrated Chatbot which can detect the disease the patient is suffering from based on the symptoms provided.
 - Integrated a Covid-19 Self diagnosis form.
-- 
 
 ## Tech Stack 💻 
 
