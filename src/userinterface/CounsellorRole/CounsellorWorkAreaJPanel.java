@@ -47,6 +47,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
         btnObservationForm = new javax.swing.JButton();
         btnAppointments = new javax.swing.JButton();
         btnMeetingNotes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(246, 233, 244));
@@ -87,6 +88,9 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/donorworkarea.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -104,6 +108,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(btnMeetingNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnObservationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +121,9 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnObservationForm)
                 .addGap(51, 51, 51)
                 .addComponent(btnMeetingNotes)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -170,6 +177,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnMeetingNotes;
     private javax.swing.JButton btnObservationForm;
     private javax.swing.JButton btnPatientInfo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
