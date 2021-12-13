@@ -59,13 +59,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="btnLogVitalSigns" alignment="0" pref="186" max="32767" attributes="0"/>
-                              <Component id="btnPatientHealthData" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="btnReports" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                          <Component id="btnAlerts" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnLogVitalSigns" alignment="0" pref="186" max="32767" attributes="0"/>
+                          <Component id="btnPatientHealthData" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnReports" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAlerts" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
@@ -75,14 +73,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                      <Component id="btnPatientHealthData" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="btnLogVitalSigns" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="btnReports" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="btnAlerts" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="621" max="32767" attributes="0"/>
+                      <Component id="btnPatientHealthData" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="btnLogVitalSigns" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btnReports" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="btnAlerts" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace pref="608" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
