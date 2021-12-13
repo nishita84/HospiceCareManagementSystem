@@ -101,7 +101,7 @@ public class ManageAlertsProviderJPanel extends javax.swing.JPanel {
         add(btnSave);
         btnSave.setBounds(400, 550, 110, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/NurseAlerts.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/a.jpg"))); // NOI18N
         add(jLabel2);
         jLabel2.setBounds(0, 0, 1440, 880);
     }// </editor-fold>//GEN-END:initComponents
