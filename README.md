@@ -1,8 +1,6 @@
 # Hospice Care Management System 🏥 
 
-## Our Centralized System aims to give a supportive care to people in their final phases of a terminal illness.
-
-- Hospice facility aims at improving lives of patients suffering from Terminal Illnesses. Our system includes 24*7 access to Providers, Nurses and Counsellors for their diagnosis and treatment.
+- Hospice facility aims at improving lives of patients suffering from terminal illness. Our system includes 24*7 access to Providers, Nurses and Counsellors for their diagnosis and treatment via a centralized system and database.
 
 ## Roles
 - Patient
