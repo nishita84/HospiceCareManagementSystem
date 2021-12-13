@@ -25,6 +25,7 @@
 - Enabling Donations to hospices which are then dynamically updated in the backend, These logs are reflected within the Federal role in our system.
 - Integrated Chatbot which can detect the disease the patient is suffering from based on the symptoms provided.
 - Integrated a COVID-19 Self Diagnosis Form.
+- Our system also keeps a track of the gender ratio of the patients admitted in the particular Hospice, this is done using JFree Charts. The system also uses JFree  chart to showcase the ethnicity of the patients as well, thus giving the viewer an overview of all the patients.
 
 ## Tech Stack 💻 
 
