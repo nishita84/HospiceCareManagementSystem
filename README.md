@@ -2,17 +2,18 @@
 
 - Hospice facility aims at improving lives of patients suffering from terminal illness. Our system includes 24*7 access to Providers, Nurses and Counsellors for their diagnosis and treatment via a centralized system and database.
 
-## Roles
-- Patient
-- Counsellor
-- Donor
-- Nurse
-- Provider
-- Payer
+##  System Participants
 - National Government
-- Testing Center
-- Hospice Admin
-- System Admin
+- Hospice 
+- External Donors
+- Providers
+- Payers (Insurance Companies)
+- Nurse
+- Patients
+- Counsellors
+- COVID- 19 Testing Centers
+
+All these participants are brought together under one digital ecosystem with role based login authentication for management and access of their involved workflows.
 
 ## Features
 
@@ -29,7 +30,8 @@
 
 ## Tech Stack 💻 
 
-- Java, Java Swing
+- Java
+- UI built using Java Swing
 
 ## Team Members
 
