@@ -10,6 +10,7 @@ import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.Appointments.ManageAppointmentsCounsellorJPanel;
 import userinterface.Forms.CounsellorObservationFormJPanel;
+import userinterface.Notes.NotesJPanel;
 import userinterface.Workflows.ViewPatientInformationJPanel;
 
 /**
@@ -45,6 +46,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
         btnPatientInfo = new javax.swing.JButton();
         btnObservationForm = new javax.swing.JButton();
         btnAppointments = new javax.swing.JButton();
+        btnMeetingNotes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         jPanel1.setBackground(new java.awt.Color(246, 233, 244));
@@ -60,6 +62,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
         btnObservationForm.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnObservationForm.setText("Record a Meeting");
+        btnObservationForm.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnObservationForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnObservationFormActionPerformed(evt);
@@ -75,28 +78,45 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnMeetingNotes.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnMeetingNotes.setText("My Meeting Notes");
+        btnMeetingNotes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnMeetingNotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMeetingNotesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAppointments)
                     .addComponent(btnPatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnObservationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAppointments))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnMeetingNotes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnObservationForm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(128, 128, 128)
                 .addComponent(btnPatientInfo)
-                .addGap(59, 59, 59)
+                .addGap(60, 60, 60)
                 .addComponent(btnAppointments)
-                .addGap(54, 54, 54)
+                .addGap(55, 55, 55)
                 .addComponent(btnObservationForm)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(btnMeetingNotes)
+                .addContainerGap(349, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -128,7 +148,7 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnObservationFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObservationFormActionPerformed
         // TODO add your handling code here:
-        CounsellorObservationFormJPanel counsellorForm = new CounsellorObservationFormJPanel();
+        CounsellorObservationFormJPanel counsellorForm = new CounsellorObservationFormJPanel(account, system);
         jSplitPane1.setRightComponent(counsellorForm);
     }//GEN-LAST:event_btnObservationFormActionPerformed
 
@@ -138,9 +158,16 @@ public class CounsellorWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(viewPatientInfoPanel);
     }//GEN-LAST:event_btnPatientInfoActionPerformed
 
+    private void btnMeetingNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeetingNotesActionPerformed
+        // TODO add your handling code here:
+        NotesJPanel notesJPanel = new NotesJPanel(account, system);
+        jSplitPane1.setRightComponent(notesJPanel);
+    }//GEN-LAST:event_btnMeetingNotesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAppointments;
+    private javax.swing.JButton btnMeetingNotes;
     private javax.swing.JButton btnObservationForm;
     private javax.swing.JButton btnPatientInfo;
     private javax.swing.JPanel jPanel1;

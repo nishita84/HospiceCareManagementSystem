@@ -5,6 +5,14 @@
  */
 package userinterface.Forms;
 
+import Business.Counsellors.Counsellor;
+import Business.EcoSystem;
+import Business.Observation.Observation;
+import Business.Patients.Patient;
+import Business.UserAccount.UserAccount;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author architnigam
@@ -14,8 +22,20 @@ public class CounsellorObservationFormJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CounsellorObservationFormJPanel
      */
-    public CounsellorObservationFormJPanel() {
+    UserAccount userAccount;
+    EcoSystem system;
+    ButtonGroup group1 = new ButtonGroup();
+    ButtonGroup group2= new ButtonGroup();
+    public CounsellorObservationFormJPanel(UserAccount userAccount, EcoSystem system) {
         initComponents();
+        this.userAccount = userAccount;
+        this.system = system;
+        group1.add(dNo);
+        group1.add(dYes);
+        
+        group2.add(mNo);
+        group2.add(mYes);
+        populatePatientDropdown();
     }
 
     /**
@@ -27,19 +47,156 @@ public class CounsellorObservationFormJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtMeetingID = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtObservations = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        dYes = new javax.swing.JRadioButton();
+        dNo = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        mYes = new javax.swing.JRadioButton();
+        mNo = new javax.swing.JRadioButton();
+        btnLogMeeting = new javax.swing.JButton();
+        ddPatient = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+
+        setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel1.setText("Meeting ID: ");
+        add(jLabel1);
+        jLabel1.setBounds(78, 123, 130, 40);
+
+        jLabel2.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel2.setText("Patient: ");
+        add(jLabel2);
+        jLabel2.setBounds(78, 206, 110, 30);
+
+        jLabel3.setFont(new java.awt.Font("Helvetica", 1, 20)); // NOI18N
+        jLabel3.setText("Record A Meeting: ");
+        add(jLabel3);
+        jLabel3.setBounds(200, 43, 342, 54);
+        add(txtMeetingID);
+        txtMeetingID.setBounds(320, 123, 148, 27);
+
+        jLabel4.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel4.setText("Observations: ");
+        add(jLabel4);
+        jLabel4.setBounds(70, 540, 130, 30);
+
+        txtObservations.setColumns(20);
+        txtObservations.setRows(5);
+        jScrollPane1.setViewportView(txtObservations);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(230, 510, 555, 180);
+
+        jLabel5.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel5.setText("Is patient clinically depressed?");
+        add(jLabel5);
+        jLabel5.setBounds(50, 280, 230, 30);
+
+        dYes.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        dYes.setText("Yes");
+        add(dYes);
+        dYes.setBounds(350, 270, 180, 40);
+
+        dNo.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        dNo.setText("No");
+        add(dNo);
+        dNo.setBounds(470, 280, 110, 30);
+
+        jLabel6.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        jLabel6.setText("Has patient been taking regular medications?");
+        add(jLabel6);
+        jLabel6.setBounds(30, 440, 320, 30);
+
+        mYes.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        mYes.setText("Yes");
+        add(mYes);
+        mYes.setBounds(360, 440, 120, 30);
+
+        mNo.setFont(new java.awt.Font("Helvetica", 1, 17)); // NOI18N
+        mNo.setText("No");
+        add(mNo);
+        mNo.setBounds(480, 440, 110, 30);
+
+        btnLogMeeting.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnLogMeeting.setText("Log Meeting");
+        btnLogMeeting.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnLogMeeting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogMeetingActionPerformed(evt);
+            }
+        });
+        add(btnLogMeeting);
+        btnLogMeeting.setBounds(350, 711, 182, 50);
+
+        ddPatient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {  }));
+        add(ddPatient);
+        ddPatient.setBounds(330, 200, 160, 20);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/counsellorMeeting.png"))); // NOI18N
+        add(jLabel7);
+        jLabel7.setBounds(0, 0, 1230, 840);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogMeetingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogMeetingActionPerformed
+        // TODO add your handling code here:
+        boolean isPatientDepressed = false;
+        boolean isPatientTakingMedications = false;
+        String meetingID = txtMeetingID.getText();
+        String patientMRN = ddPatient.getSelectedItem().toString();
+        Patient patient = system.getPatientDirectory().findPatientByMRN(patientMRN, 
+               system.getPatientDirectory().getPatientList() );
+        Counsellor counsellor = system.getCounsellorDirectory().findCounsellorByEmailID(userAccount.getUsername(), 
+                system.getCounsellorDirectory().getListOfCounsellors());
+        String observationComments = txtObservations.getText();
+        if(dYes.isSelected())
+        {
+            isPatientDepressed = true;
+        }
+        if(mYes.isSelected())
+        {
+            isPatientTakingMedications = true;
+        }
+        Observation newObservation = system.getObservationDirectory().createNewObservation(meetingID, counsellor, 
+                patient, observationComments, isPatientDepressed, isPatientTakingMedications);
+        if(newObservation != null)
+        {
+            JOptionPane.showMessageDialog(this, "Meeting details successfully recorded");
+        }
+    }//GEN-LAST:event_btnLogMeetingActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogMeeting;
+    private javax.swing.JRadioButton dNo;
+    private javax.swing.JRadioButton dYes;
+    private javax.swing.JComboBox<String> ddPatient;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton mNo;
+    private javax.swing.JRadioButton mYes;
+    private javax.swing.JTextField txtMeetingID;
+    private javax.swing.JTextArea txtObservations;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePatientDropdown() {
+        for(int index = 0; index < system.getPatientDirectory().getPatientList().size(); index++)
+        {
+            Patient patient = system.getPatientDirectory().getPatientList().get(index);
+            ddPatient.addItem(patient.getPatientMRN());
+        }
+    }
 }
