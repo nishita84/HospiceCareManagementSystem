@@ -368,10 +368,7 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         model1.addRow(row);
                         findCounter++;
                     }
-                    else{
-                        
-                        
-                    }
+                    
                 }
                 if(findCounter == 0)
                 {
@@ -397,12 +394,14 @@ public class AdjudicateClaimsJPanel extends javax.swing.JPanel {
                         row[7] = selectedClaim.getClaimBatchNumber();
                         row[8] = selectedClaim;
                         model1.addRow(row);
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
-                                                     +searchValue+"'");
+                        findCounter++;
                     }
                     
+                    if(findCounter == 0)
+                    {
+                        JOptionPane.showMessageDialog(this, "Failed to find a claim with batch number '"
+                                                     +searchValue+"' assigned to logged in Payer");
+                    }
                 }
                 break;
         }
