@@ -57,6 +57,9 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
         cbIsTestPositive = new javax.swing.JCheckBox();
         btnSave = new javax.swing.JButton();
         btnMarkTest = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         tblCOVIDTest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,69 +74,50 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblCOVIDTest);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(20, 90, 600, 186);
+
+        btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update Test Result");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
+        add(btnUpdate);
+        btnUpdate.setBounds(372, 290, 180, 50);
 
         cbIsTestPositive.setText("Is COVID Test positive  for selected patient?");
+        add(cbIsTestPositive);
+        cbIsTestPositive.setBounds(180, 370, 326, 50);
 
+        btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
+        add(btnSave);
+        btnSave.setBounds(290, 420, 120, 50);
 
+        btnMarkTest.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnMarkTest.setText("Mark Test as Completed");
+        btnMarkTest.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnMarkTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMarkTestActionPerformed(evt);
             }
         });
+        add(btnMarkTest);
+        btnMarkTest.setBounds(66, 290, 210, 50);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(254, 254, 254)
-                                .addComponent(btnSave))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(236, 236, 236)
-                                .addComponent(cbIsTestPositive, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(391, 391, 391)
-                                .addComponent(btnMarkTest)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnUpdate)))
-                        .addGap(0, 227, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnMarkTest))
-                .addGap(17, 17, 17)
-                .addComponent(cbIsTestPositive, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(btnSave)
-                .addContainerGap(238, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/testingcentre.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 1000, 1000);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -205,6 +189,7 @@ public class TestingCentreJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JCheckBox cbIsTestPositive;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblCOVIDTest;
     // End of variables declaration//GEN-END:variables
