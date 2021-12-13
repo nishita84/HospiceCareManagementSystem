@@ -55,6 +55,7 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
         btnCancel = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Helvetica", 1, 20)); // NOI18N
@@ -76,9 +77,9 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblAppointments);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 160, 860, 166);
+        jScrollPane1.setBounds(10, 160, 750, 150);
 
-        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -88,7 +89,7 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(630, 350, 120, 60);
+        btnUpdate.setBounds(80, 320, 120, 60);
 
         cbAppointmentCompleted.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         cbAppointmentCompleted.setText("Appointment completed?");
@@ -102,7 +103,7 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
         add(lblComments);
         lblComments.setBounds(180, 540, 100, 50);
 
-        btnSave.setBackground(new java.awt.Color(0, 0, 0));
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -112,9 +113,9 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSave);
-        btnSave.setBounds(310, 610, 140, 50);
+        btnSave.setBounds(420, 590, 120, 30);
 
-        btnCancel.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancel.setBackground(new java.awt.Color(255, 255, 255));
         btnCancel.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -124,12 +125,12 @@ public class ManageAppointmentsCounsellorJPanel extends javax.swing.JPanel {
             }
         });
         add(btnCancel);
-        btnCancel.setBounds(800, 350, 120, 60);
+        btnCancel.setBounds(440, 320, 120, 60);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ManageAppointmentCounselling.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2);
-        jLabel2.setBounds(0, 0, 1000, 1000);
+        jLabel2.setBounds(10, 20, 1000, 1000);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
