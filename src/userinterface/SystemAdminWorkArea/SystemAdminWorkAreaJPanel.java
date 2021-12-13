@@ -90,6 +90,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
         jPanel2.setLayout(null);
 
+        btnAddHospice.setBackground(new java.awt.Color(193, 137, 165));
         btnAddHospice.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddHospice.setText("Add Hospice");
         btnAddHospice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -101,6 +102,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnAddHospice);
         btnAddHospice.setBounds(16, 87, 225, 66);
 
+        btnAddDonor.setBackground(new java.awt.Color(193, 137, 165));
         btnAddDonor.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddDonor.setText("Add Donor");
         btnAddDonor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -112,7 +114,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnAddDonor);
         btnAddDonor.setBounds(306, 87, 225, 66);
 
-        btnManageHospice.setBackground(new java.awt.Color(255, 255, 255));
+        btnManageHospice.setBackground(new java.awt.Color(193, 137, 165));
         btnManageHospice.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManageHospice.setText("Manage Hospice");
         btnManageHospice.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -124,6 +126,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnManageHospice);
         btnManageHospice.setBounds(16, 190, 225, 69);
 
+        btnAutomatedSetup.setBackground(new java.awt.Color(193, 137, 165));
         btnAutomatedSetup.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAutomatedSetup.setText("Run Automated Setup");
         btnAutomatedSetup.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -135,6 +138,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnAutomatedSetup);
         btnAutomatedSetup.setBounds(306, 357, 225, 80);
 
+        btnManageDonors.setBackground(new java.awt.Color(193, 137, 165));
         btnManageDonors.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManageDonors.setText("Manage Donors");
         btnManageDonors.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -146,6 +150,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnManageDonors);
         btnManageDonors.setBounds(306, 191, 225, 67);
 
+        btnAddPayer.setBackground(new java.awt.Color(193, 137, 165));
         btnAddPayer.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnAddPayer.setText("Add Payers");
         btnAddPayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -157,6 +162,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2.add(btnAddPayer);
         btnAddPayer.setBounds(582, 87, 213, 67);
 
+        btnManagePayer.setBackground(new java.awt.Color(193, 137, 165));
         btnManagePayer.setFont(new java.awt.Font("Helvetica", 1, 18)); // NOI18N
         btnManagePayer.setText("Manage Payers");
         btnManagePayer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

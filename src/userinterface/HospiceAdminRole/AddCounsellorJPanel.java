@@ -125,6 +125,7 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
 
         btnBack.setBackground(new java.awt.Color(166, 158, 200));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {

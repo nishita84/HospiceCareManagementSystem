@@ -164,7 +164,9 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         add(txtEmailID);
         txtEmailID.setBounds(390, 390, 220, 40);
 
+        btnBack.setBackground(new java.awt.Color(193, 137, 165));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +181,7 @@ public class AddHospiceJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(600, 80, 472, 324);
 
+        btnSave1.setBackground(new java.awt.Color(193, 137, 165));
         btnSave1.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave1.setText("Save");
         btnSave1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

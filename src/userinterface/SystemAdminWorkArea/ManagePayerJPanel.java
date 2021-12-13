@@ -92,7 +92,9 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(lblTitle);
         lblTitle.setBounds(340, 10, 260, 60);
 
+        btnBack.setBackground(new java.awt.Color(193, 137, 165));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +105,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(80, 20, 120, 40);
 
+        btnRefresh.setBackground(new java.awt.Color(193, 137, 165));
         btnRefresh.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -114,6 +117,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(btnRefresh);
         btnRefresh.setBounds(90, 290, 130, 40);
 
+        btnUpdate.setBackground(new java.awt.Color(193, 137, 165));
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -125,6 +129,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(btnUpdate);
         btnUpdate.setBounds(330, 290, 130, 40);
 
+        btnCreate.setBackground(new java.awt.Color(193, 137, 165));
         btnCreate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnCreate.setText("Create >>");
         btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -136,6 +141,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(btnCreate);
         btnCreate.setBounds(770, 290, 140, 40);
 
+        btnDelete.setBackground(new java.awt.Color(193, 137, 165));
         btnDelete.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -160,6 +166,7 @@ public class ManagePayerJPanel extends javax.swing.JPanel {
         add(lblEmailID);
         lblEmailID.setBounds(70, 420, 100, 40);
 
+        btnSave.setBackground(new java.awt.Color(193, 137, 165));
         btnSave.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSave.setText("Save");
         btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

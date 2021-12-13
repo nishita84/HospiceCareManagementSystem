@@ -68,6 +68,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btnAddHospice">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>
@@ -89,6 +92,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnAddDonor">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>
@@ -111,7 +117,7 @@
             <Component class="javax.swing.JButton" name="btnManageHospice">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
@@ -134,6 +140,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnAutomatedSetup">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>
@@ -155,6 +164,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManageDonors">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>
@@ -176,6 +188,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnAddPayer">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>
@@ -197,6 +212,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnManagePayer">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="a5" green="89" red="c1" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica" size="18" style="1"/>
                 </Property>

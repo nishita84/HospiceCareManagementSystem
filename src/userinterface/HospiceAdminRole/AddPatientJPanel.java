@@ -98,7 +98,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         lbTitle.setFont(new java.awt.Font("Helvetica", 1, 24)); // NOI18N
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("ADD PATIENT");
+        lbTitle.setText("Add Patient");
 
         lbName.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         lbName.setText("Name :");
@@ -125,7 +125,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lbTerminalIllness.setText("Terminal Illness Associated  :");
 
         btnAddPatient.setBackground(new java.awt.Color(168, 158, 200));
-        btnAddPatient.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAddPatient.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnAddPatient.setText("Add Patient");
         btnAddPatient.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +174,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(168, 158, 200));
         jButton1.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         jButton1.setText("Back");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {

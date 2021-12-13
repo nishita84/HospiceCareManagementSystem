@@ -94,7 +94,9 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(lblTitle);
         lblTitle.setBounds(372, 30, 370, 60);
 
+        btnBack.setBackground(new java.awt.Color(193, 137, 165));
         btnBack.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/backbtnimg-2.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +107,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(btnBack);
         btnBack.setBounds(170, 40, 90, 40);
 
+        btnRefresh.setBackground(new java.awt.Color(193, 137, 165));
         btnRefresh.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnRefresh.setText("Refresh");
         btnRefresh.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -116,6 +119,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(btnRefresh);
         btnRefresh.setBounds(160, 280, 110, 40);
 
+        btnUpdate.setBackground(new java.awt.Color(193, 137, 165));
         btnUpdate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -127,6 +131,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(btnUpdate);
         btnUpdate.setBounds(338, 280, 100, 40);
 
+        btnCreate.setBackground(new java.awt.Color(193, 137, 165));
         btnCreate.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnCreate.setText("Create >>");
         btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -138,6 +143,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(btnCreate);
         btnCreate.setBounds(718, 280, 130, 40);
 
+        btnDelete.setBackground(new java.awt.Color(193, 137, 165));
         btnDelete.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -173,6 +179,7 @@ public class ManageHospiceJPanel extends javax.swing.JPanel {
         add(lblEmailID);
         lblEmailID.setBounds(150, 430, 110, 15);
 
+        btnSaveUpdates.setBackground(new java.awt.Color(193, 137, 165));
         btnSaveUpdates.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         btnSaveUpdates.setText("Save");
         btnSaveUpdates.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
