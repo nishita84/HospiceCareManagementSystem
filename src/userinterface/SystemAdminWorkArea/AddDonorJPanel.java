@@ -127,6 +127,8 @@ public class AddDonorJPanel extends javax.swing.JPanel {
             if(newDonor != null)
             {
                 JOptionPane.showMessageDialog(this, "Donor saved successfully!");
+                txtName.setText("");
+                txtEmailID.setText("");
             }
             else
             {
