@@ -2,7 +2,7 @@
 
 ## Our Centralized System aims to give a supportive care to people in their final phases of a terminal illness.
 
-## Hospice
+- Hospice facility aims at improving lives of patients suffering from Terminal Illnesses. Our system includes 24*7 access to Providers, Nurses and Counsellors for their diagnosis and treatment.
 
 ## Roles
 - Patient
