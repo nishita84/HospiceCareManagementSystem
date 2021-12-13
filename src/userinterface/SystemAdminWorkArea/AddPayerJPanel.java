@@ -152,6 +152,9 @@ public class AddPayerJPanel extends javax.swing.JPanel {
              if(NewPayer!= null)
              {
                  JOptionPane.showMessageDialog(this, "Payer details are saved successfully!!");
+                 txtName.setText("");
+                 txtBillingAddress.setText("");
+                 txtEmailID.setText("");
              }
              else
              {

@@ -251,11 +251,11 @@ public class AddCounsellorJPanel extends javax.swing.JPanel {
                 
                  if( newcounsellor!= null)
                  {
-                     JOptionPane.showMessageDialog(this, "Provider added successfully!");
+                     JOptionPane.showMessageDialog(this, "Counsellor added successfully!");
                  }
                  else
                  {
-                     JOptionPane.showMessageDialog(this, "Provider details are not saved successfully!!");
+                     JOptionPane.showMessageDialog(this, "Counsellor details are not saved successfully!!");
                  }
                 
             }
