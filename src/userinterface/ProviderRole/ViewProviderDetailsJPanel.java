@@ -71,6 +71,7 @@ public class ViewProviderDetailsJPanel extends javax.swing.JPanel {
         txtEmailID = new javax.swing.JTextField();
         txtProviderno = new javax.swing.JTextField();
         txtOperatingHospice = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -151,6 +152,11 @@ public class ViewProviderDetailsJPanel extends javax.swing.JPanel {
         txtProviderno.setBounds(463, 298, 100, 26);
         add(txtOperatingHospice);
         txtOperatingHospice.setBounds(463, 377, 100, 26);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/manageproviderfinal.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(0, 0, 1000, 1000);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -167,6 +173,7 @@ public class ViewProviderDetailsJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCountry;
